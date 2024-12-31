@@ -1,0 +1,61 @@
+{
+  "@context": {
+    "@protected": true,
+    "id": "@id",
+    "type": "@type",
+    "Coupon": "https://w3id.org/retail-benefits#Coupon",
+    "CouponBundle": "https://w3id.org/retail-benefits#CouponBundle",
+    "GiftCard": "https://w3id.org/retail-benefits#GiftCard",
+    "LoyaltyCard": "https://w3id.org/retail-benefits#LoyaltyCard",
+    "MembershipCard": "https://w3id.org/retail-benefits#MembershipCard",
+    "Rebate": "https://w3id.org/retail-benefits#Rebate",
+    "RedemptionRule": "https://w3id.org/retail-benefits#RedemptionRule",
+    "RetailBenefitCredential": "https://w3id.org/retail-benefits#RetailBenefitCredential",
+    "Observation": {
+      "@id": "https://schema.org/Observation",
+      "@context": {
+        "observationDate": {
+          "@id": "https://schema.org/observationDate",
+          "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+        },
+        "variableMeasured": "https://schema.org/variableMeasured",
+        "value": {
+          "@id": "https://schema.org/value",
+          "@type": "http://www.w3.org/2001/XMLSchema#unsignedInt"
+        },
+        "unitCode": "https://schema.org/unitCode",
+        "description": "https://schema.org/description"
+      }
+    },
+    "MonetaryAmount": {
+      "@id": "https://schema.org/MonetaryAmount",
+      "@context": {
+        "value": {
+          "@id": "https://schema.org/value",
+          "@type": "http://www.w3.org/2001/XMLSchema#unsignedInt"
+        },
+        "currency": "https://schema.org/currency"
+      }
+    },
+    "barcode": {
+      "@id": "https://w3id.org/retail-benefits#barcode",
+      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "description": {
+      "@id": "https://w3id.org/retail-benefits#description",
+      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "discount": "https://w3id.org/retail-benefits#discount",
+    "gtin": {
+      "@id": "https://w3id.org/retail-benefits#gtin",
+      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "image": {
+      "@id": "https://w3id.org/retail-benefits#image",
+      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "maximumLimit": "https://w3id.org/retail-benefits#maximumLimit",
+    "minimumLimit": "https://w3id.org/retail-benefits#minimumLimit",
+    "redemptionRule": "https://w3id.org/retail-benefits#redemptionRule"
+  }
+}
