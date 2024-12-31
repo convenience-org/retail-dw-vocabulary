@@ -41,10 +41,6 @@
       "@id": "https://w3id.org/retail-benefits#barcode",
       "@type": "http://www.w3.org/2001/XMLSchema#string"
     },
-    "description": {
-      "@id": "https://w3id.org/retail-benefits#description",
-      "@type": "http://www.w3.org/2001/XMLSchema#string"
-    },
     "discount": "https://w3id.org/retail-benefits#discount",
     "gtin": {
       "@id": "https://w3id.org/retail-benefits#gtin",
