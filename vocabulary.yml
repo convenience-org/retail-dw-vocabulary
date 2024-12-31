@@ -1,0 +1,274 @@
+vocab:
+  id: rbv
+  value: https://w3id.org/retail-benefits#
+ontology:
+  - property: dc:title
+    value: Retail Benefits Vocabulary
+  - property: dc:description
+    value: |-
+      <div>
+          <h1>Introduction to the Retail Benefits Vocabulary</h1>
+          <p>The Retail Benefits Vocabulary is an important tool for businesses in the retail sector. It provides a common language and structure for describing the various benefits that retailers offer to their customers. By using this vocabulary, businesses can improve how they communicate and share information about their products and services.</p>
+          
+          <p>One of the main benefits of using the Retail Benefits Vocabulary is that it helps create a clear and consistent way to present information. This is important because it allows customers to easily understand what benefits they can expect when shopping at different retailers. When all businesses use the same terms and definitions, it makes comparison shopping easier and helps customers make informed decisions.</p>
+          
+          <p>This vocabulary is especially useful for various market verticals, including grocery stores, clothing retailers, online marketplaces, and service providers. Each of these sectors has unique benefits they offer, and this vocabulary can help them clearly communicate those advantages. For instance, grocery stores might focus on loyalty programs, while online marketplaces might highlight personalized shopping experiences.</p>
+          
+          <p>Use cases for the Retail Benefits Vocabulary include marketing materials, product descriptions, and customer engagement strategies. Retailers can use the vocabulary to create better-targeted advertisements and promotional campaigns that resonate with their audience. Furthermore, it aids in developing content for websites, social media, and email newsletters, ensuring that the benefits are clearly articulated.</p>
+          
+          <p>The vocabulary also supports businesses in tracking and analyzing the effectiveness of their retail benefits. By expressing information in a structured way, retailers can gather data and insights on customer preferences and behaviors. This information is valuable for making data-driven decisions that can enhance customer satisfaction and loyalty.</p>
+          
+          <p>In summary, the Retail Benefits Vocabulary provides a framework that offers clarity and consistency in communicating retail benefits. By utilizing this vocabulary, businesses can improve their marketing strategies, enhance customer relationships, and ultimately drive sales. It serves as a bridge between retailers and customers, helping to make the shopping experience more enjoyable and informative.</p>
+      </div>
+  - property: dc:abstract
+    value: >-
+      The Retail Benefits Vocabulary is designed to help businesses and
+      organizations clearly define and share information related to retail
+      benefits. It includes various classes that represent different concepts,
+      such as types of retail experiences and customer engagement strategies, as
+      well as properties that describe the relationships and characteristics of
+      these concepts. By using this vocabulary, retailers can better understand
+      and communicate the value they provide to customers, making it easier to
+      compare and analyze retail benefits across different contexts and
+      platforms
+class:
+  - id: Coupon
+    label: Coupon
+    comment: >-
+      A voucher entitling the holder to a discount or that may be exchanged for
+      goods or services.
+    context: https://w3id.org/retail-benefits/v1rc1
+    example:
+      - label: A basic example of the Coupon class expressed as JSON-LD.
+        json: |-
+          {
+            "@context": "https://w3id.org/retail-benefits/v1rc1",
+            "id": "https://coupon.example/12345",
+            "type": "Coupon",
+            "barcode": "0123456789123",
+            "description": "$1 off a regular coffee.",
+            "discount": {
+              "type": "MonetaryAmount",
+              "value": "1.00",
+              "currency": "USD"
+            },
+            "image": "https://coupon.example/12345.jpg",
+            "redemptionRule": {
+              "type": "RedemptionRule",
+              "description": "Minimum limit 1 regular coffee. Maximum limit 1 per customer.",
+              "gtin": "1234567890123",
+              "maximumLimit": {
+                "type": "Observation",
+                "value": "1",
+                "unitCode": "IE"
+              },
+              "minimumLimit": {
+                "type": "Observation",
+                "value": "1",
+                "unitCode": "EA"
+              }
+            }
+          }
+  - id: CouponBundle
+    label: Coupon Bundle
+    comment: >-
+      A collection of coupons that are offered together, often providing
+      multiple discounts or offers.
+    context: https://w3id.org/retail-benefits/v1rc1
+  - id: GiftCard
+    label: Gift Card
+    comment: >-
+      A prepaid card that can be used as an alternative to cash for purchases
+      within a particular store or group of stores.
+    context: https://w3id.org/retail-benefits/v1rc1
+  - id: LoyaltyCard
+    label: Loyalty Card
+    comment: >-
+      A card issued by a retailer to a customer that facilitates accumulation of
+      loyalty points, rewards, or discounts.
+    context: https://w3id.org/retail-benefits/v1rc1
+  - id: MembershipCard
+    label: Membership Card
+    comment: >-
+      A card that signifies membership in a retail program, granting access to
+      member-exclusive discounts and rewards.
+    context: https://w3id.org/retail-benefits/v1rc1
+  - id: Rebate
+    label: Rebate
+    comment: >-
+      A refund or return of part of the purchase price by the seller to the
+      buyer, typically given as a promotional offer.
+    context: https://w3id.org/retail-benefits/v1rc1
+  - id: RedemptionRule
+    label: Redemption Rule
+    comment: >-
+      A class representing rules and conditions under which a redemption
+      transaction can be executed in a reward or loyalty program. This includes
+      parameters such as eligibility criteria, expiration dates, and specific
+      terms that must be met for a reward to be redeemed.
+    context: https://w3id.org/retail-benefits/v1rc1
+    example:
+      - label: A basic example of the RedemptionRule class expressed as JSON-LD.
+        json: |-
+          {
+            "@context": "https://w3id.org/retail-benefits/v1rc1",
+            "type": "RedemptionRule",
+            "description": "Minimum limit 1 product. Maximum limit 1 per customer.",
+            "gtin": "1234567890123",
+            "maximumLimit": {
+              "type": "Observation",
+              "value": "1",
+              "unitCode": "IE"
+            },
+            "minimumLimit": {
+              "type": "Observation",
+              "value": "1",
+              "unitCode": "EA"
+            }
+          }
+  - id: RetailBenefitCredential
+    label: Retail Benefit Credential
+    comment: >-
+      A credential that represents various benefits offered by retail stores,
+      such as coupons, loyalty points, or gift cards.
+    context: https://w3id.org/retail-benefits/v1rc1
+    example:
+      - label: >-
+          A basic example of the RetailBenefitCredential class expressed as
+          JSON-LD.
+        json: |-
+          {
+            "@context": [
+              "https://www.w3.org/ns/credentials/v2",
+              "https://w3id.org/retail-benefits/v1rc1",
+            ]
+            "type": ["VerifiableCredential", "RetailBenefitCredential"],
+            "issuer": {
+              "id": "https://company.example/issuer-001",
+              "name": "Fast Coffee Company"
+            },
+            "validFrom": "2023-12-05T00:00:00Z",
+            "validUntil": "2024-12-05T00:00:00Z",
+            "credentialSubject": {
+              "id": "https://coupon.example/12345",
+              "type": "Coupon",
+              "barcode": "0123456789123",
+              "description": "$1 off a regular coffee.",
+              "discount": {
+                "type": "MonetaryAmount",
+                "value": "1.00",
+                "currency": "USD"
+              },
+              "image": "https://coupon.example/12345.jpg",
+              "redemptionRule": {
+                "type": "RedemptionRule",
+                "description": "Minimum limit 1 regular coffee. Maximum limit 1 per customer.",
+                "gtin": "1234567890123",
+                "maximumLimit": {
+                  "type": "Observation",
+                  "value": "1",
+                  "unitCode": "IE"
+                },
+                "minimumLimit": {
+                  "type": "Observation",
+                  "value": "1",
+                  "unitCode": "EA"
+                }
+              }
+            }
+          }
+property:
+  - id: barcode
+    label: Barcode
+    domain:
+      - Coupon
+      - CouponBundle
+      - GiftCard
+      - LoyaltyCard
+      - MembershipCard
+      - Rebate
+    range: xsd:string
+    comment: >-
+      A property that indicates the barcode associated with the respective
+      entities, allowing for easy scanning and identification during
+      transactions or redemptions.
+    context: https://w3id.org/retail-benefits/v1rc1
+  - id: description
+    label: Description
+    domain:
+      - Coupon
+      - CouponBundle
+      - GiftCard
+      - LoyaltyCard
+      - MembershipCard
+      - Rebate
+      - RedemptionRule
+    upper_value: schema:description
+    range: xsd:string
+    comment: >-
+      A property that provides a detailed textual description of the respective
+      entity, outlining its features, terms, and conditions to enhance
+      understanding and utilization by users.
+    context: https://w3id.org/retail-benefits/v1rc1
+  - id: discount
+    label: Discount
+    domain:
+      - Coupon
+      - GiftCard
+    range: schema:MonetaryAmount
+    comment: >-
+      Represents the discount amount associated with a coupon, expressed as a
+      monetary value.
+    context: https://w3id.org/retail-benefits/v1rc1
+  - id: gtin
+    label: GTIN
+    domain: RedemptionRule
+    range: xsd:string
+    comment: >-
+      A property that specifies the GS1 Global Trade Identification Number
+      (GTIN) associated with a product, which uniquely identifies a specific
+      item in the marketplace.
+    context: https://w3id.org/retail-benefits/v1rc1
+  - id: image
+    label: Image
+    domain:
+      - Coupon
+      - CouponBundle
+      - GiftCard
+      - LoyaltyCard
+      - MembershipCard
+      - Rebate
+    range: xsd:string
+    comment: >-
+      A property that specifies the URL or identifier of an image associated
+      with the respective entities, used for visual representation in digital or
+      physical formats.
+    context: https://w3id.org/retail-benefits/v1rc1
+  - id: maximumLimit
+    label: Maximum Limit
+    range: schema:Observation
+    domain: RedemptionRule
+    comment: >-
+      This property represents the maximum limit associated with a redemption
+      rule, indicating the upper threshold related to the conditions of the
+      redemption.
+    context: https://w3id.org/retail-benefits/v1rc1
+  - id: minimumLimit
+    label: Minimum quantity limit
+    domain: RedemptionRule
+    range: schema:Observation
+    comment: >-
+      A property that defines the minimum quantity of items that must be
+      purchased or redeemed in order to qualify for the RedemptionRule. This
+      ensures that customers meet specific criteria before applying the
+      redemption.
+    context: https://w3id.org/retail-benefits/v1rc1
+  - id: redemptionRule
+    label: Redemption Rule
+    domain: Coupon
+    range: RedemptionRule
+    comment: >-
+      A property that links a coupon to the specific redemption rules that apply
+      to it, detailing the conditions and terms necessary for the coupon to be
+      successfully redeemed.
+    context: https://w3id.org/retail-benefits/v1rc1
