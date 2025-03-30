@@ -82,8 +82,28 @@ class:
     label: Coupon Bundle
     comment: >-
       A collection of coupons that are offered together, often providing
-      multiple discounts or offers.
+      multiple discounts or offers. The bundle and a transaction identifier are
+      sent to a bundle matching service which provides information on whether or
+      not the bundle is applicable to the transaction.
     context: https://w3id.org/retail-benefits/v1rc1
+    example:
+      - label: A basic example of the CouponBundle
+        json: |-
+          {
+            "@context": "https://w3id.org/retail-benefits/v1rc1",
+            "type": "CouponBundle",
+            "barcode": "0123456789010479832",
+            "name": "ClipCo Coupons",
+            "description": "Clip and Save Coupons",
+            "bundleMatcher": "https://couponbureau.example/matcher",
+            "renderMethod": {
+              "id": "https://couponbureau.example/bundle.svg",
+              "type": "MustacheRenderTemplate",
+              "name": "Scan",
+              "mediaType": "image/svg",
+              "digestMultibase": "zQ6JqWAPdhyx5Wg6wFl9znFCwYxApG270iEu5hz2dRmerWC8"
+            }
+          }
   - id: GiftCard
     label: Gift Card
     comment: >-
@@ -167,8 +187,7 @@ class:
       such as coupons, loyalty points, or gift cards.
     context: https://w3id.org/retail-benefits/v1rc1
     example:
-      - label: >-
-          A basic example of the RetailBenefitCredential expressing a Coupon
+      - label: A basic example of the RetailBenefitCredential expressing a Coupon
         json: |-
           {
             "@context": [
@@ -210,14 +229,13 @@ class:
               }
             }
           }
-      - label: A basic example of a RetailBenefitCredential expressing a
-               LoyaltyCard
+      - label: A basic example of a RetailBenefitCredential expressing a LoyaltyCard
         json: |-
           {
             "@context": [
               "https://www.w3.org/ns/credentials/v2",
               "https://w3id.org/retail-benefits/v1rc1"
-            ]
+            ],
             "type": ["VerifiableCredential", "RetailBenefitCredential"],
             "issuer": {
               "id": "https://shopco.example/",
@@ -288,15 +306,6 @@ property:
       entities in GS1 GTIN format, allowing for easy scanning and identification
       during transactions or redemptions.
     context: https://w3id.org/retail-benefits/v1rc1
-  - id: sec:digestMultibase
-    label: Multibase-encoded Multihash Digest
-    domain:
-      - rm:MustacheRenderTemplate
-    range: sec:multibase
-    comment: >-
-      A multi-base encoded multihash digest of the associated resource
-      identified using the `id` property.
-    context: https://w3id.org/retail-benefits/v1rc1
   - id: discount
     label: Discount
     domain:
@@ -343,15 +352,6 @@ property:
       ensures that customers meet specific criteria before applying the
       redemption.
     context: https://w3id.org/retail-benefits/v1rc1
-  - id: schema:name
-    label: Name
-    domain:
-      - rm:MustacheRenderTemplate
-      - LoyaltyCard
-      - MembershipCard
-      - GiftCard
-    comment: The name to use when rendering a particular object to a visual medium.
-    context: https://w3id.org/retail-benefits/v1rc1
   - id: programIdentifier
     label: Program Identifier
     domain:
@@ -372,6 +372,14 @@ property:
       A property that links a coupon to the specific redemption rules that apply
       to it, detailing the conditions and terms necessary for the coupon to be
       successfully redeemed.
+    context: https://w3id.org/retail-benefits/v1rc1
+  - id: bundleMatcher
+    label: Coupon Bundle Matching Service
+    domain: CouponBundle
+    range: URL
+    comment: >-
+      This URL is used to communicate with the coupon bundle service to
+      see if any item in a set of GTINs match the coupon bundle.
     context: https://w3id.org/retail-benefits/v1rc1
   - id: schema:description
     label: Description
@@ -403,6 +411,26 @@ property:
       with the respective entities, used for visual representation in digital or
       physical formats.
     context: https://w3id.org/retail-benefits/v1rc1
+  - id: schema:name
+    label: Name
+    domain:
+      - rm:MustacheRenderTemplate
+      - LoyaltyCard
+      - MembershipCard
+      - GiftCard
+      - Coupon
+      - CouponBundle
+    comment: The name to use when rendering a particular object to a visual medium.
+    context: https://w3id.org/retail-benefits/v1rc1
+  - id: sec:digestMultibase
+    label: Multibase-encoded Multihash Digest
+    domain:
+      - rm:MustacheRenderTemplate
+    range: sec:multibase
+    comment: >-
+      A multi-base encoded multihash digest of the associated resource
+      identified using the `id` property.
+    context: https://w3id.org/retail-benefits/v1rc1
   - id: vc:renderMethod
     label: Render Method
     domain:
@@ -415,12 +443,10 @@ property:
     range: vc:RenderMethod
     comment: A mechanism used to render a visual or wireless expression of the benefit.
     context: https://w3id.org/retail-benefits/v1rc1
-
 datatype:
   - id: sec:multibase
     label: Datatype of Multibase
-    comment: >-
-      The Multibase datatype is used to express Multibase values.
+    comment: The Multibase datatype is used to express Multibase values.
     see_also:
       label: The Multibase specification
       url: https://www.w3.org/TR/cid-1.0/#multibase

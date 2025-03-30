@@ -26,6 +26,7 @@
           "@id": "https://schema.org/image",
           "@type": "@id"
         },
+        "name": "https://schema.org/name",
         "renderMethod": {
           "@id": "https://www.w3.org/2018/credentials#renderMethod",
           "@type": "@id"
@@ -42,11 +43,16 @@
           "@id": "https://w3id.org/retail-benefits#barcode",
           "@type": "http://www.w3.org/2001/XMLSchema#string"
         },
+        "bundleMatcher": {
+          "@id": "https://w3id.org/retail-benefits#bundleMatcher",
+          "@type": "@id"
+        },
         "description": "https://schema.org/description",
         "image": {
           "@id": "https://schema.org/image",
           "@type": "@id"
         },
+        "name": "https://schema.org/name",
         "renderMethod": {
           "@id": "https://www.w3.org/2018/credentials#renderMethod",
           "@type": "@id"
@@ -71,7 +77,6 @@
           "@id": "https://w3id.org/retail-benefits#discount",
           "@type": "@id"
         },
-        "name": "https://schema.org/name",
         "programIdentifier": {
           "@id": "https://w3id.org/retail-benefits#programIdentifier",
           "@type": "http://www.w3.org/2001/XMLSchema#string"
@@ -81,6 +86,7 @@
           "@id": "https://schema.org/image",
           "@type": "@id"
         },
+        "name": "https://schema.org/name",
         "renderMethod": {
           "@id": "https://www.w3.org/2018/credentials#renderMethod",
           "@type": "@id"
@@ -101,7 +107,6 @@
           "@id": "https://w3id.org/retail-benefits#barcode",
           "@type": "http://www.w3.org/2001/XMLSchema#string"
         },
-        "name": "https://schema.org/name",
         "programIdentifier": {
           "@id": "https://w3id.org/retail-benefits#programIdentifier",
           "@type": "http://www.w3.org/2001/XMLSchema#string"
@@ -111,6 +116,7 @@
           "@id": "https://schema.org/image",
           "@type": "@id"
         },
+        "name": "https://schema.org/name",
         "renderMethod": {
           "@id": "https://www.w3.org/2018/credentials#renderMethod",
           "@type": "@id"
@@ -131,7 +137,6 @@
           "@id": "https://w3id.org/retail-benefits#barcode",
           "@type": "http://www.w3.org/2001/XMLSchema#string"
         },
-        "name": "https://schema.org/name",
         "programIdentifier": {
           "@id": "https://w3id.org/retail-benefits#programIdentifier",
           "@type": "http://www.w3.org/2001/XMLSchema#string"
@@ -141,6 +146,7 @@
           "@id": "https://schema.org/image",
           "@type": "@id"
         },
+        "name": "https://schema.org/name",
         "renderMethod": {
           "@id": "https://www.w3.org/2018/credentials#renderMethod",
           "@type": "@id"
@@ -196,14 +202,14 @@
         "@protected": true,
         "id": "@id",
         "type": "@type",
-        "digestMultibase": {
-          "@id": "https://w3id.org/security#digestMultibase",
-          "@type": "https://w3id.org/security#multibase"
-        },
         "mediaType": {
           "@id": "https://schema.org/encodingFormat"
         },
-        "name": "https://schema.org/name"
+        "name": "https://schema.org/name",
+        "digestMultibase": {
+          "@id": "https://w3id.org/security#digestMultibase",
+          "@type": "https://w3id.org/security#multibase"
+        }
       }
     },
     "MonetaryAmount": "https://schema.org/MonetaryAmount",
