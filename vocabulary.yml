@@ -265,6 +265,35 @@ class:
               }]
             }
           }
+      - label: A basic example of a RetailBenefitCredential expressing a CouponBundle
+        json: |-
+          {
+            "@context": [
+              "https://www.w3.org/ns/credentials/v2",
+              "https://w3id.org/retail-benefits/v1rc1"
+            ],
+            "type": ["VerifiableCredential", "RetailBenefitCredential"],
+            "issuer": {
+              "id": "https://couponbureau.example/",
+              "name": "ClipCo"
+            },
+            "validFrom": "2025-04-01T00:00:00Z",
+            "validUntil": "2025-10-01T00:00:00Z",
+            "credentialSubject": {
+              "type": "CouponBundle",
+              "barcode": "0123456789010479832",
+              "name": "ClipCo Coupons",
+              "description": "Clip and Save Coupons",
+              "bundleMatcher": "https://couponbureau.example/matcher",
+              "renderMethod": {
+                "id": "https://couponbureau.example/bundle.svg",
+                "type": "MustacheRenderTemplate",
+                "name": "Scan",
+                "mediaType": "image/svg",
+                "digestMultibase": "zQ6JqWAPdhyx5Wg6wFl9znFCwYxApG270iEu5hz2dRmerWC8"
+              }
+            }
+          }
   - id: rm:MustacheRenderTemplate
     label: Render Template using Mustache Syntax
     context: https://w3id.org/retail-benefits/v1rc1
@@ -379,7 +408,7 @@ property:
     range: URL
     comment: >-
       This URL is used to communicate with the coupon bundle service to
-      see if any item in a set of GTINs match the coupon bundle.
+      see if any item associated with a transaction matches the coupon bundle.
     context: https://w3id.org/retail-benefits/v1rc1
   - id: schema:description
     label: Description
