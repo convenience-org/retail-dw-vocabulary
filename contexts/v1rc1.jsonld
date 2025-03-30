@@ -197,7 +197,7 @@
         "id": "@id",
         "type": "@type",
         "digestMultibase": {
-          "@id": "https://www.w3.org/2018/credentials#digestMultibase",
+          "@id": "https://w3id.org/security#digestMultibase",
           "@type": "https://w3id.org/security#multibase"
         },
         "mediaType": {

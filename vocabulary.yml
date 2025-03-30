@@ -288,7 +288,7 @@ property:
       entities in GS1 GTIN format, allowing for easy scanning and identification
       during transactions or redemptions.
     context: https://w3id.org/retail-benefits/v1rc1
-  - id: vc:digestMultibase
+  - id: sec:digestMultibase
     label: Multibase-encoded Multihash Digest
     domain:
       - rm:MustacheRenderTemplate
