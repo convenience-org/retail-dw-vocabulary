@@ -201,8 +201,7 @@
           "@type": "https://w3id.org/security#multibase"
         },
         "mediaType": {
-          "@id": "https://w3id.org/retail-benefits#mediaType",
-          "@type": "http://www.w3.org/2001/XMLSchema#string"
+          "@id": "https://schema.org/encodingFormat"
         },
         "name": "https://schema.org/name"
       }
