@@ -1,6 +1,13 @@
 vocab:
   id: rbv
   value: https://w3id.org/retail-benefits#
+prefix:
+  - id: schema
+    value: https://schema.org/
+  - id: vc
+    value: https://www.w3.org/2018/credentials#
+  - id: rm
+    value: https://w3id.org/vc/render-method#
 ontology:
   - property: dc:title
     value: Retail Benefits Vocabulary
@@ -9,15 +16,15 @@ ontology:
       <div>
           <h1>Introduction to the Retail Benefits Vocabulary</h1>
           <p>The Retail Benefits Vocabulary is an important tool for businesses in the retail sector. It provides a common language and structure for describing the various benefits that retailers offer to their customers. By using this vocabulary, businesses can improve how they communicate and share information about their products and services.</p>
-          
+
           <p>One of the main benefits of using the Retail Benefits Vocabulary is that it helps create a clear and consistent way to present information. This is important because it allows customers to easily understand what benefits they can expect when shopping at different retailers. When all businesses use the same terms and definitions, it makes comparison shopping easier and helps customers make informed decisions.</p>
-          
+
           <p>This vocabulary is especially useful for various market verticals, including grocery stores, clothing retailers, online marketplaces, and service providers. Each of these sectors has unique benefits they offer, and this vocabulary can help them clearly communicate those advantages. For instance, grocery stores might focus on loyalty programs, while online marketplaces might highlight personalized shopping experiences.</p>
-          
+
           <p>Use cases for the Retail Benefits Vocabulary include marketing materials, product descriptions, and customer engagement strategies. Retailers can use the vocabulary to create better-targeted advertisements and promotional campaigns that resonate with their audience. Furthermore, it aids in developing content for websites, social media, and email newsletters, ensuring that the benefits are clearly articulated.</p>
-          
+
           <p>The vocabulary also supports businesses in tracking and analyzing the effectiveness of their retail benefits. By expressing information in a structured way, retailers can gather data and insights on customer preferences and behaviors. This information is valuable for making data-driven decisions that can enhance customer satisfaction and loyalty.</p>
-          
+
           <p>In summary, the Retail Benefits Vocabulary provides a framework that offers clarity and consistency in communicating retail benefits. By utilizing this vocabulary, businesses can improve their marketing strategies, enhance customer relationships, and ultimately drive sales. It serves as a bridge between retailers and customers, helping to make the shopping experience more enjoyable and informative.</p>
       </div>
   - property: dc:abstract
@@ -87,6 +94,31 @@ class:
       A card issued by a retailer to a customer that facilitates accumulation of
       loyalty points, rewards, or discounts.
     context: https://w3id.org/retail-benefits/v1rc1
+    example:
+      - label: A basic example of a LoyaltyCard
+        json: |-
+          {
+            "@context": "https://w3id.org/retail-benefits/v1rc1",
+            "type": "LoyaltyCard",
+            "name": "ShopCo Points Card",
+            "description": "ShopCo Loyalty and Rewards Card",
+            "barcode": "123456789123",
+            "programIdentifier": "123",
+            "accountIdentifier": "456789123",
+            "renderMethod": [{
+              "id": "https://shopco.example/cards/loyalty-front.svg",
+              "type": "MustacheRenderTemplate"
+              "name": "Front of card"
+              "mediaType": "image/svg",
+              "digestMultibase": "zQmerWC85Wg6wFl9znFCwYxApG270iEu5h6JqWAPdhyxz2dR"
+            }, {
+              "id": "https://shopco.example/cards/loyalty-back.svg",
+              "type": "MustacheRenderTemplate"
+              "name": "Back of card"
+              "mediaType": "image/svg",
+              "digestMultibase": "zQmC85Wg6wAp2dRerW270iEu5h6JqWFl9GAPdhyxzznFCwYx"
+            }]
+          }
   - id: MembershipCard
     label: Membership Card
     comment: >-
@@ -134,8 +166,7 @@ class:
     context: https://w3id.org/retail-benefits/v1rc1
     example:
       - label: >-
-          A basic example of the RetailBenefitCredential class expressed as
-          JSON-LD.
+          A basic example of the RetailBenefitCredential expressing a Coupon
         json: |-
           {
             "@context": [
@@ -177,7 +208,69 @@ class:
               }
             }
           }
+      - label: A basic example of a RetailBenefitCredential expressing a
+               LoyaltyCard
+        json: |-
+          {
+            "@context": [
+              "https://www.w3.org/ns/credentials/v2",
+              "https://w3id.org/retail-benefits/v1rc1",
+            ]
+            "type": ["VerifiableCredential", "RetailBenefitCredential"],
+            "issuer": {
+              "id": "https://shopco.example/",
+              "name": "ShopCo"
+            },
+            "validFrom": "2025-03-01T00:00:00Z",
+            "validUntil": "2026-3-01T00:00:00Z",
+            "credentialSubject": {
+              "type": "LoyaltyCard",
+              "name": "ShopCo Points Card",
+              "description": "ShopCo Loyalty and Rewards Card",
+              "barcode": "123456789123",
+              "programIdentifier": "123",
+              "accountIdentifier": "456789123",
+              "renderMethod": [{
+                "id": "https://shopco.example/cards/loyalty-front.svg",
+                "type": "MustacheRenderTemplate"
+                "name": "Front of card"
+                "mediaType": "image/svg",
+                "digestMultibase": "zQmerWC85Wg6wFl9znFCwYxApG270iEu5h6JqWAPdhyxz2dR"
+              }, {
+                "id": "https://shopco.example/cards/loyalty-back.svg",
+                "type": "MustacheRenderTemplate"
+                "name": "Back of card"
+                "mediaType": "image/svg",
+                "digestMultibase": "zQmC85Wg6wAp2dRerW270iEu5h6JqWFl9GAPdhyxzznFCwYx"
+              }]
+            }
+          }
+  - id: rm:MustacheRenderTemplate
+    label: Render Template using Mustache Syntax
+    context: https://w3id.org/retail-benefits/v1rc1
+  - id: schema:MonetaryAmount
+    label: Monetary Amount
+    context: https://w3id.org/retail-benefits/v1rc1
+  - id: schema:Observation
+    label: Observation
+    context: https://w3id.org/retail-benefits/v1rc1
+  - id: vc:RenderMethod
+    label: Render Method
+    comment: A mechanism for rendering data to a visual or wireless medium.
+    context: https://w3id.org/retail-benefits/v1rc1
 property:
+  - id: accountIdentifier
+    label: Account Identifier
+    domain:
+      - LoyaltyCard
+      - MembershipCard
+      - GiftCard
+    range: xsd:string
+    comment: >-
+      A unique identifier for the account associated with the loyalty card,
+      membership card, or gift card, used to track benefits and transactions
+      related to the account.
+    context: https://w3id.org/retail-benefits/v1rc1
   - id: barcode
     label: Barcode
     domain:
@@ -190,25 +283,17 @@ property:
     range: xsd:string
     comment: >-
       A property that indicates the barcode associated with the respective
-      entities, allowing for easy scanning and identification during
-      transactions or redemptions.
+      entities in GS1 GTIN format, allowing for easy scanning and identification
+      during transactions or redemptions.
     context: https://w3id.org/retail-benefits/v1rc1
-  - id: description
-    label: Description
+  - id: vc:digestMultibase
+    label: Multibase-encoded Multihash Digest
     domain:
-      - Coupon
-      - CouponBundle
-      - GiftCard
-      - LoyaltyCard
-      - MembershipCard
-      - Rebate
-      - RedemptionRule
-    upper_value: schema:description
+      - rm:MustacheRenderTemplate
     range: xsd:string
     comment: >-
-      A property that provides a detailed textual description of the respective
-      entity, outlining its features, terms, and conditions to enhance
-      understanding and utilization by users.
+      A multi-base encoded multihash digest of the associated resource
+      identified using the `id` property.
     context: https://w3id.org/retail-benefits/v1rc1
   - id: discount
     label: Discount
@@ -229,21 +314,6 @@ property:
       (GTIN) associated with a product, which uniquely identifies a specific
       item in the marketplace.
     context: https://w3id.org/retail-benefits/v1rc1
-  - id: image
-    label: Image
-    domain:
-      - Coupon
-      - CouponBundle
-      - GiftCard
-      - LoyaltyCard
-      - MembershipCard
-      - Rebate
-    range: xsd:string
-    comment: >-
-      A property that specifies the URL or identifier of an image associated
-      with the respective entities, used for visual representation in digital or
-      physical formats.
-    context: https://w3id.org/retail-benefits/v1rc1
   - id: maximumLimit
     label: Maximum Limit
     range: schema:Observation
@@ -252,6 +322,14 @@ property:
       This property represents the maximum limit associated with a redemption
       rule, indicating the upper threshold related to the conditions of the
       redemption.
+    context: https://w3id.org/retail-benefits/v1rc1
+  - id: mediaType
+    label: Media Type
+    range: xsd:string
+    domain: rm:MustacheRenderTemplate
+    comment: >-
+      The media type associated with the rendering template; usually
+      `application/pdf` or `image/svg`.
     context: https://w3id.org/retail-benefits/v1rc1
   - id: minimumLimit
     label: Minimum quantity limit
@@ -263,6 +341,28 @@ property:
       ensures that customers meet specific criteria before applying the
       redemption.
     context: https://w3id.org/retail-benefits/v1rc1
+  - id: name
+    label: Name
+    domain:
+      - rm:MustacheRenderTemplate
+      - LoyaltyCard
+      - MembershipCard
+      - GiftCard
+    range: xsd:string
+    comment: The name to use when rendering a particular object to a visual medium.
+    context: https://w3id.org/retail-benefits/v1rc1
+  - id: programIdentifier
+    label: Program Identifier
+    domain:
+      - LoyaltyCard
+      - MembershipCard
+      - GiftCard
+    range: xsd:string
+    comment: >-
+      A unique identifier for the loyalty program, membership program, or gift
+      card program that the card is associated with, used to differentiate
+      between various programs offered by an organization.
+    context: https://w3id.org/retail-benefits/v1rc1
   - id: redemptionRule
     label: Redemption Rule
     domain: Coupon
@@ -271,4 +371,47 @@ property:
       A property that links a coupon to the specific redemption rules that apply
       to it, detailing the conditions and terms necessary for the coupon to be
       successfully redeemed.
+    context: https://w3id.org/retail-benefits/v1rc1
+  - id: schema:description
+    label: Description
+    domain:
+      - Coupon
+      - CouponBundle
+      - GiftCard
+      - LoyaltyCard
+      - MembershipCard
+      - Rebate
+      - RedemptionRule
+    range: xsd:string
+    comment: >-
+      A property that provides a detailed textual description of the respective
+      entity, outlining its features, terms, and conditions to enhance
+      understanding and utilization by users.
+    context: https://w3id.org/retail-benefits/v1rc1
+  - id: schema:image
+    label: Image
+    domain:
+      - Coupon
+      - CouponBundle
+      - GiftCard
+      - LoyaltyCard
+      - MembershipCard
+      - Rebate
+    range: URL
+    comment: >-
+      A property that specifies the URL or identifier of an image associated
+      with the respective entities, used for visual representation in digital or
+      physical formats.
+    context: https://w3id.org/retail-benefits/v1rc1
+  - id: vc:renderMethod
+    label: Render Method
+    domain:
+      - Coupon
+      - CouponBundle
+      - GiftCard
+      - LoyaltyCard
+      - MembershipCard
+      - Rebate
+    range: vc:RenderMethod
+    comment: A mechanism used to render a visual or wireless expression of the benefit.
     context: https://w3id.org/retail-benefits/v1rc1
