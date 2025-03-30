@@ -107,14 +107,14 @@ class:
             "accountIdentifier": "456789123",
             "renderMethod": [{
               "id": "https://shopco.example/cards/loyalty-front.svg",
-              "type": "MustacheRenderTemplate"
-              "name": "Front of card"
+              "type": "MustacheRenderTemplate",
+              "name": "Front of card",
               "mediaType": "image/svg",
               "digestMultibase": "zQmerWC85Wg6wFl9znFCwYxApG270iEu5h6JqWAPdhyxz2dR"
             }, {
               "id": "https://shopco.example/cards/loyalty-back.svg",
-              "type": "MustacheRenderTemplate"
-              "name": "Back of card"
+              "type": "MustacheRenderTemplate",
+              "name": "Back of card",
               "mediaType": "image/svg",
               "digestMultibase": "zQmC85Wg6wAp2dRerW270iEu5h6JqWFl9GAPdhyxzznFCwYx"
             }]
@@ -214,7 +214,7 @@ class:
           {
             "@context": [
               "https://www.w3.org/ns/credentials/v2",
-              "https://w3id.org/retail-benefits/v1rc1",
+              "https://w3id.org/retail-benefits/v1rc1"
             ]
             "type": ["VerifiableCredential", "RetailBenefitCredential"],
             "issuer": {
@@ -232,14 +232,14 @@ class:
               "accountIdentifier": "456789123",
               "renderMethod": [{
                 "id": "https://shopco.example/cards/loyalty-front.svg",
-                "type": "MustacheRenderTemplate"
-                "name": "Front of card"
+                "type": "MustacheRenderTemplate",
+                "name": "Front of card",
                 "mediaType": "image/svg",
                 "digestMultibase": "zQmerWC85Wg6wFl9znFCwYxApG270iEu5h6JqWAPdhyxz2dR"
               }, {
                 "id": "https://shopco.example/cards/loyalty-back.svg",
-                "type": "MustacheRenderTemplate"
-                "name": "Back of card"
+                "type": "MustacheRenderTemplate",
+                "name": "Back of card",
                 "mediaType": "image/svg",
                 "digestMultibase": "zQmC85Wg6wAp2dRerW270iEu5h6JqWFl9GAPdhyxzznFCwYx"
               }]
@@ -341,14 +341,13 @@ property:
       ensures that customers meet specific criteria before applying the
       redemption.
     context: https://w3id.org/retail-benefits/v1rc1
-  - id: name
+  - id: schema:name
     label: Name
     domain:
       - rm:MustacheRenderTemplate
       - LoyaltyCard
       - MembershipCard
       - GiftCard
-    range: xsd:string
     comment: The name to use when rendering a particular object to a visual medium.
     context: https://w3id.org/retail-benefits/v1rc1
   - id: programIdentifier

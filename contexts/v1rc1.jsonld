@@ -1,1 +1,235 @@
-{"@context":{"@protected":true,"id":"@id","type":"@type","Coupon":{"@id":"https://w3id.org/retail-benefits#Coupon","@context":{"@protected":true,"id":"@id","type":"@type","barcode":{"@id":"https://w3id.org/retail-benefits#barcode","@type":"http://www.w3.org/2001/XMLSchema#string"},"discount":{"@id":"https://w3id.org/retail-benefits#discount","@type":"@id"},"redemptionRule":{"@id":"https://w3id.org/retail-benefits#redemptionRule","@type":"@id"},"description":{"@id":"https://schema.org/description","@type":"http://www.w3.org/2001/XMLSchema#string"},"image":{"@id":"https://schema.org/image","@type":"@id"},"renderMethod":{"@id":"https://www.w3.org/2018/credentials#renderMethod","@type":"@id"}}},"CouponBundle":{"@id":"https://w3id.org/retail-benefits#CouponBundle","@context":{"@protected":true,"id":"@id","type":"@type","barcode":{"@id":"https://w3id.org/retail-benefits#barcode","@type":"http://www.w3.org/2001/XMLSchema#string"},"description":{"@id":"https://schema.org/description","@type":"http://www.w3.org/2001/XMLSchema#string"},"image":{"@id":"https://schema.org/image","@type":"@id"},"renderMethod":{"@id":"https://www.w3.org/2018/credentials#renderMethod","@type":"@id"}}},"GiftCard":{"@id":"https://w3id.org/retail-benefits#GiftCard","@context":{"@protected":true,"id":"@id","type":"@type","accountIdentifier":{"@id":"https://w3id.org/retail-benefits#accountIdentifier","@type":"http://www.w3.org/2001/XMLSchema#string"},"barcode":{"@id":"https://w3id.org/retail-benefits#barcode","@type":"http://www.w3.org/2001/XMLSchema#string"},"discount":{"@id":"https://w3id.org/retail-benefits#discount","@type":"@id"},"name":{"@id":"https://w3id.org/retail-benefits#name","@type":"http://www.w3.org/2001/XMLSchema#string"},"programIdentifier":{"@id":"https://w3id.org/retail-benefits#programIdentifier","@type":"http://www.w3.org/2001/XMLSchema#string"},"description":{"@id":"https://schema.org/description","@type":"http://www.w3.org/2001/XMLSchema#string"},"image":{"@id":"https://schema.org/image","@type":"@id"},"renderMethod":{"@id":"https://www.w3.org/2018/credentials#renderMethod","@type":"@id"}}},"LoyaltyCard":{"@id":"https://w3id.org/retail-benefits#LoyaltyCard","@context":{"@protected":true,"id":"@id","type":"@type","accountIdentifier":{"@id":"https://w3id.org/retail-benefits#accountIdentifier","@type":"http://www.w3.org/2001/XMLSchema#string"},"barcode":{"@id":"https://w3id.org/retail-benefits#barcode","@type":"http://www.w3.org/2001/XMLSchema#string"},"name":{"@id":"https://w3id.org/retail-benefits#name","@type":"http://www.w3.org/2001/XMLSchema#string"},"programIdentifier":{"@id":"https://w3id.org/retail-benefits#programIdentifier","@type":"http://www.w3.org/2001/XMLSchema#string"},"description":{"@id":"https://schema.org/description","@type":"http://www.w3.org/2001/XMLSchema#string"},"image":{"@id":"https://schema.org/image","@type":"@id"},"renderMethod":{"@id":"https://www.w3.org/2018/credentials#renderMethod","@type":"@id"}}},"MembershipCard":{"@id":"https://w3id.org/retail-benefits#MembershipCard","@context":{"@protected":true,"id":"@id","type":"@type","accountIdentifier":{"@id":"https://w3id.org/retail-benefits#accountIdentifier","@type":"http://www.w3.org/2001/XMLSchema#string"},"barcode":{"@id":"https://w3id.org/retail-benefits#barcode","@type":"http://www.w3.org/2001/XMLSchema#string"},"name":{"@id":"https://w3id.org/retail-benefits#name","@type":"http://www.w3.org/2001/XMLSchema#string"},"programIdentifier":{"@id":"https://w3id.org/retail-benefits#programIdentifier","@type":"http://www.w3.org/2001/XMLSchema#string"},"description":{"@id":"https://schema.org/description","@type":"http://www.w3.org/2001/XMLSchema#string"},"image":{"@id":"https://schema.org/image","@type":"@id"},"renderMethod":{"@id":"https://www.w3.org/2018/credentials#renderMethod","@type":"@id"}}},"Rebate":{"@id":"https://w3id.org/retail-benefits#Rebate","@context":{"@protected":true,"id":"@id","type":"@type","barcode":{"@id":"https://w3id.org/retail-benefits#barcode","@type":"http://www.w3.org/2001/XMLSchema#string"},"description":{"@id":"https://schema.org/description","@type":"http://www.w3.org/2001/XMLSchema#string"},"image":{"@id":"https://schema.org/image","@type":"@id"},"renderMethod":{"@id":"https://www.w3.org/2018/credentials#renderMethod","@type":"@id"}}},"RedemptionRule":{"@id":"https://w3id.org/retail-benefits#RedemptionRule","@context":{"@protected":true,"id":"@id","type":"@type","gtin":{"@id":"https://w3id.org/retail-benefits#gtin","@type":"http://www.w3.org/2001/XMLSchema#string"},"maximumLimit":{"@id":"https://w3id.org/retail-benefits#maximumLimit","@type":"@id"},"minimumLimit":{"@id":"https://w3id.org/retail-benefits#minimumLimit","@type":"@id"},"description":{"@id":"https://schema.org/description","@type":"http://www.w3.org/2001/XMLSchema#string"}}},"RetailBenefitCredential":"https://w3id.org/retail-benefits#RetailBenefitCredential","MustacheRenderTemplate":{"@id":"https://w3id.org/vc/render-method#MustacheRenderTemplate","@context":{"@protected":true,"id":"@id","type":"@type","digestMultibase":{"@id":"https://www.w3.org/2018/credentials#digestMultibase","@type":"http://www.w3.org/2001/XMLSchema#string"},"mediaType":{"@id":"https://w3id.org/retail-benefits#mediaType","@type":"http://www.w3.org/2001/XMLSchema#string"},"name":{"@id":"https://w3id.org/retail-benefits#name","@type":"http://www.w3.org/2001/XMLSchema#string"}}},"MonetaryAmount":"https://schema.org/MonetaryAmount","Observation":"https://schema.org/Observation","RenderMethod":"https://www.w3.org/2018/credentials#RenderMethod"}}
+{
+  "@context": {
+    "@protected": true,
+    "id": "@id",
+    "type": "@type",
+    "Coupon": {
+      "@id": "https://w3id.org/retail-benefits#Coupon",
+      "@context": {
+        "@protected": true,
+        "id": "@id",
+        "type": "@type",
+        "barcode": {
+          "@id": "https://w3id.org/retail-benefits#barcode",
+          "@type": "http://www.w3.org/2001/XMLSchema#string"
+        },
+        "discount": {
+          "@id": "https://w3id.org/retail-benefits#discount",
+          "@type": "@id"
+        },
+        "redemptionRule": {
+          "@id": "https://w3id.org/retail-benefits#redemptionRule",
+          "@type": "@id"
+        },
+        "description": {
+          "@id": "https://schema.org/description",
+          "@type": "http://www.w3.org/2001/XMLSchema#string"
+        },
+        "image": {
+          "@id": "https://schema.org/image",
+          "@type": "@id"
+        },
+        "renderMethod": {
+          "@id": "https://www.w3.org/2018/credentials#renderMethod",
+          "@type": "@id"
+        }
+      }
+    },
+    "CouponBundle": {
+      "@id": "https://w3id.org/retail-benefits#CouponBundle",
+      "@context": {
+        "@protected": true,
+        "id": "@id",
+        "type": "@type",
+        "barcode": {
+          "@id": "https://w3id.org/retail-benefits#barcode",
+          "@type": "http://www.w3.org/2001/XMLSchema#string"
+        },
+        "description": {
+          "@id": "https://schema.org/description",
+          "@type": "http://www.w3.org/2001/XMLSchema#string"
+        },
+        "image": {
+          "@id": "https://schema.org/image",
+          "@type": "@id"
+        },
+        "renderMethod": {
+          "@id": "https://www.w3.org/2018/credentials#renderMethod",
+          "@type": "@id"
+        }
+      }
+    },
+    "GiftCard": {
+      "@id": "https://w3id.org/retail-benefits#GiftCard",
+      "@context": {
+        "@protected": true,
+        "id": "@id",
+        "type": "@type",
+        "accountIdentifier": {
+          "@id": "https://w3id.org/retail-benefits#accountIdentifier",
+          "@type": "http://www.w3.org/2001/XMLSchema#string"
+        },
+        "barcode": {
+          "@id": "https://w3id.org/retail-benefits#barcode",
+          "@type": "http://www.w3.org/2001/XMLSchema#string"
+        },
+        "discount": {
+          "@id": "https://w3id.org/retail-benefits#discount",
+          "@type": "@id"
+        },
+        "name": "https://schema.org/name",
+        "programIdentifier": {
+          "@id": "https://w3id.org/retail-benefits#programIdentifier",
+          "@type": "http://www.w3.org/2001/XMLSchema#string"
+        },
+        "description": {
+          "@id": "https://schema.org/description",
+          "@type": "http://www.w3.org/2001/XMLSchema#string"
+        },
+        "image": {
+          "@id": "https://schema.org/image",
+          "@type": "@id"
+        },
+        "renderMethod": {
+          "@id": "https://www.w3.org/2018/credentials#renderMethod",
+          "@type": "@id"
+        }
+      }
+    },
+    "LoyaltyCard": {
+      "@id": "https://w3id.org/retail-benefits#LoyaltyCard",
+      "@context": {
+        "@protected": true,
+        "id": "@id",
+        "type": "@type",
+        "accountIdentifier": {
+          "@id": "https://w3id.org/retail-benefits#accountIdentifier",
+          "@type": "http://www.w3.org/2001/XMLSchema#string"
+        },
+        "barcode": {
+          "@id": "https://w3id.org/retail-benefits#barcode",
+          "@type": "http://www.w3.org/2001/XMLSchema#string"
+        },
+        "name": "https://schema.org/name",
+        "programIdentifier": {
+          "@id": "https://w3id.org/retail-benefits#programIdentifier",
+          "@type": "http://www.w3.org/2001/XMLSchema#string"
+        },
+        "description": {
+          "@id": "https://schema.org/description",
+          "@type": "http://www.w3.org/2001/XMLSchema#string"
+        },
+        "image": {
+          "@id": "https://schema.org/image",
+          "@type": "@id"
+        },
+        "renderMethod": {
+          "@id": "https://www.w3.org/2018/credentials#renderMethod",
+          "@type": "@id"
+        }
+      }
+    },
+    "MembershipCard": {
+      "@id": "https://w3id.org/retail-benefits#MembershipCard",
+      "@context": {
+        "@protected": true,
+        "id": "@id",
+        "type": "@type",
+        "accountIdentifier": {
+          "@id": "https://w3id.org/retail-benefits#accountIdentifier",
+          "@type": "http://www.w3.org/2001/XMLSchema#string"
+        },
+        "barcode": {
+          "@id": "https://w3id.org/retail-benefits#barcode",
+          "@type": "http://www.w3.org/2001/XMLSchema#string"
+        },
+        "name": "https://schema.org/name",
+        "programIdentifier": {
+          "@id": "https://w3id.org/retail-benefits#programIdentifier",
+          "@type": "http://www.w3.org/2001/XMLSchema#string"
+        },
+        "description": {
+          "@id": "https://schema.org/description",
+          "@type": "http://www.w3.org/2001/XMLSchema#string"
+        },
+        "image": {
+          "@id": "https://schema.org/image",
+          "@type": "@id"
+        },
+        "renderMethod": {
+          "@id": "https://www.w3.org/2018/credentials#renderMethod",
+          "@type": "@id"
+        }
+      }
+    },
+    "Rebate": {
+      "@id": "https://w3id.org/retail-benefits#Rebate",
+      "@context": {
+        "@protected": true,
+        "id": "@id",
+        "type": "@type",
+        "barcode": {
+          "@id": "https://w3id.org/retail-benefits#barcode",
+          "@type": "http://www.w3.org/2001/XMLSchema#string"
+        },
+        "description": {
+          "@id": "https://schema.org/description",
+          "@type": "http://www.w3.org/2001/XMLSchema#string"
+        },
+        "image": {
+          "@id": "https://schema.org/image",
+          "@type": "@id"
+        },
+        "renderMethod": {
+          "@id": "https://www.w3.org/2018/credentials#renderMethod",
+          "@type": "@id"
+        }
+      }
+    },
+    "RedemptionRule": {
+      "@id": "https://w3id.org/retail-benefits#RedemptionRule",
+      "@context": {
+        "@protected": true,
+        "id": "@id",
+        "type": "@type",
+        "gtin": {
+          "@id": "https://w3id.org/retail-benefits#gtin",
+          "@type": "http://www.w3.org/2001/XMLSchema#string"
+        },
+        "maximumLimit": {
+          "@id": "https://w3id.org/retail-benefits#maximumLimit",
+          "@type": "@id"
+        },
+        "minimumLimit": {
+          "@id": "https://w3id.org/retail-benefits#minimumLimit",
+          "@type": "@id"
+        },
+        "description": {
+          "@id": "https://schema.org/description",
+          "@type": "http://www.w3.org/2001/XMLSchema#string"
+        }
+      }
+    },
+    "RetailBenefitCredential": "https://w3id.org/retail-benefits#RetailBenefitCredential",
+    "MustacheRenderTemplate": {
+      "@id": "https://w3id.org/vc/render-method#MustacheRenderTemplate",
+      "@context": {
+        "@protected": true,
+        "id": "@id",
+        "type": "@type",
+        "digestMultibase": {
+          "@id": "https://www.w3.org/2018/credentials#digestMultibase",
+          "@type": "http://www.w3.org/2001/XMLSchema#string"
+        },
+        "mediaType": {
+          "@id": "https://w3id.org/retail-benefits#mediaType",
+          "@type": "http://www.w3.org/2001/XMLSchema#string"
+        },
+        "name": "https://schema.org/name"
+      }
+    },
+    "MonetaryAmount": "https://schema.org/MonetaryAmount",
+    "Observation": "https://schema.org/Observation",
+    "RenderMethod": "https://www.w3.org/2018/credentials#RenderMethod"
+  }
+}
