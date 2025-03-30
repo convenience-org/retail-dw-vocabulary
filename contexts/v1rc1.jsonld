@@ -198,7 +198,7 @@
         "type": "@type",
         "digestMultibase": {
           "@id": "https://www.w3.org/2018/credentials#digestMultibase",
-          "@type": "http://www.w3.org/2001/XMLSchema#string"
+          "@type": "https://w3id.org/security#multibase"
         },
         "mediaType": {
           "@id": "https://w3id.org/retail-benefits#mediaType",

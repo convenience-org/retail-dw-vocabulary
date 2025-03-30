@@ -2,12 +2,14 @@ vocab:
   id: rbv
   value: https://w3id.org/retail-benefits#
 prefix:
-  - id: schema
-    value: https://schema.org/
-  - id: vc
-    value: https://www.w3.org/2018/credentials#
   - id: rm
     value: https://w3id.org/vc/render-method#
+  - id: schema
+    value: https://schema.org/
+  - id: sec
+    value: https://w3id.org/security#
+  - id: vc
+    value: https://www.w3.org/2018/credentials#
 ontology:
   - property: dc:title
     value: Retail Benefits Vocabulary
@@ -290,7 +292,7 @@ property:
     label: Multibase-encoded Multihash Digest
     domain:
       - rm:MustacheRenderTemplate
-    range: xsd:string
+    range: sec:multibase
     comment: >-
       A multi-base encoded multihash digest of the associated resource
       identified using the `id` property.
@@ -413,3 +415,13 @@ property:
     range: vc:RenderMethod
     comment: A mechanism used to render a visual or wireless expression of the benefit.
     context: https://w3id.org/retail-benefits/v1rc1
+
+datatype:
+  - id: sec:multibase
+    label: Datatype of Multibase
+    comment: >-
+      The Multibase datatype is used to express Multibase values.
+    see_also:
+      label: The Multibase specification
+      url: https://www.w3.org/TR/cid-1.0/#multibase
+    context: https://www.w3.org/ns/credentials/v2
