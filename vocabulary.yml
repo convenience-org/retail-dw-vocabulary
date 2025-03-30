@@ -381,7 +381,6 @@ property:
       - MembershipCard
       - Rebate
       - RedemptionRule
-    range: xsd:string
     comment: >-
       A property that provides a detailed textual description of the respective
       entity, outlining its features, terms, and conditions to enhance

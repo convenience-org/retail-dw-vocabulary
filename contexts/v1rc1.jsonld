@@ -21,10 +21,7 @@
           "@id": "https://w3id.org/retail-benefits#redemptionRule",
           "@type": "@id"
         },
-        "description": {
-          "@id": "https://schema.org/description",
-          "@type": "http://www.w3.org/2001/XMLSchema#string"
-        },
+        "description": "https://schema.org/description",
         "image": {
           "@id": "https://schema.org/image",
           "@type": "@id"
@@ -45,10 +42,7 @@
           "@id": "https://w3id.org/retail-benefits#barcode",
           "@type": "http://www.w3.org/2001/XMLSchema#string"
         },
-        "description": {
-          "@id": "https://schema.org/description",
-          "@type": "http://www.w3.org/2001/XMLSchema#string"
-        },
+        "description": "https://schema.org/description",
         "image": {
           "@id": "https://schema.org/image",
           "@type": "@id"
@@ -82,10 +76,7 @@
           "@id": "https://w3id.org/retail-benefits#programIdentifier",
           "@type": "http://www.w3.org/2001/XMLSchema#string"
         },
-        "description": {
-          "@id": "https://schema.org/description",
-          "@type": "http://www.w3.org/2001/XMLSchema#string"
-        },
+        "description": "https://schema.org/description",
         "image": {
           "@id": "https://schema.org/image",
           "@type": "@id"
@@ -115,10 +106,7 @@
           "@id": "https://w3id.org/retail-benefits#programIdentifier",
           "@type": "http://www.w3.org/2001/XMLSchema#string"
         },
-        "description": {
-          "@id": "https://schema.org/description",
-          "@type": "http://www.w3.org/2001/XMLSchema#string"
-        },
+        "description": "https://schema.org/description",
         "image": {
           "@id": "https://schema.org/image",
           "@type": "@id"
@@ -148,10 +136,7 @@
           "@id": "https://w3id.org/retail-benefits#programIdentifier",
           "@type": "http://www.w3.org/2001/XMLSchema#string"
         },
-        "description": {
-          "@id": "https://schema.org/description",
-          "@type": "http://www.w3.org/2001/XMLSchema#string"
-        },
+        "description": "https://schema.org/description",
         "image": {
           "@id": "https://schema.org/image",
           "@type": "@id"
@@ -172,10 +157,7 @@
           "@id": "https://w3id.org/retail-benefits#barcode",
           "@type": "http://www.w3.org/2001/XMLSchema#string"
         },
-        "description": {
-          "@id": "https://schema.org/description",
-          "@type": "http://www.w3.org/2001/XMLSchema#string"
-        },
+        "description": "https://schema.org/description",
         "image": {
           "@id": "https://schema.org/image",
           "@type": "@id"
@@ -204,10 +186,7 @@
           "@id": "https://w3id.org/retail-benefits#minimumLimit",
           "@type": "@id"
         },
-        "description": {
-          "@id": "https://schema.org/description",
-          "@type": "http://www.w3.org/2001/XMLSchema#string"
-        }
+        "description": "https://schema.org/description"
       }
     },
     "RetailBenefitCredential": "https://w3id.org/retail-benefits#RetailBenefitCredential",
