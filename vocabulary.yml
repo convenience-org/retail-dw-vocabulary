@@ -153,6 +153,78 @@ class:
       A refund or return of part of the purchase price by the seller to the
       buyer, typically given as a promotional offer.
     context: https://w3id.org/retail-benefits/v1rc1
+  - id: Receipt
+    label: Receipt
+    comment: >-
+      A Receipt is a document that acknowledges the payment received for goods
+      or services purchased. It typically includes details such as the date of
+      purchase, the items bought, the total amount paid, and any applicable
+      taxes.
+    upper_value: schema:Order
+    context: https://w3id.org/retail-benefits/v1rc1
+    example:
+      - label: A basic example of a Receipt
+        json: |-
+          {
+            "@context": "https://w3id.org/retail-benefits/v1rc1",
+            "type": "Receipt",
+            "name": "Your ShopCo Purchase",
+            "image": "data:image/gif;base64,iVBORw0KGgoAAAANSU...ASUVORK5CYII="
+            "seller": {
+              "type": "Store",
+              "name": "ShopCo",
+              "taxID": "123457896",
+              "branchCode": "234",
+              "cashier": "Susie (485)",
+              "telephone": "15555554958"
+              "location": {
+                "streetAddress": "743 S. Broadway",
+                "addressLocality": "Denver",
+                "addressRegion": "CO",
+                "postalCode": "80209"
+              }
+            },
+            "confirmationNumber": "7839",
+            "orderDate": "2025-03-24T18:55:20Z",
+            "orderedItem": [{
+              "type": "Product",
+              "sku": "9358",
+              "name": "Electro Energy Drink",
+              "gtin": "1234567891234",
+              "acceptedOffer": {
+                "type": "Offer",
+                "price": "3.99",
+                "priceCurrency": "USD"
+                "eligibleQuantity": {
+                  "type": "QuantitativeValue",
+                  "value": "1",
+                  "unitCode": "EA"
+                }
+              }
+            }],
+            "taxPaymentDue": {
+              "type": "PriceSpecification",
+              "name": "State Tax (5%)"
+              "price": "0.20",
+              "priceCurrency": "USD"
+            },
+            "totalPaymentDue": {
+              "type": "PriceSpecification",
+              "price": "4.19",
+              "priceCurrency": "USD"
+            },
+            "paymentMethod": {
+              "type": "CreditCard",
+              "amount": {
+                "type": "MonetaryAmount",
+                "value": "4.19",
+                "currency": "USD"
+              },
+              "authorizationCode": "884893"
+            },
+            "returnPolicy": "Exchange and refund within 14 days with receipt",
+            "promotionalMessage": "Show this receipt next time for a 5% discount!"
+          }
   - id: RedemptionRule
     label: Redemption Rule
     comment: >-
@@ -335,6 +407,14 @@ property:
       entities in GS1 GTIN format, allowing for easy scanning and identification
       during transactions or redemptions.
     context: https://w3id.org/retail-benefits/v1rc1
+  - id: bundleMatcher
+    label: Coupon Bundle Matching Service
+    domain: CouponBundle
+    range: URL
+    comment: >-
+      This URL is used to communicate with the coupon bundle service to see if
+      any item associated with a transaction matches the coupon bundle.
+    context: https://w3id.org/retail-benefits/v1rc1
   - id: discount
     label: Discount
     domain:
@@ -401,14 +481,6 @@ property:
       A property that links a coupon to the specific redemption rules that apply
       to it, detailing the conditions and terms necessary for the coupon to be
       successfully redeemed.
-    context: https://w3id.org/retail-benefits/v1rc1
-  - id: bundleMatcher
-    label: Coupon Bundle Matching Service
-    domain: CouponBundle
-    range: URL
-    comment: >-
-      This URL is used to communicate with the coupon bundle service to
-      see if any item associated with a transaction matches the coupon bundle.
     context: https://w3id.org/retail-benefits/v1rc1
   - id: schema:description
     label: Description
