@@ -16,14 +16,21 @@
       var respecConfig = {
         localBiblio: {
         },
-        specStatus:  "base",
+        specStatus:  "unofficial",
         shortName:   "retail-benefits",
-        thisVersion: "https://w3id.org/retail-benefits",
+        thisVersion: "https://convenience-org.github.io/retail-benefits-vocab/",
         doJsonLd:    true,
+        noRecTrack: true,
         editors: [{
-          name:       "W3C Credentials Community Group",
+          name: "Digital Wallet Working Group",
+          url: "https://www.conexxus.org/groups/digital-wallet-working-group",
+          company: "Conexxus",
+          companyUrl: "https://www.conexxus.org/"
         }],
-        postProcess : [remove_status_remark],
+        postProcess : [
+          remove_status_remark,
+          window.respecVc.createVcExamples
+        ],
         inlineCSS: true,
         doRDFa: false,
         noIDLIn: true,
@@ -101,7 +108,6 @@ This is an experimental vocabulary and is not fit for production usage.
       <h1>Introduction</h1>
 
 <div>
-    <h1>Introduction to the Retail Benefits Vocabulary</h1>
     <p>The Retail Benefits Vocabulary is an important tool for businesses in the retail sector. It provides a common language and structure for describing the various benefits that retailers offer to their customers. By using this vocabulary, businesses can improve how they communicate and share information about their products and services.</p>
 
     <p>One of the main benefits of using the Retail Benefits Vocabulary is that it helps create a clear and consistent way to present information. This is important because it allows customers to easily understand what benefits they can expect when shopping at different retailers. When all businesses use the same terms and definitions, it makes comparison shopping easier and helps customers make informed decisions.</p>
@@ -114,6 +120,8 @@ This is an experimental vocabulary and is not fit for production usage.
 
     <p>In summary, the Retail Benefits Vocabulary provides a framework that offers clarity and consistency in communicating retail benefits. By utilizing this vocabulary, businesses can improve their marketing strategies, enhance customer relationships, and ultimately drive sales. It serves as a bridge between retailers and customers, helping to make the shopping experience more enjoyable and informative.</p>
 </div>
+
+    </section>
 
       <section id="conformance"></section>
       <section>
@@ -130,7 +138,7 @@ This is an experimental vocabulary and is not fit for production usage.
         <li><a href="https://www.w3.org/ns/credentials/v2" typeof="jsonld:Context"><code>https://www.w3.org/ns/credentials/v2</code></a><details><summary>term list</summary><ul><li><a href="#5e44586bc89350cc77a02d19f6d28e1a0af80c06a823f0482fdeb765ec0e2262"><code>multibase<code></code></code></a></li></ul></details></li><li><a href="https://w3id.org/retail-benefits/v1rc1" typeof="jsonld:Context"><code>https://w3id.org/retail-benefits/v1rc1</code></a><details><summary>term list</summary><ul><li><a href="#Coupon"><code>Coupon<code></code></code></a></li><li><a href="#CouponBundle"><code>CouponBundle<code></code></code></a></li><li><a href="#GiftCard"><code>GiftCard<code></code></code></a></li><li><a href="#LoyaltyCard"><code>LoyaltyCard<code></code></code></a></li><li><a href="#MembershipCard"><code>MembershipCard<code></code></code></a></li><li><a href="#Rebate"><code>Rebate<code></code></code></a></li><li><a href="#Receipt"><code>Receipt<code></code></code></a></li><li><a href="#RedemptionRule"><code>RedemptionRule<code></code></code></a></li><li><a href="#RetailBenefitCredential"><code>RetailBenefitCredential<code></code></code></a></li><li><a href="#accountIdentifier"><code>accountIdentifier<code></code></code></a></li><li><a href="#barcode"><code>barcode<code></code></code></a></li><li><a href="#bundleMatcher"><code>bundleMatcher<code></code></code></a></li><li><a href="#discount"><code>discount<code></code></code></a></li><li><a href="#gtin"><code>gtin<code></code></code></a></li><li><a href="#maximumLimit"><code>maximumLimit<code></code></code></a></li><li><a href="#mediaType"><code>mediaType<code></code></code></a></li><li><a href="#minimumLimit"><code>minimumLimit<code></code></code></a></li><li><a href="#programIdentifier"><code>programIdentifier<code></code></code></a></li><li><a href="#redemptionRule"><code>redemptionRule<code></code></code></a></li><li><a href="#ce140e86d51cf06a8bfa88c980a0f06d09e31803fa68b1757fbd27dd65498339"><code>MustacheRenderTemplate<code></code></code></a></li><li><a href="#909cb47880ae46b1c45cffe53eaead53a69ba1caf77c18bf123b85a8b4b40afa"><code>MonetaryAmount<code></code></code></a></li><li><a href="#520cbc4a12f2ace77f2630790813a9561af64b6d8fad2928c8dcfffd4ff3ead0"><code>Observation<code></code></code></a></li><li><a href="#bd67ab3de4befa12ddca1ae5092c89be951e565f05919d9bcb1e77eecb6d76ba"><code>description<code></code></code></a></li><li><a href="#cf69b5fd3841daff2338a66a43f462341694b5a4abe3b5024c4c04e8f8caeb91"><code>image<code></code></code></a></li><li><a href="#104320a85a67bdb05592c4f95a24b049fa7069dd318c44531214a955c3f1fa37"><code>name<code></code></code></a></li><li><a href="#1c2059d8a9b5c10a54ba77dae600e4c97cd023c056cdd48fab98ea2c496fc99f"><code>digestMultibase<code></code></code></a></li><li><a href="#1ab8322195f2be76e42b3be06a94413cb9468299946b730a4b6cb5e685f3b67c"><code>RenderMethod<code></code></code></a></li><li><a href="#d84effb0c96f22c14d5c50524dcb18ba61de92c72841a088f24af7ddaaa5ba39"><code>renderMethod<code></code></code></a></li></ul></details></li></ul>
       </section>
 
-    </section>
+    
 
     <section id="term_definitions">
       <h2>Term definitions</h2>
