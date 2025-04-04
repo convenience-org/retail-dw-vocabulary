@@ -60,7 +60,6 @@ class:
               "value": "1.00",
               "currency": "USD"
             },
-            "image": "https://coupon.example/12345.jpg",
             "redemptionRule": {
               "type": "RedemptionRule",
               "description": "Minimum limit 1 regular coffee. Maximum limit 1 per customer.",
@@ -94,14 +93,7 @@ class:
             "barcode": "0123456789010479832",
             "name": "ClipCo Coupons",
             "description": "Clip and Save Coupons",
-            "bundleMatcher": "https://couponbureau.example/matcher",
-            "renderMethod": {
-              "id": "https://couponbureau.example/bundle.svg",
-              "type": "MustacheRenderTemplate",
-              "name": "Scan",
-              "mediaType": "image/svg",
-              "digestMultibase": "zQ6JqWAPdhyx5Wg6wFl9znFCwYxApG270iEu5hz2dRmerWC8"
-            }
+            "bundleMatcher": "https://couponbureau.example/matcher"
           }
   - id: GiftCard
     label: Gift Card
@@ -125,20 +117,7 @@ class:
             "description": "ShopCo Loyalty and Rewards Card",
             "barcode": "123456789123",
             "programIdentifier": "123",
-            "accountIdentifier": "456789123",
-            "renderMethod": [{
-              "id": "https://shopco.example/cards/loyalty-front.svg",
-              "type": "MustacheRenderTemplate",
-              "name": "Front of card",
-              "mediaType": "image/svg",
-              "digestMultibase": "zQmerWC85Wg6wFl9znFCwYxApG270iEu5h6JqWAPdhyxz2dR"
-            }, {
-              "id": "https://shopco.example/cards/loyalty-back.svg",
-              "type": "MustacheRenderTemplate",
-              "name": "Back of card",
-              "mediaType": "image/svg",
-              "digestMultibase": "zQmC85Wg6wAp2dRerW270iEu5h6JqWFl9GAPdhyxzznFCwYx"
-            }]
+            "accountIdentifier": "456789123"
           }
   - id: MembershipCard
     label: Membership Card
@@ -282,7 +261,6 @@ class:
                 "value": "1.00",
                 "currency": "USD"
               },
-              "image": "https://coupon.example/12345.jpg",
               "redemptionRule": {
                 "type": "RedemptionRule",
                 "description": "Minimum limit 1 regular coffee. Maximum limit 1 per customer.",
@@ -297,6 +275,14 @@ class:
                   "value": "1",
                   "unitCode": "EA"
                 }
+              }
+            },
+            "renderMethod": {
+              "type": "MustacheRenderTemplate",
+              "template": {
+                "id": "https://coupon.example/coupons/coffee.svg",
+                "mediaType": "image/svg",
+                "digestMultibase": "zQmerWC85Wg6wFl9znFCwYxApG270iEu5h6JqWAPdhyxz2dR"
               }
             }
           }
@@ -320,21 +306,25 @@ class:
               "description": "ShopCo Loyalty and Rewards Card",
               "barcode": "123456789123",
               "programIdentifier": "123",
-              "accountIdentifier": "456789123",
-              "renderMethod": [{
+              "accountIdentifier": "456789123"
+            },
+            "renderMethod": [{
+              "type": "MustacheRenderTemplate",
+              "name": "Front of card",
+              "template": {
                 "id": "https://shopco.example/cards/loyalty-front.svg",
-                "type": "MustacheRenderTemplate",
-                "name": "Front of card",
                 "mediaType": "image/svg",
                 "digestMultibase": "zQmerWC85Wg6wFl9znFCwYxApG270iEu5h6JqWAPdhyxz2dR"
-              }, {
+              }
+            }, {
+              "type": "MustacheRenderTemplate",
+              "name": "Back of card",
+              "template": {
                 "id": "https://shopco.example/cards/loyalty-back.svg",
-                "type": "MustacheRenderTemplate",
-                "name": "Back of card",
                 "mediaType": "image/svg",
                 "digestMultibase": "zQmC85Wg6wAp2dRerW270iEu5h6JqWFl9GAPdhyxzznFCwYx"
-              }]
-            }
+              }
+            }]
           }
       - label: A basic example of a RetailBenefitCredential expressing a CouponBundle
         json: |-
@@ -355,11 +345,13 @@ class:
               "barcode": "0123456789010479832",
               "name": "ClipCo Coupons",
               "description": "Clip and Save Coupons",
-              "bundleMatcher": "https://couponbureau.example/matcher",
-              "renderMethod": {
+              "bundleMatcher": "https://couponbureau.example/matcher"
+            },
+            "renderMethod": {
+              "type": "MustacheRenderTemplate",
+              "name": "Scan",
+              "template": {
                 "id": "https://couponbureau.example/bundle.svg",
-                "type": "MustacheRenderTemplate",
-                "name": "Scan",
                 "mediaType": "image/svg",
                 "digestMultibase": "zQ6JqWAPdhyx5Wg6wFl9znFCwYxApG270iEu5hz2dRmerWC8"
               }

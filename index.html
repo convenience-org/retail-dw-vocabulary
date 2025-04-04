@@ -180,7 +180,6 @@ This is an experimental vocabulary and is not fit for production usage.
     "value": "1.00",
     "currency": "USD"
   },
-  "image": "https://coupon.example/12345.jpg",
   "redemptionRule": {
     "type": "RedemptionRule",
     "description": "Minimum limit 1 regular coffee. Maximum limit 1 per customer.",
@@ -202,14 +201,7 @@ This is an experimental vocabulary and is not fit for production usage.
   "barcode": "0123456789010479832",
   "name": "ClipCo Coupons",
   "description": "Clip and Save Coupons",
-  "bundleMatcher": "https://couponbureau.example/matcher",
-  "renderMethod": {
-    "id": "https://couponbureau.example/bundle.svg",
-    "type": "MustacheRenderTemplate",
-    "name": "Scan",
-    "mediaType": "image/svg",
-    "digestMultibase": "zQ6JqWAPdhyx5Wg6wFl9znFCwYxApG270iEu5hz2dRmerWC8"
-  }
+  "bundleMatcher": "https://couponbureau.example/matcher"
 }</pre></section><section id="GiftCard" resource="rbv:GiftCard" typeof="rdfs:Class"><h4><code>GiftCard</code></h4><p><em>Gift Card</em></p><div property="rdfs:comment" datatype="rdf:HTML">A prepaid card that can be used as an alternative to cash for purchases within a particular store or group of stores.</div><span property="rdfs:isDefinedBy" resource="rbv:"></span><span style="display: none" property="vs:term_status">stable</span><dl class="terms"><dt>In the domain of:</dt><dd><a href="#accountIdentifier"><code>accountIdentifier</code></a>, <a href="#barcode"><code>barcode</code></a>, <a href="#discount"><code>discount</code></a>, <a href="#programIdentifier"><code>programIdentifier</code></a>, <a href="#bd67ab3de4befa12ddca1ae5092c89be951e565f05919d9bcb1e77eecb6d76ba"><code>description</code></a>, <a href="#cf69b5fd3841daff2338a66a43f462341694b5a4abe3b5024c4c04e8f8caeb91"><code>image</code></a>, <a href="#104320a85a67bdb05592c4f95a24b049fa7069dd318c44531214a955c3f1fa37"><code>name</code></a>, <a href="#d84effb0c96f22c14d5c50524dcb18ba61de92c72841a088f24af7ddaaa5ba39"><code>renderMethod</code></a></dd></dl><dl class="terms"><dt>Relevant <code>@context</code>:</dt><dd><span rev="schema:mentions"><a href="https://w3id.org/retail-benefits/v1rc1"><code>https://w3id.org/retail-benefits/v1rc1</code></a></span></dd></dl></section><section id="LoyaltyCard" resource="rbv:LoyaltyCard" typeof="rdfs:Class"><h4><code>LoyaltyCard</code></h4><p><em>Loyalty Card</em></p><div property="rdfs:comment" datatype="rdf:HTML">A card issued by a retailer to a customer that facilitates accumulation of loyalty points, rewards, or discounts.</div><span property="rdfs:isDefinedBy" resource="rbv:"></span><span style="display: none" property="vs:term_status">stable</span><dl class="terms"><dt>In the domain of:</dt><dd><a href="#accountIdentifier"><code>accountIdentifier</code></a>, <a href="#barcode"><code>barcode</code></a>, <a href="#programIdentifier"><code>programIdentifier</code></a>, <a href="#bd67ab3de4befa12ddca1ae5092c89be951e565f05919d9bcb1e77eecb6d76ba"><code>description</code></a>, <a href="#cf69b5fd3841daff2338a66a43f462341694b5a4abe3b5024c4c04e8f8caeb91"><code>image</code></a>, <a href="#104320a85a67bdb05592c4f95a24b049fa7069dd318c44531214a955c3f1fa37"><code>name</code></a>, <a href="#d84effb0c96f22c14d5c50524dcb18ba61de92c72841a088f24af7ddaaa5ba39"><code>renderMethod</code></a></dd></dl><dl class="terms"><dt>Relevant <code>@context</code>:</dt><dd><span rev="schema:mentions"><a href="https://w3id.org/retail-benefits/v1rc1"><code>https://w3id.org/retail-benefits/v1rc1</code></a></span></dd></dl><pre class="example prettyprint language-json" title="A basic example of a LoyaltyCard">{
   "@context": "https://w3id.org/retail-benefits/v1rc1",
   "type": "LoyaltyCard",
@@ -217,20 +209,7 @@ This is an experimental vocabulary and is not fit for production usage.
   "description": "ShopCo Loyalty and Rewards Card",
   "barcode": "123456789123",
   "programIdentifier": "123",
-  "accountIdentifier": "456789123",
-  "renderMethod": [{
-    "id": "https://shopco.example/cards/loyalty-front.svg",
-    "type": "MustacheRenderTemplate",
-    "name": "Front of card",
-    "mediaType": "image/svg",
-    "digestMultibase": "zQmerWC85Wg6wFl9znFCwYxApG270iEu5h6JqWAPdhyxz2dR"
-  }, {
-    "id": "https://shopco.example/cards/loyalty-back.svg",
-    "type": "MustacheRenderTemplate",
-    "name": "Back of card",
-    "mediaType": "image/svg",
-    "digestMultibase": "zQmC85Wg6wAp2dRerW270iEu5h6JqWFl9GAPdhyxzznFCwYx"
-  }]
+  "accountIdentifier": "456789123"
 }</pre></section><section id="MembershipCard" resource="rbv:MembershipCard" typeof="rdfs:Class"><h4><code>MembershipCard</code></h4><p><em>Membership Card</em></p><div property="rdfs:comment" datatype="rdf:HTML">A card that signifies membership in a retail program, granting access to member-exclusive discounts and rewards.</div><span property="rdfs:isDefinedBy" resource="rbv:"></span><span style="display: none" property="vs:term_status">stable</span><dl class="terms"><dt>In the domain of:</dt><dd><a href="#accountIdentifier"><code>accountIdentifier</code></a>, <a href="#barcode"><code>barcode</code></a>, <a href="#programIdentifier"><code>programIdentifier</code></a>, <a href="#bd67ab3de4befa12ddca1ae5092c89be951e565f05919d9bcb1e77eecb6d76ba"><code>description</code></a>, <a href="#cf69b5fd3841daff2338a66a43f462341694b5a4abe3b5024c4c04e8f8caeb91"><code>image</code></a>, <a href="#104320a85a67bdb05592c4f95a24b049fa7069dd318c44531214a955c3f1fa37"><code>name</code></a>, <a href="#d84effb0c96f22c14d5c50524dcb18ba61de92c72841a088f24af7ddaaa5ba39"><code>renderMethod</code></a></dd></dl><dl class="terms"><dt>Relevant <code>@context</code>:</dt><dd><span rev="schema:mentions"><a href="https://w3id.org/retail-benefits/v1rc1"><code>https://w3id.org/retail-benefits/v1rc1</code></a></span></dd></dl></section><section id="Rebate" resource="rbv:Rebate" typeof="rdfs:Class"><h4><code>Rebate</code></h4><p><em>Rebate</em></p><div property="rdfs:comment" datatype="rdf:HTML">A refund or return of part of the purchase price by the seller to the buyer, typically given as a promotional offer.</div><span property="rdfs:isDefinedBy" resource="rbv:"></span><span style="display: none" property="vs:term_status">stable</span><dl class="terms"><dt>In the domain of:</dt><dd><a href="#barcode"><code>barcode</code></a>, <a href="#bd67ab3de4befa12ddca1ae5092c89be951e565f05919d9bcb1e77eecb6d76ba"><code>description</code></a>, <a href="#cf69b5fd3841daff2338a66a43f462341694b5a4abe3b5024c4c04e8f8caeb91"><code>image</code></a>, <a href="#d84effb0c96f22c14d5c50524dcb18ba61de92c72841a088f24af7ddaaa5ba39"><code>renderMethod</code></a></dd></dl><dl class="terms"><dt>Relevant <code>@context</code>:</dt><dd><span rev="schema:mentions"><a href="https://w3id.org/retail-benefits/v1rc1"><code>https://w3id.org/retail-benefits/v1rc1</code></a></span></dd></dl></section><section id="Receipt" resource="rbv:Receipt" typeof="rdfs:Class"><h4><code>Receipt</code></h4><p><em>Receipt</em></p><div property="rdfs:comment" datatype="rdf:HTML">A Receipt is a document that acknowledges the payment received for goods or services purchased. It typically includes details such as the date of purchase, the items bought, the total amount paid, and any applicable taxes.</div><span property="rdfs:isDefinedBy" resource="rbv:"></span><span style="display: none" property="vs:term_status">stable</span><dl class="terms"><dt>Subclass of:</dt><dd><span property="rdfs:subClassOf" resource="schema:Order"><a href="https://schema.org/Order"><code>schema:Order</code></a></span></dd></dl><dl class="terms"><dt>Relevant <code>@context</code>:</dt><dd><span rev="schema:mentions"><a href="https://w3id.org/retail-benefits/v1rc1"><code>https://w3id.org/retail-benefits/v1rc1</code></a></span></dd></dl><pre class="example prettyprint language-json" title="A basic example of a Receipt">{
   "@context": "https://w3id.org/retail-benefits/v1rc1",
   "type": "Receipt",
@@ -327,7 +306,6 @@ This is an experimental vocabulary and is not fit for production usage.
       "value": "1.00",
       "currency": "USD"
     },
-    "image": "https://coupon.example/12345.jpg",
     "redemptionRule": {
       "type": "RedemptionRule",
       "description": "Minimum limit 1 regular coffee. Maximum limit 1 per customer.",
@@ -342,6 +320,14 @@ This is an experimental vocabulary and is not fit for production usage.
         "value": "1",
         "unitCode": "EA"
       }
+    }
+  },
+  "renderMethod": {
+    "type": "MustacheRenderTemplate",
+    "template": {
+      "id": "https://coupon.example/coupons/coffee.svg",
+      "mediaType": "image/svg",
+      "digestMultibase": "zQmerWC85Wg6wFl9znFCwYxApG270iEu5h6JqWAPdhyxz2dR"
     }
   }
 }</pre><pre class="example prettyprint language-json" title="A basic example of a RetailBenefitCredential expressing a LoyaltyCard">{
@@ -362,21 +348,25 @@ This is an experimental vocabulary and is not fit for production usage.
     "description": "ShopCo Loyalty and Rewards Card",
     "barcode": "123456789123",
     "programIdentifier": "123",
-    "accountIdentifier": "456789123",
-    "renderMethod": [{
+    "accountIdentifier": "456789123"
+  },
+  "renderMethod": [{
+    "type": "MustacheRenderTemplate",
+    "name": "Front of card",
+    "template": {
       "id": "https://shopco.example/cards/loyalty-front.svg",
-      "type": "MustacheRenderTemplate",
-      "name": "Front of card",
       "mediaType": "image/svg",
       "digestMultibase": "zQmerWC85Wg6wFl9znFCwYxApG270iEu5h6JqWAPdhyxz2dR"
-    }, {
+    }
+  }, {
+    "type": "MustacheRenderTemplate",
+    "name": "Back of card",
+    "template": {
       "id": "https://shopco.example/cards/loyalty-back.svg",
-      "type": "MustacheRenderTemplate",
-      "name": "Back of card",
       "mediaType": "image/svg",
       "digestMultibase": "zQmC85Wg6wAp2dRerW270iEu5h6JqWFl9GAPdhyxzznFCwYx"
-    }]
-  }
+    }
+  }]
 }</pre><pre class="example prettyprint language-json" title="A basic example of a RetailBenefitCredential expressing a CouponBundle">{
   "@context": [
     "https://www.w3.org/ns/credentials/v2",
@@ -394,11 +384,13 @@ This is an experimental vocabulary and is not fit for production usage.
     "barcode": "0123456789010479832",
     "name": "ClipCo Coupons",
     "description": "Clip and Save Coupons",
-    "bundleMatcher": "https://couponbureau.example/matcher",
-    "renderMethod": {
+    "bundleMatcher": "https://couponbureau.example/matcher"
+  },
+  "renderMethod": {
+    "type": "MustacheRenderTemplate",
+    "name": "Scan",
+    "template": {
       "id": "https://couponbureau.example/bundle.svg",
-      "type": "MustacheRenderTemplate",
-      "name": "Scan",
       "mediaType": "image/svg",
       "digestMultibase": "zQ6JqWAPdhyx5Wg6wFl9znFCwYxApG270iEu5hz2dRmerWC8"
     }
