@@ -322,14 +322,17 @@ This is an experimental vocabulary and is not fit for production usage.
       }
     }
   },
-  "renderMethod": {
+  "renderMethod": [{
     "type": "MustacheRenderTemplate",
     "template": {
       "id": "https://coupon.example/coupons/coffee.svg",
       "mediaType": "image/svg",
       "digestMultibase": "zQmerWC85Wg6wFl9znFCwYxApG270iEu5h6JqWAPdhyxz2dR"
     }
-  }
+  }, {
+    "type": "NfcRenderMethod",
+    "payload": "data:application/octet-stream;base64,2QZkpQGDG...G8XJWnROcY4Biw"
+  }]
 }</pre><pre class="example prettyprint language-json" title="A basic example of a RetailBenefitCredential expressing a LoyaltyCard">{
   "@context": [
     "https://www.w3.org/ns/credentials/v2",
