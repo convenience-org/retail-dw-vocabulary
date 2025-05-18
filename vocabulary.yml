@@ -278,15 +278,21 @@ class:
               }
             },
             "renderMethod": [{
-              "type": "MustacheRenderTemplate",
-              "template": {
-                "id": "https://coupon.example/coupons/coffee.svg",
-                "mediaType": "image/svg",
-                "digestMultibase": "zQmerWC85Wg6wFl9znFCwYxApG270iEu5h6JqWAPdhyxz2dR"
-              }
+              "type": "TemplateRenderMethod",
+              "renderSuite": "svg-mustache",
+              "template": "data:image/svg+xml;base64,Qjei89...3jZpW"
             }, {
-              "type": "NfcRenderMethod",
-              "payload": "data:application/octet-stream;base64,2QZkpQGDG...G8XJWnROcY4Biw"
+              "type": "TemplateRenderMethod",
+              "renderSuite": "barcode",
+              "name": "Scan at checkout",
+              "template": "data:application/vcb;format=pdf417;base64,QGDG2QZkp...cY4BiwG8XJWnRO",
+              "renderProperty": ["/credentialSubject/barcode"]
+            }, {
+              "type": "TemplateRenderMethod",
+              "renderSuite": "barcode",
+              "name": "Scan at checkout",
+              "template": "data:image/png;base64,k38dQGDG2...cjf82Y4BiwG8XJ",
+              "renderProperty": ["/credentialSubject/barcode"]
             }]
           }
       - label: A basic example of a RetailBenefitCredential expressing a LoyaltyCard
@@ -312,20 +318,22 @@ class:
               "accountIdentifier": "456789123"
             },
             "renderMethod": [{
-              "type": "MustacheRenderTemplate",
+              "type": "TemplateRenderMethod",
               "name": "Front of card",
+              "renderSuite": "svg-mustache",
               "template": {
                 "id": "https://shopco.example/cards/loyalty-front.svg",
-                "mediaType": "image/svg",
-                "digestMultibase": "zQmerWC85Wg6wFl9znFCwYxApG270iEu5h6JqWAPdhyxz2dR"
+                "mediaType": "image/svg+xml",
+                "digestMultibase": "uQmerWC85Wg6wFl9znFCwYxApG270iEu5h6JqWAPdhyxz2dR"
               }
             }, {
-              "type": "MustacheRenderTemplate",
+              "type": "TemplateRenderMethod",
               "name": "Back of card",
+              "renderSuite": "svg-mustache",
               "template": {
                 "id": "https://shopco.example/cards/loyalty-back.svg",
-                "mediaType": "image/svg",
-                "digestMultibase": "zQmC85Wg6wAp2dRerW270iEu5h6JqWFl9GAPdhyxzznFCwYx"
+                "mediaType": "image/svg+xml",
+                "digestMultibase": "uQmC85Wg6wAp2dRerW270iEu5h6JqWFl9GAPdhyxzznFCwYx"
               }
             }]
           }
@@ -351,16 +359,17 @@ class:
               "bundleMatcher": "https://couponbureau.example/matcher"
             },
             "renderMethod": {
-              "type": "MustacheRenderTemplate",
+              "type": "TemplateRenderMethod",
               "name": "Scan",
+              "renderSuite": "svg-mustache",
               "template": {
                 "id": "https://couponbureau.example/bundle.svg",
-                "mediaType": "image/svg",
-                "digestMultibase": "zQ6JqWAPdhyx5Wg6wFl9znFCwYxApG270iEu5hz2dRmerWC8"
+                "mediaType": "image/svg+xml",
+                "digestMultibase": "uQ6JqWAPdhyx5Wg6wFl9znFCwYxApG270iEu5hz2dRmerWC8"
               }
             }
           }
-  - id: rm:MustacheRenderTemplate
+  - id: rm:TemplateRenderMethod
     label: Render Template using Mustache Syntax
     context: https://w3id.org/retail-benefits/v1rc1
   - id: schema:MonetaryAmount
@@ -440,10 +449,10 @@ property:
   - id: mediaType
     label: Media Type
     range: xsd:string
-    domain: rm:MustacheRenderTemplate
+    domain: rm:TemplateRenderMethod
     comment: >-
       The media type associated with the rendering template; usually
-      `application/pdf` or `image/svg`.
+      `application/pdf` or `image/svg+xml`.
     context: https://w3id.org/retail-benefits/v1rc1
   - id: minimumLimit
     label: Minimum quantity limit
@@ -509,7 +518,7 @@ property:
   - id: schema:name
     label: Name
     domain:
-      - rm:MustacheRenderTemplate
+      - rm:TemplateRenderMethod
       - LoyaltyCard
       - MembershipCard
       - GiftCard
@@ -520,7 +529,7 @@ property:
   - id: sec:digestMultibase
     label: Multibase-encoded Multihash Digest
     domain:
-      - rm:MustacheRenderTemplate
+      - rm:TemplateRenderMethod
     range: sec:multibase
     comment: >-
       A multi-base encoded multihash digest of the associated resource
