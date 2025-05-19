@@ -100,6 +100,18 @@ class:
     comment: >-
       A prepaid card that can be used as an alternative to cash for purchases
       within a particular store or group of stores.
+    example:
+      - label: A basic example of a GiftCard
+        json: |-
+          {
+            "@context": "https://w3id.org/retail-benefits/v1rc1",
+            "type": "GiftCard",
+            "name": "ShopCo Gift Card",
+            "description": "ShopCo Gift Card",
+            "barcode": "456789123",
+            "programIdentifier": "567",
+            "accountIdentifier": "789123456"
+          }
     context: https://w3id.org/retail-benefits/v1rc1
   - id: LoyaltyCard
     label: Loyalty Card
@@ -124,6 +136,33 @@ class:
     comment: >-
       A card that signifies membership in a retail program, granting access to
       member-exclusive discounts and rewards.
+    example:
+      - label: A basic example of a MembershipCard
+        json: |-
+          {
+            "@context": "https://w3id.org/retail-benefits/v1rc1",
+            "type": "MembershipCard",
+            "name": "ShopCo Membership Card",
+            "description": "ShopCo Membership Card",
+            "barcode": "789123456",
+            "programIdentifier": "912",
+            "accountIdentifier": "345612789"
+          }
+    context: https://w3id.org/retail-benefits/v1rc1
+  - id: PaymentToken
+    label: Payment Token
+    comment: >-
+      A tokenized payment instrument that can be used through a payment
+      network that knows how to communicate with the tokenization provider.
+    example:
+      - label: A basic example of a PaymentToken
+        json: |-
+          {
+            "@context": "https://w3id.org/retail-benefits/v1rc1",
+            "type": "PaymentToken",
+            "issuer": "https://tokenizer.example/",
+            "token": "uFkNDk1OTI5OWM1ZmIyZGFmY2RkODY5NDllM2Q0YTI3ZT"
+          }
     context: https://w3id.org/retail-benefits/v1rc1
   - id: Rebate
     label: Rebate
@@ -534,6 +573,13 @@ property:
     comment: >-
       A multi-base encoded multihash digest of the associated resource
       identified using the `id` property.
+    context: https://w3id.org/retail-benefits/v1rc1
+  - id: token
+    label: Token
+    domain: PaymentToken
+    range: sec:multibase
+    comment: >-
+      The payment tokenization value that is known to the token issuer.
     context: https://w3id.org/retail-benefits/v1rc1
   - id: vc:renderMethod
     label: Render Method
