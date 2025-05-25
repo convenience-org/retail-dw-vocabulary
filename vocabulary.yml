@@ -126,10 +126,13 @@ class:
             "@context": "https://w3id.org/retail-benefits/v1rc1",
             "type": "LoyaltyCard",
             "name": "ShopCo Points Card",
+            "retail:loyaltyProgramName": "ShopCo Points Card",
             "description": "ShopCo Loyalty and Rewards Card",
-            "barcode": "123456789123",
-            "programIdentifier": "123",
-            "accountIdentifier": "456789123"
+            "barcode": "123456789123", // do we want this for scanning purposes?
+            "programIdentifier": "123", // not used?
+            "accountIdentifier": "456789123",
+            "retail:accountID": "456789123", // legacy, do not use?
+            "retail:account": "456789123"
           }
   - id: MembershipCard
     label: Membership Card
@@ -189,11 +192,16 @@ class:
             "image": "data:image/gif;base64,iVBORw0KGgoAAAANSU...ASUVORK5CYII="
             "seller": {
               "type": "Store",
+              "retail:organizationID": "123",
               "name": "ShopCo",
               "taxID": "123457896",
               "branchCode": "234",
+              "retail:storeLocationID": "234",
               "cashier": "Susie (485)",
-              "telephone": "15555554958"
+              "retail:cashierID": "485",
+              "retail:sourcePOI": "lane-4",
+              "retail:tillID": "1",
+              "telephone": "15555554958",
               "location": {
                 "streetAddress": "743 S. Broadway",
                 "addressLocality": "Denver",
@@ -202,26 +210,55 @@ class:
               }
             },
             "confirmationNumber": "7839",
-            "orderDate": "2025-03-24T18:55:20Z",
-            "orderedItem": [{
+            "retail:transactionID": "7839",
+            "orderDate": "2025-03-24T18:57:12Z",
+            "retail:eventStartDateTime": "2025-03-24T18:55:20Z",
+            "retail:eventEndDateTime": "2025-03-24T18:57:12Z",
+            "orderedItem": [{ // or "retail:transactionDetailGroup"
               "type": "Product",
               "sku": "9358",
-              "name": "Electro Energy Drink",
               "gtin": "1234567891234",
+              "name": "Electro Energy Drink",
               "acceptedOffer": {
                 "type": "Offer",
                 "price": "3.99",
-                "priceCurrency": "USD"
+                "priceCurrency": "USD",
                 "eligibleQuantity": {
                   "type": "QuantitativeValue",
                   "value": "1",
                   "unitCode": "EA"
                 }
               }
+            }, {
+              "retail:transactionLineSequenceNumber": 1,
+              "type": "ItemLine",
+              "retail:itemCode": {
+                "retail:posCode": "1234567891234",
+                "retail:posCodeFormat": {
+                  "format": "gtin",
+                  "checkDigit": "present"
+                },
+              },
+              "retail:description": "Electro Energy Drink",
+              "retail:regularSellPrice": {
+                "retail:value": "3.99",
+                "retail:currency": "USD"
+              },
+              "retail:discounts": [{
+                "retail:discountAmount": {
+                  "retail:value": "0.50",
+                  "retail:currency": "USD"
+                },
+                "retail:discountReason": "storeCouponOffer"
+              }],
+              "retail:actualSalesPrice": {
+                "retail:value": "3.49",
+                "retail:currency": "USD"
+              }
             }],
             "taxPaymentDue": {
               "type": "PriceSpecification",
-              "name": "State Tax (5%)"
+              "name": "State Tax (5%)",
               "price": "0.20",
               "priceCurrency": "USD"
             },
