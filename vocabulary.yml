@@ -2,6 +2,8 @@ vocab:
   id: rbv
   value: https://w3id.org/retail-benefits#
 prefix:
+  - id: retail
+    value: https://w3id.org/retail#
   - id: rm
     value: https://w3id.org/vc/render-method#
   - id: schema
@@ -126,13 +128,10 @@ class:
             "@context": "https://w3id.org/retail-benefits/v1rc1",
             "type": "LoyaltyCard",
             "name": "ShopCo Points Card",
-            "retail:loyaltyProgramName": "ShopCo Points Card",
             "description": "ShopCo Loyalty and Rewards Card",
             "barcode": "123456789123", // do we want this for scanning purposes?
             "programIdentifier": "123", // not used?
-            "accountIdentifier": "456789123",
-            "retail:accountID": "456789123", // legacy, do not use?
-            "retail:account": "456789123"
+            "account": "456789123"
           }
   - id: MembershipCard
     label: Membership Card
@@ -560,6 +559,15 @@ property:
       A property that links a coupon to the specific redemption rules that apply
       to it, detailing the conditions and terms necessary for the coupon to be
       successfully redeemed.
+    context: https://w3id.org/retail-benefits/v1rc1
+  - id: retail:account
+    label: Account
+    domain:
+      - GiftCard
+      - LoyaltyCard
+      - MembershipCard
+    comment: >-
+      The account number associated with a particular card.
     context: https://w3id.org/retail-benefits/v1rc1
   - id: schema:description
     label: Description
