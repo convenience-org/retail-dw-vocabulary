@@ -1,11 +1,13 @@
 vocab:
-  id: rbv
-  value: https://w3id.org/retail-benefits#
+  id: rdw
+  value: https://w3id.org/retail-dw#
 prefix:
   - id: retail
     value: https://w3id.org/retail#
   - id: rm
     value: https://w3id.org/vc/render-method#
+  - id: rv
+    value: https://w3id.org/retail#
   - id: schema
     value: https://schema.org/
   - id: sec
@@ -14,45 +16,82 @@ prefix:
     value: https://www.w3.org/2018/credentials#
 ontology:
   - property: dc:title
-    value: Retail Benefits Vocabulary
+    value: Retail Digital Wallet Vocabulary
   - property: dc:description
     value: |-
       <div>
-          <p>The Retail Benefits Vocabulary is an important tool for businesses in the retail sector. It provides a common language and structure for describing the various benefits that retailers offer to their customers. By using this vocabulary, businesses can improve how they communicate and share information about their products and services.</p>
+        <p>
+          This specification defines a vocabulary for modeling a wide range
+          of retail credentials commonly stored in digital wallets. These
+          credentials include coupons, gift cards, loyalty cards, membership
+          cards, tokenized payment methods, rebates, and receipts. As digital
+          wallets become increasingly central to consumer commerce and mobile
+          transactions, there is a growing need for a standard, interoperable
+          data model that supports retail use cases in a consistent and
+          extensible manner.
+        </p>
 
-          <p>One of the main benefits of using the Retail Benefits Vocabulary is that it helps create a clear and consistent way to present information. This is important because it allows customers to easily understand what benefits they can expect when shopping at different retailers. When all businesses use the same terms and definitions, it makes comparison shopping easier and helps customers make informed decisions.</p>
+        <p>
+          The vocabulary is designed to be used in conjunction with the <a
+          href="https://www.w3.org/TR/vc-data-model/">W3C Verifiable Credentials
+          Data Model</a>, which provides a secure, privacy-respecting framework
+          for issuing and verifying digitally signed credentials. By aligning
+          with the Verifiable Credentials ecosystem, the vocabulary allows
+          retail data to be issued by trusted entities, cryptographically
+          signed, selectively disclosed, and independently verified. This
+          enables higher levels of trust, transparency, and security across
+          digital wallet transactions, whether they are processed online or
+          in-person.
+        </p>
 
-          <p>This vocabulary is especially useful for various market verticals, including grocery stores, clothing retailers, online marketplaces, and service providers. Each of these sectors has unique benefits they offer, and this vocabulary can help them clearly communicate those advantages. For instance, grocery stores might focus on loyalty programs, while online marketplaces might highlight personalized shopping experiences.</p>
+        <p>
+          One of the primary benefits of using this vocabulary is the reduction
+          of integration complexity across digital wallet implementations.
+          Developers can avoid the need to support multiple proprietary schemas
+          or ad hoc data formats, relying instead on a shared vocabulary with
+          well-defined semantics. This promotes interoperability between wallet
+          applications and merchant systems, facilitates innovation across the
+          digital commerce landscape, and enables more consistent user
+          experiences for consumers interacting with their retail credentials.
+        </p>
 
-          <p>Use cases for the Retail Benefits Vocabulary include marketing materials, product descriptions, and customer engagement strategies. Retailers can use the vocabulary to create better-targeted advertisements and promotional campaigns that resonate with their audience. Furthermore, it aids in developing content for websites, social media, and email newsletters, ensuring that the benefits are clearly articulated.</p>
-
-          <p>The vocabulary also supports businesses in tracking and analyzing the effectiveness of their retail benefits. By expressing information in a structured way, retailers can gather data and insights on customer preferences and behaviors. This information is valuable for making data-driven decisions that can enhance customer satisfaction and loyalty.</p>
-
-          <p>In summary, the Retail Benefits Vocabulary provides a framework that offers clarity and consistency in communicating retail benefits. By utilizing this vocabulary, businesses can improve their marketing strategies, enhance customer relationships, and ultimately drive sales. It serves as a bridge between retailers and customers, helping to make the shopping experience more enjoyable and informative.</p>
+        <p>
+          In addition to supporting standardized credential structures, the
+          vocabulary is designed with extensibility in mind. Developers can
+          build upon core terms to accommodate emerging retail use cases,
+          regional requirements, or custom business logic. The vocabulary also
+          aligns with best practices for digital identity, data privacy, and
+          cryptographic verification, allowing developers to create
+          privacy-respecting and trustworthy wallet experiences. By adopting
+          this vocabulary, implementers contribute to a more open,
+          interoperable, and future-proof digital wallet ecosystem that
+          leverages global web standards.
+        </p>
       </div>
   - property: dc:abstract
     value: >-
-      The Retail Benefits Vocabulary is designed to help businesses and
-      organizations clearly define and share information related to retail
-      benefits. It includes various classes that represent different concepts,
-      such as types of retail experiences and customer engagement strategies, as
-      well as properties that describe the relationships and characteristics of
-      these concepts. By using this vocabulary, retailers can better understand
-      and communicate the value they provide to customers, making it easier to
-      compare and analyze retail benefits across different contexts and
-      platforms
+      This specification defines a vocabulary for representing retail-related
+      credentials commonly stored in digital wallets, including coupons, gift
+      cards, loyalty cards, membership cards, tokenized payment methods,
+      rebates, and receipts. The vocabulary provides a standardized,
+      machine-readable framework for expressing the structure and semantics of
+      these credential types, enabling consistent interoperability across wallet
+      providers, merchants, and service platforms.
 class:
+  - id: rv:Amount
+    label: Monetary amount
+    context: https://w3id.org/retail-dw/v1rc1
   - id: Coupon
     label: Coupon
     comment: >-
       A voucher entitling the holder to a discount or that may be exchanged for
       goods or services.
-    context: https://w3id.org/retail-benefits/v1rc1
+    context: https://w3id.org/retail-dw/v1rc1
     example:
       - label: A basic example of the Coupon class expressed as JSON-LD.
         json: |-
           {
-            "@context": "https://w3id.org/retail-benefits/v1rc1",
+            "@context": "https://w3id.org/retail-dw/v1rc1",
             "id": "https://coupon.example/12345",
             "type": "Coupon",
             "barcode": "0123456789123",
@@ -85,12 +124,12 @@ class:
       multiple discounts or offers. The bundle and a transaction identifier are
       sent to a bundle matching service which provides information on whether or
       not the bundle is applicable to the transaction.
-    context: https://w3id.org/retail-benefits/v1rc1
+    context: https://w3id.org/retail-dw/v1rc1
     example:
       - label: A basic example of the CouponBundle
         json: |-
           {
-            "@context": "https://w3id.org/retail-benefits/v1rc1",
+            "@context": "https://w3id.org/retail-dw/v1rc1",
             "type": "CouponBundle",
             "barcode": "0123456789010479832",
             "name": "ClipCo Coupons",
@@ -106,7 +145,7 @@ class:
       - label: A basic example of a GiftCard
         json: |-
           {
-            "@context": "https://w3id.org/retail-benefits/v1rc1",
+            "@context": "https://w3id.org/retail-dw/v1rc1",
             "type": "GiftCard",
             "name": "ShopCo Gift Card",
             "description": "ShopCo Gift Card",
@@ -114,23 +153,33 @@ class:
             "programIdentifier": "567",
             "accountIdentifier": "789123456"
           }
-    context: https://w3id.org/retail-benefits/v1rc1
+    context: https://w3id.org/retail-dw/v1rc1
+  - id: rv:ItemCode
+    label: Product item code
+    context: https://w3id.org/retail-dw/v1rc1
   - id: LoyaltyCard
     label: Loyalty Card
     comment: >-
       A card issued by a retailer to a customer that facilitates accumulation of
       loyalty points, rewards, or discounts.
-    context: https://w3id.org/retail-benefits/v1rc1
+    context: https://w3id.org/retail-dw/v1rc1
     example:
       - label: A basic example of a LoyaltyCard
         json: |-
           {
-            "@context": "https://w3id.org/retail-benefits/v1rc1",
+            "@context": "https://w3id.org/retail-dw/v1rc1",
             "type": "LoyaltyCard",
+<<<<<<< HEAD
             "name": "ShopCo Points Card",
             "description": "ShopCo Loyalty and Rewards Card",
             "barcode": "123456789123", // do we want this for scanning purposes?
             "programIdentifier": "123", // not used?
+=======
+            "loyaltyProgramName": "ShopCo Points Card",
+            "description": "ShopCo Loyalty and Rewards Card",
+            "barCodeData": "123456789123",
+            "programIdentifier": "123", // TODO: Do we want this?
+>>>>>>> 4f47532 (Align vocabulary for Cards and receipts with Retail vocabulary.)
             "account": "456789123"
           }
   - id: MembershipCard
@@ -142,36 +191,75 @@ class:
       - label: A basic example of a MembershipCard
         json: |-
           {
-            "@context": "https://w3id.org/retail-benefits/v1rc1",
+            "@context": "https://w3id.org/retail-dw/v1rc1",
             "type": "MembershipCard",
-            "name": "ShopCo Membership Card",
+            "loyaltyProgramName": "ShopCo Membership Card",
             "description": "ShopCo Membership Card",
-            "barcode": "789123456",
-            "programIdentifier": "912",
-            "accountIdentifier": "345612789"
+            "barCodeData": "789123456",
+            "programIdentifier": "912", // TODO: Do we want this?
+            "account": "345612789"
           }
-    context: https://w3id.org/retail-benefits/v1rc1
+    context: https://w3id.org/retail-dw/v1rc1
+  - id: schema:MonetaryAmount
+    label: Monetary Amount
+    context: https://w3id.org/retail-dw/v1rc1
+  - id: schema:Observation
+    label: Observation
+    context: https://w3id.org/retail-dw/v1rc1
   - id: PaymentToken
     label: Payment Token
     comment: >-
-      A tokenized payment instrument that can be used through a payment
-      network that knows how to communicate with the tokenization provider.
+      A tokenized payment instrument that can be used through a payment network
+      that knows how to communicate with the tokenization provider.
     example:
       - label: A basic example of a PaymentToken
         json: |-
           {
-            "@context": "https://w3id.org/retail-benefits/v1rc1",
+            "@context": "https://w3id.org/retail-dw/v1rc1",
             "type": "PaymentToken",
             "issuer": "https://tokenizer.example/",
             "token": "uFkNDk1OTI5OWM1ZmIyZGFmY2RkODY5NDllM2Q0YTI3ZT"
           }
-    context: https://w3id.org/retail-benefits/v1rc1
+    context: https://w3id.org/retail-dw/v1rc1
+  - id: rv:PosCodeFormat
+    label: Point of sale item code format
+    context: https://w3id.org/retail-dw/v1rc1
+  - id: rv:PosJournalAgeVerificationLine
+    label: Point of sale age verification line entry
+    context: https://w3id.org/retail-dw/v1rc1
+  - id: rv:PosJournalDiscountLine
+    label: Point of sale discount line entry
+    context: https://w3id.org/retail-dw/v1rc1
+  - id: rv:PosJournalFuelLine
+    label: Point of sale fuel line entry
+    context: https://w3id.org/retail-dw/v1rc1
+  - id: rv:PosJournalFuelPrepayLine
+    label: Point of sale fuel pre-pay line entry
+    context: https://w3id.org/retail-dw/v1rc1
+  - id: rv:PosJournalItemLine
+    label: Point of sale journal item line entry
+    context: https://w3id.org/retail-dw/v1rc1
+  - id: rv:PosJournalLinkedTransactionInfo
+    label: Point of sale linked transaction information
+    context: https://w3id.org/retail-dw/v1rc1
+  - id: rv:PosJournalLoyaltyLine
+    label: Point of sale journal loyalty line entry
+    context: https://w3id.org/retail-dw/v1rc1
+  - id: rv:PosJournalMerchandiseCodeLine
+    label: Point of sale journal merchandise code line entry
+    context: https://w3id.org/retail-dw/v1rc1
+  - id: rv:PosJournalTenderInfoLine
+    label: Point of sale tender information line entry
+    context: https://w3id.org/retail-dw/v1rc1
+  - id: schema:PostalAddress
+    label: Postal address
+    context: https://w3id.org/retail-dw/v1rc1
   - id: Rebate
     label: Rebate
     comment: >-
       A refund or return of part of the purchase price by the seller to the
       buyer, typically given as a promotional offer.
-    context: https://w3id.org/retail-benefits/v1rc1
+    context: https://w3id.org/retail-dw/v1rc1
   - id: Receipt
     label: Receipt
     comment: >-
@@ -179,104 +267,90 @@ class:
       or services purchased. It typically includes details such as the date of
       purchase, the items bought, the total amount paid, and any applicable
       taxes.
-    upper_value: schema:Order
-    context: https://w3id.org/retail-benefits/v1rc1
+    context: https://w3id.org/retail-dw/v1rc1
     example:
       - label: A basic example of a Receipt
         json: |-
           {
-            "@context": "https://w3id.org/retail-benefits/v1rc1",
+            "@context": "https://w3id.org/retail-dw/v1rc1",
             "type": "Receipt",
-            "name": "Your ShopCo Purchase",
+            "description": "Your Utopia ShopCo Purchase on July 1st 2024",
             "image": "data:image/gif;base64,iVBORw0KGgoAAAANSU...ASUVORK5CYII="
+            "confirmationNumber": "F7-3829948",
+            "transactionID": "7839",
+            "eventStartDateTime": "2025-03-24T18:55:20Z",
+            "eventEndDateTime": "2025-03-24T18:57:12Z",
             "seller": {
               "type": "Store",
-              "retail:organizationID": "123",
-              "name": "ShopCo",
+              "organizationID": "123",
+              "description": "ShopCo",
               "taxID": "123457896",
-              "branchCode": "234",
-              "retail:storeLocationID": "234",
-              "cashier": "Susie (485)",
-              "retail:cashierID": "485",
-              "retail:sourcePOI": "lane-4",
-              "retail:tillID": "1",
+              "storeLocationID": "234",
+              "cashierID": "485",
+              "sourcePOI": "lane-4",
+              "tillID": "1",
               "telephone": "15555554958",
               "location": {
+                "type": "PostalAddress",
                 "streetAddress": "743 S. Broadway",
                 "addressLocality": "Denver",
                 "addressRegion": "CO",
                 "postalCode": "80209"
               }
             },
-            "confirmationNumber": "7839",
-            "retail:transactionID": "7839",
-            "orderDate": "2025-03-24T18:57:12Z",
-            "retail:eventStartDateTime": "2025-03-24T18:55:20Z",
-            "retail:eventEndDateTime": "2025-03-24T18:57:12Z",
-            "orderedItem": [{ // or "retail:transactionDetailGroup"
-              "type": "Product",
-              "sku": "9358",
-              "gtin": "1234567891234",
-              "name": "Electro Energy Drink",
-              "acceptedOffer": {
-                "type": "Offer",
-                "price": "3.99",
-                "priceCurrency": "USD",
-                "eligibleQuantity": {
-                  "type": "QuantitativeValue",
-                  "value": "1",
-                  "unitCode": "EA"
-                }
-              }
-            }, {
-              "retail:transactionLineSequenceNumber": 1,
-              "type": "ItemLine",
-              "retail:itemCode": {
-                "retail:posCode": "1234567891234",
-                "retail:posCodeFormat": {
+            "transactionDetailGroup": [{
+              "type": "PosJournalItemLine",
+              "transactionLineSequenceNumber": 1,
+              "description": "Electro Energy Drink",
+              "itemCode": {
+                "type": "ItemCode",
+                "posCode": "1234567891234",
+                "posCodeFormat": {
+                  "type": "PosCodeFormat",
                   "format": "gtin",
                   "checkDigit": "present"
-                },
+                }
               },
-              "retail:description": "Electro Energy Drink",
-              "retail:regularSellPrice": {
-                "retail:value": "3.99",
-                "retail:currency": "USD"
-              },
-              "retail:discounts": [{
-                "retail:discountAmount": {
-                  "retail:value": "0.50",
-                  "retail:currency": "USD"
-                },
-                "retail:discountReason": "storeCouponOffer"
-              }],
-              "retail:actualSalesPrice": {
-                "retail:value": "3.49",
-                "retail:currency": "USD"
-              }
-            }],
-            "taxPaymentDue": {
-              "type": "PriceSpecification",
-              "name": "State Tax (5%)",
-              "price": "0.20",
-              "priceCurrency": "USD"
-            },
-            "totalPaymentDue": {
-              "type": "PriceSpecification",
-              "price": "4.19",
-              "priceCurrency": "USD"
-            },
-            "paymentMethod": {
-              "type": "CreditCard",
-              "amount": {
-                "type": "MonetaryAmount",
-                "value": "4.19",
+              "regularSellPrice": {
+                "type": "Amount"
+                "value": "3.99",
                 "currency": "USD"
               },
-              "authorizationCode": "884893"
-            },
-            "returnPolicy": "Exchange and refund within 14 days with receipt",
-            "promotionalMessage": "Show this receipt next time for a 5% discount!"
+              "discounts": [{
+                "type": "Amount"
+                "discountAmount": {
+                  "value": "0.50",
+                  "currency": "USD"
+                },
+                "discountReason": "storeCouponOffer"
+              }],
+              "itemTaxes": [{
+                "type": "Tax"
+                "taxCollectedAmount": {
+                  "type": "Amount",
+                  "value": "0.21",
+                  "currency": "USD"
+                }
+              }],
+              "actualSalesPrice": {
+                "type": "Amount"
+                "value": "3.49",
+                "currency": "USD"
+              }
+            }, {
+              "type": "PosJournalTenderInfoLine",
+              "transactionLineSequenceNumber": 2,
+              "description": "Payment (Cash)",
+              "tender": {
+                "type": "TenderID",
+                "tenderCode": "cash"
+              },
+              "tenderAmount": {
+                "type": "Amount"
+                "value": "3.70",
+                "currency": "USD"
+              }
+            }]
           }
   - id: RedemptionRule
     label: Redemption Rule
@@ -285,12 +359,12 @@ class:
       transaction can be executed in a reward or loyalty program. This includes
       parameters such as eligibility criteria, expiration dates, and specific
       terms that must be met for a reward to be redeemed.
-    context: https://w3id.org/retail-benefits/v1rc1
+    context: https://w3id.org/retail-dw/v1rc1
     example:
       - label: A basic example of the RedemptionRule class expressed as JSON-LD.
         json: |-
           {
-            "@context": "https://w3id.org/retail-benefits/v1rc1",
+            "@context": "https://w3id.org/retail-dw/v1rc1",
             "type": "RedemptionRule",
             "description": "Minimum limit 1 product. Maximum limit 1 per customer.",
             "gtin": "1234567890123",
@@ -305,19 +379,23 @@ class:
               "unitCode": "EA"
             }
           }
+  - id: vc:RenderMethod
+    label: Render Method
+    comment: A mechanism for rendering data to a visual or wireless medium.
+    context: https://w3id.org/retail-dw/v1rc1
   - id: RetailBenefitCredential
     label: Retail Benefit Credential
     comment: >-
       A credential that represents various benefits offered by retail stores,
       such as coupons, loyalty points, or gift cards.
-    context: https://w3id.org/retail-benefits/v1rc1
+    context: https://w3id.org/retail-dw/v1rc1
     example:
       - label: A basic example of the RetailBenefitCredential expressing a Coupon
         json: |-
           {
             "@context": [
               "https://www.w3.org/ns/credentials/v2",
-              "https://w3id.org/retail-benefits/v1rc1",
+              "https://w3id.org/retail-dw/v1rc1",
             ]
             "type": ["VerifiableCredential", "RetailBenefitCredential"],
             "issuer": {
@@ -375,7 +453,7 @@ class:
           {
             "@context": [
               "https://www.w3.org/ns/credentials/v2",
-              "https://w3id.org/retail-benefits/v1rc1"
+              "https://w3id.org/retail-dw/v1rc1"
             ],
             "type": ["VerifiableCredential", "RetailBenefitCredential"],
             "issuer": {
@@ -417,7 +495,7 @@ class:
           {
             "@context": [
               "https://www.w3.org/ns/credentials/v2",
-              "https://w3id.org/retail-benefits/v1rc1"
+              "https://w3id.org/retail-dw/v1rc1"
             ],
             "type": ["VerifiableCredential", "RetailBenefitCredential"],
             "issuer": {
@@ -444,34 +522,47 @@ class:
               }
             }
           }
+  - id: schema:Store
+    label: Store
+    context: https://w3id.org/retail-dw/v1rc1
+  - id: rv:Tax
+    label: Tax amount
+    context: https://w3id.org/retail-dw/v1rc1
   - id: rm:TemplateRenderMethod
     label: Render Template using Mustache Syntax
-    context: https://w3id.org/retail-benefits/v1rc1
-  - id: schema:MonetaryAmount
-    label: Monetary Amount
-    context: https://w3id.org/retail-benefits/v1rc1
-  - id: schema:Observation
-    label: Observation
-    context: https://w3id.org/retail-benefits/v1rc1
-  - id: vc:RenderMethod
-    label: Render Method
-    comment: A mechanism for rendering data to a visual or wireless medium.
-    context: https://w3id.org/retail-benefits/v1rc1
+    context: https://w3id.org/retail-dw/v1rc1
 property:
-  - id: accountIdentifier
-    label: Account Identifier
+  - id: rv:account
+    label: Account identifier
     domain:
+      - CouponBundle
+      - GiftCard
       - LoyaltyCard
       - MembershipCard
-      - GiftCard
-    range: xsd:string
-    comment: >-
-      A unique identifier for the account associated with the loyalty card,
-      membership card, or gift card, used to track benefits and transactions
-      related to the account.
-    context: https://w3id.org/retail-benefits/v1rc1
-  - id: barcode
-    label: Barcode
+    context: https://w3id.org/retail-dw/v1rc1
+  - id: rv:actualSalesPrice
+    label: Regular sales price
+    range:
+      - rv:Amount
+    domain:
+      - rv:LoyaltyItemLine
+      - rv:PosJournalItemLine
+      - rv:PosJournalMerchandiseCodeLine
+      - rv:PosJournalFuelLine
+      - rv:PosJournalFuelPrepayLine
+    context: https://w3id.org/retail-dw/v1rc1
+  - id: schema:addressLocality
+    label: Address locality (town or city)
+    domain:
+      - schema:PostalAddress
+    context: https://w3id.org/retail-dw/v1rc1
+  - id: schema:addressRegion
+    label: Address region (state)
+    domain:
+      - schema:PostalAddress
+    context: https://w3id.org/retail-dw/v1rc1
+  - id: rv:barCodeData
+    label: Bar Code Data
     domain:
       - Coupon
       - CouponBundle
@@ -479,12 +570,7 @@ property:
       - LoyaltyCard
       - MembershipCard
       - Rebate
-    range: xsd:string
-    comment: >-
-      A property that indicates the barcode associated with the respective
-      entities in GS1 GTIN format, allowing for easy scanning and identification
-      during transactions or redemptions.
-    context: https://w3id.org/retail-benefits/v1rc1
+    context: https://w3id.org/retail-dw/v1rc1
   - id: bundleMatcher
     label: Coupon Bundle Matching Service
     domain: CouponBundle
@@ -492,56 +578,33 @@ property:
     comment: >-
       This URL is used to communicate with the coupon bundle service to see if
       any item associated with a transaction matches the coupon bundle.
-    context: https://w3id.org/retail-benefits/v1rc1
-  - id: discount
-    label: Discount
+    context: https://w3id.org/retail-dw/v1rc1
+  - id: rv:cashierID
+    label: Cashier Identifier
+    domain:
+      - schema:Store
+    context: https://w3id.org/retail-dw/v1rc1
+  - id: rv:checkDigit
+    label: Presence of check digit in point of sale code
+    domain:
+      - rv:PosCodeFormat
+    context: https://w3id.org/retail-dw/v1rc1
+  - id: schema:confirmationNumber
+    label: Confirmation number
+    domain:
+      - Receipt
+    context: https://w3id.org/retail-dw/v1rc1
+  - id: rv:currency
+    label: Monetary currency
+    domain:
+      - rv:Amount
+    context: https://w3id.org/retail-dw/v1rc1
+  - id: rv:description
+    label: Description
     domain:
       - Coupon
+      - CouponBundle
       - GiftCard
-    range: schema:MonetaryAmount
-    comment: >-
-      Represents the discount amount associated with a coupon, expressed as a
-      monetary value.
-    context: https://w3id.org/retail-benefits/v1rc1
-  - id: gtin
-    label: GTIN
-    domain: RedemptionRule
-    range: xsd:string
-    comment: >-
-      A property that specifies the GS1 Global Trade Identification Number
-      (GTIN) associated with a product, which uniquely identifies a specific
-      item in the marketplace.
-    context: https://w3id.org/retail-benefits/v1rc1
-  - id: maximumLimit
-    label: Maximum Limit
-    range: schema:Observation
-    domain: RedemptionRule
-    comment: >-
-      This property represents the maximum limit associated with a redemption
-      rule, indicating the upper threshold related to the conditions of the
-      redemption.
-    context: https://w3id.org/retail-benefits/v1rc1
-  - id: mediaType
-    label: Media Type
-    range: xsd:string
-    domain: rm:TemplateRenderMethod
-    comment: >-
-      The media type associated with the rendering template; usually
-      `application/pdf` or `image/svg+xml`.
-    context: https://w3id.org/retail-benefits/v1rc1
-  - id: minimumLimit
-    label: Minimum quantity limit
-    domain: RedemptionRule
-    range: schema:Observation
-    comment: >-
-      A property that defines the minimum quantity of items that must be
-      purchased or redeemed in order to qualify for the RedemptionRule. This
-      ensures that customers meet specific criteria before applying the
-      redemption.
-    context: https://w3id.org/retail-benefits/v1rc1
-  - id: programIdentifier
-    label: Program Identifier
-    domain:
       - LoyaltyCard
       - MembershipCard
       - GiftCard
@@ -583,7 +646,75 @@ property:
       A property that provides a detailed textual description of the respective
       entity, outlining its features, terms, and conditions to enhance
       understanding and utilization by users.
-    context: https://w3id.org/retail-benefits/v1rc1
+    context: https://w3id.org/retail-dw/v1rc1
+  - id: sec:digestMultibase
+    label: Multibase-encoded Multihash Digest
+    domain:
+      - rm:TemplateRenderMethod
+    range: sec:multibase
+    comment: >-
+      A multi-base encoded multihash digest of the associated resource
+      identified using the `id` property.
+    context: https://w3id.org/retail-dw/v1rc1
+  - id: discount
+    label: Discount
+    domain:
+      - Coupon
+      - GiftCard
+    range: schema:MonetaryAmount
+    comment: >-
+      Represents the discount amount associated with a coupon, expressed as a
+      monetary value.
+    context: https://w3id.org/retail-dw/v1rc1
+  - id: rv:discountAmount
+    label: Discount amount
+    range:
+      - rv:Amount
+    domain:
+      - rv:LoyaltyItemLine
+      - rv:PosJournalItemLine
+      - rv:PosJournalMerchandiseCodeLine
+      - rv:PosJournalFuelLine
+      - rv:PosJournalFuelPrepayLine
+    context: https://w3id.org/retail-dw/v1rc1
+  - id: rv:discountReason
+    label: Discount amount
+    domain:
+      - rv:Amount
+    context: https://w3id.org/retail-dw/v1rc1
+  - id: rv:discounts
+    label: Discount
+    domain:
+      - rv:LoyaltyItemLine
+      - rv:PosJournalItemLine
+      - rv:PosJournalMerchandiseCodeLine
+      - rv:PosJournalFuelLine
+      - rv:PosJournalFuelPrepayLine
+    context: https://w3id.org/retail-dw/v1rc1
+  - id: rv:eventEndDateTime
+    label: Event end date and time
+    domain:
+      - Receipt
+    context: https://w3id.org/retail-dw/v1rc1
+  - id: rv:eventStartDateTime
+    label: Event start date and time
+    domain:
+      - Receipt
+    context: https://w3id.org/retail-dw/v1rc1
+  - id: rv:format
+    label: Point of sale code format
+    domain:
+      - rv:PosCodeFormat
+    context: https://w3id.org/retail-dw/v1rc1
+  - id: gtin
+    label: GTIN
+    domain: RedemptionRule
+    range: xsd:string
+    comment: >-
+      A property that specifies the GS1 Global Trade Identification Number
+      (GTIN) associated with a product, which uniquely identifies a specific
+      item in the marketplace.
+    context: https://w3id.org/retail-dw/v1rc1
   - id: schema:image
     label: Image
     domain:
@@ -598,7 +729,64 @@ property:
       A property that specifies the URL or identifier of an image associated
       with the respective entities, used for visual representation in digital or
       physical formats.
-    context: https://w3id.org/retail-benefits/v1rc1
+    context: https://w3id.org/retail-dw/v1rc1
+  - id: rv:itemCode
+    label: Item code
+    range:
+      - rv:ItemCode
+    domain:
+      - rv:PosJournalItemLine
+    context: https://w3id.org/retail-dw/v1rc1
+  - id: rv:itemTaxes
+    label: Item taxes
+    range:
+      - rv:Tax
+    domain:
+      - rv:LoyaltyItemLine
+      - rv:PosJournalItemLine
+      - rv:PosJournalMerchandiseCodeLine
+      - rv:PosJournalFuelLine
+      - rv:PosJournalFuelPrepayLine
+    context: https://w3id.org/retail-dw/v1rc1
+  - id: schema:location
+    label: Location
+    domain:
+      - schema:Store
+    range: schema:PostalAddress
+    context: https://w3id.org/retail-dw/v1rc1
+  - id: rv:loyaltyProgramName
+    label: Loyalty program name
+    domain:
+      - LoyaltyCard
+      - MembershipCard
+    context: https://w3id.org/retail-dw/v1rc1
+  - id: maximumLimit
+    label: Maximum Limit
+    range: schema:Observation
+    domain: RedemptionRule
+    comment: >-
+      This property represents the maximum limit associated with a redemption
+      rule, indicating the upper threshold related to the conditions of the
+      redemption.
+    context: https://w3id.org/retail-dw/v1rc1
+  - id: mediaType
+    label: Media Type
+    range: xsd:string
+    domain: rm:TemplateRenderMethod
+    comment: >-
+      The media type associated with the rendering template; usually
+      `application/pdf` or `image/svg+xml`.
+    context: https://w3id.org/retail-dw/v1rc1
+  - id: minimumLimit
+    label: Minimum quantity limit
+    domain: RedemptionRule
+    range: schema:Observation
+    comment: >-
+      A property that defines the minimum quantity of items that must be
+      purchased or redeemed in order to qualify for the RedemptionRule. This
+      ensures that customers meet specific criteria before applying the
+      redemption.
+    context: https://w3id.org/retail-dw/v1rc1
   - id: schema:name
     label: Name
     domain:
@@ -609,23 +797,59 @@ property:
       - Coupon
       - CouponBundle
     comment: The name to use when rendering a particular object to a visual medium.
-    context: https://w3id.org/retail-benefits/v1rc1
-  - id: sec:digestMultibase
-    label: Multibase-encoded Multihash Digest
+    context: https://w3id.org/retail-dw/v1rc1
+  - id: rv:organizationID
+    label: Organization Identifier
     domain:
-      - rm:TemplateRenderMethod
-    range: sec:multibase
+      - schema:Store
+    context: https://w3id.org/retail-dw/v1rc1
+  - id: rv:posCode
+    label: Point of sale code
+    domain:
+      - rv:ItemCode
+    context: https://w3id.org/retail-dw/v1rc1
+  - id: rv:posCodeFormat
+    label: Point of sale code format
+    range:
+      - rv:PosCodeFormat
+    context: https://w3id.org/retail-dw/v1rc1
+  - id: schema:postalCode
+    label: Postal code (ZIP)
+    domain:
+      - schema:PostalAddress
+    context: https://w3id.org/retail-dw/v1rc1
+  - id: programIdentifier
+    label: Program Identifier
+    domain:
+      - LoyaltyCard
+      - MembershipCard
+      - GiftCard
+    range: xsd:string
     comment: >-
-      A multi-base encoded multihash digest of the associated resource
-      identified using the `id` property.
-    context: https://w3id.org/retail-benefits/v1rc1
-  - id: token
-    label: Token
-    domain: PaymentToken
-    range: sec:multibase
+      A unique identifier for the loyalty program, membership program, or gift
+      card program that the card is associated with, used to differentiate
+      between various programs offered by an organization.
+    context: https://w3id.org/retail-dw/v1rc1
+  - id: redemptionRule
+    label: Redemption Rule
+    domain: Coupon
+    range: RedemptionRule
     comment: >-
-      The payment tokenization value that is known to the token issuer.
-    context: https://w3id.org/retail-benefits/v1rc1
+      A property that links a coupon to the specific redemption rules that apply
+      to it, detailing the conditions and terms necessary for the coupon to be
+      successfully redeemed.
+    context: https://w3id.org/retail-dw/v1rc1
+  - id: rv:regularSellPrice
+    label: Regular sales price
+    range:
+      - rv:Amount
+    domain:
+      - rv:LoyaltyItemLine
+      - rv:PosJournalItemLine
+      - rv:PosJournalMerchandiseCodeLine
+      - rv:PosJournalFuelLine
+      - rv:PosJournalFuelPrepayLine
+    context: https://w3id.org/retail-dw/v1rc1
   - id: vc:renderMethod
     label: Render Method
     domain:
@@ -637,7 +861,96 @@ property:
       - Rebate
     range: vc:RenderMethod
     comment: A mechanism used to render a visual or wireless expression of the benefit.
-    context: https://w3id.org/retail-benefits/v1rc1
+    context: https://w3id.org/retail-dw/v1rc1
+  - id: schema:seller
+    label: Seller
+    domain:
+      - Receipt
+    context: https://w3id.org/retail-dw/v1rc1
+  - id: rv:sourcePOI
+    label: Source point of interaction
+    domain:
+      - schema:Store
+    context: https://w3id.org/retail-dw/v1rc1
+  - id: rv:storeLocationID
+    label: Store location identifier
+    domain:
+      - schema:Store
+    context: https://w3id.org/retail-dw/v1rc1
+  - id: schema:streetAddress
+    label: Street address
+    domain:
+      - schema:PostalAddress
+    context: https://w3id.org/retail-dw/v1rc1
+  - id: schema:taxID
+    label: Tax Identifier
+    domain:
+      - schema:Store
+    context: https://w3id.org/retail-dw/v1rc1
+  - id: schema:telephone
+    label: Telephone number
+    domain:
+      - schema:Store
+    context: https://w3id.org/retail-dw/v1rc1
+  - id: rv:tender
+    label: Tender information
+    domain:
+      - rv:PosJournalTenderInfoLine
+    context: https://w3id.org/retail-dw/v1rc1
+  - id: rv:tenderAmount
+    label: Tender amount
+    range:
+      - rv:Amount
+    context: https://w3id.org/retail-dw/v1rc1
+  - id: rv:tillID
+    label: Till identifier
+    domain:
+      - schema:Store
+    context: https://w3id.org/retail-dw/v1rc1
+  - id: token
+    label: Token
+    domain: PaymentToken
+    range: sec:multibase
+    comment: The payment tokenization value that is known to the token issuer.
+    context: https://w3id.org/retail-dw/v1rc1
+  - id: rv:transactionDetailGroup
+    label: Transaction detail group
+    domain:
+      - Receipt
+    range:
+      - rv:PosJournalItemLine
+      - rv:PosJournalLoyaltyLine
+      - rv:PosJournalMerchandiseCodeLine
+      - rv:PosJournalFuelLine
+      - rv:PosJournalFuelPrepayLine
+      - rv:PosJournalDiscountLine
+      - rv:PosJournalTenderInfoLine
+      - rv:PosJournalLinkedTransactionInfo
+      - rv:PosJournalAgeVerificationLine
+    context: https://w3id.org/retail-dw/v1rc1
+  - id: rv:transactionID
+    label: Transaction Identifier
+    domain:
+      - Receipt
+    context: https://w3id.org/retail-dw/v1rc1
+  - id: rv:transactionLineSequenceNumber
+    label: Event end date and time
+    domain:
+      - rv:PosJournalItemLine
+      - rv:PosJournalLoyaltyLine
+      - rv:PosJournalMerchandiseCodeLine
+      - rv:PosJournalFuelLine
+      - rv:PosJournalFuelPrepayLine
+      - rv:PosJournalDiscountLine
+      - rv:PosJournalTenderInfoLine
+      - rv:PosJournalLinkedTransactionInfo
+      - rv:PosJournalAgeVerificationLine
+    context: https://w3id.org/retail-dw/v1rc1
+  - id: rv:value
+    label: Monetary value
+    domain:
+      - rv:Amount
+    context: https://w3id.org/retail-dw/v1rc1
 datatype:
   - id: sec:multibase
     label: Datatype of Multibase
