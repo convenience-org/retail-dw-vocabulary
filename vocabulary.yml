@@ -169,17 +169,10 @@ class:
           {
             "@context": "https://w3id.org/retail-dw/v1rc1",
             "type": "LoyaltyCard",
-<<<<<<< HEAD
-            "name": "ShopCo Points Card",
-            "description": "ShopCo Loyalty and Rewards Card",
-            "barcode": "123456789123", // do we want this for scanning purposes?
-            "programIdentifier": "123", // not used?
-=======
             "loyaltyProgramName": "ShopCo Points Card",
             "description": "ShopCo Loyalty and Rewards Card",
             "barCodeData": "123456789123",
             "programIdentifier": "123", // TODO: Do we want this?
->>>>>>> 4f47532 (Align vocabulary for Cards and receipts with Retail vocabulary.)
             "account": "456789123"
           }
   - id: MembershipCard
@@ -540,6 +533,14 @@ property:
       - LoyaltyCard
       - MembershipCard
     context: https://w3id.org/retail-dw/v1rc1
+  - id: retail:account
+    label: Account
+    domain:
+      - GiftCard
+      - LoyaltyCard
+      - MembershipCard
+    comment: The account number associated with a particular card.
+    context: https://w3id.org/retail-benefits/v1rc1
   - id: rv:actualSalesPrice
     label: Regular sales price
     range:
@@ -613,24 +614,6 @@ property:
       A unique identifier for the loyalty program, membership program, or gift
       card program that the card is associated with, used to differentiate
       between various programs offered by an organization.
-    context: https://w3id.org/retail-benefits/v1rc1
-  - id: redemptionRule
-    label: Redemption Rule
-    domain: Coupon
-    range: RedemptionRule
-    comment: >-
-      A property that links a coupon to the specific redemption rules that apply
-      to it, detailing the conditions and terms necessary for the coupon to be
-      successfully redeemed.
-    context: https://w3id.org/retail-benefits/v1rc1
-  - id: retail:account
-    label: Account
-    domain:
-      - GiftCard
-      - LoyaltyCard
-      - MembershipCard
-    comment: >-
-      The account number associated with a particular card.
     context: https://w3id.org/retail-benefits/v1rc1
   - id: schema:description
     label: Description
@@ -830,6 +813,15 @@ property:
       card program that the card is associated with, used to differentiate
       between various programs offered by an organization.
     context: https://w3id.org/retail-dw/v1rc1
+  - id: redemptionRule
+    label: Redemption Rule
+    domain: Coupon
+    range: RedemptionRule
+    comment: >-
+      A property that links a coupon to the specific redemption rules that apply
+      to it, detailing the conditions and terms necessary for the coupon to be
+      successfully redeemed.
+    context: https://w3id.org/retail-benefits/v1rc1
   - id: redemptionRule
     label: Redemption Rule
     domain: Coupon
