@@ -376,21 +376,21 @@ class:
     label: Render Method
     comment: A mechanism for rendering data to a visual or wireless medium.
     context: https://w3id.org/retail-dw/v1rc1
-  - id: RetailBenefitCredential
+  - id: RetailCredential
     label: Retail Benefit Credential
     comment: >-
       A credential that represents various benefits offered by retail stores,
       such as coupons, loyalty points, or gift cards.
     context: https://w3id.org/retail-dw/v1rc1
     example:
-      - label: A basic example of the RetailBenefitCredential expressing a Coupon
+      - label: A basic example of the RetailCredential expressing a Coupon
         json: |-
           {
             "@context": [
               "https://www.w3.org/ns/credentials/v2",
               "https://w3id.org/retail-dw/v1rc1",
             ]
-            "type": ["VerifiableCredential", "RetailBenefitCredential"],
+            "type": ["VerifiableCredential", "RetailCredential"],
             "issuer": {
               "id": "https://company.example/issuer-001",
               "name": "Fast Coffee Company"
@@ -441,14 +441,14 @@ class:
               "renderProperty": ["/credentialSubject/barcode"]
             }]
           }
-      - label: A basic example of a RetailBenefitCredential expressing a LoyaltyCard
+      - label: A basic example of a RetailCredential expressing a LoyaltyCard
         json: |-
           {
             "@context": [
               "https://www.w3.org/ns/credentials/v2",
               "https://w3id.org/retail-dw/v1rc1"
             ],
-            "type": ["VerifiableCredential", "RetailBenefitCredential"],
+            "type": ["VerifiableCredential", "RetailCredential"],
             "issuer": {
               "id": "https://shopco.example/",
               "name": "ShopCo"
@@ -483,14 +483,14 @@ class:
               }
             }]
           }
-      - label: A basic example of a RetailBenefitCredential expressing a CouponBundle
+      - label: A basic example of a RetailCredential expressing a CouponBundle
         json: |-
           {
             "@context": [
               "https://www.w3.org/ns/credentials/v2",
               "https://w3id.org/retail-dw/v1rc1"
             ],
-            "type": ["VerifiableCredential", "RetailBenefitCredential"],
+            "type": ["VerifiableCredential", "RetailCredential"],
             "issuer": {
               "id": "https://couponbureau.example/",
               "name": "ClipCo"
@@ -525,14 +525,6 @@ class:
     label: Render Template using Mustache Syntax
     context: https://w3id.org/retail-dw/v1rc1
 property:
-  - id: rv:account
-    label: Account identifier
-    domain:
-      - CouponBundle
-      - GiftCard
-      - LoyaltyCard
-      - MembershipCard
-    context: https://w3id.org/retail-dw/v1rc1
   - id: retail:account
     label: Account
     domain:
@@ -615,21 +607,6 @@ property:
       card program that the card is associated with, used to differentiate
       between various programs offered by an organization.
     context: https://w3id.org/retail-benefits/v1rc1
-  - id: schema:description
-    label: Description
-    domain:
-      - Coupon
-      - CouponBundle
-      - GiftCard
-      - LoyaltyCard
-      - MembershipCard
-      - Rebate
-      - RedemptionRule
-    comment: >-
-      A property that provides a detailed textual description of the respective
-      entity, outlining its features, terms, and conditions to enhance
-      understanding and utilization by users.
-    context: https://w3id.org/retail-dw/v1rc1
   - id: sec:digestMultibase
     label: Multibase-encoded Multihash Digest
     domain:
@@ -770,17 +747,6 @@ property:
       ensures that customers meet specific criteria before applying the
       redemption.
     context: https://w3id.org/retail-dw/v1rc1
-  - id: schema:name
-    label: Name
-    domain:
-      - rm:TemplateRenderMethod
-      - LoyaltyCard
-      - MembershipCard
-      - GiftCard
-      - Coupon
-      - CouponBundle
-    comment: The name to use when rendering a particular object to a visual medium.
-    context: https://w3id.org/retail-dw/v1rc1
   - id: rv:organizationID
     label: Organization Identifier
     domain:
@@ -813,15 +779,6 @@ property:
       card program that the card is associated with, used to differentiate
       between various programs offered by an organization.
     context: https://w3id.org/retail-dw/v1rc1
-  - id: redemptionRule
-    label: Redemption Rule
-    domain: Coupon
-    range: RedemptionRule
-    comment: >-
-      A property that links a coupon to the specific redemption rules that apply
-      to it, detailing the conditions and terms necessary for the coupon to be
-      successfully redeemed.
-    context: https://w3id.org/retail-benefits/v1rc1
   - id: redemptionRule
     label: Redemption Rule
     domain: Coupon
