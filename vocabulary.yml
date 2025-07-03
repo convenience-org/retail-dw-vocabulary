@@ -6,8 +6,6 @@ prefix:
     value: https://w3id.org/retail#
   - id: rm
     value: https://w3id.org/vc/render-method#
-  - id: rv
-    value: https://w3id.org/retail#
   - id: schema
     value: https://schema.org/
   - id: sec
@@ -78,7 +76,7 @@ ontology:
       these credential types, enabling consistent interoperability across wallet
       providers, merchants, and service platforms.
 class:
-  - id: rv:Amount
+  - id: retail:Amount
     label: Monetary amount
     context: https://w3id.org/retail-dw/v1rc1
   - id: Coupon
@@ -94,26 +92,21 @@ class:
             "@context": "https://w3id.org/retail-dw/v1rc1",
             "id": "https://coupon.example/12345",
             "type": "Coupon",
-            "barcode": "0123456789123",
+            "barCodeData": "0123456789123",
             "description": "$1 off a regular coffee.",
             "discount": {
-              "type": "MonetaryAmount",
-              "value": "1.00",
-              "currency": "USD"
-            },
-            "redemptionRule": {
-              "type": "RedemptionRule",
-              "description": "Minimum limit 1 regular coffee. Maximum limit 1 per customer.",
-              "gtin": "1234567890123",
-              "maximumLimit": {
-                "type": "Observation",
+              "type": "Discount",
+              "discountName": "$1 off a regular coffee.",
+              "discountReason": "Celebrating 10 years in business!",
+              "discountQuantity": {
+                "type": "QuantityUN",
                 "value": "1",
-                "unitCode": "IE"
+                "uom": "EA"
               },
-              "minimumLimit": {
-                "type": "Observation",
-                "value": "1",
-                "unitCode": "EA"
+              "discountAmount": {
+                "type": "Amount",
+                "value": "-1.00",
+                "currency": "USD"
               }
             }
           }
@@ -147,14 +140,13 @@ class:
           {
             "@context": "https://w3id.org/retail-dw/v1rc1",
             "type": "GiftCard",
-            "name": "ShopCo Gift Card",
             "description": "ShopCo Gift Card",
-            "barcode": "456789123",
-            "programIdentifier": "567",
-            "accountIdentifier": "789123456"
+            "barCodeData": "567789123456",
+            "programIdentifier": "567", // Do we need this?
+            "account": "789123456",
           }
     context: https://w3id.org/retail-dw/v1rc1
-  - id: rv:ItemCode
+  - id: retail:ItemCode
     label: Product item code
     context: https://w3id.org/retail-dw/v1rc1
   - id: LoyaltyCard
@@ -169,11 +161,11 @@ class:
           {
             "@context": "https://w3id.org/retail-dw/v1rc1",
             "type": "LoyaltyCard",
-            "loyaltyProgramName": "ShopCo Points Card",
-            "description": "ShopCo Loyalty and Rewards Card",
+            "loyaltyProgramName": "ShopCo Loyalty Card", // only used here?
+            "description": "ShopCo Points Card",
             "barCodeData": "123456789123",
-            "programIdentifier": "123", // TODO: Do we want this?
-            "account": "456789123"
+            "programIdentifier": "123", // Do we need this?
+            "account": "456789123",
           }
   - id: MembershipCard
     label: Membership Card
@@ -186,9 +178,8 @@ class:
           {
             "@context": "https://w3id.org/retail-dw/v1rc1",
             "type": "MembershipCard",
-            "loyaltyProgramName": "ShopCo Membership Card",
             "description": "ShopCo Membership Card",
-            "barCodeData": "789123456",
+            "barCodeData": "912345612789",
             "programIdentifier": "912", // TODO: Do we want this?
             "account": "345612789"
           }
@@ -214,38 +205,41 @@ class:
             "token": "uFkNDk1OTI5OWM1ZmIyZGFmY2RkODY5NDllM2Q0YTI3ZT"
           }
     context: https://w3id.org/retail-dw/v1rc1
-  - id: rv:PosCodeFormat
+  - id: retail:PosCodeFormat
     label: Point of sale item code format
     context: https://w3id.org/retail-dw/v1rc1
-  - id: rv:PosJournalAgeVerificationLine
+  - id: retail:PosJournalAgeVerificationLine
     label: Point of sale age verification line entry
     context: https://w3id.org/retail-dw/v1rc1
-  - id: rv:PosJournalDiscountLine
+  - id: retail:PosJournalDiscountLine
     label: Point of sale discount line entry
     context: https://w3id.org/retail-dw/v1rc1
-  - id: rv:PosJournalFuelLine
+  - id: retail:PosJournalFuelLine
     label: Point of sale fuel line entry
     context: https://w3id.org/retail-dw/v1rc1
-  - id: rv:PosJournalFuelPrepayLine
+  - id: retail:PosJournalFuelPrepayLine
     label: Point of sale fuel pre-pay line entry
     context: https://w3id.org/retail-dw/v1rc1
-  - id: rv:PosJournalItemLine
+  - id: retail:PosJournalItemLine
     label: Point of sale journal item line entry
     context: https://w3id.org/retail-dw/v1rc1
-  - id: rv:PosJournalLinkedTransactionInfo
+  - id: retail:PosJournalLinkedTransactionInfo
     label: Point of sale linked transaction information
     context: https://w3id.org/retail-dw/v1rc1
-  - id: rv:PosJournalLoyaltyLine
+  - id: retail:PosJournalLoyaltyLine
     label: Point of sale journal loyalty line entry
     context: https://w3id.org/retail-dw/v1rc1
-  - id: rv:PosJournalMerchandiseCodeLine
+  - id: retail:PosJournalMerchandiseCodeLine
     label: Point of sale journal merchandise code line entry
     context: https://w3id.org/retail-dw/v1rc1
-  - id: rv:PosJournalTenderInfoLine
+  - id: retail:PosJournalTenderInfoLine
     label: Point of sale tender information line entry
     context: https://w3id.org/retail-dw/v1rc1
   - id: schema:PostalAddress
     label: Postal address
+    context: https://w3id.org/retail-dw/v1rc1
+  - id: retail:QuantityUN
+    label: Quantity (UN/CEFACT unit codes)
     context: https://w3id.org/retail-dw/v1rc1
   - id: Rebate
     label: Rebate
@@ -309,13 +303,14 @@ class:
                 "value": "3.99",
                 "currency": "USD"
               },
-              "discounts": [{
-                "type": "Amount"
+              "discount": [{
+                "type": "Discount"
+                "discountReason": "storeCouponOffer"
                 "discountAmount": {
-                  "value": "0.50",
+                  "type": Amount,
+                  "value": "-0.50",
                   "currency": "USD"
                 },
-                "discountReason": "storeCouponOffer"
               }],
               "itemTaxes": [{
                 "type": "Tax"
@@ -518,7 +513,7 @@ class:
   - id: schema:Store
     label: Store
     context: https://w3id.org/retail-dw/v1rc1
-  - id: rv:Tax
+  - id: retail:Tax
     label: Tax amount
     context: https://w3id.org/retail-dw/v1rc1
   - id: rm:TemplateRenderMethod
@@ -533,16 +528,16 @@ property:
       - MembershipCard
     comment: The account number associated with a particular card.
     context: https://w3id.org/retail-benefits/v1rc1
-  - id: rv:actualSalesPrice
+  - id: retail:actualSalesPrice
     label: Regular sales price
     range:
-      - rv:Amount
+      - retail:Amount
     domain:
-      - rv:LoyaltyItemLine
-      - rv:PosJournalItemLine
-      - rv:PosJournalMerchandiseCodeLine
-      - rv:PosJournalFuelLine
-      - rv:PosJournalFuelPrepayLine
+      - retail:LoyaltyItemLine
+      - retail:PosJournalItemLine
+      - retail:PosJournalMerchandiseCodeLine
+      - retail:PosJournalFuelLine
+      - retail:PosJournalFuelPrepayLine
     context: https://w3id.org/retail-dw/v1rc1
   - id: schema:addressLocality
     label: Address locality (town or city)
@@ -554,7 +549,7 @@ property:
     domain:
       - schema:PostalAddress
     context: https://w3id.org/retail-dw/v1rc1
-  - id: rv:barCodeData
+  - id: retail:barCodeData
     label: Bar Code Data
     domain:
       - Coupon
@@ -572,27 +567,27 @@ property:
       This URL is used to communicate with the coupon bundle service to see if
       any item associated with a transaction matches the coupon bundle.
     context: https://w3id.org/retail-dw/v1rc1
-  - id: rv:cashierID
+  - id: retail:cashierID
     label: Cashier Identifier
     domain:
       - schema:Store
     context: https://w3id.org/retail-dw/v1rc1
-  - id: rv:checkDigit
+  - id: retail:checkDigit
     label: Presence of check digit in point of sale code
     domain:
-      - rv:PosCodeFormat
+      - retail:PosCodeFormat
     context: https://w3id.org/retail-dw/v1rc1
   - id: schema:confirmationNumber
     label: Confirmation number
     domain:
       - Receipt
     context: https://w3id.org/retail-dw/v1rc1
-  - id: rv:currency
+  - id: retail:currency
     label: Monetary currency
     domain:
-      - rv:Amount
+      - retail:Amount
     context: https://w3id.org/retail-dw/v1rc1
-  - id: rv:description
+  - id: retail:description
     label: Description
     domain:
       - Coupon
@@ -626,45 +621,54 @@ property:
       Represents the discount amount associated with a coupon, expressed as a
       monetary value.
     context: https://w3id.org/retail-dw/v1rc1
-  - id: rv:discountAmount
-    label: Discount amount
-    range:
-      - rv:Amount
-    domain:
-      - rv:LoyaltyItemLine
-      - rv:PosJournalItemLine
-      - rv:PosJournalMerchandiseCodeLine
-      - rv:PosJournalFuelLine
-      - rv:PosJournalFuelPrepayLine
-    context: https://w3id.org/retail-dw/v1rc1
-  - id: rv:discountReason
-    label: Discount amount
-    domain:
-      - rv:Amount
-    context: https://w3id.org/retail-dw/v1rc1
-  - id: rv:discounts
+  - id: retail:discount
     label: Discount
     domain:
-      - rv:LoyaltyItemLine
-      - rv:PosJournalItemLine
-      - rv:PosJournalMerchandiseCodeLine
-      - rv:PosJournalFuelLine
-      - rv:PosJournalFuelPrepayLine
+      - Coupon
+      - retail:LoyaltyItemLine
+      - retail:PosJournalItemLine
+      - retail:PosJournalMerchandiseCodeLine
+      - retail:PosJournalFuelLine
+      - retail:PosJournalFuelPrepayLine
     context: https://w3id.org/retail-dw/v1rc1
-  - id: rv:eventEndDateTime
+  - id: retail:discountAmount
+    label: Discount amount
+    range:
+      - retail:Amount
+    domain:
+      - retail:Discount
+    context: https://w3id.org/retail-dw/v1rc1
+  - id: retail:discountName
+    label: Discount name
+    domain:
+      - retail:Discount
+    context: https://w3id.org/retail-dw/v1rc1
+  - id: retail:discountQuantity
+    label: Discount quantity
+    domain:
+      - retail:Discount
+    range:
+      - retail:QuantityUN
+    context: https://w3id.org/retail-dw/v1rc1
+  - id: retail:discountReason
+    label: Discount reason
+    domain:
+      - retail:Discount
+    context: https://w3id.org/retail-dw/v1rc1
+  - id: retail:eventEndDateTime
     label: Event end date and time
     domain:
       - Receipt
     context: https://w3id.org/retail-dw/v1rc1
-  - id: rv:eventStartDateTime
+  - id: retail:eventStartDateTime
     label: Event start date and time
     domain:
       - Receipt
     context: https://w3id.org/retail-dw/v1rc1
-  - id: rv:format
+  - id: retail:format
     label: Point of sale code format
     domain:
-      - rv:PosCodeFormat
+      - retail:PosCodeFormat
     context: https://w3id.org/retail-dw/v1rc1
   - id: gtin
     label: GTIN
@@ -690,23 +694,23 @@ property:
       with the respective entities, used for visual representation in digital or
       physical formats.
     context: https://w3id.org/retail-dw/v1rc1
-  - id: rv:itemCode
+  - id: retail:itemCode
     label: Item code
     range:
-      - rv:ItemCode
+      - retail:ItemCode
     domain:
-      - rv:PosJournalItemLine
+      - retail:PosJournalItemLine
     context: https://w3id.org/retail-dw/v1rc1
-  - id: rv:itemTaxes
+  - id: retail:itemTaxes
     label: Item taxes
     range:
-      - rv:Tax
+      - retail:Tax
     domain:
-      - rv:LoyaltyItemLine
-      - rv:PosJournalItemLine
-      - rv:PosJournalMerchandiseCodeLine
-      - rv:PosJournalFuelLine
-      - rv:PosJournalFuelPrepayLine
+      - retail:LoyaltyItemLine
+      - retail:PosJournalItemLine
+      - retail:PosJournalMerchandiseCodeLine
+      - retail:PosJournalFuelLine
+      - retail:PosJournalFuelPrepayLine
     context: https://w3id.org/retail-dw/v1rc1
   - id: schema:location
     label: Location
@@ -714,7 +718,7 @@ property:
       - schema:Store
     range: schema:PostalAddress
     context: https://w3id.org/retail-dw/v1rc1
-  - id: rv:loyaltyProgramName
+  - id: retail:loyaltyProgramName
     label: Loyalty program name
     domain:
       - LoyaltyCard
@@ -747,20 +751,20 @@ property:
       ensures that customers meet specific criteria before applying the
       redemption.
     context: https://w3id.org/retail-dw/v1rc1
-  - id: rv:organizationID
+  - id: retail:organizationID
     label: Organization Identifier
     domain:
       - schema:Store
     context: https://w3id.org/retail-dw/v1rc1
-  - id: rv:posCode
+  - id: retail:posCode
     label: Point of sale code
     domain:
-      - rv:ItemCode
+      - retail:ItemCode
     context: https://w3id.org/retail-dw/v1rc1
-  - id: rv:posCodeFormat
+  - id: retail:posCodeFormat
     label: Point of sale code format
     range:
-      - rv:PosCodeFormat
+      - retail:PosCodeFormat
     context: https://w3id.org/retail-dw/v1rc1
   - id: schema:postalCode
     label: Postal code (ZIP)
@@ -788,16 +792,16 @@ property:
       to it, detailing the conditions and terms necessary for the coupon to be
       successfully redeemed.
     context: https://w3id.org/retail-dw/v1rc1
-  - id: rv:regularSellPrice
+  - id: retail:regularSellPrice
     label: Regular sales price
     range:
-      - rv:Amount
+      - retail:Amount
     domain:
-      - rv:LoyaltyItemLine
-      - rv:PosJournalItemLine
-      - rv:PosJournalMerchandiseCodeLine
-      - rv:PosJournalFuelLine
-      - rv:PosJournalFuelPrepayLine
+      - retail:LoyaltyItemLine
+      - retail:PosJournalItemLine
+      - retail:PosJournalMerchandiseCodeLine
+      - retail:PosJournalFuelLine
+      - retail:PosJournalFuelPrepayLine
     context: https://w3id.org/retail-dw/v1rc1
   - id: vc:renderMethod
     label: Render Method
@@ -816,12 +820,12 @@ property:
     domain:
       - Receipt
     context: https://w3id.org/retail-dw/v1rc1
-  - id: rv:sourcePOI
+  - id: retail:sourcePOI
     label: Source point of interaction
     domain:
       - schema:Store
     context: https://w3id.org/retail-dw/v1rc1
-  - id: rv:storeLocationID
+  - id: retail:storeLocationID
     label: Store location identifier
     domain:
       - schema:Store
@@ -841,17 +845,17 @@ property:
     domain:
       - schema:Store
     context: https://w3id.org/retail-dw/v1rc1
-  - id: rv:tender
+  - id: retail:tender
     label: Tender information
     domain:
-      - rv:PosJournalTenderInfoLine
+      - retail:PosJournalTenderInfoLine
     context: https://w3id.org/retail-dw/v1rc1
-  - id: rv:tenderAmount
+  - id: retail:tenderAmount
     label: Tender amount
     range:
-      - rv:Amount
+      - retail:Amount
     context: https://w3id.org/retail-dw/v1rc1
-  - id: rv:tillID
+  - id: retail:tillID
     label: Till identifier
     domain:
       - schema:Store
@@ -862,43 +866,43 @@ property:
     range: sec:multibase
     comment: The payment tokenization value that is known to the token issuer.
     context: https://w3id.org/retail-dw/v1rc1
-  - id: rv:transactionDetailGroup
+  - id: retail:transactionDetailGroup
     label: Transaction detail group
     domain:
       - Receipt
     range:
-      - rv:PosJournalItemLine
-      - rv:PosJournalLoyaltyLine
-      - rv:PosJournalMerchandiseCodeLine
-      - rv:PosJournalFuelLine
-      - rv:PosJournalFuelPrepayLine
-      - rv:PosJournalDiscountLine
-      - rv:PosJournalTenderInfoLine
-      - rv:PosJournalLinkedTransactionInfo
-      - rv:PosJournalAgeVerificationLine
+      - retail:PosJournalItemLine
+      - retail:PosJournalLoyaltyLine
+      - retail:PosJournalMerchandiseCodeLine
+      - retail:PosJournalFuelLine
+      - retail:PosJournalFuelPrepayLine
+      - retail:PosJournalDiscountLine
+      - retail:PosJournalTenderInfoLine
+      - retail:PosJournalLinkedTransactionInfo
+      - retail:PosJournalAgeVerificationLine
     context: https://w3id.org/retail-dw/v1rc1
-  - id: rv:transactionID
+  - id: retail:transactionID
     label: Transaction Identifier
     domain:
       - Receipt
     context: https://w3id.org/retail-dw/v1rc1
-  - id: rv:transactionLineSequenceNumber
+  - id: retail:transactionLineSequenceNumber
     label: Event end date and time
     domain:
-      - rv:PosJournalItemLine
-      - rv:PosJournalLoyaltyLine
-      - rv:PosJournalMerchandiseCodeLine
-      - rv:PosJournalFuelLine
-      - rv:PosJournalFuelPrepayLine
-      - rv:PosJournalDiscountLine
-      - rv:PosJournalTenderInfoLine
-      - rv:PosJournalLinkedTransactionInfo
-      - rv:PosJournalAgeVerificationLine
+      - retail:PosJournalItemLine
+      - retail:PosJournalLoyaltyLine
+      - retail:PosJournalMerchandiseCodeLine
+      - retail:PosJournalFuelLine
+      - retail:PosJournalFuelPrepayLine
+      - retail:PosJournalDiscountLine
+      - retail:PosJournalTenderInfoLine
+      - retail:PosJournalLinkedTransactionInfo
+      - retail:PosJournalAgeVerificationLine
     context: https://w3id.org/retail-dw/v1rc1
-  - id: rv:value
+  - id: retail:value
     label: Monetary value
     domain:
-      - rv:Amount
+      - retail:Amount
     context: https://w3id.org/retail-dw/v1rc1
 datatype:
   - id: sec:multibase
