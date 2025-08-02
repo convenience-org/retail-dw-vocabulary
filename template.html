@@ -4,7 +4,7 @@
     <title></title>
     <script class="remove" src="https://www.w3.org/Tools/respec/respec-w3c"></script>
     <script class="remove"
-      src="https://cdn.jsdelivr.net/gh/digitalbazaar/respec-vc@3.4.0/dist/main.js"></script>
+      src="https://cdn.jsdelivr.net/gh/digitalbazaar/respec-vc@3.5.0/dist/main.js"></script>
 
     <script>
         function remove_status_remark() {
@@ -109,6 +109,195 @@ This is an experimental vocabulary and is not fit for production usage.
       <h1>Introduction</h1>
 
 {{INTRODUCTION}}
+
+
+      <section>
+        <h2>Retail Ecosystem Examples</h2>
+
+        <p>
+This section provides some preliminary examples of retail credentials.
+        </p>
+
+        <pre class="example nohighlight vc" title="A digital loyalty card"
+             data-vc-tabs="eddsa-rdfc-2022">
+{
+  "@context": [
+    "https://www.w3.org/ns/credentials/v2",
+    "https://w3id.org/retail-dw/v1rc1"
+  ],
+  "type": ["VerifiableCredential", "RetailCredential"],
+  "issuer": {
+    "id": "https://shopco.example/",
+    "name": "ShopCo"
+  },
+  "validFrom": "2025-03-01T00:00:00Z",
+  "validUntil": "2026-03-01T00:00:00Z",
+  "credentialSubject": {
+    "type": "LoyaltyCard",
+    "name": "ShopCo Points Card",
+    "description": "Use when checking out for rewards at ShopCo.",
+    "barCodeData": "123456789123",
+    "programIdentifier": "123",
+    "account": "456789123"
+  },
+  "renderMethod": [{
+    "type": "TemplateRenderMethod",
+    "name": "Front of card",
+    "renderSuite": "svg-mustache",
+    "template": {
+      "id": "https://shopco.example/cards/loyalty-front.svg",
+      "mediaType": "image/svg+xml",
+      "digestMultibase": "uQmerWC85Wg6wFl9znFCwYxApG270iEu5h6JqWAPdhyxz2dR"
+    }
+  }, {
+    "type": "TemplateRenderMethod",
+    "name": "Back of card",
+    "renderSuite": "svg-mustache",
+    "template": {
+      "id": "https://shopco.example/cards/loyalty-back.svg",
+      "mediaType": "image/svg+xml",
+      "digestMultibase": "uQmC85Wg6wAp2dRerW270iEu5h6JqWFl9GAPdhyxzznFCwYx"
+    }
+  }]
+}
+        </pre>
+
+        <pre class="example nohighlight vc" title="A digital membership card"
+             data-vc-tabs="eddsa-rdfc-2022">
+{
+  "@context": [
+    "https://www.w3.org/ns/credentials/v2",
+    "https://w3id.org/retail-dw/v1rc1"
+  ],
+  "type": ["VerifiableCredential", "RetailCredential"],
+  "issuer": {
+    "id": "https://quickco.example/",
+    "name": "QuickCo"
+  },
+  "validFrom": "2025-03-01T00:00:00Z",
+  "validUntil": "2026-03-01T00:00:00Z",
+  "credentialSubject": {
+    "type": "MembershipCard",
+    "name": "QuickCo Membership Card",
+    "description": "Use when checking out for discounts at QuickCo.",
+    "barCodeData": "912345612789",
+    "programIdentifier": "912",
+    "account": "345612789"
+  },
+  "renderMethod": [{
+    "type": "TemplateRenderMethod",
+    "name": "Front of card",
+    "renderSuite": "svg-mustache",
+    "template": {
+      "id": "https://quickco.example/cards/membership-front.svg",
+      "mediaType": "image/svg+xml",
+      "digestMultibase": "uQmFl9znFCwYxApG270iEu5h6JqWAPdhyxz2dRerWC85Wg6w"
+    }
+  }, {
+    "type": "TemplateRenderMethod",
+    "name": "Back of card",
+    "renderSuite": "svg-mustache",
+    "template": {
+      "id": "https://shopco.example/cards/membership-back.svg",
+      "mediaType": "image/svg+xml",
+      "digestMultibase": "uQml9GAPdhyxzznFCwYxC85Wg6wAp2dRerW270iEu5h6JqWF"
+    }
+  }]
+}
+        </pre>
+
+        <pre class="example nohighlight vc" title="A digital coupon"
+             data-vc-tabs="eddsa-rdfc-2022">
+{
+  "@context": [
+    "https://www.w3.org/ns/credentials/v2",
+    "https://w3id.org/retail-dw/v1rc1"
+  ],
+  "type": ["VerifiableCredential", "RetailCredential"],
+  "issuer": {
+    "id": "https://company.example/issuer-001",
+    "name": "Fast Coffee Company"
+  },
+  "validFrom": "2023-12-05T00:00:00Z",
+  "validUntil": "2024-12-05T00:00:00Z",
+  "credentialSubject": {
+    "id": "https://coupon.example/12345",
+    "type": "Coupon",
+    "barCodeData": "0123456789123",
+    "name": "$1 off a regular coffee.",
+    "description": "Get $1 off any regular coffee. Limit one per customer per visit.",
+    "discount": {
+      "type": "Discount",
+      "discountName": "$1 off a regular coffee.",
+      "discountReason": "Celebrating 10 years in business!",
+      "discountQuantity": {
+        "type": "QuantityUN",
+        "value": "1",
+        "uom": "EA"
+      },
+      "discountAmount": {
+        "type": "Amount",
+        "value": "-1.00",
+        "currency": "USD"
+      }
+    }
+  },
+  "renderMethod": [{
+    "type": "TemplateRenderMethod",
+    "renderSuite": "svg-mustache",
+    "template": "data:image/svg+xml;base64,Qjei89...3jZpW"
+  }, {
+    "type": "TemplateRenderMethod",
+    "renderSuite": "barcode",
+    "name": "Scan at checkout",
+    "template": "data:application/vcb;format=pdf417;base64,QGDG2QZkp...cY4BiwG8XJWnRO",
+    "renderProperty": ["/credentialSubject/barcode"]
+  }, {
+    "type": "TemplateRenderMethod",
+    "renderSuite": "barcode",
+    "name": "Scan at checkout",
+    "template": "data:image/png;base64,k38dQGDG2...cjf82Y4BiwG8XJ",
+    "renderProperty": ["/credentialSubject/barcode"]
+  }]
+}
+        </pre>
+
+        <pre class="example nohighlight vc" title="A digital coupon bundle"
+             data-vc-tabs="eddsa-rdfc-2022">
+{
+  "@context": [
+    "https://www.w3.org/ns/credentials/v2",
+    "https://w3id.org/retail-dw/v1rc1"
+  ],
+  "type": ["VerifiableCredential", "RetailCredential"],
+  "issuer": {
+    "id": "https://couponbundler.example/issuer-001",
+    "name": "Coupon Bundles, Inc."
+  },
+  "validFrom": "2023-12-05T00:00:00Z",
+  "validUntil": "2024-12-05T00:00:00Z",
+  "credentialSubject": {
+    "type": "CouponBundle",
+    "barCodeData": "0123456789010479832",
+    "name": "ClipCo Coupons",
+    "description": "Clip and Save Coupons",
+    "bundleMatcher": "https://coupon.example/matcher"
+  },
+  "renderMethod": [{
+    "type": "TemplateRenderMethod",
+    "renderSuite": "svg-mustache",
+    "template": "data:image/svg+xml;base64,Qjei89...3jZpW"
+  }, {
+    "type": "TemplateRenderMethod",
+    "renderSuite": "barcode",
+    "name": "Scan at checkout",
+    "template": "data:image/png;base64,k38dQGDG2...cjf82Y4BiwG8XJ",
+    "renderProperty": ["/credentialSubject/barcode"]
+  }]
+}
+        </pre>
+
+      </section>
 
     </section>
 
