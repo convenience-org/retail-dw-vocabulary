@@ -3,30 +3,34 @@
     "@protected": true,
     "id": "@id",
     "type": "@type",
-    "Coupon": {
-      "@id": "https://w3id.org/retail-benefits#Coupon",
+    "Amount": {
+      "@id": "https://w3id.org/retail#Amount",
       "@context": {
         "@protected": true,
         "id": "@id",
         "type": "@type",
-        "barcode": {
-          "@id": "https://w3id.org/retail-benefits#barcode",
-          "@type": "http://www.w3.org/2001/XMLSchema#string"
-        },
-        "discount": {
-          "@id": "https://w3id.org/retail-benefits#discount",
-          "@type": "@id"
-        },
-        "redemptionRule": {
-          "@id": "https://w3id.org/retail-benefits#redemptionRule",
-          "@type": "@id"
-        },
+        "currency": "https://w3id.org/retail#currency",
+        "value": "https://w3id.org/retail#value"
+      }
+    },
+    "Coupon": {
+      "@id": "https://w3id.org/retail-dw#Coupon",
+      "@context": {
+        "@protected": true,
+        "id": "@id",
+        "type": "@type",
+        "barCodeData": "https://w3id.org/retail#barCodeData",
         "description": "https://schema.org/description",
+        "discount": "https://w3id.org/retail#discount",
         "image": {
           "@id": "https://schema.org/image",
           "@type": "@id"
         },
         "name": "https://schema.org/name",
+        "redemptionRule": {
+          "@id": "https://w3id.org/retail-dw#redemptionRule",
+          "@type": "@id"
+        },
         "renderMethod": {
           "@id": "https://www.w3.org/2018/credentials#renderMethod",
           "@type": "@id"
@@ -34,17 +38,14 @@
       }
     },
     "CouponBundle": {
-      "@id": "https://w3id.org/retail-benefits#CouponBundle",
+      "@id": "https://w3id.org/retail-dw#CouponBundle",
       "@context": {
         "@protected": true,
         "id": "@id",
         "type": "@type",
-        "barcode": {
-          "@id": "https://w3id.org/retail-benefits#barcode",
-          "@type": "http://www.w3.org/2001/XMLSchema#string"
-        },
+        "barCodeData": "https://w3id.org/retail#barCodeData",
         "bundleMatcher": {
-          "@id": "https://w3id.org/retail-benefits#bundleMatcher",
+          "@id": "https://w3id.org/retail-dw#bundleMatcher",
           "@type": "@id"
         },
         "description": "https://schema.org/description",
@@ -57,66 +58,71 @@
           "@id": "https://www.w3.org/2018/credentials#renderMethod",
           "@type": "@id"
         }
+      }
+    },
+    "Discount": {
+      "@id": "https://w3id.org/retail#Discount",
+      "@context": {
+        "@protected": true,
+        "id": "@id",
+        "type": "@type",
+        "discountAmount": {
+          "@id": "https://w3id.org/retail#discountAmount",
+          "@type": "@id"
+        },
+        "discountName": "https://w3id.org/retail#discountName",
+        "discountQuantity": {
+          "@id": "https://w3id.org/retail#discountQuantity",
+          "@type": "@id"
+        },
+        "discountReason": "https://w3id.org/retail#discountReason"
       }
     },
     "GiftCard": {
-      "@id": "https://w3id.org/retail-benefits#GiftCard",
+      "@id": "https://w3id.org/retail-dw#GiftCard",
       "@context": {
         "@protected": true,
         "id": "@id",
         "type": "@type",
-        "accountIdentifier": {
-          "@id": "https://w3id.org/retail-benefits#accountIdentifier",
-          "@type": "http://www.w3.org/2001/XMLSchema#string"
-        },
-        "barcode": {
-          "@id": "https://w3id.org/retail-benefits#barcode",
-          "@type": "http://www.w3.org/2001/XMLSchema#string"
-        },
-        "discount": {
-          "@id": "https://w3id.org/retail-benefits#discount",
-          "@type": "@id"
-        },
-        "programIdentifier": {
-          "@id": "https://w3id.org/retail-benefits#programIdentifier",
-          "@type": "http://www.w3.org/2001/XMLSchema#string"
-        },
+        "account": "https://w3id.org/retail#account",
+        "barCodeData": "https://w3id.org/retail#barCodeData",
         "description": "https://schema.org/description",
         "image": {
           "@id": "https://schema.org/image",
           "@type": "@id"
         },
         "name": "https://schema.org/name",
+        "programIdentifier": "https://w3id.org/retail-dw#programIdentifier",
         "renderMethod": {
           "@id": "https://www.w3.org/2018/credentials#renderMethod",
           "@type": "@id"
         }
       }
     },
-    "LoyaltyCard": {
-      "@id": "https://w3id.org/retail-benefits#LoyaltyCard",
+    "ItemCode": {
+      "@id": "https://w3id.org/retail#ItemCode",
       "@context": {
         "@protected": true,
         "id": "@id",
         "type": "@type",
-        "accountIdentifier": {
-          "@id": "https://w3id.org/retail-benefits#accountIdentifier",
-          "@type": "http://www.w3.org/2001/XMLSchema#string"
-        },
-        "barcode": {
-          "@id": "https://w3id.org/retail-benefits#barcode",
-          "@type": "http://www.w3.org/2001/XMLSchema#string"
-        },
-        "programIdentifier": {
-          "@id": "https://w3id.org/retail-benefits#programIdentifier",
-          "@type": "http://www.w3.org/2001/XMLSchema#string"
-        },
+        "posCode": "https://w3id.org/retail#posCode"
+      }
+    },
+    "LoyaltyCard": {
+      "@id": "https://w3id.org/retail-dw#LoyaltyCard",
+      "@context": {
+        "@protected": true,
+        "id": "@id",
+        "type": "@type",
+        "account": "https://w3id.org/retail#account",
+        "barCodeData": "https://w3id.org/retail#barCodeData",
         "description": "https://schema.org/description",
         "image": {
           "@id": "https://schema.org/image",
           "@type": "@id"
         },
         "name": "https://schema.org/name",
+        "programIdentifier": "https://w3id.org/retail-dw#programIdentifier",
         "renderMethod": {
           "@id": "https://www.w3.org/2018/credentials#renderMethod",
           "@type": "@id"
@@ -124,96 +130,310 @@
       }
     },
     "MembershipCard": {
-      "@id": "https://w3id.org/retail-benefits#MembershipCard",
+      "@id": "https://w3id.org/retail-dw#MembershipCard",
       "@context": {
         "@protected": true,
         "id": "@id",
         "type": "@type",
-        "accountIdentifier": {
-          "@id": "https://w3id.org/retail-benefits#accountIdentifier",
-          "@type": "http://www.w3.org/2001/XMLSchema#string"
-        },
-        "barcode": {
-          "@id": "https://w3id.org/retail-benefits#barcode",
-          "@type": "http://www.w3.org/2001/XMLSchema#string"
-        },
-        "programIdentifier": {
-          "@id": "https://w3id.org/retail-benefits#programIdentifier",
-          "@type": "http://www.w3.org/2001/XMLSchema#string"
-        },
+        "account": "https://w3id.org/retail#account",
+        "barCodeData": "https://w3id.org/retail#barCodeData",
         "description": "https://schema.org/description",
         "image": {
           "@id": "https://schema.org/image",
           "@type": "@id"
         },
         "name": "https://schema.org/name",
+        "programIdentifier": "https://w3id.org/retail-dw#programIdentifier",
         "renderMethod": {
           "@id": "https://www.w3.org/2018/credentials#renderMethod",
           "@type": "@id"
-        }
-      }
-    },
-    "Rebate": {
-      "@id": "https://w3id.org/retail-benefits#Rebate",
-      "@context": {
-        "@protected": true,
-        "id": "@id",
-        "type": "@type",
-        "barcode": {
-          "@id": "https://w3id.org/retail-benefits#barcode",
-          "@type": "http://www.w3.org/2001/XMLSchema#string"
-        },
-        "description": "https://schema.org/description",
-        "image": {
-          "@id": "https://schema.org/image",
-          "@type": "@id"
-        },
-        "renderMethod": {
-          "@id": "https://www.w3.org/2018/credentials#renderMethod",
-          "@type": "@id"
-        }
-      }
-    },
-    "RedemptionRule": {
-      "@id": "https://w3id.org/retail-benefits#RedemptionRule",
-      "@context": {
-        "@protected": true,
-        "id": "@id",
-        "type": "@type",
-        "gtin": {
-          "@id": "https://w3id.org/retail-benefits#gtin",
-          "@type": "http://www.w3.org/2001/XMLSchema#string"
-        },
-        "maximumLimit": {
-          "@id": "https://w3id.org/retail-benefits#maximumLimit",
-          "@type": "@id"
-        },
-        "minimumLimit": {
-          "@id": "https://w3id.org/retail-benefits#minimumLimit",
-          "@type": "@id"
-        },
-        "description": "https://schema.org/description"
-      }
-    },
-    "RetailBenefitCredential": "https://w3id.org/retail-benefits#RetailBenefitCredential",
-    "MustacheRenderTemplate": {
-      "@id": "https://w3id.org/vc/render-method#MustacheRenderTemplate",
-      "@context": {
-        "@protected": true,
-        "id": "@id",
-        "type": "@type",
-        "mediaType": {
-          "@id": "https://schema.org/encodingFormat"
-        },
-        "name": "https://schema.org/name",
-        "digestMultibase": {
-          "@id": "https://w3id.org/security#digestMultibase",
-          "@type": "https://w3id.org/security#multibase"
         }
       }
     },
     "MonetaryAmount": "https://schema.org/MonetaryAmount",
     "Observation": "https://schema.org/Observation",
-    "RenderMethod": "https://www.w3.org/2018/credentials#RenderMethod"
+    "PaymentToken": {
+      "@id": "https://w3id.org/retail-dw#PaymentToken",
+      "@context": {
+        "@protected": true,
+        "id": "@id",
+        "type": "@type",
+        "token": {
+          "@id": "https://w3id.org/retail-dw#token",
+          "@type": "https://w3id.org/security#multibase"
+        }
+      }
+    },
+    "PosCodeFormat": {
+      "@id": "https://w3id.org/retail#PosCodeFormat",
+      "@context": {
+        "@protected": true,
+        "id": "@id",
+        "type": "@type",
+        "checkDigit": "https://w3id.org/retail#checkDigit",
+        "format": "https://w3id.org/retail#format"
+      }
+    },
+    "PosJournalAgeVerificationLine": {
+      "@id": "https://w3id.org/retail#PosJournalAgeVerificationLine",
+      "@context": {
+        "@protected": true,
+        "id": "@id",
+        "type": "@type",
+        "transactionLineSequenceNumber": "https://w3id.org/retail#transactionLineSequenceNumber"
+      }
+    },
+    "PosJournalDiscountLine": {
+      "@id": "https://w3id.org/retail#PosJournalDiscountLine",
+      "@context": {
+        "@protected": true,
+        "id": "@id",
+        "type": "@type",
+        "transactionLineSequenceNumber": "https://w3id.org/retail#transactionLineSequenceNumber"
+      }
+    },
+    "PosJournalFuelLine": {
+      "@id": "https://w3id.org/retail#PosJournalFuelLine",
+      "@context": {
+        "@protected": true,
+        "id": "@id",
+        "type": "@type",
+        "actualSalesPrice": {
+          "@id": "https://w3id.org/retail#actualSalesPrice",
+          "@type": "@id"
+        },
+        "discount": "https://w3id.org/retail#discount",
+        "itemTaxes": {
+          "@id": "https://w3id.org/retail#itemTaxes",
+          "@type": "@id"
+        },
+        "regularSellPrice": {
+          "@id": "https://w3id.org/retail#regularSellPrice",
+          "@type": "@id"
+        },
+        "transactionLineSequenceNumber": "https://w3id.org/retail#transactionLineSequenceNumber"
+      }
+    },
+    "PosJournalFuelPrepayLine": {
+      "@id": "https://w3id.org/retail#PosJournalFuelPrepayLine",
+      "@context": {
+        "@protected": true,
+        "id": "@id",
+        "type": "@type",
+        "actualSalesPrice": {
+          "@id": "https://w3id.org/retail#actualSalesPrice",
+          "@type": "@id"
+        },
+        "discount": "https://w3id.org/retail#discount",
+        "itemTaxes": {
+          "@id": "https://w3id.org/retail#itemTaxes",
+          "@type": "@id"
+        },
+        "regularSellPrice": {
+          "@id": "https://w3id.org/retail#regularSellPrice",
+          "@type": "@id"
+        },
+        "transactionLineSequenceNumber": "https://w3id.org/retail#transactionLineSequenceNumber"
+      }
+    },
+    "PosJournalItemLine": {
+      "@id": "https://w3id.org/retail#PosJournalItemLine",
+      "@context": {
+        "@protected": true,
+        "id": "@id",
+        "type": "@type",
+        "actualSalesPrice": {
+          "@id": "https://w3id.org/retail#actualSalesPrice",
+          "@type": "@id"
+        },
+        "discount": "https://w3id.org/retail#discount",
+        "itemCode": {
+          "@id": "https://w3id.org/retail#itemCode",
+          "@type": "@id"
+        },
+        "itemTaxes": {
+          "@id": "https://w3id.org/retail#itemTaxes",
+          "@type": "@id"
+        },
+        "regularSellPrice": {
+          "@id": "https://w3id.org/retail#regularSellPrice",
+          "@type": "@id"
+        },
+        "transactionLineSequenceNumber": "https://w3id.org/retail#transactionLineSequenceNumber"
+      }
+    },
+    "PosJournalLinkedTransactionInfo": {
+      "@id": "https://w3id.org/retail#PosJournalLinkedTransactionInfo",
+      "@context": {
+        "@protected": true,
+        "id": "@id",
+        "type": "@type",
+        "transactionLineSequenceNumber": "https://w3id.org/retail#transactionLineSequenceNumber"
+      }
+    },
+    "PosJournalLoyaltyLine": {
+      "@id": "https://w3id.org/retail#PosJournalLoyaltyLine",
+      "@context": {
+        "@protected": true,
+        "id": "@id",
+        "type": "@type",
+        "transactionLineSequenceNumber": "https://w3id.org/retail#transactionLineSequenceNumber"
+      }
+    },
+    "PosJournalMerchandiseCodeLine": {
+      "@id": "https://w3id.org/retail#PosJournalMerchandiseCodeLine",
+      "@context": {
+        "@protected": true,
+        "id": "@id",
+        "type": "@type",
+        "actualSalesPrice": {
+          "@id": "https://w3id.org/retail#actualSalesPrice",
+          "@type": "@id"
+        },
+        "discount": "https://w3id.org/retail#discount",
+        "itemTaxes": {
+          "@id": "https://w3id.org/retail#itemTaxes",
+          "@type": "@id"
+        },
+        "regularSellPrice": {
+          "@id": "https://w3id.org/retail#regularSellPrice",
+          "@type": "@id"
+        },
+        "transactionLineSequenceNumber": "https://w3id.org/retail#transactionLineSequenceNumber"
+      }
+    },
+    "PosJournalTenderInfoLine": {
+      "@id": "https://w3id.org/retail#PosJournalTenderInfoLine",
+      "@context": {
+        "@protected": true,
+        "id": "@id",
+        "type": "@type",
+        "tender": "https://w3id.org/retail#tender",
+        "transactionLineSequenceNumber": "https://w3id.org/retail#transactionLineSequenceNumber"
+      }
+    },
+    "PostalAddress": {
+      "@id": "https://schema.org/PostalAddress",
+      "@context": {
+        "@protected": true,
+        "id": "@id",
+        "type": "@type",
+        "addressLocality": "https://schema.org/addressLocality",
+        "addressRegion": "https://schema.org/addressRegion",
+        "postalCode": "https://schema.org/postalCode",
+        "streetAddress": "https://schema.org/streetAddress"
+      }
+    },
+    "QuantityUN": {
+      "@id": "https://w3id.org/retail#QuantityUN",
+      "@context": {
+        "@protected": true,
+        "id": "@id",
+        "type": "@type",
+        "uom": "https://w3id.org/retail#uom",
+        "value": "https://w3id.org/retail#value"
+      }
+    },
+    "Rebate": {
+      "@id": "https://w3id.org/retail-dw#Rebate",
+      "@context": {
+        "@protected": true,
+        "id": "@id",
+        "type": "@type",
+        "barCodeData": "https://w3id.org/retail#barCodeData",
+        "image": {
+          "@id": "https://schema.org/image",
+          "@type": "@id"
+        },
+        "name": "https://schema.org/name",
+        "renderMethod": {
+          "@id": "https://www.w3.org/2018/credentials#renderMethod",
+          "@type": "@id"
+        }
+      }
+    },
+    "Receipt": {
+      "@id": "https://w3id.org/retail-dw#Receipt",
+      "@context": {
+        "@protected": true,
+        "id": "@id",
+        "type": "@type",
+        "confirmationNumber": "https://schema.org/confirmationNumber",
+        "eventEndDateTime": "https://w3id.org/retail#eventEndDateTime",
+        "eventStartDateTime": "https://w3id.org/retail#eventStartDateTime",
+        "seller": "https://schema.org/seller",
+        "transactionDetailGroup": {
+          "@id": "https://w3id.org/retail#transactionDetailGroup",
+          "@type": "@id"
+        },
+        "transactionID": "https://w3id.org/retail#transactionID"
+      }
+    },
+    "RedemptionRule": {
+      "@id": "https://w3id.org/retail-dw#RedemptionRule",
+      "@context": {
+        "@protected": true,
+        "id": "@id",
+        "type": "@type",
+        "gtin": "https://w3id.org/retail-dw#gtin",
+        "maximumLimit": {
+          "@id": "https://w3id.org/retail-dw#maximumLimit",
+          "@type": "@id"
+        },
+        "minimumLimit": {
+          "@id": "https://w3id.org/retail-dw#minimumLimit",
+          "@type": "@id"
+        }
+      }
+    },
+    "RenderMethod": "https://www.w3.org/2018/credentials#RenderMethod",
+    "RetailCredential": "https://w3id.org/retail-dw#RetailCredential",
+    "Store": {
+      "@id": "https://schema.org/Store",
+      "@context": {
+        "@protected": true,
+        "id": "@id",
+        "type": "@type",
+        "cashierID": "https://w3id.org/retail#cashierID",
+        "location": {
+          "@id": "https://schema.org/location",
+          "@type": "@id"
+        },
+        "organizationID": "https://w3id.org/retail#organizationID",
+        "sourcePOI": "https://w3id.org/retail#sourcePOI",
+        "storeLocationID": "https://w3id.org/retail#storeLocationID",
+        "taxID": "https://schema.org/taxID",
+        "telephone": "https://schema.org/telephone",
+        "tillID": "https://w3id.org/retail#tillID"
+      }
+    },
+    "Tax": "https://w3id.org/retail#Tax",
+    "TemplateRenderMethod": {
+      "@id": "https://w3id.org/vc/render-method#TemplateRenderMethod",
+      "@context": {
+        "@protected": true,
+        "id": "@id",
+        "type": "@type",
+        "description": "https://schema.org/description",
+        "digestMultibase": {
+          "@id": "https://w3id.org/security#digestMultibase",
+          "@type": "https://w3id.org/security#multibase"
+        },
+        "mediaType": "https://schema.org/encodingFormat",
+        "name": "https://schema.org/name",
+        "renderProperty": "https://w3id.org/vc/render-method#renderProperty",
+        "renderSuite": "https://w3id.org/vc/render-method#renderSuite",
+        "template": "https://w3id.org/vc/render-method#template"
+      }
+    },
+    "posCodeFormat": {
+      "@id": "https://w3id.org/retail#posCodeFormat",
+      "@type": "@id"
+    },
+    "tenderAmount": {
+      "@id": "https://w3id.org/retail#tenderAmount",
+      "@type": "@id"
+    },
+    "multibase": "https://w3id.org/retail-dw#multibase"
   }
 }
