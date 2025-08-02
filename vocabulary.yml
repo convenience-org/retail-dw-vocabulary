@@ -127,8 +127,11 @@ class:
             "barcode": "0123456789010479832",
             "name": "ClipCo Coupons",
             "description": "Clip and Save Coupons",
-            "bundleMatcher": "https://couponbureau.example/matcher"
+            "bundleMatcher": "https://coupon.example/matcher"
           }
+  - id: retail:Discount
+    label: Discount
+    context: https://w3id.org/retail-dw/v1rc1
   - id: GiftCard
     label: Gift Card
     comment: >-
@@ -161,10 +164,10 @@ class:
           {
             "@context": "https://w3id.org/retail-dw/v1rc1",
             "type": "LoyaltyCard",
-            "loyaltyProgramName": "ShopCo Loyalty Card", // only used here?
-            "description": "ShopCo Points Card",
+            "name": "ShopCo Points Card",
+            "description": "Use when checking out for rewards at ShopCo.",
             "barCodeData": "123456789123",
-            "programIdentifier": "123", // Do we need this?
+            "programIdentifier": "123",
             "account": "456789123",
           }
   - id: MembershipCard
@@ -178,9 +181,10 @@ class:
           {
             "@context": "https://w3id.org/retail-dw/v1rc1",
             "type": "MembershipCard",
-            "description": "ShopCo Membership Card",
+            "name": "QuickCo Membership Card",
+            "description": "Use when checking out for discounts at QuickCo.",
             "barCodeData": "912345612789",
-            "programIdentifier": "912", // TODO: Do we want this?
+            "programIdentifier": "912",
             "account": "345612789"
           }
     context: https://w3id.org/retail-dw/v1rc1
@@ -393,28 +397,25 @@ class:
             "validFrom": "2023-12-05T00:00:00Z",
             "validUntil": "2024-12-05T00:00:00Z",
             "credentialSubject": {
+              "@context": "https://w3id.org/retail-dw/v1rc1",
               "id": "https://coupon.example/12345",
               "type": "Coupon",
-              "barcode": "0123456789123",
-              "description": "$1 off a regular coffee.",
+              "barCodeData": "0123456789123",
+              "name": "$1 off a regular coffee.",
+              "description": "Get $1 off any regular coffee. Limit one per customer per visit.",
               "discount": {
-                "type": "MonetaryAmount",
-                "value": "1.00",
-                "currency": "USD"
-              },
-              "redemptionRule": {
-                "type": "RedemptionRule",
-                "description": "Minimum limit 1 regular coffee. Maximum limit 1 per customer.",
-                "gtin": "1234567890123",
-                "maximumLimit": {
-                  "type": "Observation",
+                "type": "Discount",
+                "discountName": "$1 off a regular coffee.",
+                "discountReason": "Celebrating 10 years in business!",
+                "discountQuantity": {
+                  "type": "QuantityUN",
                   "value": "1",
-                  "unitCode": "IE"
+                  "uom": "EA"
                 },
-                "minimumLimit": {
-                  "type": "Observation",
-                  "value": "1",
-                  "unitCode": "EA"
+                "discountAmount": {
+                  "type": "Amount",
+                  "value": "-1.00",
+                  "currency": "USD"
                 }
               }
             },
@@ -449,14 +450,14 @@ class:
               "name": "ShopCo"
             },
             "validFrom": "2025-03-01T00:00:00Z",
-            "validUntil": "2026-3-01T00:00:00Z",
+            "validUntil": "2026-03-01T00:00:00Z",
             "credentialSubject": {
               "type": "LoyaltyCard",
               "name": "ShopCo Points Card",
-              "description": "ShopCo Loyalty and Rewards Card",
-              "barcode": "123456789123",
+              "description": "Use when checking out for rewards at ShopCo.",
+              "barCodeData": "123456789123",
               "programIdentifier": "123",
-              "accountIdentifier": "456789123"
+              "account": "456789123",
             },
             "renderMethod": [{
               "type": "TemplateRenderMethod",
@@ -487,7 +488,7 @@ class:
             ],
             "type": ["VerifiableCredential", "RetailCredential"],
             "issuer": {
-              "id": "https://couponbureau.example/",
+              "id": "https://couponmatcher.example/",
               "name": "ClipCo"
             },
             "validFrom": "2025-04-01T00:00:00Z",
@@ -497,14 +498,14 @@ class:
               "barcode": "0123456789010479832",
               "name": "ClipCo Coupons",
               "description": "Clip and Save Coupons",
-              "bundleMatcher": "https://couponbureau.example/matcher"
+              "bundleMatcher": "https://couponmatcher.example/matcher"
             },
             "renderMethod": {
               "type": "TemplateRenderMethod",
               "name": "Scan",
               "renderSuite": "svg-mustache",
               "template": {
-                "id": "https://couponbureau.example/bundle.svg",
+                "id": "https://couponmatcher.example/bundle.svg",
                 "mediaType": "image/svg+xml",
                 "digestMultibase": "uQ6JqWAPdhyx5Wg6wFl9znFCwYxApG270iEu5hz2dRmerWC8"
               }
@@ -517,7 +518,8 @@ class:
     label: Tax amount
     context: https://w3id.org/retail-dw/v1rc1
   - id: rm:TemplateRenderMethod
-    label: Render Template using Mustache Syntax
+    label: Template Render Method
+    upper_value: vc:RenderMethod
     context: https://w3id.org/retail-dw/v1rc1
 property:
   - id: retail:account
@@ -587,8 +589,9 @@ property:
     domain:
       - retail:Amount
     context: https://w3id.org/retail-dw/v1rc1
-  - id: retail:description
+  - id: schema:description
     label: Description
+    upper_value: retail:description
     domain:
       - Coupon
       - CouponBundle
@@ -596,11 +599,11 @@ property:
       - LoyaltyCard
       - MembershipCard
       - GiftCard
-    range: xsd:string
+      - rm:TemplateRenderMethod
     comment: >-
-      A unique identifier for the loyalty program, membership program, or gift
-      card program that the card is associated with, used to differentiate
-      between various programs offered by an organization.
+      A unique description for an instance of an item such as loyalty program,
+      membership program, or gift card program that the card is associated with,
+      used to differentiate between various items offered by an organization.
     context: https://w3id.org/retail-benefits/v1rc1
   - id: sec:digestMultibase
     label: Multibase-encoded Multihash Digest
@@ -611,16 +614,6 @@ property:
       A multi-base encoded multihash digest of the associated resource
       identified using the `id` property.
     context: https://w3id.org/retail-dw/v1rc1
-  - id: discount
-    label: Discount
-    domain:
-      - Coupon
-      - GiftCard
-    range: schema:MonetaryAmount
-    comment: >-
-      Represents the discount amount associated with a coupon, expressed as a
-      monetary value.
-    context: https://w3id.org/retail-dw/v1rc1
   - id: retail:discount
     label: Discount
     domain:
@@ -630,6 +623,9 @@ property:
       - retail:PosJournalMerchandiseCodeLine
       - retail:PosJournalFuelLine
       - retail:PosJournalFuelPrepayLine
+    comment: >-
+      Represents the discount amount associated with a coupon, expressed as a
+      monetary value.
     context: https://w3id.org/retail-dw/v1rc1
   - id: retail:discountAmount
     label: Discount amount
@@ -655,6 +651,15 @@ property:
     domain:
       - retail:Discount
     context: https://w3id.org/retail-dw/v1rc1
+  - id: schema:encodingFormat
+    label: Media Type
+    domain: rm:TemplateRenderMethod
+    known_as: mediaType
+    comment: >-
+      The media type associated with the rendering template; usually
+      `application/pdf` or `image/svg+xml`. This property is aliased to
+       `mediaType` in the JSON-LD context.
+    context: https://w3id.org/retail-dw/v1rc1
   - id: retail:eventEndDateTime
     label: Event end date and time
     domain:
@@ -673,7 +678,6 @@ property:
   - id: gtin
     label: GTIN
     domain: RedemptionRule
-    range: xsd:string
     comment: >-
       A property that specifies the GS1 Global Trade Identification Number
       (GTIN) associated with a product, which uniquely identifies a specific
@@ -718,12 +722,6 @@ property:
       - schema:Store
     range: schema:PostalAddress
     context: https://w3id.org/retail-dw/v1rc1
-  - id: retail:loyaltyProgramName
-    label: Loyalty program name
-    domain:
-      - LoyaltyCard
-      - MembershipCard
-    context: https://w3id.org/retail-dw/v1rc1
   - id: maximumLimit
     label: Maximum Limit
     range: schema:Observation
@@ -732,14 +730,6 @@ property:
       This property represents the maximum limit associated with a redemption
       rule, indicating the upper threshold related to the conditions of the
       redemption.
-    context: https://w3id.org/retail-dw/v1rc1
-  - id: mediaType
-    label: Media Type
-    range: xsd:string
-    domain: rm:TemplateRenderMethod
-    comment: >-
-      The media type associated with the rendering template; usually
-      `application/pdf` or `image/svg+xml`.
     context: https://w3id.org/retail-dw/v1rc1
   - id: minimumLimit
     label: Minimum quantity limit
@@ -750,6 +740,21 @@ property:
       purchased or redeemed in order to qualify for the RedemptionRule. This
       ensures that customers meet specific criteria before applying the
       redemption.
+    context: https://w3id.org/retail-dw/v1rc1
+  - id: schema:name
+    label: Name
+    domain:
+      - Coupon
+      - CouponBundle
+      - GiftCard
+      - LoyaltyCard
+      - MembershipCard
+      - Rebate
+      - rm:TemplateRenderMethod
+    comment: >-
+      A short human-readable label that is used to identify a specific instance
+      of an object. The name should be unique to the object. Examples include:
+      "ShopCo Gift Card", "Big Gym Membership Card", and "$5 off YumChips".
     context: https://w3id.org/retail-dw/v1rc1
   - id: retail:organizationID
     label: Organization Identifier
@@ -777,7 +782,6 @@ property:
       - LoyaltyCard
       - MembershipCard
       - GiftCard
-    range: xsd:string
     comment: >-
       A unique identifier for the loyalty program, membership program, or gift
       card program that the card is associated with, used to differentiate
@@ -815,6 +819,17 @@ property:
     range: vc:RenderMethod
     comment: A mechanism used to render a visual or wireless expression of the benefit.
     context: https://w3id.org/retail-dw/v1rc1
+  - id: rm:renderProperty
+    label: Render Property
+    domain:
+      - rm:TemplateRenderMethod
+    context: https://w3id.org/retail-dw/v1rc1
+  - id: rm:renderSuite
+    label: Render Suite
+    domain:
+      - rm:TemplateRenderMethod
+    comment: A mechanism used to render a visual or wireless expression of the benefit.
+    context: https://w3id.org/retail-dw/v1rc1
   - id: schema:seller
     label: Seller
     domain:
@@ -844,6 +859,11 @@ property:
     label: Telephone number
     domain:
       - schema:Store
+    context: https://w3id.org/retail-dw/v1rc1
+  - id: rm:template
+    label: Template
+    domain:
+      - rm:TemplateRenderMethod
     context: https://w3id.org/retail-dw/v1rc1
   - id: retail:tender
     label: Tender information
@@ -899,10 +919,16 @@ property:
       - retail:PosJournalLinkedTransactionInfo
       - retail:PosJournalAgeVerificationLine
     context: https://w3id.org/retail-dw/v1rc1
+  - id: retail:uom
+    label: Unit of Measure
+    domain:
+      - retail:QuantityUN
+    context: https://w3id.org/retail-dw/v1rc1
   - id: retail:value
-    label: Monetary value
+    label: A numerical value that is measured in units.
     domain:
       - retail:Amount
+      - retail:QuantityUN
     context: https://w3id.org/retail-dw/v1rc1
 datatype:
   - id: sec:multibase
