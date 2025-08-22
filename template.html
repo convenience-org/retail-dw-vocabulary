@@ -251,18 +251,18 @@ This section provides some preliminary examples of retail credentials.
     "renderSuite": "barcode",
     "name": "Scan at checkout",
     "template": "data:application/vcb;format=pdf417;base64,QGDG2QZkp...cY4BiwG8XJWnRO",
-    "renderProperty": ["/credentialSubject/barcode"]
+    "renderProperty": ["/credentialSubject/barCodeData"]
   }, {
     "type": "TemplateRenderMethod",
     "renderSuite": "barcode",
     "name": "Scan at checkout",
     "template": "data:image/png;base64,k38dQGDG2...cjf82Y4BiwG8XJ",
-    "renderProperty": ["/credentialSubject/barcode"]
+    "renderProperty": ["/credentialSubject/barCodeData"]
   }]
 }
         </pre>
 
-        <pre class="example nohighlight vc" title="A digital coupon bundle"
+        <pre class="example nohighlight vc" title="An 8112 digital coupons"
              data-vc-tabs="eddsa-rdfc-2022">
 {
   "@context": [
@@ -271,17 +271,14 @@ This section provides some preliminary examples of retail credentials.
   ],
   "type": ["VerifiableCredential", "RetailCredential"],
   "issuer": {
-    "id": "https://couponbundler.example/issuer-001",
-    "name": "Coupon Bundles, Inc."
+    "id": "https://coupons.example/issuer-001",
+    "name": "Coupons, Inc."
   },
   "validFrom": "2023-12-05T00:00:00Z",
   "validUntil": "2024-12-05T00:00:00Z",
   "credentialSubject": {
-    "type": "CouponBundle",
-    "barCodeData": "0123456789010479832",
-    "name": "ClipCo Coupons",
-    "description": "Clip and Save Coupons",
-    "bundleMatcher": "https://coupon.example/matcher"
+    "type": "Coupon",
+    "barCodeData": "81120123456789010479832"
   },
   "renderMethod": [{
     "type": "TemplateRenderMethod",
@@ -292,10 +289,82 @@ This section provides some preliminary examples of retail credentials.
     "renderSuite": "barcode",
     "name": "Scan at checkout",
     "template": "data:image/png;base64,k38dQGDG2...cjf82Y4BiwG8XJ",
-    "renderProperty": ["/credentialSubject/barcode"]
+    "renderProperty": ["/credentialSubject/barCodeData"]
   }]
 }
         </pre>
+
+        <pre class="example nohighlight" title="A presentation of multiple 8112 digital coupon bundles">
+{
+  "@context": "https://www.w3.org/ns/credentials/v2",
+  "type": ["VerifiablePresentation"],
+  "holder": "did:key:z6MkkzbcqYAZXmZMwtgJm1YyAyunwj7jEntpCzoEYeLFJrxh",
+  "verifiableCredential": [{
+    "@context": [
+      "https://www.w3.org/ns/credentials/v2",
+      "https://w3id.org/retail-dw/v1rc1"
+    ],
+    "type": [
+      "VerifiableCredential",
+      "RetailCredential"
+    ],
+    "issuer": {
+      "id": "https://coupons.example/issuer-001",
+      "name": "Coupons, Inc."
+    },
+    "validFrom": "2023-12-05T00:00:00Z",
+    "validUntil": "2024-12-05T00:00:00Z",
+    "credentialSubject": {
+      "type": "Coupon",
+      "barCodeData": "81120123456789010479832"
+    },
+    "proof": {
+      "type": "DataIntegrityProof",
+      "created": "2025-08-22T00:20:59Z",
+      "verificationMethod": "did:key:z6Mkunwj7jEntpCzoEYeLFJrxhkzbcqYAZXmZMwtgJm1YyAy",
+      "cryptosuite": "eddsa-rdfc-2022",
+      "proofPurpose": "assertionMethod",
+      "proofValue": "z3xKiLURkn8rqkMYtdxvSChddYihogeE9sj8u3wTENj9WprCFcdXGRrgBPkkxhn4X8pDtiHQxeA2mbc1t5oWFbD3J"
+    }
+  }, {
+    "@context": [
+      "https://www.w3.org/ns/credentials/v2",
+      "https://w3id.org/retail-dw/v1rc1"
+    ],
+    "type": [
+      "VerifiableCredential",
+      "RetailCredential"
+    ],
+    "issuer": {
+      "id": "https://coupons.example/issuer-001",
+      "name": "Coupons, Inc."
+    },
+    "validFrom": "2023-12-05T00:00:00Z",
+    "validUntil": "2024-12-05T00:00:00Z",
+    "credentialSubject": {
+      "type": "Coupon",
+      "barCodeData": "81129801234547326789010"
+    },
+    "proof": {
+      "type": "DataIntegrityProof",
+      "created": "2025-08-20T03:22:41Z",
+      "verificationMethod": "did:key:z6Mkunwj7jEntpCzoEYeLFJrxhkzbcqYAZXmZMwtgJm1YyAy",
+      "cryptosuite": "eddsa-rdfc-2022",
+      "proofPurpose": "assertionMethod",
+      "proofValue": "zrCFcdXGRrgBPkkxhn4X8pDtiHQxeA2mbc1t5oWFbD3J3xKiLURkn8rqkMYtdxvSChddYihogeE9sj8u3wTENj9Wp"
+    }
+  }],
+  "proof": {
+    "type": "DataIntegrityProof",
+    "created": "2025-08-23T14:52:46Z",
+    "verificationMethod": "did:key:z6MkkzbcqYAZXmZMwtgJm1YyAyunwj7jEntpCzoEYeLFJrxh",
+    "cryptosuite": "eddsa-rdfc-2022",
+    "proofPurpose": "assertionMethod",
+    "proofValue": "z8pDtiHQxeA2mbc1t5oWFbD3J3xKiLURkn8rqkMYtdxvSChddYihogeE9sj8u3wTENj9WprCFcdXGRrgBPkkxhn4X"
+  }
+}
+        </pre>
+
 
       </section>
 

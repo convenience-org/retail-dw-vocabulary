@@ -110,24 +110,12 @@ class:
               }
             }
           }
-  - id: CouponBundle
-    label: Coupon Bundle
-    comment: >-
-      A collection of coupons that are offered together, often providing
-      multiple discounts or offers. The bundle and a transaction identifier are
-      sent to a bundle matching service which provides information on whether or
-      not the bundle is applicable to the transaction.
-    context: https://w3id.org/retail-dw/v1rc1
-    example:
-      - label: A basic example of the CouponBundle
+      - label: A basic example of an 8112 Coupon
         json: |-
           {
             "@context": "https://w3id.org/retail-dw/v1rc1",
-            "type": "CouponBundle",
-            "barcode": "0123456789010479832",
-            "name": "ClipCo Coupons",
-            "description": "Clip and Save Coupons",
-            "bundleMatcher": "https://coupon.example/matcher"
+            "type": "Coupon",
+            "barCodeData": "81126789123012345"
           }
   - id: retail:Discount
     label: Discount
@@ -479,7 +467,7 @@ class:
               }
             }]
           }
-      - label: A basic example of a RetailCredential expressing a CouponBundle
+      - label: A basic example of a RetailCredential expressing an 8112 coupon
         json: |-
           {
             "@context": [
@@ -488,24 +476,21 @@ class:
             ],
             "type": ["VerifiableCredential", "RetailCredential"],
             "issuer": {
-              "id": "https://couponmatcher.example/",
+              "id": "https://coupons.example/",
               "name": "ClipCo"
             },
             "validFrom": "2025-04-01T00:00:00Z",
             "validUntil": "2025-10-01T00:00:00Z",
             "credentialSubject": {
-              "type": "CouponBundle",
-              "barcode": "0123456789010479832",
-              "name": "ClipCo Coupons",
-              "description": "Clip and Save Coupons",
-              "bundleMatcher": "https://couponmatcher.example/matcher"
+              "type": "Coupon",
+              "barCodeData": "81120123456789010479832"
             },
             "renderMethod": {
               "type": "TemplateRenderMethod",
               "name": "Scan",
               "renderSuite": "svg-mustache",
               "template": {
-                "id": "https://couponmatcher.example/bundle.svg",
+                "id": "https://coupons.example/branded.svg",
                 "mediaType": "image/svg+xml",
                 "digestMultibase": "uQ6JqWAPdhyx5Wg6wFl9znFCwYxApG270iEu5hz2dRmerWC8"
               }
@@ -529,7 +514,7 @@ property:
       - LoyaltyCard
       - MembershipCard
     comment: The account number associated with a particular card.
-    context: https://w3id.org/retail-benefits/v1rc1
+    context: https://w3id.org/retail-dw/v1rc1
   - id: retail:actualSalesPrice
     label: Regular sales price
     range:
@@ -555,19 +540,10 @@ property:
     label: Bar Code Data
     domain:
       - Coupon
-      - CouponBundle
       - GiftCard
       - LoyaltyCard
       - MembershipCard
       - Rebate
-    context: https://w3id.org/retail-dw/v1rc1
-  - id: bundleMatcher
-    label: Coupon Bundle Matching Service
-    domain: CouponBundle
-    range: URL
-    comment: >-
-      This URL is used to communicate with the coupon bundle service to see if
-      any item associated with a transaction matches the coupon bundle.
     context: https://w3id.org/retail-dw/v1rc1
   - id: retail:cashierID
     label: Cashier Identifier
@@ -594,7 +570,6 @@ property:
     upper_value: retail:description
     domain:
       - Coupon
-      - CouponBundle
       - GiftCard
       - LoyaltyCard
       - MembershipCard
@@ -604,7 +579,7 @@ property:
       A unique description for an instance of an item such as loyalty program,
       membership program, or gift card program that the card is associated with,
       used to differentiate between various items offered by an organization.
-    context: https://w3id.org/retail-benefits/v1rc1
+    context: https://w3id.org/retail-dw/v1rc1
   - id: sec:digestMultibase
     label: Multibase-encoded Multihash Digest
     domain:
@@ -687,7 +662,6 @@ property:
     label: Image
     domain:
       - Coupon
-      - CouponBundle
       - GiftCard
       - LoyaltyCard
       - MembershipCard
@@ -745,7 +719,6 @@ property:
     label: Name
     domain:
       - Coupon
-      - CouponBundle
       - GiftCard
       - LoyaltyCard
       - MembershipCard
@@ -811,7 +784,6 @@ property:
     label: Render Method
     domain:
       - Coupon
-      - CouponBundle
       - GiftCard
       - LoyaltyCard
       - MembershipCard
