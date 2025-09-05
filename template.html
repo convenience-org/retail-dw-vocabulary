@@ -365,6 +365,31 @@ This section provides some preliminary examples of retail credentials.
 }
         </pre>
 
+        <pre class="example nohighlight" title="A restrictive convent to not share coupons or digital receipts with 3rd parties">
+{
+  "@context": [
+    "https://www.w3.org/ns/credentials/v2",
+    "https://w3id.org/retail-dw/v1rc1"
+  ],
+  "type": ["VerifiableCredential", "RetailCredential"],
+  "issuer": {
+    "id": "did:web:association.example",
+    "name": "Example Association of Retailers"
+  },
+  "validFrom": "2024-12-05T00:00:00Z",
+  "validUntil": "2025-12-05T00:00:00Z",
+  "credentialSubject": {
+    "type": "ServiceProvider",
+    "covenant": {
+      <span class="comment">// this needs to be unlinkable in some way</span>
+      "id": "urn:token:service-provider:uuid:d0b8627a-8a59-11f0-ac2e-8b7a262db5b9",
+      "type": "RestrictiveCovenant",
+      "action": "3rdPartySharing",
+      "applicableType": ["Coupon", "Receipt"]
+    }
+  }
+}
+        </pre>
 
       </section>
 
