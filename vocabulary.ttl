@@ -1,0 +1,287 @@
+@prefix rdw: <https://w3id.org/retail-dw#> .
+@prefix retail: <https://w3id.org/retail#> .
+@prefix rm: <https://w3id.org/vc/render-method#> .
+@prefix schema: <http://schema.org/> .
+@prefix sec: <https://w3id.org/security#> .
+@prefix vc: <https://www.w3.org/2018/credentials#> .
+@prefix dc: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix vs: <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
+@prefix jsonld: <http://www.w3.org/ns/json-ld#> .
+
+# Ontology definition
+rdw: a owl:Ontology ;
+  dc:title """Retail Digital Wallet Vocabulary"""@en ;
+  dc:description """<div>
+  <p>
+    This specification defines a vocabulary for modeling a wide range
+    of retail credentials commonly stored in digital wallets. These
+    credentials include coupons, gift cards, loyalty cards, membership
+    cards, tokenized payment methods, rebates, and receipts. As digital
+    wallets become increasingly central to consumer commerce and mobile
+    transactions, there is a growing need for a standard, interoperable
+    data model that supports retail use cases in a consistent and
+    extensible manner.
+  </p>
+
+  <p>
+    The vocabulary is designed to be used in conjunction with the <a
+    href="https://www.w3.org/TR/vc-data-model/">W3C Verifiable Credentials
+    Data Model</a>, which provides a secure, privacy-respecting framework
+    for issuing and verifying digitally signed credentials. By aligning
+    with the Verifiable Credentials ecosystem, the vocabulary allows
+    retail data to be issued by trusted entities, cryptographically
+    signed, selectively disclosed, and independently verified. This
+    enables higher levels of trust, transparency, and security across
+    digital wallet transactions, whether they are processed online or
+    in-person.
+  </p>
+
+  <p>
+    One of the primary benefits of using this vocabulary is the reduction
+    of integration complexity across digital wallet implementations.
+    Developers can avoid the need to support multiple proprietary schemas
+    or ad hoc data formats, relying instead on a shared vocabulary with
+    well-defined semantics. This promotes interoperability between wallet
+    applications and merchant systems, facilitates innovation across the
+    digital commerce landscape, and enables more consistent user
+    experiences for consumers interacting with their retail credentials.
+  </p>
+
+  <p>
+    In addition to supporting standardized credential structures, the
+    vocabulary is designed with extensibility in mind. Developers can
+    build upon core terms to accommodate emerging retail use cases,
+    regional requirements, or custom business logic. The vocabulary also
+    aligns with best practices for digital identity, data privacy, and
+    cryptographic verification, allowing developers to create
+    privacy-respecting and trustworthy wallet experiences. By adopting
+    this vocabulary, implementers contribute to a more open,
+    interoperable, and future-proof digital wallet ecosystem that
+    leverages global web standards.
+  </p>
+</div>"""^^rdf:HTML ;
+  dc:abstract """This specification defines a vocabulary for representing retail-related credentials commonly stored in digital wallets, including coupons, gift cards, loyalty cards, membership cards, tokenized payment methods, rebates, and receipts. The vocabulary provides a standardized, machine-readable framework for expressing the structure and semantics of these credential types, enabling consistent interoperability across wallet providers, merchants, and service platforms."""@en ;
+  dc:date "2026-07-04"^^xsd:date ;
+.
+
+# Property definitions
+rdw:gtin a rdf:Property ;
+  rdfs:domain rdw:RedemptionRule ;
+  rdfs:label "GTIN" ;
+  rdfs:comment """<div>A property that specifies the GS1 Global Trade Identification Number (GTIN) associated with a product, which uniquely identifies a specific item in the marketplace.</div>"""^^rdf:HTML ;
+  rdfs:isDefinedBy <https://w3id.org/retail-dw#> ;
+  vs:term_status "stable" ;
+.
+
+rdw:maximumLimit a rdf:Property, owl:ObjectProperty ;
+  rdfs:domain rdw:RedemptionRule ;
+  rdfs:range schema:Observation ;
+  rdfs:label "Maximum Limit" ;
+  rdfs:comment """<div>This property represents the maximum limit associated with a redemption rule, indicating the upper threshold related to the conditions of the redemption.</div>"""^^rdf:HTML ;
+  rdfs:isDefinedBy <https://w3id.org/retail-dw#> ;
+  vs:term_status "stable" ;
+.
+
+rdw:minimumLimit a rdf:Property, owl:ObjectProperty ;
+  rdfs:domain rdw:RedemptionRule ;
+  rdfs:range schema:Observation ;
+  rdfs:label "Minimum quantity limit" ;
+  rdfs:comment """<div>A property that defines the minimum quantity of items that must be purchased or redeemed in order to qualify for the RedemptionRule. This ensures that customers meet specific criteria before applying the redemption.</div>"""^^rdf:HTML ;
+  rdfs:isDefinedBy <https://w3id.org/retail-dw#> ;
+  vs:term_status "stable" ;
+.
+
+rdw:programIdentifier a rdf:Property ;
+  rdfs:domain [ a owl:Class; owl:unionOf (rdw:LoyaltyCard rdw:MembershipCard rdw:GiftCard) ] ;
+  rdfs:label "Program Identifier" ;
+  rdfs:comment """<div>A unique identifier for the loyalty program, membership program, or gift card program that the card is associated with, used to differentiate between various programs offered by an organization.</div>"""^^rdf:HTML ;
+  rdfs:isDefinedBy <https://w3id.org/retail-dw#> ;
+  vs:term_status "stable" ;
+.
+
+rdw:redemptionRule a rdf:Property, owl:ObjectProperty ;
+  rdfs:domain rdw:Coupon ;
+  rdfs:range rdw:RedemptionRule ;
+  rdfs:label "Redemption Rule" ;
+  rdfs:comment """<div>A property that links a coupon to the specific redemption rules that apply to it, detailing the conditions and terms necessary for the coupon to be successfully redeemed.</div>"""^^rdf:HTML ;
+  rdfs:isDefinedBy <https://w3id.org/retail-dw#> ;
+  vs:term_status "stable" ;
+.
+
+rdw:token a rdf:Property, owl:DatatypeProperty ;
+  rdfs:domain rdw:PaymentToken ;
+  rdfs:range sec:multibase ;
+  rdfs:label "Token" ;
+  rdfs:comment """<div>The payment tokenization value that is known to the token issuer.</div>"""^^rdf:HTML ;
+  rdfs:isDefinedBy <https://w3id.org/retail-dw#> ;
+  vs:term_status "stable" ;
+.
+
+# Class definitions
+rdw:Coupon a rdfs:Class ;
+  rdfs:label "Coupon" ;
+  rdfs:comment """<div>A voucher entitling the holder to a discount or that may be exchanged for goods or services.</div>"""^^rdf:HTML ;
+  rdfs:isDefinedBy <https://w3id.org/retail-dw#> ;
+  vs:term_status "stable" ;
+.
+
+rdw:GiftCard a rdfs:Class ;
+  rdfs:label "Gift Card" ;
+  rdfs:comment """<div>A prepaid card that can be used as an alternative to cash for purchases within a particular store or group of stores.</div>"""^^rdf:HTML ;
+  rdfs:isDefinedBy <https://w3id.org/retail-dw#> ;
+  vs:term_status "stable" ;
+.
+
+rdw:LoyaltyCard a rdfs:Class ;
+  rdfs:label "Loyalty Card" ;
+  rdfs:comment """<div>A card issued by a retailer to a customer that facilitates accumulation of loyalty points, rewards, or discounts.</div>"""^^rdf:HTML ;
+  rdfs:isDefinedBy <https://w3id.org/retail-dw#> ;
+  vs:term_status "stable" ;
+.
+
+rdw:MembershipCard a rdfs:Class ;
+  rdfs:label "Membership Card" ;
+  rdfs:comment """<div>A card that signifies membership in a retail program, granting access to member-exclusive discounts and rewards.</div>"""^^rdf:HTML ;
+  rdfs:isDefinedBy <https://w3id.org/retail-dw#> ;
+  vs:term_status "stable" ;
+.
+
+rdw:PaymentToken a rdfs:Class ;
+  rdfs:label "Payment Token" ;
+  rdfs:comment """<div>A tokenized payment instrument that can be used through a payment network that knows how to communicate with the tokenization provider.</div>"""^^rdf:HTML ;
+  rdfs:isDefinedBy <https://w3id.org/retail-dw#> ;
+  vs:term_status "stable" ;
+.
+
+rdw:Rebate a rdfs:Class ;
+  rdfs:label "Rebate" ;
+  rdfs:comment """<div>A refund or return of part of the purchase price by the seller to the buyer, typically given as a promotional offer.</div>"""^^rdf:HTML ;
+  rdfs:isDefinedBy <https://w3id.org/retail-dw#> ;
+  vs:term_status "stable" ;
+.
+
+rdw:Receipt a rdfs:Class ;
+  rdfs:label "Receipt" ;
+  rdfs:comment """<div>A Receipt is a document that acknowledges the payment received for goods or services purchased. It typically includes details such as the date of purchase, the items bought, the total amount paid, and any applicable taxes.</div>"""^^rdf:HTML ;
+  rdfs:isDefinedBy <https://w3id.org/retail-dw#> ;
+  vs:term_status "stable" ;
+.
+
+rdw:RedemptionRule a rdfs:Class ;
+  rdfs:label "Redemption Rule" ;
+  rdfs:comment """<div>A class representing rules and conditions under which a redemption transaction can be executed in a reward or loyalty program. This includes parameters such as eligibility criteria, expiration dates, and specific terms that must be met for a reward to be redeemed.</div>"""^^rdf:HTML ;
+  rdfs:isDefinedBy <https://w3id.org/retail-dw#> ;
+  vs:term_status "stable" ;
+.
+
+rdw:RetailCredential a rdfs:Class ;
+  rdfs:label "Retail Benefit Credential" ;
+  rdfs:comment """<div>A credential that represents various benefits offered by retail stores, such as coupons, loyalty points, or gift cards.</div>"""^^rdf:HTML ;
+  rdfs:isDefinedBy <https://w3id.org/retail-dw#> ;
+  vs:term_status "stable" ;
+.
+
+
+
+# Definitions of datatypes
+# Context files and their mentions
+<https://www.w3.org/ns/credentials/v2> a jsonld:Context ;
+  schema:mentions
+    sec:multibase ;
+.
+
+<https://w3id.org/retail-dw/v1rc1> a jsonld:Context ;
+  schema:mentions
+    rdw:Coupon,
+    rdw:GiftCard,
+    rdw:LoyaltyCard,
+    rdw:MembershipCard,
+    rdw:PaymentToken,
+    rdw:Rebate,
+    rdw:Receipt,
+    rdw:RedemptionRule,
+    rdw:RetailCredential,
+    rdw:gtin,
+    rdw:maximumLimit,
+    rdw:minimumLimit,
+    rdw:programIdentifier,
+    rdw:redemptionRule,
+    rdw:token,
+    retail:Amount,
+    retail:Discount,
+    retail:ItemCode,
+    retail:PosCodeFormat,
+    retail:PosJournalAgeVerificationLine,
+    retail:PosJournalDiscountLine,
+    retail:PosJournalFuelLine,
+    retail:PosJournalFuelPrepayLine,
+    retail:PosJournalItemLine,
+    retail:PosJournalLinkedTransactionInfo,
+    retail:PosJournalLoyaltyLine,
+    retail:PosJournalMerchandiseCodeLine,
+    retail:PosJournalTenderInfoLine,
+    retail:QuantityUN,
+    retail:Tax,
+    retail:TenderID,
+    retail:account,
+    retail:actualSalesPrice,
+    retail:barCodeData,
+    retail:cashierID,
+    retail:checkDigit,
+    retail:currency,
+    retail:discount,
+    retail:discountAmount,
+    retail:discountName,
+    retail:discountQuantity,
+    retail:discountReason,
+    retail:eventEndDateTime,
+    retail:eventStartDateTime,
+    retail:format,
+    retail:itemCode,
+    retail:itemTaxes,
+    retail:organizationID,
+    retail:posCode,
+    retail:posCodeFormat,
+    retail:regularSellPrice,
+    retail:sourcePOI,
+    retail:storeLocationID,
+    retail:taxCollectedAmount,
+    retail:tender,
+    retail:tenderAmount,
+    retail:tenderCode,
+    retail:tillID,
+    retail:transactionDetailGroup,
+    retail:transactionID,
+    retail:transactionLineSequenceNumber,
+    retail:uom,
+    retail:value,
+    rm:TemplateRenderMethod,
+    rm:renderProperty,
+    rm:renderSuite,
+    rm:template,
+    schema:MonetaryAmount,
+    schema:Observation,
+    schema:PostalAddress,
+    schema:Store,
+    schema:addressLocality,
+    schema:addressRegion,
+    schema:confirmationNumber,
+    schema:description,
+    schema:encodingFormat,
+    schema:image,
+    schema:location,
+    schema:name,
+    schema:postalCode,
+    schema:seller,
+    schema:streetAddress,
+    schema:taxID,
+    schema:telephone,
+    sec:digestMultibase,
+    vc:RenderMethod,
+    vc:renderMethod ;
+.
+

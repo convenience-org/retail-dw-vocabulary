@@ -506,6 +506,12 @@ class:
     label: Template Render Method
     upper_value: vc:RenderMethod
     context: https://w3id.org/retail-dw/v1rc1
+  - id: retail:TenderID
+    label: Tender identifier
+    comment: >-
+      Tender description as defined by Conexxus, with tender code and sub code.
+    context: https://w3id.org/retail-dw/v1rc1
+
 property:
   - id: retail:account
     label: Account
@@ -822,6 +828,16 @@ property:
     domain:
       - schema:PostalAddress
     context: https://w3id.org/retail-dw/v1rc1
+  - id: retail:taxCollectedAmount
+    label: Tax collected amount
+    range:
+      - retail:Amount
+    domain:
+      - retail:Tax
+    comment: >-
+      The monetary amount of tax collected for an associated transaction line
+      or item.
+    context: https://w3id.org/retail-dw/v1rc1
   - id: schema:taxID
     label: Tax Identifier
     domain:
@@ -841,6 +857,13 @@ property:
     label: Tender information
     domain:
       - retail:PosJournalTenderInfoLine
+    range:
+      - retail:TenderID
+    context: https://w3id.org/retail-dw/v1rc1
+  - id: retail:tenderCode
+    label: Tender code
+    domain:
+      - retail:TenderID
     context: https://w3id.org/retail-dw/v1rc1
   - id: retail:tenderAmount
     label: Tender amount
