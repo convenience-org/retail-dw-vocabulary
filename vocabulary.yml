@@ -117,6 +117,25 @@ class:
             "type": "Coupon",
             "barCodeData": "81126789123012345"
           }
+  - id: CouponBundle
+    label: Coupon Bundle
+    comment: >-
+      A collection of coupons that are offered together, often providing
+      multiple discounts or offers. The bundle and a transaction identifier are
+      sent to a bundle matching service which provides information on whether or
+      not the bundle is applicable to the transaction.
+    context: https://w3id.org/retail-dw/v1rc1
+    example:
+      - label: A basic example of the CouponBundle
+        json: |-
+          {
+            "@context": "https://w3id.org/retail-dw/v1rc1",
+            "type": "CouponBundle",
+            "barCodeData": "0123456789010479832",
+            "name": "ClipCo Coupons",
+            "description": "Clip and Save Coupons",
+            "bundleMatcher": "https://coupon.example/matcher"
+          }
   - id: retail:Discount
     label: Discount
     context: https://w3id.org/retail-dw/v1rc1
@@ -546,10 +565,19 @@ property:
     label: Bar Code Data
     domain:
       - Coupon
+      - CouponBundle
       - GiftCard
       - LoyaltyCard
       - MembershipCard
       - Rebate
+    context: https://w3id.org/retail-dw/v1rc1
+  - id: bundleMatcher
+    label: Coupon Bundle Matching Service
+    domain: CouponBundle
+    range: URL
+    comment: >-
+      This URL is used to communicate with the coupon bundle service to see if
+      any item associated with a transaction matches the coupon bundle.
     context: https://w3id.org/retail-dw/v1rc1
   - id: retail:cashierID
     label: Cashier Identifier
@@ -576,6 +604,7 @@ property:
     upper_value: retail:description
     domain:
       - Coupon
+      - CouponBundle
       - GiftCard
       - LoyaltyCard
       - MembershipCard
@@ -668,6 +697,7 @@ property:
     label: Image
     domain:
       - Coupon
+      - CouponBundle
       - GiftCard
       - LoyaltyCard
       - MembershipCard
@@ -725,6 +755,7 @@ property:
     label: Name
     domain:
       - Coupon
+      - CouponBundle
       - GiftCard
       - LoyaltyCard
       - MembershipCard
@@ -790,6 +821,7 @@ property:
     label: Render Method
     domain:
       - Coupon
+      - CouponBundle
       - GiftCard
       - LoyaltyCard
       - MembershipCard
