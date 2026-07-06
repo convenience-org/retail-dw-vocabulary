@@ -26,7 +26,8 @@ npm run dist
 
 ## Generate Context
 
-Run from **retail-dw-vocabulary root** (output files are written to the current directory):
+Run from **retail-dw-vocabulary root** (output files are written to the
+current directory):
 
 ```bash
 node ../yml2vocab/dist/main.js -v vocabulary.yml -t template.html -c
@@ -38,7 +39,14 @@ Add `-d` for a full error stack if it fails.
 Outputs: `vocabulary.context.jsonld` (the context), plus `vocabulary.ttl`,
 `vocabulary.jsonld`, and `vocabulary.html`.
 
-- `vocabulary.context.jsonld` can be renamed later as `v1rcN.jsonld` where N is the revision number and put this file under contexts directory.
+- `vocabulary.context.jsonld` can be renamed later as `v1rcN.jsonld` where
+N is the revision number and put this file under contexts directory.
+- `vocabulary.html` — the rendered vocabulary documentation, built from
+`template.html`. This is what the repo publishes as `index.html`. If you
+want the published docs to reflect new terms, update `index.html` from
+the generated output — either copy the contents of `vocabulary.html`
+into the existing `index.html`, or delete `index.html` and rename
+`vocabulary.html` to `index.html`.
 
 ## Adding new terms
 
