@@ -40,7 +40,7 @@ It publishes the draft as the final versioned context and deletes the draft.
 
 - Published contexts live in `contexts/` as `v1rc<N>.jsonld`.
 - A draft is named for the version it will *become* — with `v1rc1` published,
-`generate-draft` writes `contexts/v1rc2-draft.jsonld`, and `generate-bump`
+`generate-draft` writes `contexts/v1rc2-draft.jsonld`, and `generate-rc`
 publishes it as `contexts/v1rc2.jsonld` (dropping `-draft`).
 
 **Example — developing v1rc2 (v1rc1 already published).**
