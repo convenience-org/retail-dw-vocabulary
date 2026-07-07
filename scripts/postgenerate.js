@@ -5,16 +5,17 @@
 // generate-draft -> contexts/v1rc<next>-draft.jsonld
 //
 // (publish, drop -draft)
-// generate-bump -> contexts/v1rc<next>.jsonld
+// generate-rc -> contexts/v1rc<next>.jsonld
 //
 // <next> = <highest published v1rc<N>.jsonld> + 1. The draft is named for the
 // version it will BECOME (e.g. with v1rc1 published, the draft is v1rc2-draft,
-// and bumping publishes v1rc2). Draft files never count toward the highest.
+// and generate release candidates publishes v1rc2). Draft files never count
+// toward the highest.
 //
 // vocabulary.html -> index.html in both modes. The unused vocabulary.ttl and
 // vocabulary.jsonld outputs (always emitted by yml2vocab) are deleted.
 
-import { 
+import {
   readdirSync,
   renameSync,
   existsSync,
@@ -22,7 +23,7 @@ import {
   rmSync } from 'node:fs';
 import { join } from 'node:path';
 
-const bump = process.argv.includes('--bump');
+const rc = process.argv.includes('--rc');
 const contextsDir = 'contexts';
 const generatedContext = 'vocabulary.context.jsonld';
 const generatedHtml = 'vocabulary.html';
@@ -38,7 +39,7 @@ const highest = readdirSync(contextsDir)
   .map(m => parseInt(m[1], 10))
   .reduce((max, n) => Math.max(max, n), 0);
 
-// the version the draft targets / bump publishes
+// the version the draft targets / rc publishes
 const next = highest + 1;
 
 if (!existsSync(generatedContext)) {
@@ -47,7 +48,7 @@ if (!existsSync(generatedContext)) {
   process.exit(1);
 }
 
-if (bump) {
+if (rc) {
   const targetFile = join(contextsDir, `v1rc${next}.jsonld`);
   renameSync(generatedContext, targetFile);
   // remove the draft for the revision we just published, if present
