@@ -1,0 +1,4 @@
+node_modules
+package-lock.json
+vocabulary.ttl
+vocabulary.jsonld
