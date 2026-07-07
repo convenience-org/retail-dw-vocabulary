@@ -70,7 +70,8 @@ contexts/
 ```
 contexts/
   v1rc1.jsonld
-  v1rc2.jsonld          # published (draft removed)
+  # published (draft removed)
+  v1rc2.jsonld
 ```
 
 The next revision starts the same way: `generate-draft` now produces
