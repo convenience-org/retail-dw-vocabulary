@@ -28,10 +28,11 @@ npm run generate-draft
 Run it as many times as you like. Each run overwrites the same draft file, so
 the already-published context is never touched.
 
-**Step 2 — publish.** Once the revision is final, run this once:
+**Step 2 — cut the release candidate.** Once the revision is final, run this
+once to publish it (`rc` = release candidate):
 
 ```bash
-npm run generate-bump
+npm run generate-rc
 ```
 
 It publishes the draft as the final versioned context and deletes the draft.
@@ -65,7 +66,7 @@ contexts/
 2. Need more changes? Edit `vocabulary.yml` and run `npm run generate-draft`
   again — it overwrites the same `v1rc2-draft.jsonld`. Repeat as needed.
 
-3. Happy with it? Run `npm run generate-bump`:
+3. Happy with it? Run `npm run generate-rc`:
 
 ```
 contexts/
@@ -82,7 +83,7 @@ The next revision starts the same way: `generate-draft` now produces
 
 **Under the hood,** each script runs
 `yml2vocab -v vocabulary.yml -t template.html -c` then
-`node scripts/postgenerate.js` (with `--bump` for publish). Flags: `-v` vocab
+`node scripts/postgenerate.js` (with `--rc` for publish). Flags: `-v` vocab
 file, `-t` template, `-c` emit the context; add `-d` for a full error stack.
 
 ### Manual (without the npm scripts)
