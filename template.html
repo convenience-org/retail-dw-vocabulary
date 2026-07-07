@@ -18,7 +18,7 @@
         localBiblio: {
         },
         specStatus:  "unofficial",
-        shortName:   "{{SHORTNAME}}",
+        shortName:   "retail-dw-vocabulary",
         latestVersion: "https://w3id.org/retail-benefits/",
         doJsonLd:    true,
         noRecTrack: true,
@@ -92,7 +92,7 @@
   <body  typeof="owl:Ontology">
     <section id="abstract">
       <p>
-{{ABSTRACT}}
+This specification defines a vocabulary for representing retail-related credentials commonly stored in digital wallets, including coupons, gift cards, loyalty cards, membership cards, tokenized payment methods, rebates, and receipts. The vocabulary provides a standardized, machine-readable framework for expressing the structure and semantics of these credential types, enabling consistent interoperability across wallet providers, merchants, and service platforms.
       </p>
       <p>Alternate versions of the vocabulary definition exist in
         <a rel="alternate" href="vocabulary.ttl">Turtle</a> and
@@ -108,8 +108,54 @@ This is an experimental vocabulary and is not fit for production usage.
     <section>
       <h1>Introduction</h1>
 
-{{INTRODUCTION}}
+<div>
+  <p>
+    This specification defines a vocabulary for modeling a wide range
+    of retail credentials commonly stored in digital wallets. These
+    credentials include coupons, gift cards, loyalty cards, membership
+    cards, tokenized payment methods, rebates, and receipts. As digital
+    wallets become increasingly central to consumer commerce and mobile
+    transactions, there is a growing need for a standard, interoperable
+    data model that supports retail use cases in a consistent and
+    extensible manner.
+  </p>
 
+  <p>
+    The vocabulary is designed to be used in conjunction with the <a href="https://www.w3.org/TR/vc-data-model/">W3C Verifiable Credentials
+    Data Model</a>, which provides a secure, privacy-respecting framework
+    for issuing and verifying digitally signed credentials. By aligning
+    with the Verifiable Credentials ecosystem, the vocabulary allows
+    retail data to be issued by trusted entities, cryptographically
+    signed, selectively disclosed, and independently verified. This
+    enables higher levels of trust, transparency, and security across
+    digital wallet transactions, whether they are processed online or
+    in-person.
+  </p>
+
+  <p>
+    One of the primary benefits of using this vocabulary is the reduction
+    of integration complexity across digital wallet implementations.
+    Developers can avoid the need to support multiple proprietary schemas
+    or ad hoc data formats, relying instead on a shared vocabulary with
+    well-defined semantics. This promotes interoperability between wallet
+    applications and merchant systems, facilitates innovation across the
+    digital commerce landscape, and enables more consistent user
+    experiences for consumers interacting with their retail credentials.
+  </p>
+
+  <p>
+    In addition to supporting standardized credential structures, the
+    vocabulary is designed with extensibility in mind. Developers can
+    build upon core terms to accommodate emerging retail use cases,
+    regional requirements, or custom business logic. The vocabulary also
+    aligns with best practices for digital identity, data privacy, and
+    cryptographic verification, allowing developers to create
+    privacy-respecting and trustworthy wallet experiences. By adopting
+    this vocabulary, implementers contribute to a more open,
+    interoperable, and future-proof digital wallet ecosystem that
+    leverages global web standards.
+  </p>
+</div>
 
       <section>
         <h2>Retail Ecosystem Examples</h2>
