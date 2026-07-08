@@ -3,7 +3,8 @@
   "scripts": {
     "yml2vocab": "yml2vocab -v vocabulary.yml -t template.html -c",
     "generate-draft": "npm run yml2vocab && node scripts/postgenerate.js",
-    "generate-rc": "npm run yml2vocab && node scripts/postgenerate.js --rc"
+    "generate-rc": "npm run yml2vocab && node scripts/postgenerate.js --rc",
+    "generate-major": "npm run yml2vocab && node scripts/postgenerate.js --major"
   },
   "devDependencies": {
     "yml2vocab": "^1.9.3"

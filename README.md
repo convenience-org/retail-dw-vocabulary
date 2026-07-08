@@ -1,8 +1,10 @@
 # Generating the JSON-LD Context
 
-The JSON-LD context (`vocabulary.context.jsonld`) is auto-generated from
-`vocabulary.yml` using [`yml2vocab`](https://github.com/w3c/yml2vocab).
-Do not hand-edit the context file — edit the YAML and regenerate.
+The JSON-LD context is auto-generated from `vocabulary.yml` using
+[`yml2vocab`](https://github.com/w3c/yml2vocab), which emits
+`vocabulary.context.jsonld`; the build then places it under `contexts/` as
+`v<major>rc<N>.jsonld`. Do not hand-edit the context file or `index.html` —
+edit the YAML (or `template.html`) and regenerate.
 
 ## Prerequisites
 
@@ -15,11 +17,12 @@ npm install
 
 ## Usage (Generate Context)
 
-Everything runs through two npm scripts (each one generates, places the files
+Everything runs through three npm scripts (each one generates, places the files
 in their final locations, and cleans up).
 
-**Step 1 — iterate.** After each change to `vocabulary.yml` or `template.html`,
-regenerate the draft:
+### Iterate
+
+After each change to `vocabulary.yml` or `template.html`, regenerate the draft:
 
 ```bash
 npm run generate-draft
@@ -28,23 +31,58 @@ npm run generate-draft
 Run it as many times as you like. Each run overwrites the same draft file, so
 the already-published context is never touched.
 
-**Step 2 — cut the release candidate.** Once the revision is final, run this
-once to publish it (`rc` = release candidate):
+Then publish it one of two ways — as the next release candidate, or as a new
+major version.
+
+### Cut a release candidate
+
+Once the revision is final, run this once to publish it
+(`rc` = release candidate):
 
 ```bash
 npm run generate-rc
 ```
 
-It publishes the draft as the final versioned context and deletes the draft.
+**Naming.**
+
+- Stays on the highest existing major and increments the rc.
+- With `v1rc1.jsonld` published, the draft is `contexts/v1rc2-draft.jsonld`
+and this publishes `contexts/v1rc2.jsonld` (dropping `-draft`).
+
+### Cut a new major
+
+To start the next major version instead of another rc:
+
+```bash
+npm run generate-major
+```
 
 **Naming.**
 
-- Published contexts live in `contexts/` as `v1rc<N>.jsonld`.
-- A draft is named for the version it will *become* — with `v1rc1` published,
-`generate-draft` writes `contexts/v1rc2-draft.jsonld`, and `generate-rc`
-publishes it as `contexts/v1rc2.jsonld` (dropping `-draft`).
+- Advances the major and resets the rc counter to 1 — e.g. `v1rc5.jsonld` ->
+`contexts/v2rc1.jsonld`.
+- This is the only command that changes the major; `generate-draft` and
+`generate-rc` always stay on the highest existing major.
 
-**Example — developing v1rc2 (v1rc1 already published).**
+> With nothing published yet, the first target is `v1rc1.jsonld` in either path.
+
+### Flow
+
+```mermaid
+flowchart TD
+  A[Edit vocabulary.yml / template.html] --> B[npm run generate-draft]
+  B --> C{Happy with it?}
+  C -- No --> A
+  C -- Yes --> D{New major version?}
+  D -- No --> E[npm run generate-rc]
+  D -- Yes --> F[npm run generate-major]
+  E --> G["Publishes v&lt;major&gt;rc&lt;next&gt;.jsonld<br/>(same major, next rc)"]
+  F --> H["Publishes v&lt;major+1&gt;rc1.jsonld<br/>(next major, rc reset to 1)"]
+  G --> I[Draft removed · index.html updated]
+  H --> I
+```
+
+### Example — developing v1rc2.jsonld (v1rc1.jsonld already published)
 
 Starting point:
 
@@ -71,20 +109,22 @@ contexts/
 ```
 contexts/
   v1rc1.jsonld
-  # published (draft removed)
+  # release candidate (draft removed)
   v1rc2.jsonld
 ```
 
-The next revision starts the same way: `generate-draft` now produces
-`v1rc3-draft.jsonld`.
+The next rc starts the same way (`generate-draft` -> `v1rc3-draft.jsonld`). To
+instead start a new major, run `npm run generate-major`, which would publish
+`v2rc1.jsonld`.
 
-**Both scripts also** render the docs to `index.html` and delete the unused
-`vocabulary.ttl` / `vocabulary.jsonld` outputs.
+### Under the hood
 
-**Under the hood,** each script runs
-`yml2vocab -v vocabulary.yml -t template.html -c` then
-`node scripts/postgenerate.js` (with `--rc` for publish). Flags: `-v` vocab
-file, `-t` template, `-c` emit the context; add `-d` for a full error stack.
+- Each script runs `yml2vocab -v vocabulary.yml -t template.html -c` then
+`node scripts/postgenerate.js` (with `--rc` or `--major` to publish).
+- Flags: `-v` vocab file, `-t` template, `-c` emit the context; add `-d` for
+a full error stack.
+- Both publish modes also render the docs to `index.html` and delete the
+unused `vocabulary.ttl` / `vocabulary.jsonld` outputs.
 
 ### Manual (without the npm scripts)
 
@@ -102,8 +142,10 @@ This writes raw outputs to the current directory — `vocabulary.context.jsonld`
 `vocabulary.html` — and does **not** place them. You then do what the scripts
 would otherwise automate:
 
-- Move `vocabulary.context.jsonld` into `contexts/` as `v1rc<N>.jsonld` (the
-  revision number).
+- Move `vocabulary.context.jsonld` into `contexts/` as `v<major>rc<N>.jsonld`;
+  use a `-draft` suffix while iterating; drop it to publish
+  (see the naming under **Cut a release candidate** / **Cut a new major**
+  above).
 - Update the published docs from `vocabulary.html`: copy its contents into
   `index.html`, or delete `index.html` and rename `vocabulary.html` to it.
 - Delete the unused `vocabulary.ttl` and `vocabulary.jsonld`.
@@ -112,7 +154,7 @@ would otherwise automate:
 
 Edit `vocabulary.yml` — classes under `class:`, properties under `property:` —
 then regenerate. Keep each term's `context:` value pointing at the current
-context version (currently https://w3id.org/retail-dw/v1rc1). If you cut a
+context version (currently `https://w3id.org/retail-dw/v1rc1`). If you cut a
 new revision, update these to match.
 
 ## Abstract, introduction, and shortName (template.html)
