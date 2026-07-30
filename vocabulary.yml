@@ -201,6 +201,120 @@ class:
   - id: schema:Observation
     label: Observation
     context: https://w3id.org/retail-dw/v1rc1
+  - id: PaymentDestination
+    label: Payment Destination
+    comment: >-
+      A destination that may receive payment in fulfillment of a payment
+      request. The destination identifier is opaque; a payment gateway or
+      payment processor is responsible for resolving it to an underlying
+      account. The identifier is optional: when it is absent, the payment
+      gateway or payment processor may derive a default account from the
+      issuer's request and the payment network.
+    context: https://w3id.org/retail-dw/v1rc1
+  - id: PaymentGateway
+    label: Payment Gateway
+    comment: >-
+      A service that verifies and authenticates the presentation of a
+      PaymentMethodCredential before passing the associated PaymentInstrument
+      to payment processing software. A payment gateway and a payment method
+      issuer must have an existing relationship in order to process a payment.
+    example:
+      - label: A payment gateway identified by a DID
+        json: |-
+          {
+            "@context": "https://w3id.org/retail-dw/v1rc1",
+            "id": "did:web:paymentgateway.example",
+            "type": "PaymentGateway"
+          }
+    context: https://w3id.org/retail-dw/v1rc1
+  - id: PaymentInstrument
+    label: Payment Instrument
+    comment: >-
+      An abstract identifier for a source of funds that can be used at a
+      payment gateway to perform a payment. The instrument identifier is
+      opaque; a payment gateway or payment processor is responsible for
+      resolving it to an underlying account. Details of how money moves are
+      deliberately excluded so that the instrument remains agnostic to any
+      particular payment network.
+    context: https://w3id.org/retail-dw/v1rc1
+  - id: PaymentMethodCredential
+    label: Payment Method Credential
+    comment: >-
+      A credential that makes claims about a PaymentInstrument that can be used
+      at a payment gateway to perform a payment. It is only accepted when
+      presented in a verifiable presentation together with proof of control
+      over the confidence method associated with the payment instrument, which
+      prevents unauthorized payment.
+    example:
+      - label: A basic example of a PaymentMethodCredential
+        json: |-
+          {
+            "@context": [
+              "https://www.w3.org/ns/credentials/v2",
+              "https://w3id.org/retail-dw/v1rc1"
+            ],
+            "type": ["VerifiableCredential", "PaymentMethodCredential"],
+            "issuer": {
+              "id": "https://payment-provider.example/",
+              "name": "Example Payment Method Issuer"
+            },
+            "validFrom": "2025-03-01T00:00:00Z",
+            "validUntil": "2026-03-01T00:00:00Z",
+            "name": "Utopia Everyday",
+            "description": "Utopia Payments everyday spending account.",
+            "credentialSubject": {
+              "id": "urn:uuid:6c1a4f92-3c2e-4b0a-9d55-0f6e2b1a77aa",
+              "type": "PaymentInstrument",
+              "paymentNetwork": "urn:payment-network:utopia-usd",
+              "confidenceMethod": "did:key:z6MkpTHR8VNsBxYAAWHut2Geadd9jSwuBV8x",
+              "paymentGateway": "did:web:paymentgateway.example"
+            }
+          }
+    context: https://w3id.org/retail-dw/v1rc1
+  - id: PaymentRequest
+    label: Payment Request
+    comment: >-
+      A request for payment, expressing the amount that may be collected
+      and one or more destinations that may receive it. A destination's payment
+      network must match the payment network of the payment instrument used to
+      fulfill the request.
+    context: https://w3id.org/retail-dw/v1rc1
+  - id: PaymentRequestCredential
+    label: Payment Request Credential
+    comment: >-
+      A credential that expresses a PaymentRequest. It is presented alongside a
+      PaymentMethodCredential so that a payment gateway can determine whether
+      the payment instrument is compatible with the requested payment.
+    example:
+      - label: A basic example of a PaymentRequestCredential
+        json: |-
+          {
+            "@context": [
+              "https://www.w3.org/ns/credentials/v2",
+              "https://w3id.org/retail-dw/v1rc1"
+            ],
+            "type": ["VerifiableCredential", "PaymentRequestCredential"],
+            "issuer": "did:web:merchant.example",
+            "validFrom": "2025-03-01T00:00:00Z",
+            "validUntil": "2026-03-01T00:00:00Z",
+            "name": "Coffee Purchase",
+            "description": "Payment request for a coffee purchase.",
+            "credentialSubject": {
+              "id": "urn:uuid:9f2b7c14-8a1d-4e6b-b3aa-2c9e5d4f1b30",
+              "type": "PaymentRequest",
+              "transactionID": "order-7839",
+              "maximumAmount": {
+                "type": "Amount",
+                "currency": "USD",
+                "value": "1.00"
+              },
+              "paymentDestination": [{
+                "type": "PaymentDestination",
+                "paymentNetwork": "urn:payment-network:utopia-usd"
+              }]
+            }
+          }
+    context: https://w3id.org/retail-dw/v1rc1
   - id: PaymentToken
     label: Payment Token
     comment: >-
@@ -732,6 +846,15 @@ property:
       - schema:Store
     range: schema:PostalAddress
     context: https://w3id.org/retail-dw/v1rc1
+  - id: maximumAmount
+    label: Maximum Amount
+    domain: PaymentRequest
+    range:
+      - retail:Amount
+    comment: >-
+      The maximum monetary amount that may be collected to fulfill a payment
+      request.
+    context: https://w3id.org/retail-dw/v1rc1
   - id: maximumLimit
     label: Maximum Limit
     range: schema:Observation
@@ -770,6 +893,36 @@ property:
     label: Organization Identifier
     domain:
       - schema:Store
+    context: https://w3id.org/retail-dw/v1rc1
+  - id: paymentDestination
+    label: Payment Destination
+    domain: PaymentRequest
+    range: PaymentDestination
+    comment: >-
+      A destination that may receive payment in fulfillment of a payment
+      request. A payment request may list more than one destination.
+    context: https://w3id.org/retail-dw/v1rc1
+  - id: paymentGateway
+    label: Payment Gateway
+    domain: PaymentInstrument
+    range: PaymentGateway
+    comment: >-
+      The payment gateway at which a payment instrument may be used. The value
+      may be expressed compactly as an identifier for the gateway, or as a
+      PaymentGateway object. Service information for interacting with the
+      gateway is normally discovered from the gateway's controlled identifier
+      document rather than expressed in the credential.
+    context: https://w3id.org/retail-dw/v1rc1
+  - id: paymentNetwork
+    label: Payment Network
+    domain:
+      - PaymentInstrument
+      - PaymentDestination
+    comment: >-
+      An identifier used to determine whether a payment instrument is compatible
+      with a payment request. A payment request must specify one or more payment
+      networks, one of which must match the payment network of the payment
+      instrument used to fulfill it.
     context: https://w3id.org/retail-dw/v1rc1
   - id: retail:posCode
     label: Point of sale code
@@ -932,6 +1085,7 @@ property:
     label: Transaction Identifier
     domain:
       - Receipt
+      - PaymentRequest
     context: https://w3id.org/retail-dw/v1rc1
   - id: retail:transactionLineSequenceNumber
     label: Event end date and time

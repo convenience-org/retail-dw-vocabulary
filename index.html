@@ -97,7 +97,13 @@
 <body>
   <section id="abstract">
     <p>
-      This specification defines a vocabulary for representing retail-related credentials commonly stored in digital wallets, including coupons, gift cards, loyalty cards, membership cards, tokenized payment methods, rebates, and receipts. The vocabulary provides a standardized, machine-readable framework for expressing the structure and semantics of these credential types, enabling consistent interoperability across wallet providers, merchants, and service platforms.
+      This specification defines a vocabulary for representing retail-related
+      credentials commonly stored in digital wallets, including coupons, gift cards,
+      loyalty cards, membership cards, tokenized payment methods, rebates, and
+      receipts. The vocabulary provides a standardized, machine-readable framework for
+      expressing the structure and semantics of these credential types, enabling
+      consistent interoperability across wallet providers, merchants, and service
+      platforms.
     </p>
     <p>Alternate versions of the vocabulary definition exist in
       <a rel="alternate" href="vocabulary.ttl">Turtle</a> and
@@ -112,53 +118,45 @@
 
   <section>
     <h1>Introduction</h1>
-
     <div>
       <p>
-        This specification defines a vocabulary for modeling a wide range
-        of retail credentials commonly stored in digital wallets. These
-        credentials include coupons, gift cards, loyalty cards, membership
-        cards, tokenized payment methods, rebates, and receipts. As digital
-        wallets become increasingly central to consumer commerce and mobile
-        transactions, there is a growing need for a standard, interoperable
-        data model that supports retail use cases in a consistent and
-        extensible manner.
+        This specification defines a vocabulary for modeling a wide range of retail
+        credentials commonly stored in digital wallets. These credentials include
+        coupons, gift cards, loyalty cards, membership cards, tokenized payment methods,
+        rebates, and receipts. As digital wallets become increasingly central to
+        consumer commerce and mobile transactions, there is a growing need for a
+        standard, interoperable data model that supports retail use cases in a
+        consistent and extensible manner.
       </p>
-
       <p>
-        The vocabulary is designed to be used in conjunction with the <a href="https://www.w3.org/TR/vc-data-model/">W3C Verifiable Credentials
-          Data Model</a>, which provides a secure, privacy-respecting framework
-        for issuing and verifying digitally signed credentials. By aligning
-        with the Verifiable Credentials ecosystem, the vocabulary allows
-        retail data to be issued by trusted entities, cryptographically
-        signed, selectively disclosed, and independently verified. This
-        enables higher levels of trust, transparency, and security across
-        digital wallet transactions, whether they are processed online or
-        in-person.
+        The vocabulary is designed to be used in conjunction with the
+        href="https://www.w3.org/TR/vc-data-model/"&gt;W3C Verifiable Credentials Data
+        Model, which provides a secure, privacy-respecting framework for issuing and
+        verifying digitally signed credentials. By aligning with the Verifiable
+        Credentials ecosystem, the vocabulary allows retail data to be issued by trusted
+        entities, cryptographically signed, selectively disclosed, and independently
+        verified. This enables higher levels of trust, transparency, and security across
+        digital wallet transactions, whether they are processed online or in-person.
       </p>
-
       <p>
-        One of the primary benefits of using this vocabulary is the reduction
-        of integration complexity across digital wallet implementations.
-        Developers can avoid the need to support multiple proprietary schemas
-        or ad hoc data formats, relying instead on a shared vocabulary with
-        well-defined semantics. This promotes interoperability between wallet
-        applications and merchant systems, facilitates innovation across the
-        digital commerce landscape, and enables more consistent user
-        experiences for consumers interacting with their retail credentials.
+        One of the primary benefits of using this vocabulary is the reduction of
+        integration complexity across digital wallet implementations. Developers can
+        avoid the need to support multiple proprietary schemas or ad hoc data formats,
+        relying instead on a shared vocabulary with well-defined semantics. This
+        promotes interoperability between wallet applications and merchant systems,
+        facilitates innovation across the digital commerce landscape, and enables more
+        consistent user experiences for consumers interacting with their retail
+        credentials.
       </p>
-
       <p>
-        In addition to supporting standardized credential structures, the
-        vocabulary is designed with extensibility in mind. Developers can
-        build upon core terms to accommodate emerging retail use cases,
-        regional requirements, or custom business logic. The vocabulary also
-        aligns with best practices for digital identity, data privacy, and
-        cryptographic verification, allowing developers to create
-        privacy-respecting and trustworthy wallet experiences. By adopting
-        this vocabulary, implementers contribute to a more open,
-        interoperable, and future-proof digital wallet ecosystem that
-        leverages global web standards.
+        In addition to supporting standardized credential structures, the vocabulary is
+        designed with extensibility in mind. Developers can build upon core terms to
+        accommodate emerging retail use cases, regional requirements, or custom business
+        logic. The vocabulary also aligns with best practices for digital identity, data
+        privacy, and cryptographic verification, allowing developers to create
+        privacy-respecting and trustworthy wallet experiences. By adopting this
+        vocabulary, implementers contribute to a more open, interoperable, and
+        future-proof digital wallet ecosystem that leverages global web standards.
       </p>
     </div>
 
@@ -485,6 +483,12 @@
             <li><a href="#GiftCard"><code>GiftCard<code></code></code></a></li>
             <li><a href="#LoyaltyCard"><code>LoyaltyCard<code></code></code></a></li>
             <li><a href="#MembershipCard"><code>MembershipCard<code></code></code></a></li>
+            <li><a href="#PaymentDestination"><code>PaymentDestination<code></code></code></a></li>
+            <li><a href="#PaymentGateway"><code>PaymentGateway<code></code></code></a></li>
+            <li><a href="#PaymentInstrument"><code>PaymentInstrument<code></code></code></a></li>
+            <li><a href="#PaymentMethodCredential"><code>PaymentMethodCredential<code></code></code></a></li>
+            <li><a href="#PaymentRequest"><code>PaymentRequest<code></code></code></a></li>
+            <li><a href="#PaymentRequestCredential"><code>PaymentRequestCredential<code></code></code></a></li>
             <li><a href="#PaymentToken"><code>PaymentToken<code></code></code></a></li>
             <li><a href="#Rebate"><code>Rebate<code></code></code></a></li>
             <li><a href="#Receipt"><code>Receipt<code></code></code></a></li>
@@ -492,8 +496,12 @@
             <li><a href="#RetailCredential"><code>RetailCredential<code></code></code></a></li>
             <li><a href="#bundleMatcher"><code>bundleMatcher<code></code></code></a></li>
             <li><a href="#gtin"><code>gtin<code></code></code></a></li>
+            <li><a href="#maximumAmount"><code>maximumAmount<code></code></code></a></li>
             <li><a href="#maximumLimit"><code>maximumLimit<code></code></code></a></li>
             <li><a href="#minimumLimit"><code>minimumLimit<code></code></code></a></li>
+            <li><a href="#paymentDestination"><code>paymentDestination<code></code></code></a></li>
+            <li><a href="#paymentGateway"><code>paymentGateway<code></code></code></a></li>
+            <li><a href="#paymentNetwork"><code>paymentNetwork<code></code></code></a></li>
             <li><a href="#programIdentifier"><code>programIdentifier<code></code></code></a></li>
             <li><a href="#redemptionRule"><code>redemptionRule<code></code></code></a></li>
             <li><a href="#token"><code>token<code></code></code></a></li>
@@ -928,6 +936,21 @@
           <dd><a href="https://w3id.org/retail-dw/v1rc1"><code>https://w3id.org/retail-dw/v1rc1</code></a></dd>
         </dl>
       </section>
+      <section id="maximumAmount">
+        <h4><code>maximumAmount</code></h4>
+        <p><em>Maximum Amount</em></p>
+        <div>The maximum monetary amount that may be collected to fulfill a payment request.</div>
+        <dl class="terms">
+          <dt>Domain:</dt>
+          <dd><a href="#PaymentRequest"><code>PaymentRequest</code></a></dd>
+          <dt>Range:</dt>
+          <dd><a href="#6e353de386cfa1a49a696c26e597d1e523f2840b7dd9ab884e7eeadfae9e1948"><code>Amount</code></a></dd>
+        </dl>
+        <dl class="terms">
+          <dt>Relevant <code>@context</code>:</dt>
+          <dd><a href="https://w3id.org/retail-dw/v1rc1"><code>https://w3id.org/retail-dw/v1rc1</code></a></dd>
+        </dl>
+      </section>
       <section id="maximumLimit">
         <h4><code>maximumLimit</code></h4>
         <p><em>Maximum Limit</em></p>
@@ -980,6 +1003,49 @@
           (as <a href="https://w3id.org/retail#organizationID">retail:organizationID</a>), but is frequently used with this vocabulary and has been
           included to aid readability of this document.
         </p>
+        <dl class="terms">
+          <dt>Relevant <code>@context</code>:</dt>
+          <dd><a href="https://w3id.org/retail-dw/v1rc1"><code>https://w3id.org/retail-dw/v1rc1</code></a></dd>
+        </dl>
+      </section>
+      <section id="paymentDestination">
+        <h4><code>paymentDestination</code></h4>
+        <p><em>Payment Destination</em></p>
+        <div>A destination that may receive payment in fulfillment of a payment request. A payment request may list more than one destination.</div>
+        <dl class="terms">
+          <dt>Domain:</dt>
+          <dd><a href="#PaymentRequest"><code>PaymentRequest</code></a></dd>
+          <dt>Range:</dt>
+          <dd><a href="#PaymentDestination"><code>PaymentDestination</code></a></dd>
+        </dl>
+        <dl class="terms">
+          <dt>Relevant <code>@context</code>:</dt>
+          <dd><a href="https://w3id.org/retail-dw/v1rc1"><code>https://w3id.org/retail-dw/v1rc1</code></a></dd>
+        </dl>
+      </section>
+      <section id="paymentGateway">
+        <h4><code>paymentGateway</code></h4>
+        <p><em>Payment Gateway</em></p>
+        <div>The payment gateway at which a payment instrument may be used. The value may be expressed compactly as an identifier for the gateway, or as a PaymentGateway object. Service information for interacting with the gateway is normally discovered from the gateway's controlled identifier document rather than expressed in the credential.</div>
+        <dl class="terms">
+          <dt>Domain:</dt>
+          <dd><a href="#PaymentInstrument"><code>PaymentInstrument</code></a></dd>
+          <dt>Range:</dt>
+          <dd><a href="#PaymentGateway"><code>PaymentGateway</code></a></dd>
+        </dl>
+        <dl class="terms">
+          <dt>Relevant <code>@context</code>:</dt>
+          <dd><a href="https://w3id.org/retail-dw/v1rc1"><code>https://w3id.org/retail-dw/v1rc1</code></a></dd>
+        </dl>
+      </section>
+      <section id="paymentNetwork">
+        <h4><code>paymentNetwork</code></h4>
+        <p><em>Payment Network</em></p>
+        <div>An identifier used to determine whether a payment instrument is compatible with a payment request. A payment request must specify one or more payment networks, one of which must match the payment network of the payment instrument used to fulfill it.</div>
+        <dl class="terms">
+          <dt>Domain:</dt>
+          <dd><a href="#PaymentInstrument"><code>PaymentInstrument</code></a> ⊔&nbsp;<a href="#PaymentDestination"><code>PaymentDestination</code></a></dd>
+        </dl>
         <dl class="terms">
           <dt>Relevant <code>@context</code>:</dt>
           <dd><a href="https://w3id.org/retail-dw/v1rc1"><code>https://w3id.org/retail-dw/v1rc1</code></a></dd>
@@ -1358,7 +1424,7 @@
         </p>
         <dl class="terms">
           <dt>Range of:</dt>
-          <dd><a href="#d0357c2c4a66b2a4b3994338c20c227e348976ee011476a8285ca53f9f704148"><code>actualSalesPrice</code></a>, <a href="#06a853bf229630c4f968ac531d5a5f65c0fb08485c4ad85510d1339f0776bf36"><code>discountAmount</code></a>, <a href="#2a292be06a8b6364998c4eb09439eb2dda5739ae15a4cb36659c585727583fb1"><code>regularSellPrice</code></a>, <a href="#828cb1cb08d5e5e93b9c91b8b79a4b5ed8f5ebc82857fd52f99a6c45b834df58"><code>taxCollectedAmount</code></a>, <a href="#fb732c81334f3bd65b6310b0ad59a3c89da33c616589fc03198ff99036cfc4b9"><code>tenderAmount</code></a></dd>
+          <dd><a href="#d0357c2c4a66b2a4b3994338c20c227e348976ee011476a8285ca53f9f704148"><code>actualSalesPrice</code></a>, <a href="#06a853bf229630c4f968ac531d5a5f65c0fb08485c4ad85510d1339f0776bf36"><code>discountAmount</code></a>, <a href="#maximumAmount"><code>maximumAmount</code></a>, <a href="#2a292be06a8b6364998c4eb09439eb2dda5739ae15a4cb36659c585727583fb1"><code>regularSellPrice</code></a>, <a href="#828cb1cb08d5e5e93b9c91b8b79a4b5ed8f5ebc82857fd52f99a6c45b834df58"><code>taxCollectedAmount</code></a>, <a href="#fb732c81334f3bd65b6310b0ad59a3c89da33c616589fc03198ff99036cfc4b9"><code>tenderAmount</code></a></dd>
           <dt>Domain of:</dt>
           <dd><a href="#67ebd0927401297b7dba7716a177172c0a89008aea7c874866b52d5b77ec9117"><code>currency</code></a></dd>
           <dt>In the domain of:</dt>
@@ -1564,6 +1630,135 @@
           <dt>Relevant <code>@context</code>:</dt>
           <dd><a href="https://w3id.org/retail-dw/v1rc1"><code>https://w3id.org/retail-dw/v1rc1</code></a></dd>
         </dl>
+      </section>
+      <section id="PaymentDestination">
+        <h4><code>PaymentDestination</code></h4>
+        <p><em>Payment Destination</em></p>
+        <div>A destination that may receive payment in fulfillment of a payment request. The destination identifier is opaque; a payment gateway or payment processor is responsible for resolving it to an underlying account. The identifier is optional: when it is absent, the payment gateway or payment processor may derive a default account from the issuer's request and the payment network.</div>
+        <dl class="terms">
+          <dt>Range of:</dt>
+          <dd><a href="#paymentDestination"><code>paymentDestination</code></a></dd>
+          <dt>In the domain of:</dt>
+          <dd><a href="#paymentNetwork"><code>paymentNetwork</code></a></dd>
+        </dl>
+        <dl class="terms">
+          <dt>Relevant <code>@context</code>:</dt>
+          <dd><a href="https://w3id.org/retail-dw/v1rc1"><code>https://w3id.org/retail-dw/v1rc1</code></a></dd>
+        </dl>
+      </section>
+      <section id="PaymentGateway">
+        <h4><code>PaymentGateway</code></h4>
+        <p><em>Payment Gateway</em></p>
+        <div>A service that verifies and authenticates the presentation of a PaymentMethodCredential before passing the associated PaymentInstrument to payment processing software. A payment gateway and a payment method issuer must have an existing relationship in order to process a payment.</div>
+        <dl class="terms">
+          <dt>Range of:</dt>
+          <dd><a href="#paymentGateway"><code>paymentGateway</code></a></dd>
+        </dl>
+        <dl class="terms">
+          <dt>Relevant <code>@context</code>:</dt>
+          <dd><a href="https://w3id.org/retail-dw/v1rc1"><code>https://w3id.org/retail-dw/v1rc1</code></a></dd>
+        </dl>
+        <pre class="example prettyprint language-json" title="A payment gateway identified by a DID">{
+  "@context": "https://w3id.org/retail-dw/v1rc1",
+  "id": "did:web:paymentgateway.example",
+  "type": "PaymentGateway"
+}</pre>
+      </section>
+      <section id="PaymentInstrument">
+        <h4><code>PaymentInstrument</code></h4>
+        <p><em>Payment Instrument</em></p>
+        <div>An abstract identifier for a source of funds that can be used at a payment gateway to perform a payment. The instrument identifier is opaque; a payment gateway or payment processor is responsible for resolving it to an underlying account. Details of how money moves are deliberately excluded so that the instrument remains agnostic to any particular payment network.</div>
+        <dl class="terms">
+          <dt>Domain of:</dt>
+          <dd><a href="#paymentGateway"><code>paymentGateway</code></a></dd>
+          <dt>In the domain of:</dt>
+          <dd><a href="#paymentNetwork"><code>paymentNetwork</code></a></dd>
+        </dl>
+        <dl class="terms">
+          <dt>Relevant <code>@context</code>:</dt>
+          <dd><a href="https://w3id.org/retail-dw/v1rc1"><code>https://w3id.org/retail-dw/v1rc1</code></a></dd>
+        </dl>
+      </section>
+      <section id="PaymentMethodCredential">
+        <h4><code>PaymentMethodCredential</code></h4>
+        <p><em>Payment Method Credential</em></p>
+        <div>A credential that makes claims about a PaymentInstrument that can be used at a payment gateway to perform a payment. It is only accepted when presented in a verifiable presentation together with proof of control over the confidence method associated with the payment instrument, which prevents unauthorized payment.</div>
+        <dl class="terms">
+          <dt>Relevant <code>@context</code>:</dt>
+          <dd><a href="https://w3id.org/retail-dw/v1rc1"><code>https://w3id.org/retail-dw/v1rc1</code></a></dd>
+        </dl>
+        <pre class="example prettyprint language-json" title="A basic example of a PaymentMethodCredential">{
+  "@context": [
+    "https://www.w3.org/ns/credentials/v2",
+    "https://w3id.org/retail-dw/v1rc1"
+  ],
+  "type": ["VerifiableCredential", "PaymentMethodCredential"],
+  "issuer": {
+    "id": "https://payment-provider.example/",
+    "name": "Example Payment Method Issuer"
+  },
+  "validFrom": "2025-03-01T00:00:00Z",
+  "validUntil": "2026-03-01T00:00:00Z",
+  "name": "Utopia Everyday",
+  "description": "Utopia Payments everyday spending account.",
+  "credentialSubject": {
+    "id": "urn:uuid:6c1a4f92-3c2e-4b0a-9d55-0f6e2b1a77aa",
+    "type": "PaymentInstrument",
+    "paymentNetwork": "urn:payment-network:utopia-usd",
+    "confidenceMethod": "did:key:z6MkpTHR8VNsBxYAAWHut2Geadd9jSwuBV8x",
+    "paymentGateway": "did:web:paymentgateway.example"
+  }
+}</pre>
+      </section>
+      <section id="PaymentRequest">
+        <h4><code>PaymentRequest</code></h4>
+        <p><em>Payment Request</em></p>
+        <div>A request for payment, expressing the amount that may be collected and one or more destinations that may receive it. A destination's payment network must match the payment network of the payment instrument used to fulfill the request.</div>
+        <dl class="terms">
+          <dt>Domain of:</dt>
+          <dd><a href="#maximumAmount"><code>maximumAmount</code></a>, <a href="#paymentDestination"><code>paymentDestination</code></a></dd>
+          <dt>In the domain of:</dt>
+          <dd><a href="#9af68d518a43e559abfbd1040de3de1a427d503d6103b1ff4fb965db9174682e"><code>transactionID</code></a></dd>
+        </dl>
+        <dl class="terms">
+          <dt>Relevant <code>@context</code>:</dt>
+          <dd><a href="https://w3id.org/retail-dw/v1rc1"><code>https://w3id.org/retail-dw/v1rc1</code></a></dd>
+        </dl>
+      </section>
+      <section id="PaymentRequestCredential">
+        <h4><code>PaymentRequestCredential</code></h4>
+        <p><em>Payment Request Credential</em></p>
+        <div>A credential that expresses a PaymentRequest. It is presented alongside a PaymentMethodCredential so that a payment gateway can determine whether the payment instrument is compatible with the requested payment.</div>
+        <dl class="terms">
+          <dt>Relevant <code>@context</code>:</dt>
+          <dd><a href="https://w3id.org/retail-dw/v1rc1"><code>https://w3id.org/retail-dw/v1rc1</code></a></dd>
+        </dl>
+        <pre class="example prettyprint language-json" title="A basic example of a PaymentRequestCredential">{
+  "@context": [
+    "https://www.w3.org/ns/credentials/v2",
+    "https://w3id.org/retail-dw/v1rc1"
+  ],
+  "type": ["VerifiableCredential", "PaymentRequestCredential"],
+  "issuer": "did:web:merchant.example",
+  "validFrom": "2025-03-01T00:00:00Z",
+  "validUntil": "2026-03-01T00:00:00Z",
+  "name": "Coffee Purchase",
+  "description": "Payment request for a coffee purchase.",
+  "credentialSubject": {
+    "id": "urn:uuid:9f2b7c14-8a1d-4e6b-b3aa-2c9e5d4f1b30",
+    "type": "PaymentRequest",
+    "transactionID": "order-7839",
+    "maximumAmount": {
+      "type": "Amount",
+      "currency": "USD",
+      "value": "1.00"
+    },
+    "paymentDestination": [{
+      "type": "PaymentDestination",
+      "paymentNetwork": "urn:payment-network:utopia-usd"
+    }]
+  }
+}</pre>
       </section>
       <section id="PaymentToken">
         <h4><code>PaymentToken</code></h4>
@@ -1837,7 +2032,9 @@
         <div>A Receipt is a document that acknowledges the payment received for goods or services purchased. It typically includes details such as the date of purchase, the items bought, the total amount paid, and any applicable taxes.</div>
         <dl class="terms">
           <dt>Domain of:</dt>
-          <dd><a href="#3b2a37fee7f6965837c7a00934ba4669ac341c09a654e54fc678aeb440cd9655"><code>confirmationNumber</code></a>, <a href="#6e5f76c4b497a46ddeb78ace65229b18b3ff20083fdf63a213c7aa7eb88214af"><code>eventEndDateTime</code></a>, <a href="#1160d0d26896fb54b5791d8cd2c36fb57b8d0eee318777ac37a9b1b831759d35"><code>eventStartDateTime</code></a>, <a href="#60aa16cdcb5d95b6934818efea199dbc8ee559e65442c11ceb43e9abedf146ad"><code>seller</code></a>, <a href="#46f4ea00b49b2284b7d63db848e215a03913ec908b70bb1dd707a6e42193353b"><code>transactionDetailGroup</code></a>, <a href="#9af68d518a43e559abfbd1040de3de1a427d503d6103b1ff4fb965db9174682e"><code>transactionID</code></a></dd>
+          <dd><a href="#3b2a37fee7f6965837c7a00934ba4669ac341c09a654e54fc678aeb440cd9655"><code>confirmationNumber</code></a>, <a href="#6e5f76c4b497a46ddeb78ace65229b18b3ff20083fdf63a213c7aa7eb88214af"><code>eventEndDateTime</code></a>, <a href="#1160d0d26896fb54b5791d8cd2c36fb57b8d0eee318777ac37a9b1b831759d35"><code>eventStartDateTime</code></a>, <a href="#60aa16cdcb5d95b6934818efea199dbc8ee559e65442c11ceb43e9abedf146ad"><code>seller</code></a>, <a href="#46f4ea00b49b2284b7d63db848e215a03913ec908b70bb1dd707a6e42193353b"><code>transactionDetailGroup</code></a></dd>
+          <dt>In the domain of:</dt>
+          <dd><a href="#9af68d518a43e559abfbd1040de3de1a427d503d6103b1ff4fb965db9174682e"><code>transactionID</code></a></dd>
         </dl>
         <dl class="terms">
           <dt>Relevant <code>@context</code>:</dt>
