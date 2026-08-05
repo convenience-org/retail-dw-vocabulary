@@ -92,7 +92,7 @@ class:
             "@context": "https://w3id.org/retail-dw/v1rc1",
             "id": "https://coupon.example/12345",
             "type": "Coupon",
-            "barCodeData": "0123456789123",
+            "barcodeData": "0123456789123",
             "description": "$1 off a regular coffee.",
             "discount": {
               "type": "Discount",
@@ -115,7 +115,7 @@ class:
           {
             "@context": "https://w3id.org/retail-dw/v1rc1",
             "type": "Coupon",
-            "barCodeData": "81126789123012345"
+            "barcodeData": "81126789123012345"
           }
   - id: CouponBundle
     label: Coupon Bundle
@@ -131,7 +131,7 @@ class:
           {
             "@context": "https://w3id.org/retail-dw/v1rc1",
             "type": "CouponBundle",
-            "barCodeData": "0123456789010479832",
+            "barcodeData": "0123456789010479832",
             "name": "ClipCo Coupons",
             "description": "Clip and Save Coupons",
             "bundleMatcher": "https://coupon.example/matcher"
@@ -151,7 +151,7 @@ class:
             "@context": "https://w3id.org/retail-dw/v1rc1",
             "type": "GiftCard",
             "description": "ShopCo Gift Card",
-            "barCodeData": "567789123456",
+            "barcodeData": "567789123456",
             "programIdentifier": "567", // Do we need this?
             "account": "789123456",
           }
@@ -173,7 +173,7 @@ class:
             "type": "LoyaltyCard",
             "name": "ShopCo Points Card",
             "description": "Use when checking out for rewards at ShopCo.",
-            "barCodeData": "123456789123",
+            "barcodeData": "123456789123",
             "programIdentifier": "123",
             "account": "456789123",
           }
@@ -190,7 +190,7 @@ class:
             "type": "MembershipCard",
             "name": "QuickCo Membership Card",
             "description": "Use when checking out for discounts at QuickCo.",
-            "barCodeData": "912345612789",
+            "barcodeData": "912345612789",
             "programIdentifier": "912",
             "account": "345612789"
           }
@@ -521,7 +521,7 @@ class:
               "@context": "https://w3id.org/retail-dw/v1rc1",
               "id": "https://coupon.example/12345",
               "type": "Coupon",
-              "barCodeData": "0123456789123",
+              "barcodeData": "0123456789123",
               "name": "$1 off a regular coffee.",
               "description": "Get $1 off any regular coffee. Limit one per customer per visit.",
               "discount": {
@@ -576,7 +576,7 @@ class:
               "type": "LoyaltyCard",
               "name": "ShopCo Points Card",
               "description": "Use when checking out for rewards at ShopCo.",
-              "barCodeData": "123456789123",
+              "barcodeData": "123456789123",
               "programIdentifier": "123",
               "account": "456789123",
             },
@@ -616,7 +616,7 @@ class:
             "validUntil": "2025-10-01T00:00:00Z",
             "credentialSubject": {
               "type": "Coupon",
-              "barCodeData": "81120123456789010479832"
+              "barcodeData": "81120123456789010479832"
             },
             "renderMethod": {
               "type": "TemplateRenderMethod",
@@ -675,7 +675,7 @@ property:
     domain:
       - schema:PostalAddress
     context: https://w3id.org/retail-dw/v1rc1
-  - id: retail:barCodeData
+  - id: retail:barcodeData
     label: Bar Code Data
     domain:
       - Coupon
