@@ -6,7 +6,7 @@ prefix:
     value: https://w3id.org/retail#
   - id: rm
     value: https://w3id.org/vc/render-method#
-  - id: schema
+  - id: sdo
     value: https://schema.org/
   - id: sec
     value: https://w3id.org/security#
@@ -195,10 +195,10 @@ class:
             "account": "345612789"
           }
     context: https://w3id.org/retail-dw/v1rc2
-  - id: schema:MonetaryAmount
+  - id: sdo:MonetaryAmount
     label: Monetary Amount
     context: https://w3id.org/retail-dw/v1rc2
-  - id: schema:Observation
+  - id: sdo:Observation
     label: Observation
     context: https://w3id.org/retail-dw/v1rc2
   - id: PaymentDestination
@@ -360,7 +360,7 @@ class:
   - id: retail:PosJournalTenderInfoLine
     label: Point of sale tender information line entry
     context: https://w3id.org/retail-dw/v1rc2
-  - id: schema:PostalAddress
+  - id: sdo:PostalAddress
     label: Postal address
     context: https://w3id.org/retail-dw/v1rc2
   - id: retail:QuantityUN
@@ -629,7 +629,7 @@ class:
               }
             }
           }
-  - id: schema:Store
+  - id: sdo:Store
     label: Store
     context: https://w3id.org/retail-dw/v1rc2
   - id: retail:Tax
@@ -661,15 +661,15 @@ property:
       - retail:PosJournalFuelLine
       - retail:PosJournalFuelPrepayLine
     context: https://w3id.org/retail-dw/v1rc2
-  - id: schema:addressLocality
+  - id: sdo:addressLocality
     label: Address locality (town or city)
     domain:
-      - schema:PostalAddress
+      - sdo:PostalAddress
     context: https://w3id.org/retail-dw/v1rc2
-  - id: schema:addressRegion
+  - id: sdo:addressRegion
     label: Address region (state)
     domain:
-      - schema:PostalAddress
+      - sdo:PostalAddress
     context: https://w3id.org/retail-dw/v1rc2
   - id: retail:barcodeData
     label: Bar Code Data
@@ -692,14 +692,14 @@ property:
   - id: retail:cashierID
     label: Cashier Identifier
     domain:
-      - schema:Store
+      - sdo:Store
     context: https://w3id.org/retail-dw/v1rc2
   - id: retail:checkDigit
     label: Presence of check digit in point of sale code
     domain:
       - retail:PosCodeFormat
     context: https://w3id.org/retail-dw/v1rc2
-  - id: schema:confirmationNumber
+  - id: sdo:confirmationNumber
     label: Confirmation number
     domain:
       - Receipt
@@ -709,7 +709,7 @@ property:
     domain:
       - retail:Amount
     context: https://w3id.org/retail-dw/v1rc2
-  - id: schema:description
+  - id: sdo:description
     label: Description
     upper_value: retail:description
     domain:
@@ -784,7 +784,7 @@ property:
       (GTIN) associated with a product, which uniquely identifies a specific
       item in the marketplace.
     context: https://w3id.org/retail-dw/v1rc2
-  - id: schema:image
+  - id: sdo:image
     label: Image
     domain:
       - Coupon
@@ -817,11 +817,11 @@ property:
       - retail:PosJournalFuelLine
       - retail:PosJournalFuelPrepayLine
     context: https://w3id.org/retail-dw/v1rc2
-  - id: schema:location
+  - id: sdo:location
     label: Location
     domain:
-      - schema:Store
-    range: schema:PostalAddress
+      - sdo:Store
+    range: sdo:PostalAddress
     context: https://w3id.org/retail-dw/v1rc2
   - id: maximumAmount
     label: Maximum Amount
@@ -834,7 +834,7 @@ property:
     context: https://w3id.org/retail-dw/v1rc2
   - id: maximumLimit
     label: Maximum Limit
-    range: schema:Observation
+    range: sdo:Observation
     domain: RedemptionRule
     comment: >-
       This property represents the maximum limit associated with a redemption
@@ -844,14 +844,14 @@ property:
   - id: minimumLimit
     label: Minimum quantity limit
     domain: RedemptionRule
-    range: schema:Observation
+    range: sdo:Observation
     comment: >-
       A property that defines the minimum quantity of items that must be
       purchased or redeemed in order to qualify for the RedemptionRule. This
       ensures that customers meet specific criteria before applying the
       redemption.
     context: https://w3id.org/retail-dw/v1rc2
-  - id: schema:name
+  - id: sdo:name
     label: Name
     domain:
       - Coupon
@@ -868,7 +868,7 @@ property:
   - id: retail:organizationID
     label: Organization Identifier
     domain:
-      - schema:Store
+      - sdo:Store
     context: https://w3id.org/retail-dw/v1rc2
   - id: paymentDestination
     label: Payment Destination
@@ -910,10 +910,10 @@ property:
     range:
       - retail:PosCodeFormat
     context: https://w3id.org/retail-dw/v1rc2
-  - id: schema:postalCode
+  - id: sdo:postalCode
     label: Postal code (ZIP)
     domain:
-      - schema:PostalAddress
+      - sdo:PostalAddress
     context: https://w3id.org/retail-dw/v1rc2
   - id: programIdentifier
     label: Program Identifier
@@ -958,7 +958,7 @@ property:
     range: vc:RenderMethod
     comment: A mechanism used to render a visual or wireless expression of the benefit.
     context: https://w3id.org/retail-dw/v1rc2
-  - id: schema:seller
+  - id: sdo:seller
     label: Seller
     domain:
       - Receipt
@@ -966,17 +966,17 @@ property:
   - id: retail:sourcePOI
     label: Source point of interaction
     domain:
-      - schema:Store
+      - sdo:Store
     context: https://w3id.org/retail-dw/v1rc2
   - id: retail:storeLocationID
     label: Store location identifier
     domain:
-      - schema:Store
+      - sdo:Store
     context: https://w3id.org/retail-dw/v1rc2
-  - id: schema:streetAddress
+  - id: sdo:streetAddress
     label: Street address
     domain:
-      - schema:PostalAddress
+      - sdo:PostalAddress
     context: https://w3id.org/retail-dw/v1rc2
   - id: retail:taxCollectedAmount
     label: Tax collected amount
@@ -988,15 +988,15 @@ property:
       The monetary amount of tax collected for an associated transaction line
       or item.
     context: https://w3id.org/retail-dw/v1rc2
-  - id: schema:taxID
+  - id: sdo:taxID
     label: Tax Identifier
     domain:
-      - schema:Store
+      - sdo:Store
     context: https://w3id.org/retail-dw/v1rc2
-  - id: schema:telephone
+  - id: sdo:telephone
     label: Telephone number
     domain:
-      - schema:Store
+      - sdo:Store
     context: https://w3id.org/retail-dw/v1rc2
   - id: retail:tender
     label: Tender information
@@ -1018,7 +1018,7 @@ property:
   - id: retail:tillID
     label: Till identifier
     domain:
-      - schema:Store
+      - sdo:Store
     context: https://w3id.org/retail-dw/v1rc2
   - id: token
     label: Token
