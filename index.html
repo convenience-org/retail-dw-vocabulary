@@ -170,7 +170,7 @@
       <pre class="example nohighlight vc" title="A digital loyalty card" data-vc-tabs="eddsa-rdfc-2022">{
   "@context": [
     "https://www.w3.org/ns/credentials/v2",
-    "https://w3id.org/retail-dw/v1rc3"
+    "https://w3id.org/retail-dw/v1rc4"
   ],
   "type": ["VerifiableCredential", "RetailCredential"],
   "issuer": {
@@ -212,7 +212,7 @@
       <pre class="example nohighlight vc" title="A digital membership card" data-vc-tabs="eddsa-rdfc-2022">{
   "@context": [
     "https://www.w3.org/ns/credentials/v2",
-    "https://w3id.org/retail-dw/v1rc3"
+    "https://w3id.org/retail-dw/v1rc4"
   ],
   "type": ["VerifiableCredential", "RetailCredential"],
   "issuer": {
@@ -254,7 +254,7 @@
       <pre class="example nohighlight vc" title="A digital coupon" data-vc-tabs="eddsa-rdfc-2022">{
   "@context": [
     "https://www.w3.org/ns/credentials/v2",
-    "https://w3id.org/retail-dw/v1rc3"
+    "https://w3id.org/retail-dw/v1rc4"
   ],
   "type": ["VerifiableCredential", "RetailCredential"],
   "issuer": {
@@ -308,7 +308,7 @@
       <pre class="example nohighlight vc" title="An 8112 digital coupons" data-vc-tabs="eddsa-rdfc-2022">{
   "@context": [
     "https://www.w3.org/ns/credentials/v2",
-    "https://w3id.org/retail-dw/v1rc3"
+    "https://w3id.org/retail-dw/v1rc4"
   ],
   "type": ["VerifiableCredential", "RetailCredential"],
   "issuer": {
@@ -342,7 +342,7 @@
   "verifiableCredential": [{
     "@context": [
       "https://www.w3.org/ns/credentials/v2",
-      "https://w3id.org/retail-dw/v1rc3"
+      "https://w3id.org/retail-dw/v1rc4"
     ],
     "type": [
       "VerifiableCredential",
@@ -369,7 +369,7 @@
   }, {
     "@context": [
       "https://www.w3.org/ns/credentials/v2",
-      "https://w3id.org/retail-dw/v1rc3"
+      "https://w3id.org/retail-dw/v1rc4"
     ],
     "type": [
       "VerifiableCredential",
@@ -408,7 +408,7 @@
       <pre class="example nohighlight" title="A restrictive convent to not share coupons or digital receipts with 3rd parties">{
   "@context": [
     "https://www.w3.org/ns/credentials/v2",
-    "https://w3id.org/retail-dw/v1rc3"
+    "https://w3id.org/retail-dw/v1rc4"
   ],
   "type": ["VerifiableCredential", "RetailCredential"],
   "issuer": {
@@ -443,8 +443,8 @@
       <dd><code>https://w3id.org/retail-dw#</code></dd>
       <dt><code>retail</code></dt>
       <dd><code>https://w3id.org/retail#</code></dd>
-      <dt><code>schema</code></dt>
-      <dd><code>http://schema.org/</code></dd>
+      <dt><code>sdo</code></dt>
+      <dd><code>https://schema.org/</code></dd>
       <dt><code>sec</code></dt>
       <dd><code>https://w3id.org/security#</code></dd>
       <dt><code>vc</code></dt>
@@ -551,22 +551,22 @@
             <li><a href="#286b33d11ba9ece18894555f86e5c5b6a342f11fcd320e5ff80f066e2f92e7b2"><code>transactionLineSequenceNumber<code></code></code></a></li>
             <li><a href="#e85392269144ae8fea6457cb7674cbc3dbe8321ca7e91f4f4b90c6b8c1a1852a"><code>uom<code></code></code></a></li>
             <li><a href="#957c66e1997406b04d3e7d5ad77861d799b87fd19d9765543b7f0f1fbe5a2dda"><code>value<code></code></code></a></li>
-            <li><a href="#909cb47880ae46b1c45cffe53eaead53a69ba1caf77c18bf123b85a8b4b40afa"><code>MonetaryAmount<code></code></code></a></li>
-            <li><a href="#520cbc4a12f2ace77f2630790813a9561af64b6d8fad2928c8dcfffd4ff3ead0"><code>Observation<code></code></code></a></li>
-            <li><a href="#eeea1b680fc7ccd82f99c7216cd76bc81fc9afe7aaac7b130e5c80dbfb073a91"><code>PostalAddress<code></code></code></a></li>
-            <li><a href="#a4b8918a6e2d53cb1cfe3dae675a9955483de5aa1a5e09da079aa53ca362a048"><code>Store<code></code></code></a></li>
-            <li><a href="#c4ea822201d8b7a881b8de7bc126bd351c9293c508e521bab0fc559b207a3d43"><code>addressLocality<code></code></code></a></li>
-            <li><a href="#d9c8bb872d4df729987e9ee0fbeb3d6d9fe7fbdf184b30886ee022d4d8075e51"><code>addressRegion<code></code></code></a></li>
-            <li><a href="#3b2a37fee7f6965837c7a00934ba4669ac341c09a654e54fc678aeb440cd9655"><code>confirmationNumber<code></code></code></a></li>
-            <li><a href="#bd67ab3de4befa12ddca1ae5092c89be951e565f05919d9bcb1e77eecb6d76ba"><code>description<code></code></code></a></li>
-            <li><a href="#cf69b5fd3841daff2338a66a43f462341694b5a4abe3b5024c4c04e8f8caeb91"><code>image<code></code></code></a></li>
-            <li><a href="#2820ef73c70becd6c5aad2b017a09a05d6931c612795da104c6a879b29f4d823"><code>location<code></code></code></a></li>
-            <li><a href="#104320a85a67bdb05592c4f95a24b049fa7069dd318c44531214a955c3f1fa37"><code>name<code></code></code></a></li>
-            <li><a href="#087f4a4aeb71c501710b25af97eb45e220b6fb13eb6df1a31013a59277288769"><code>postalCode<code></code></code></a></li>
-            <li><a href="#60aa16cdcb5d95b6934818efea199dbc8ee559e65442c11ceb43e9abedf146ad"><code>seller<code></code></code></a></li>
-            <li><a href="#8e68fb274a3f8fb66425187283211ca6ad11b6db800b65849105c8497348bbd1"><code>streetAddress<code></code></code></a></li>
-            <li><a href="#22cf031b7eee8066c55d747bcb8176042c2522ed5f2d230c860e90ea9df7cd7b"><code>taxID<code></code></code></a></li>
-            <li><a href="#bf3f2d3084863cf54fe9e74b88955c4413b922707cb2535ce0dfa0773a014322"><code>telephone<code></code></code></a></li>
+            <li><a href="#4af8b14572904a0767f2fa6f47e38a4f9ad079087ab55f6c3560ce2bdd940eed"><code>MonetaryAmount<code></code></code></a></li>
+            <li><a href="#17255c35e55a2942bc8e9d28f41e6aad5b260d23382cc265eb80af52e7279c88"><code>Observation<code></code></code></a></li>
+            <li><a href="#78831593a980875a0ffa2e936ee098a53882ab906cb3eaff0fd3fed4973a72e4"><code>PostalAddress<code></code></code></a></li>
+            <li><a href="#29c0c5825f3209b5fc04e31a7a5e317b2b7d5ffeed28ee8e1290b030fda646ec"><code>Store<code></code></code></a></li>
+            <li><a href="#6b6c129c091da025d9aba74d40e97aad134e33e0a7dd243f4f88daf5fa846c20"><code>addressLocality<code></code></code></a></li>
+            <li><a href="#3f28ac5f78ab4ff517cce7746295e8ae4a80a5cfd805110e073e9a829963671c"><code>addressRegion<code></code></code></a></li>
+            <li><a href="#753266a48d422158e5b67f85db5ccc7365f3ae4ba39dae5958ef25fa810e803b"><code>confirmationNumber<code></code></code></a></li>
+            <li><a href="#45f15e993127940f0074bacb50bb491d5c29cf981d01c43e8723c931135599ac"><code>description<code></code></code></a></li>
+            <li><a href="#c8d8a73577b17070b01df060dcf03128032dd9255a9d494468cf2d33e075c20b"><code>image<code></code></code></a></li>
+            <li><a href="#22ac787929562d415dde0a0c12f0875ec05fb6440740d0fe0d9c7ec8a0ce2269"><code>location<code></code></code></a></li>
+            <li><a href="#1fcc090c97b079a6354923801d28050badf02fef3351220c2c4124012c090001"><code>name<code></code></code></a></li>
+            <li><a href="#e8e62332f4c436cf24aea40e1a7083b9ba4e5f1c0322dd5b8667db460cad5bab"><code>postalCode<code></code></code></a></li>
+            <li><a href="#511e61f1aaf9b4792c2767824d3c829741c9d66c0f35bf5f4c4b573bdf7dbbcd"><code>seller<code></code></code></a></li>
+            <li><a href="#c900b8340b62438d38b09b60981bd5d699409837a4d5d4bdf4f4a092dfdd124d"><code>streetAddress<code></code></code></a></li>
+            <li><a href="#f2f8481efb324d970cb6821da002856a15107642342d27db5aff95c6380ce2e1"><code>taxID<code></code></code></a></li>
+            <li><a href="#68509aa38bfeab00a1a4b5614b2191a256049e4c29526e370c7b963fee4b23d7"><code>telephone<code></code></code></a></li>
             <li><a href="#1ab8322195f2be76e42b3be06a94413cb9468299946b730a4b6cb5e685f3b67c"><code>RenderMethod<code></code></code></a></li>
             <li><a href="#d84effb0c96f22c14d5c50524dcb18ba61de92c72841a088f24af7ddaaa5ba39"><code>renderMethod<code></code></code></a></li>
           </ul>
@@ -609,12 +609,12 @@
           <dd><a href="https://w3id.org/retail-dw/v1rc2"><code>https://w3id.org/retail-dw/v1rc2</code></a></dd>
         </dl>
       </section>
-      <section id="c4ea822201d8b7a881b8de7bc126bd351c9293c508e521bab0fc559b207a3d43">
+      <section id="6b6c129c091da025d9aba74d40e97aad134e33e0a7dd243f4f88daf5fa846c20">
         <h4><code>addressLocality</code></h4>
         <p><em>Address locality (town or city)</em></p>
         <p class="note">
           <b>This term is formally defined in another vocabulary</b>
-          (as <a href="http://schema.org/addressLocality">schema:addressLocality</a>), but is frequently used with this vocabulary and has been
+          (as <a href="https://schema.org/addressLocality">sdo:addressLocality</a>), but is frequently used with this vocabulary and has been
           included to aid readability of this document.
         </p>
         <dl class="terms">
@@ -622,12 +622,12 @@
           <dd><a href="https://w3id.org/retail-dw/v1rc2"><code>https://w3id.org/retail-dw/v1rc2</code></a></dd>
         </dl>
       </section>
-      <section id="d9c8bb872d4df729987e9ee0fbeb3d6d9fe7fbdf184b30886ee022d4d8075e51">
+      <section id="3f28ac5f78ab4ff517cce7746295e8ae4a80a5cfd805110e073e9a829963671c">
         <h4><code>addressRegion</code></h4>
         <p><em>Address region (state)</em></p>
         <p class="note">
           <b>This term is formally defined in another vocabulary</b>
-          (as <a href="http://schema.org/addressRegion">schema:addressRegion</a>), but is frequently used with this vocabulary and has been
+          (as <a href="https://schema.org/addressRegion">sdo:addressRegion</a>), but is frequently used with this vocabulary and has been
           included to aid readability of this document.
         </p>
         <dl class="terms">
@@ -687,12 +687,12 @@
           <dd><a href="https://w3id.org/retail-dw/v1rc2"><code>https://w3id.org/retail-dw/v1rc2</code></a></dd>
         </dl>
       </section>
-      <section id="3b2a37fee7f6965837c7a00934ba4669ac341c09a654e54fc678aeb440cd9655">
+      <section id="753266a48d422158e5b67f85db5ccc7365f3ae4ba39dae5958ef25fa810e803b">
         <h4><code>confirmationNumber</code></h4>
         <p><em>Confirmation number</em></p>
         <p class="note">
           <b>This term is formally defined in another vocabulary</b>
-          (as <a href="http://schema.org/confirmationNumber">schema:confirmationNumber</a>), but is frequently used with this vocabulary and has been
+          (as <a href="https://schema.org/confirmationNumber">sdo:confirmationNumber</a>), but is frequently used with this vocabulary and has been
           included to aid readability of this document.
         </p>
         <dl class="terms">
@@ -713,13 +713,13 @@
           <dd><a href="https://w3id.org/retail-dw/v1rc2"><code>https://w3id.org/retail-dw/v1rc2</code></a></dd>
         </dl>
       </section>
-      <section id="bd67ab3de4befa12ddca1ae5092c89be951e565f05919d9bcb1e77eecb6d76ba">
+      <section id="45f15e993127940f0074bacb50bb491d5c29cf981d01c43e8723c931135599ac">
         <h4><code>description</code></h4>
         <p><em>Description</em></p>
         <div>A unique description for an instance of an item such as loyalty program, membership program, or gift card program that the card is associated with, used to differentiate between various items offered by an organization.</div>
         <p class="note">
           <b>This term is formally defined in another vocabulary</b>
-          (as <a href="http://schema.org/description">schema:description</a>), but is frequently used with this vocabulary and has been
+          (as <a href="https://schema.org/description">sdo:description</a>), but is frequently used with this vocabulary and has been
           included to aid readability of this document.
         </p>
         <dl class="terms">
@@ -845,13 +845,13 @@
           <dd><a href="https://w3id.org/retail-dw/v1rc2"><code>https://w3id.org/retail-dw/v1rc2</code></a></dd>
         </dl>
       </section>
-      <section id="cf69b5fd3841daff2338a66a43f462341694b5a4abe3b5024c4c04e8f8caeb91">
+      <section id="c8d8a73577b17070b01df060dcf03128032dd9255a9d494468cf2d33e075c20b">
         <h4><code>image</code></h4>
         <p><em>Image</em></p>
         <div>A property that specifies the URL or identifier of an image associated with the respective entities, used for visual representation in digital or physical formats.<br><br>The property's value should be a URL, i.e., not a literal.</div>
         <p class="note">
           <b>This term is formally defined in another vocabulary</b>
-          (as <a href="http://schema.org/image">schema:image</a>), but is frequently used with this vocabulary and has been
+          (as <a href="https://schema.org/image">sdo:image</a>), but is frequently used with this vocabulary and has been
           included to aid readability of this document.
         </p>
         <dl class="terms">
@@ -885,12 +885,12 @@
           <dd><a href="https://w3id.org/retail-dw/v1rc2"><code>https://w3id.org/retail-dw/v1rc2</code></a></dd>
         </dl>
       </section>
-      <section id="2820ef73c70becd6c5aad2b017a09a05d6931c612795da104c6a879b29f4d823">
+      <section id="22ac787929562d415dde0a0c12f0875ec05fb6440740d0fe0d9c7ec8a0ce2269">
         <h4><code>location</code></h4>
         <p><em>Location</em></p>
         <p class="note">
           <b>This term is formally defined in another vocabulary</b>
-          (as <a href="http://schema.org/location">schema:location</a>), but is frequently used with this vocabulary and has been
+          (as <a href="https://schema.org/location">sdo:location</a>), but is frequently used with this vocabulary and has been
           included to aid readability of this document.
         </p>
         <dl class="terms">
@@ -921,7 +921,7 @@
           <dt>Domain:</dt>
           <dd><a href="#RedemptionRule"><code>RedemptionRule</code></a></dd>
           <dt>Range:</dt>
-          <dd><a href="#520cbc4a12f2ace77f2630790813a9561af64b6d8fad2928c8dcfffd4ff3ead0"><code>Observation</code></a></dd>
+          <dd><a href="#17255c35e55a2942bc8e9d28f41e6aad5b260d23382cc265eb80af52e7279c88"><code>Observation</code></a></dd>
         </dl>
         <dl class="terms">
           <dt>Relevant <code>@context</code>:</dt>
@@ -936,20 +936,20 @@
           <dt>Domain:</dt>
           <dd><a href="#RedemptionRule"><code>RedemptionRule</code></a></dd>
           <dt>Range:</dt>
-          <dd><a href="#520cbc4a12f2ace77f2630790813a9561af64b6d8fad2928c8dcfffd4ff3ead0"><code>Observation</code></a></dd>
+          <dd><a href="#17255c35e55a2942bc8e9d28f41e6aad5b260d23382cc265eb80af52e7279c88"><code>Observation</code></a></dd>
         </dl>
         <dl class="terms">
           <dt>Relevant <code>@context</code>:</dt>
           <dd><a href="https://w3id.org/retail-dw/v1rc2"><code>https://w3id.org/retail-dw/v1rc2</code></a></dd>
         </dl>
       </section>
-      <section id="104320a85a67bdb05592c4f95a24b049fa7069dd318c44531214a955c3f1fa37">
+      <section id="1fcc090c97b079a6354923801d28050badf02fef3351220c2c4124012c090001">
         <h4><code>name</code></h4>
         <p><em>Name</em></p>
         <div>A short human-readable label that is used to identify a specific instance of an object. The name should be unique to the object. Examples include: "ShopCo Gift Card", "Big Gym Membership Card", and "$5 off YumChips".</div>
         <p class="note">
           <b>This term is formally defined in another vocabulary</b>
-          (as <a href="http://schema.org/name">schema:name</a>), but is frequently used with this vocabulary and has been
+          (as <a href="https://schema.org/name">sdo:name</a>), but is frequently used with this vocabulary and has been
           included to aid readability of this document.
         </p>
         <dl class="terms">
@@ -1039,12 +1039,12 @@
           <dd><a href="https://w3id.org/retail-dw/v1rc2"><code>https://w3id.org/retail-dw/v1rc2</code></a></dd>
         </dl>
       </section>
-      <section id="087f4a4aeb71c501710b25af97eb45e220b6fb13eb6df1a31013a59277288769">
+      <section id="e8e62332f4c436cf24aea40e1a7083b9ba4e5f1c0322dd5b8667db460cad5bab">
         <h4><code>postalCode</code></h4>
         <p><em>Postal code (ZIP)</em></p>
         <p class="note">
           <b>This term is formally defined in another vocabulary</b>
-          (as <a href="http://schema.org/postalCode">schema:postalCode</a>), but is frequently used with this vocabulary and has been
+          (as <a href="https://schema.org/postalCode">sdo:postalCode</a>), but is frequently used with this vocabulary and has been
           included to aid readability of this document.
         </p>
         <dl class="terms">
@@ -1107,12 +1107,12 @@
           <dd><a href="https://w3id.org/retail-dw/v1rc2"><code>https://w3id.org/retail-dw/v1rc2</code></a></dd>
         </dl>
       </section>
-      <section id="60aa16cdcb5d95b6934818efea199dbc8ee559e65442c11ceb43e9abedf146ad">
+      <section id="511e61f1aaf9b4792c2767824d3c829741c9d66c0f35bf5f4c4b573bdf7dbbcd">
         <h4><code>seller</code></h4>
         <p><em>Seller</em></p>
         <p class="note">
           <b>This term is formally defined in another vocabulary</b>
-          (as <a href="http://schema.org/seller">schema:seller</a>), but is frequently used with this vocabulary and has been
+          (as <a href="https://schema.org/seller">sdo:seller</a>), but is frequently used with this vocabulary and has been
           included to aid readability of this document.
         </p>
         <dl class="terms">
@@ -1146,12 +1146,12 @@
           <dd><a href="https://w3id.org/retail-dw/v1rc2"><code>https://w3id.org/retail-dw/v1rc2</code></a></dd>
         </dl>
       </section>
-      <section id="8e68fb274a3f8fb66425187283211ca6ad11b6db800b65849105c8497348bbd1">
+      <section id="c900b8340b62438d38b09b60981bd5d699409837a4d5d4bdf4f4a092dfdd124d">
         <h4><code>streetAddress</code></h4>
         <p><em>Street address</em></p>
         <p class="note">
           <b>This term is formally defined in another vocabulary</b>
-          (as <a href="http://schema.org/streetAddress">schema:streetAddress</a>), but is frequently used with this vocabulary and has been
+          (as <a href="https://schema.org/streetAddress">sdo:streetAddress</a>), but is frequently used with this vocabulary and has been
           included to aid readability of this document.
         </p>
         <dl class="terms">
@@ -1173,12 +1173,12 @@
           <dd><a href="https://w3id.org/retail-dw/v1rc2"><code>https://w3id.org/retail-dw/v1rc2</code></a></dd>
         </dl>
       </section>
-      <section id="22cf031b7eee8066c55d747bcb8176042c2522ed5f2d230c860e90ea9df7cd7b">
+      <section id="f2f8481efb324d970cb6821da002856a15107642342d27db5aff95c6380ce2e1">
         <h4><code>taxID</code></h4>
         <p><em>Tax Identifier</em></p>
         <p class="note">
           <b>This term is formally defined in another vocabulary</b>
-          (as <a href="http://schema.org/taxID">schema:taxID</a>), but is frequently used with this vocabulary and has been
+          (as <a href="https://schema.org/taxID">sdo:taxID</a>), but is frequently used with this vocabulary and has been
           included to aid readability of this document.
         </p>
         <dl class="terms">
@@ -1186,12 +1186,12 @@
           <dd><a href="https://w3id.org/retail-dw/v1rc2"><code>https://w3id.org/retail-dw/v1rc2</code></a></dd>
         </dl>
       </section>
-      <section id="bf3f2d3084863cf54fe9e74b88955c4413b922707cb2535ce0dfa0773a014322">
+      <section id="68509aa38bfeab00a1a4b5614b2191a256049e4c29526e370c7b963fee4b23d7">
         <h4><code>telephone</code></h4>
         <p><em>Telephone number</em></p>
         <p class="note">
           <b>This term is formally defined in another vocabulary</b>
-          (as <a href="http://schema.org/telephone">schema:telephone</a>), but is frequently used with this vocabulary and has been
+          (as <a href="https://schema.org/telephone">sdo:telephone</a>), but is frequently used with this vocabulary and has been
           included to aid readability of this document.
         </p>
         <dl class="terms">
@@ -1365,7 +1365,7 @@
           <dt>Domain of:</dt>
           <dd><a href="#redemptionRule"><code>redemptionRule</code></a></dd>
           <dt>In the domain of:</dt>
-          <dd><a href="#1a28c7d7f007f34f9f772315363b6f51c69b830f111bab1ab3216be7528c270c"><code>barcodeData</code></a>, <a href="#bd67ab3de4befa12ddca1ae5092c89be951e565f05919d9bcb1e77eecb6d76ba"><code>description</code></a>, <a href="#dae7db117d6520476d4d299d98e103c24279147036ed7ebcb51a4bb6e8a9f778"><code>discount</code></a>, <a href="#cf69b5fd3841daff2338a66a43f462341694b5a4abe3b5024c4c04e8f8caeb91"><code>image</code></a>, <a href="#104320a85a67bdb05592c4f95a24b049fa7069dd318c44531214a955c3f1fa37"><code>name</code></a>, <a href="#d84effb0c96f22c14d5c50524dcb18ba61de92c72841a088f24af7ddaaa5ba39"><code>renderMethod</code></a></dd>
+          <dd><a href="#1a28c7d7f007f34f9f772315363b6f51c69b830f111bab1ab3216be7528c270c"><code>barcodeData</code></a>, <a href="#45f15e993127940f0074bacb50bb491d5c29cf981d01c43e8723c931135599ac"><code>description</code></a>, <a href="#dae7db117d6520476d4d299d98e103c24279147036ed7ebcb51a4bb6e8a9f778"><code>discount</code></a>, <a href="#c8d8a73577b17070b01df060dcf03128032dd9255a9d494468cf2d33e075c20b"><code>image</code></a>, <a href="#1fcc090c97b079a6354923801d28050badf02fef3351220c2c4124012c090001"><code>name</code></a>, <a href="#d84effb0c96f22c14d5c50524dcb18ba61de92c72841a088f24af7ddaaa5ba39"><code>renderMethod</code></a></dd>
         </dl>
         <dl class="terms">
           <dt>Relevant <code>@context</code>:</dt>
@@ -1407,7 +1407,7 @@
           <dt>Domain of:</dt>
           <dd><a href="#bundleMatcher"><code>bundleMatcher</code></a></dd>
           <dt>In the domain of:</dt>
-          <dd><a href="#1a28c7d7f007f34f9f772315363b6f51c69b830f111bab1ab3216be7528c270c"><code>barcodeData</code></a>, <a href="#bd67ab3de4befa12ddca1ae5092c89be951e565f05919d9bcb1e77eecb6d76ba"><code>description</code></a>, <a href="#cf69b5fd3841daff2338a66a43f462341694b5a4abe3b5024c4c04e8f8caeb91"><code>image</code></a>, <a href="#104320a85a67bdb05592c4f95a24b049fa7069dd318c44531214a955c3f1fa37"><code>name</code></a>, <a href="#d84effb0c96f22c14d5c50524dcb18ba61de92c72841a088f24af7ddaaa5ba39"><code>renderMethod</code></a></dd>
+          <dd><a href="#1a28c7d7f007f34f9f772315363b6f51c69b830f111bab1ab3216be7528c270c"><code>barcodeData</code></a>, <a href="#45f15e993127940f0074bacb50bb491d5c29cf981d01c43e8723c931135599ac"><code>description</code></a>, <a href="#c8d8a73577b17070b01df060dcf03128032dd9255a9d494468cf2d33e075c20b"><code>image</code></a>, <a href="#1fcc090c97b079a6354923801d28050badf02fef3351220c2c4124012c090001"><code>name</code></a>, <a href="#d84effb0c96f22c14d5c50524dcb18ba61de92c72841a088f24af7ddaaa5ba39"><code>renderMethod</code></a></dd>
         </dl>
         <dl class="terms">
           <dt>Relevant <code>@context</code>:</dt>
@@ -1445,7 +1445,7 @@
         <div>A prepaid card that can be used as an alternative to cash for purchases within a particular store or group of stores.</div>
         <dl class="terms">
           <dt>In the domain of:</dt>
-          <dd><a href="#e1625d571e99b7a1831cd91de914e3eef798c30546decb3f84dc7bde2675b158"><code>account</code></a>, <a href="#1a28c7d7f007f34f9f772315363b6f51c69b830f111bab1ab3216be7528c270c"><code>barcodeData</code></a>, <a href="#bd67ab3de4befa12ddca1ae5092c89be951e565f05919d9bcb1e77eecb6d76ba"><code>description</code></a>, <a href="#cf69b5fd3841daff2338a66a43f462341694b5a4abe3b5024c4c04e8f8caeb91"><code>image</code></a>, <a href="#104320a85a67bdb05592c4f95a24b049fa7069dd318c44531214a955c3f1fa37"><code>name</code></a>, <a href="#programIdentifier"><code>programIdentifier</code></a>, <a href="#d84effb0c96f22c14d5c50524dcb18ba61de92c72841a088f24af7ddaaa5ba39"><code>renderMethod</code></a></dd>
+          <dd><a href="#e1625d571e99b7a1831cd91de914e3eef798c30546decb3f84dc7bde2675b158"><code>account</code></a>, <a href="#1a28c7d7f007f34f9f772315363b6f51c69b830f111bab1ab3216be7528c270c"><code>barcodeData</code></a>, <a href="#45f15e993127940f0074bacb50bb491d5c29cf981d01c43e8723c931135599ac"><code>description</code></a>, <a href="#c8d8a73577b17070b01df060dcf03128032dd9255a9d494468cf2d33e075c20b"><code>image</code></a>, <a href="#1fcc090c97b079a6354923801d28050badf02fef3351220c2c4124012c090001"><code>name</code></a>, <a href="#programIdentifier"><code>programIdentifier</code></a>, <a href="#d84effb0c96f22c14d5c50524dcb18ba61de92c72841a088f24af7ddaaa5ba39"><code>renderMethod</code></a></dd>
         </dl>
         <dl class="terms">
           <dt>Relevant <code>@context</code>:</dt>
@@ -1485,7 +1485,7 @@
         <div>A card issued by a retailer to a customer that facilitates accumulation of loyalty points, rewards, or discounts.</div>
         <dl class="terms">
           <dt>In the domain of:</dt>
-          <dd><a href="#e1625d571e99b7a1831cd91de914e3eef798c30546decb3f84dc7bde2675b158"><code>account</code></a>, <a href="#1a28c7d7f007f34f9f772315363b6f51c69b830f111bab1ab3216be7528c270c"><code>barcodeData</code></a>, <a href="#bd67ab3de4befa12ddca1ae5092c89be951e565f05919d9bcb1e77eecb6d76ba"><code>description</code></a>, <a href="#cf69b5fd3841daff2338a66a43f462341694b5a4abe3b5024c4c04e8f8caeb91"><code>image</code></a>, <a href="#104320a85a67bdb05592c4f95a24b049fa7069dd318c44531214a955c3f1fa37"><code>name</code></a>, <a href="#programIdentifier"><code>programIdentifier</code></a>, <a href="#d84effb0c96f22c14d5c50524dcb18ba61de92c72841a088f24af7ddaaa5ba39"><code>renderMethod</code></a></dd>
+          <dd><a href="#e1625d571e99b7a1831cd91de914e3eef798c30546decb3f84dc7bde2675b158"><code>account</code></a>, <a href="#1a28c7d7f007f34f9f772315363b6f51c69b830f111bab1ab3216be7528c270c"><code>barcodeData</code></a>, <a href="#45f15e993127940f0074bacb50bb491d5c29cf981d01c43e8723c931135599ac"><code>description</code></a>, <a href="#c8d8a73577b17070b01df060dcf03128032dd9255a9d494468cf2d33e075c20b"><code>image</code></a>, <a href="#1fcc090c97b079a6354923801d28050badf02fef3351220c2c4124012c090001"><code>name</code></a>, <a href="#programIdentifier"><code>programIdentifier</code></a>, <a href="#d84effb0c96f22c14d5c50524dcb18ba61de92c72841a088f24af7ddaaa5ba39"><code>renderMethod</code></a></dd>
         </dl>
         <dl class="terms">
           <dt>Relevant <code>@context</code>:</dt>
@@ -1507,7 +1507,7 @@
         <div>A card that signifies membership in a retail program, granting access to member-exclusive discounts and rewards.</div>
         <dl class="terms">
           <dt>In the domain of:</dt>
-          <dd><a href="#e1625d571e99b7a1831cd91de914e3eef798c30546decb3f84dc7bde2675b158"><code>account</code></a>, <a href="#1a28c7d7f007f34f9f772315363b6f51c69b830f111bab1ab3216be7528c270c"><code>barcodeData</code></a>, <a href="#bd67ab3de4befa12ddca1ae5092c89be951e565f05919d9bcb1e77eecb6d76ba"><code>description</code></a>, <a href="#cf69b5fd3841daff2338a66a43f462341694b5a4abe3b5024c4c04e8f8caeb91"><code>image</code></a>, <a href="#104320a85a67bdb05592c4f95a24b049fa7069dd318c44531214a955c3f1fa37"><code>name</code></a>, <a href="#programIdentifier"><code>programIdentifier</code></a>, <a href="#d84effb0c96f22c14d5c50524dcb18ba61de92c72841a088f24af7ddaaa5ba39"><code>renderMethod</code></a></dd>
+          <dd><a href="#e1625d571e99b7a1831cd91de914e3eef798c30546decb3f84dc7bde2675b158"><code>account</code></a>, <a href="#1a28c7d7f007f34f9f772315363b6f51c69b830f111bab1ab3216be7528c270c"><code>barcodeData</code></a>, <a href="#45f15e993127940f0074bacb50bb491d5c29cf981d01c43e8723c931135599ac"><code>description</code></a>, <a href="#c8d8a73577b17070b01df060dcf03128032dd9255a9d494468cf2d33e075c20b"><code>image</code></a>, <a href="#1fcc090c97b079a6354923801d28050badf02fef3351220c2c4124012c090001"><code>name</code></a>, <a href="#programIdentifier"><code>programIdentifier</code></a>, <a href="#d84effb0c96f22c14d5c50524dcb18ba61de92c72841a088f24af7ddaaa5ba39"><code>renderMethod</code></a></dd>
         </dl>
         <dl class="terms">
           <dt>Relevant <code>@context</code>:</dt>
@@ -1523,12 +1523,12 @@
   "account": "345612789"
 }</pre>
       </section>
-      <section id="909cb47880ae46b1c45cffe53eaead53a69ba1caf77c18bf123b85a8b4b40afa">
+      <section id="4af8b14572904a0767f2fa6f47e38a4f9ad079087ab55f6c3560ce2bdd940eed">
         <h4><code>MonetaryAmount</code></h4>
         <p><em>Monetary Amount</em></p>
         <p class="note">
           <b>This term is formally defined in another vocabulary</b>
-          (as <a href="http://schema.org/MonetaryAmount">schema:MonetaryAmount</a>), but is frequently used with this vocabulary and has been
+          (as <a href="https://schema.org/MonetaryAmount">sdo:MonetaryAmount</a>), but is frequently used with this vocabulary and has been
           included to aid readability of this document.
         </p>
         <dl class="terms">
@@ -1536,12 +1536,12 @@
           <dd><a href="https://w3id.org/retail-dw/v1rc2"><code>https://w3id.org/retail-dw/v1rc2</code></a></dd>
         </dl>
       </section>
-      <section id="520cbc4a12f2ace77f2630790813a9561af64b6d8fad2928c8dcfffd4ff3ead0">
+      <section id="17255c35e55a2942bc8e9d28f41e6aad5b260d23382cc265eb80af52e7279c88">
         <h4><code>Observation</code></h4>
         <p><em>Observation</em></p>
         <p class="note">
           <b>This term is formally defined in another vocabulary</b>
-          (as <a href="http://schema.org/Observation">schema:Observation</a>), but is frequently used with this vocabulary and has been
+          (as <a href="https://schema.org/Observation">sdo:Observation</a>), but is frequently used with this vocabulary and has been
           included to aid readability of this document.
         </p>
         <dl class="terms">
@@ -1895,19 +1895,19 @@
           <dd><a href="https://w3id.org/retail-dw/v1rc2"><code>https://w3id.org/retail-dw/v1rc2</code></a></dd>
         </dl>
       </section>
-      <section id="eeea1b680fc7ccd82f99c7216cd76bc81fc9afe7aaac7b130e5c80dbfb073a91">
+      <section id="78831593a980875a0ffa2e936ee098a53882ab906cb3eaff0fd3fed4973a72e4">
         <h4><code>PostalAddress</code></h4>
         <p><em>Postal address</em></p>
         <p class="note">
           <b>This term is formally defined in another vocabulary</b>
-          (as <a href="http://schema.org/PostalAddress">schema:PostalAddress</a>), but is frequently used with this vocabulary and has been
+          (as <a href="https://schema.org/PostalAddress">sdo:PostalAddress</a>), but is frequently used with this vocabulary and has been
           included to aid readability of this document.
         </p>
         <dl class="terms">
           <dt>Range of:</dt>
-          <dd><a href="#2820ef73c70becd6c5aad2b017a09a05d6931c612795da104c6a879b29f4d823"><code>location</code></a></dd>
+          <dd><a href="#22ac787929562d415dde0a0c12f0875ec05fb6440740d0fe0d9c7ec8a0ce2269"><code>location</code></a></dd>
           <dt>Domain of:</dt>
-          <dd><a href="#c4ea822201d8b7a881b8de7bc126bd351c9293c508e521bab0fc559b207a3d43"><code>addressLocality</code></a>, <a href="#d9c8bb872d4df729987e9ee0fbeb3d6d9fe7fbdf184b30886ee022d4d8075e51"><code>addressRegion</code></a>, <a href="#087f4a4aeb71c501710b25af97eb45e220b6fb13eb6df1a31013a59277288769"><code>postalCode</code></a>, <a href="#8e68fb274a3f8fb66425187283211ca6ad11b6db800b65849105c8497348bbd1"><code>streetAddress</code></a></dd>
+          <dd><a href="#6b6c129c091da025d9aba74d40e97aad134e33e0a7dd243f4f88daf5fa846c20"><code>addressLocality</code></a>, <a href="#3f28ac5f78ab4ff517cce7746295e8ae4a80a5cfd805110e073e9a829963671c"><code>addressRegion</code></a>, <a href="#e8e62332f4c436cf24aea40e1a7083b9ba4e5f1c0322dd5b8667db460cad5bab"><code>postalCode</code></a>, <a href="#c900b8340b62438d38b09b60981bd5d699409837a4d5d4bdf4f4a092dfdd124d"><code>streetAddress</code></a></dd>
         </dl>
         <dl class="terms">
           <dt>Relevant <code>@context</code>:</dt>
@@ -1941,7 +1941,7 @@
         <div>A refund or return of part of the purchase price by the seller to the buyer, typically given as a promotional offer.</div>
         <dl class="terms">
           <dt>In the domain of:</dt>
-          <dd><a href="#1a28c7d7f007f34f9f772315363b6f51c69b830f111bab1ab3216be7528c270c"><code>barcodeData</code></a>, <a href="#cf69b5fd3841daff2338a66a43f462341694b5a4abe3b5024c4c04e8f8caeb91"><code>image</code></a>, <a href="#104320a85a67bdb05592c4f95a24b049fa7069dd318c44531214a955c3f1fa37"><code>name</code></a>, <a href="#d84effb0c96f22c14d5c50524dcb18ba61de92c72841a088f24af7ddaaa5ba39"><code>renderMethod</code></a></dd>
+          <dd><a href="#1a28c7d7f007f34f9f772315363b6f51c69b830f111bab1ab3216be7528c270c"><code>barcodeData</code></a>, <a href="#c8d8a73577b17070b01df060dcf03128032dd9255a9d494468cf2d33e075c20b"><code>image</code></a>, <a href="#1fcc090c97b079a6354923801d28050badf02fef3351220c2c4124012c090001"><code>name</code></a>, <a href="#d84effb0c96f22c14d5c50524dcb18ba61de92c72841a088f24af7ddaaa5ba39"><code>renderMethod</code></a></dd>
         </dl>
         <dl class="terms">
           <dt>Relevant <code>@context</code>:</dt>
@@ -1954,7 +1954,7 @@
         <div>A Receipt is a document that acknowledges the payment received for goods or services purchased. It typically includes details such as the date of purchase, the items bought, the total amount paid, and any applicable taxes.</div>
         <dl class="terms">
           <dt>Domain of:</dt>
-          <dd><a href="#3b2a37fee7f6965837c7a00934ba4669ac341c09a654e54fc678aeb440cd9655"><code>confirmationNumber</code></a>, <a href="#6e5f76c4b497a46ddeb78ace65229b18b3ff20083fdf63a213c7aa7eb88214af"><code>eventEndDateTime</code></a>, <a href="#1160d0d26896fb54b5791d8cd2c36fb57b8d0eee318777ac37a9b1b831759d35"><code>eventStartDateTime</code></a>, <a href="#60aa16cdcb5d95b6934818efea199dbc8ee559e65442c11ceb43e9abedf146ad"><code>seller</code></a>, <a href="#46f4ea00b49b2284b7d63db848e215a03913ec908b70bb1dd707a6e42193353b"><code>transactionDetailGroup</code></a></dd>
+          <dd><a href="#753266a48d422158e5b67f85db5ccc7365f3ae4ba39dae5958ef25fa810e803b"><code>confirmationNumber</code></a>, <a href="#6e5f76c4b497a46ddeb78ace65229b18b3ff20083fdf63a213c7aa7eb88214af"><code>eventEndDateTime</code></a>, <a href="#1160d0d26896fb54b5791d8cd2c36fb57b8d0eee318777ac37a9b1b831759d35"><code>eventStartDateTime</code></a>, <a href="#511e61f1aaf9b4792c2767824d3c829741c9d66c0f35bf5f4c4b573bdf7dbbcd"><code>seller</code></a>, <a href="#46f4ea00b49b2284b7d63db848e215a03913ec908b70bb1dd707a6e42193353b"><code>transactionDetailGroup</code></a></dd>
           <dt>In the domain of:</dt>
           <dd><a href="#9af68d518a43e559abfbd1040de3de1a427d503d6103b1ff4fb965db9174682e"><code>transactionID</code></a></dd>
         </dl>
@@ -2223,17 +2223,17 @@
   }
 }</pre>
       </section>
-      <section id="a4b8918a6e2d53cb1cfe3dae675a9955483de5aa1a5e09da079aa53ca362a048">
+      <section id="29c0c5825f3209b5fc04e31a7a5e317b2b7d5ffeed28ee8e1290b030fda646ec">
         <h4><code>Store</code></h4>
         <p><em>Store</em></p>
         <p class="note">
           <b>This term is formally defined in another vocabulary</b>
-          (as <a href="http://schema.org/Store">schema:Store</a>), but is frequently used with this vocabulary and has been
+          (as <a href="https://schema.org/Store">sdo:Store</a>), but is frequently used with this vocabulary and has been
           included to aid readability of this document.
         </p>
         <dl class="terms">
           <dt>Domain of:</dt>
-          <dd><a href="#15e26e3ee4a6ea6b820de8bc84b59cade8ca73b9a92acc61ddae7fb6e77b80d8"><code>cashierID</code></a>, <a href="#2820ef73c70becd6c5aad2b017a09a05d6931c612795da104c6a879b29f4d823"><code>location</code></a>, <a href="#b2671569a25fc975c265755755d7abe5bed88c821db1d2be9f67aaa862265cca"><code>organizationID</code></a>, <a href="#7eab970b2267f12d2ebebf7681847def9e42ed64082c9dadd73737ee06b4db23"><code>sourcePOI</code></a>, <a href="#a0bddf0b06f5bfc5d21b264a16159b59e1642419e5b4067af4560b01ddade294"><code>storeLocationID</code></a>, <a href="#22cf031b7eee8066c55d747bcb8176042c2522ed5f2d230c860e90ea9df7cd7b"><code>taxID</code></a>, <a href="#bf3f2d3084863cf54fe9e74b88955c4413b922707cb2535ce0dfa0773a014322"><code>telephone</code></a>, <a href="#d76da9a21eaae293899b83bf891cff956a6bc824122a0d576585b0a6572d7667"><code>tillID</code></a></dd>
+          <dd><a href="#15e26e3ee4a6ea6b820de8bc84b59cade8ca73b9a92acc61ddae7fb6e77b80d8"><code>cashierID</code></a>, <a href="#22ac787929562d415dde0a0c12f0875ec05fb6440740d0fe0d9c7ec8a0ce2269"><code>location</code></a>, <a href="#b2671569a25fc975c265755755d7abe5bed88c821db1d2be9f67aaa862265cca"><code>organizationID</code></a>, <a href="#7eab970b2267f12d2ebebf7681847def9e42ed64082c9dadd73737ee06b4db23"><code>sourcePOI</code></a>, <a href="#a0bddf0b06f5bfc5d21b264a16159b59e1642419e5b4067af4560b01ddade294"><code>storeLocationID</code></a>, <a href="#f2f8481efb324d970cb6821da002856a15107642342d27db5aff95c6380ce2e1"><code>taxID</code></a>, <a href="#68509aa38bfeab00a1a4b5614b2191a256049e4c29526e370c7b963fee4b23d7"><code>telephone</code></a>, <a href="#d76da9a21eaae293899b83bf891cff956a6bc824122a0d576585b0a6572d7667"><code>tillID</code></a></dd>
         </dl>
         <dl class="terms">
           <dt>Relevant <code>@context</code>:</dt>
