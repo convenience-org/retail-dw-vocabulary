@@ -170,7 +170,7 @@
       <pre class="example nohighlight vc" title="A digital loyalty card" data-vc-tabs="eddsa-rdfc-2022">{
   "@context": [
     "https://www.w3.org/ns/credentials/v2",
-    "https://w3id.org/retail-dw/v1rc2"
+    "https://w3id.org/retail-dw/v1rc3"
   ],
   "type": ["VerifiableCredential", "RetailCredential"],
   "issuer": {
@@ -212,7 +212,7 @@
       <pre class="example nohighlight vc" title="A digital membership card" data-vc-tabs="eddsa-rdfc-2022">{
   "@context": [
     "https://www.w3.org/ns/credentials/v2",
-    "https://w3id.org/retail-dw/v1rc2"
+    "https://w3id.org/retail-dw/v1rc3"
   ],
   "type": ["VerifiableCredential", "RetailCredential"],
   "issuer": {
@@ -254,7 +254,7 @@
       <pre class="example nohighlight vc" title="A digital coupon" data-vc-tabs="eddsa-rdfc-2022">{
   "@context": [
     "https://www.w3.org/ns/credentials/v2",
-    "https://w3id.org/retail-dw/v1rc2"
+    "https://w3id.org/retail-dw/v1rc3"
   ],
   "type": ["VerifiableCredential", "RetailCredential"],
   "issuer": {
@@ -308,7 +308,7 @@
       <pre class="example nohighlight vc" title="An 8112 digital coupons" data-vc-tabs="eddsa-rdfc-2022">{
   "@context": [
     "https://www.w3.org/ns/credentials/v2",
-    "https://w3id.org/retail-dw/v1rc2"
+    "https://w3id.org/retail-dw/v1rc3"
   ],
   "type": ["VerifiableCredential", "RetailCredential"],
   "issuer": {
@@ -342,7 +342,7 @@
   "verifiableCredential": [{
     "@context": [
       "https://www.w3.org/ns/credentials/v2",
-      "https://w3id.org/retail-dw/v1rc2"
+      "https://w3id.org/retail-dw/v1rc3"
     ],
     "type": [
       "VerifiableCredential",
@@ -369,7 +369,7 @@
   }, {
     "@context": [
       "https://www.w3.org/ns/credentials/v2",
-      "https://w3id.org/retail-dw/v1rc2"
+      "https://w3id.org/retail-dw/v1rc3"
     ],
     "type": [
       "VerifiableCredential",
@@ -408,7 +408,7 @@
       <pre class="example nohighlight" title="A restrictive convent to not share coupons or digital receipts with 3rd parties">{
   "@context": [
     "https://www.w3.org/ns/credentials/v2",
-    "https://w3id.org/retail-dw/v1rc2"
+    "https://w3id.org/retail-dw/v1rc3"
   ],
   "type": ["VerifiableCredential", "RetailCredential"],
   "issuer": {
@@ -443,8 +443,6 @@
       <dd><code>https://w3id.org/retail-dw#</code></dd>
       <dt><code>retail</code></dt>
       <dd><code>https://w3id.org/retail#</code></dd>
-      <dt><code>rm</code></dt>
-      <dd><code>https://w3id.org/vc/render-method#</code></dd>
       <dt><code>schema</code></dt>
       <dd><code>http://schema.org/</code></dd>
       <dt><code>sec</code></dt>
@@ -553,10 +551,6 @@
             <li><a href="#286b33d11ba9ece18894555f86e5c5b6a342f11fcd320e5ff80f066e2f92e7b2"><code>transactionLineSequenceNumber<code></code></code></a></li>
             <li><a href="#e85392269144ae8fea6457cb7674cbc3dbe8321ca7e91f4f4b90c6b8c1a1852a"><code>uom<code></code></code></a></li>
             <li><a href="#957c66e1997406b04d3e7d5ad77861d799b87fd19d9765543b7f0f1fbe5a2dda"><code>value<code></code></code></a></li>
-            <li><a href="#66d42c1c8958ec8e48c55e1357f75c93adf8a4184195e081fe7817512d6d7af4"><code>TemplateRenderMethod<code></code></code></a></li>
-            <li><a href="#5d879e330e20d8ce8b91888c4d7028b369a0b94305a64679aaea38855fc3f132"><code>renderProperty<code></code></code></a></li>
-            <li><a href="#9471db88150e80e1fbefb96ad25139ee6fcc8ca8127ac252b8603a0207ddf99a"><code>renderSuite<code></code></code></a></li>
-            <li><a href="#ca37cff0dfe774e9f6a0c0ac61c474fd62af80226a84830cdf40b949bea8fff7"><code>template<code></code></code></a></li>
             <li><a href="#909cb47880ae46b1c45cffe53eaead53a69ba1caf77c18bf123b85a8b4b40afa"><code>MonetaryAmount<code></code></code></a></li>
             <li><a href="#520cbc4a12f2ace77f2630790813a9561af64b6d8fad2928c8dcfffd4ff3ead0"><code>Observation<code></code></code></a></li>
             <li><a href="#eeea1b680fc7ccd82f99c7216cd76bc81fc9afe7aaac7b130e5c80dbfb073a91"><code>PostalAddress<code></code></code></a></li>
@@ -565,7 +559,6 @@
             <li><a href="#d9c8bb872d4df729987e9ee0fbeb3d6d9fe7fbdf184b30886ee022d4d8075e51"><code>addressRegion<code></code></code></a></li>
             <li><a href="#3b2a37fee7f6965837c7a00934ba4669ac341c09a654e54fc678aeb440cd9655"><code>confirmationNumber<code></code></code></a></li>
             <li><a href="#bd67ab3de4befa12ddca1ae5092c89be951e565f05919d9bcb1e77eecb6d76ba"><code>description<code></code></code></a></li>
-            <li><a href="#854dae3063f1d22d617f5a68445966623fed02c35de6a2af51e96dea5bb78f7c"><code>encodingFormat<code></code></code></a></li>
             <li><a href="#cf69b5fd3841daff2338a66a43f462341694b5a4abe3b5024c4c04e8f8caeb91"><code>image<code></code></code></a></li>
             <li><a href="#2820ef73c70becd6c5aad2b017a09a05d6931c612795da104c6a879b29f4d823"><code>location<code></code></code></a></li>
             <li><a href="#104320a85a67bdb05592c4f95a24b049fa7069dd318c44531214a955c3f1fa37"><code>name<code></code></code></a></li>
@@ -574,7 +567,6 @@
             <li><a href="#8e68fb274a3f8fb66425187283211ca6ad11b6db800b65849105c8497348bbd1"><code>streetAddress<code></code></code></a></li>
             <li><a href="#22cf031b7eee8066c55d747bcb8176042c2522ed5f2d230c860e90ea9df7cd7b"><code>taxID<code></code></code></a></li>
             <li><a href="#bf3f2d3084863cf54fe9e74b88955c4413b922707cb2535ce0dfa0773a014322"><code>telephone<code></code></code></a></li>
-            <li><a href="#1c2059d8a9b5c10a54ba77dae600e4c97cd023c056cdd48fab98ea2c496fc99f"><code>digestMultibase<code></code></code></a></li>
             <li><a href="#1ab8322195f2be76e42b3be06a94413cb9468299946b730a4b6cb5e685f3b67c"><code>RenderMethod<code></code></code></a></li>
             <li><a href="#d84effb0c96f22c14d5c50524dcb18ba61de92c72841a088f24af7ddaaa5ba39"><code>renderMethod<code></code></code></a></li>
           </ul>
@@ -735,20 +727,6 @@
           <dd><a href="https://w3id.org/retail-dw/v1rc2"><code>https://w3id.org/retail-dw/v1rc2</code></a></dd>
         </dl>
       </section>
-      <section id="1c2059d8a9b5c10a54ba77dae600e4c97cd023c056cdd48fab98ea2c496fc99f">
-        <h4><code>digestMultibase</code></h4>
-        <p><em>Multibase-encoded Multihash Digest</em></p>
-        <div>A multi-base encoded multihash digest of the associated resource identified using the `id` property.</div>
-        <p class="note">
-          <b>This term is formally defined in another vocabulary</b>
-          (as <a href="https://w3id.org/security#digestMultibase">sec:digestMultibase</a>), but is frequently used with this vocabulary and has been
-          included to aid readability of this document.
-        </p>
-        <dl class="terms">
-          <dt>Relevant <code>@context</code>:</dt>
-          <dd><a href="https://w3id.org/retail-dw/v1rc2"><code>https://w3id.org/retail-dw/v1rc2</code></a></dd>
-        </dl>
-      </section>
       <section id="dae7db117d6520476d4d299d98e103c24279147036ed7ebcb51a4bb6e8a9f778">
         <h4><code>discount</code></h4>
         <p><em>Discount</em></p>
@@ -810,22 +788,6 @@
           (as <a href="https://w3id.org/retail#discountReason">retail:discountReason</a>), but is frequently used with this vocabulary and has been
           included to aid readability of this document.
         </p>
-        <dl class="terms">
-          <dt>Relevant <code>@context</code>:</dt>
-          <dd><a href="https://w3id.org/retail-dw/v1rc2"><code>https://w3id.org/retail-dw/v1rc2</code></a></dd>
-        </dl>
-      </section>
-      <section id="854dae3063f1d22d617f5a68445966623fed02c35de6a2af51e96dea5bb78f7c">
-        <h4><code>encodingFormat</code></h4>
-        <p><em>Media Type</em></p>
-        <div>The media type associated with the rendering template; usually `application/pdf` or `image/svg+xml`. This property is aliased to
-          `mediaType` in the JSON-LD context.</div>
-        <p class="note">
-          <b>This term is formally defined in another vocabulary</b>
-          (as <a href="http://schema.org/encodingFormat">schema:encodingFormat</a>), but is frequently used with this vocabulary and has been
-          included to aid readability of this document.
-        </p>
-        <p>In the generated JSON-LD context file this term appears as "<code>mediaType</code>".</p>
         <dl class="terms">
           <dt>Relevant <code>@context</code>:</dt>
           <dd><a href="https://w3id.org/retail-dw/v1rc2"><code>https://w3id.org/retail-dw/v1rc2</code></a></dd>
@@ -1145,33 +1107,6 @@
           <dd><a href="https://w3id.org/retail-dw/v1rc2"><code>https://w3id.org/retail-dw/v1rc2</code></a></dd>
         </dl>
       </section>
-      <section id="5d879e330e20d8ce8b91888c4d7028b369a0b94305a64679aaea38855fc3f132">
-        <h4><code>renderProperty</code></h4>
-        <p><em>Render Property</em></p>
-        <p class="note">
-          <b>This term is formally defined in another vocabulary</b>
-          (as <a href="https://w3id.org/vc/render-method#renderProperty">rm:renderProperty</a>), but is frequently used with this vocabulary and has been
-          included to aid readability of this document.
-        </p>
-        <dl class="terms">
-          <dt>Relevant <code>@context</code>:</dt>
-          <dd><a href="https://w3id.org/retail-dw/v1rc2"><code>https://w3id.org/retail-dw/v1rc2</code></a></dd>
-        </dl>
-      </section>
-      <section id="9471db88150e80e1fbefb96ad25139ee6fcc8ca8127ac252b8603a0207ddf99a">
-        <h4><code>renderSuite</code></h4>
-        <p><em>Render Suite</em></p>
-        <div>A mechanism used to render a visual or wireless expression of the benefit.</div>
-        <p class="note">
-          <b>This term is formally defined in another vocabulary</b>
-          (as <a href="https://w3id.org/vc/render-method#renderSuite">rm:renderSuite</a>), but is frequently used with this vocabulary and has been
-          included to aid readability of this document.
-        </p>
-        <dl class="terms">
-          <dt>Relevant <code>@context</code>:</dt>
-          <dd><a href="https://w3id.org/retail-dw/v1rc2"><code>https://w3id.org/retail-dw/v1rc2</code></a></dd>
-        </dl>
-      </section>
       <section id="60aa16cdcb5d95b6934818efea199dbc8ee559e65442c11ceb43e9abedf146ad">
         <h4><code>seller</code></h4>
         <p><em>Seller</em></p>
@@ -1257,19 +1192,6 @@
         <p class="note">
           <b>This term is formally defined in another vocabulary</b>
           (as <a href="http://schema.org/telephone">schema:telephone</a>), but is frequently used with this vocabulary and has been
-          included to aid readability of this document.
-        </p>
-        <dl class="terms">
-          <dt>Relevant <code>@context</code>:</dt>
-          <dd><a href="https://w3id.org/retail-dw/v1rc2"><code>https://w3id.org/retail-dw/v1rc2</code></a></dd>
-        </dl>
-      </section>
-      <section id="ca37cff0dfe774e9f6a0c0ac61c474fd62af80226a84830cdf40b949bea8fff7">
-        <h4><code>template</code></h4>
-        <p><em>Template</em></p>
-        <p class="note">
-          <b>This term is formally defined in another vocabulary</b>
-          (as <a href="https://w3id.org/vc/render-method#template">rm:template</a>), but is frequently used with this vocabulary and has been
           included to aid readability of this document.
         </p>
         <dl class="terms">
@@ -2337,25 +2259,6 @@
           <dd><a href="https://w3id.org/retail-dw/v1rc2"><code>https://w3id.org/retail-dw/v1rc2</code></a></dd>
         </dl>
       </section>
-      <section id="66d42c1c8958ec8e48c55e1357f75c93adf8a4184195e081fe7817512d6d7af4">
-        <h4><code>TemplateRenderMethod</code></h4>
-        <p><em>Template Render Method</em></p>
-        <p class="note">
-          <b>This term is formally defined in another vocabulary</b>
-          (as <a href="https://w3id.org/vc/render-method#TemplateRenderMethod">rm:TemplateRenderMethod</a>), but is frequently used with this vocabulary and has been
-          included to aid readability of this document.
-        </p>
-        <dl class="terms">
-          <dt>Domain of:</dt>
-          <dd><a href="#1c2059d8a9b5c10a54ba77dae600e4c97cd023c056cdd48fab98ea2c496fc99f"><code>digestMultibase</code></a>, <a href="#854dae3063f1d22d617f5a68445966623fed02c35de6a2af51e96dea5bb78f7c"><code>encodingFormat</code></a>, <a href="#5d879e330e20d8ce8b91888c4d7028b369a0b94305a64679aaea38855fc3f132"><code>renderProperty</code></a>, <a href="#9471db88150e80e1fbefb96ad25139ee6fcc8ca8127ac252b8603a0207ddf99a"><code>renderSuite</code></a>, <a href="#ca37cff0dfe774e9f6a0c0ac61c474fd62af80226a84830cdf40b949bea8fff7"><code>template</code></a></dd>
-          <dt>In the domain of:</dt>
-          <dd><a href="#bd67ab3de4befa12ddca1ae5092c89be951e565f05919d9bcb1e77eecb6d76ba"><code>description</code></a>, <a href="#104320a85a67bdb05592c4f95a24b049fa7069dd318c44531214a955c3f1fa37"><code>name</code></a></dd>
-        </dl>
-        <dl class="terms">
-          <dt>Relevant <code>@context</code>:</dt>
-          <dd><a href="https://w3id.org/retail-dw/v1rc2"><code>https://w3id.org/retail-dw/v1rc2</code></a></dd>
-        </dl>
-      </section>
       <section id="66a20e2273737382b98b61e309bc402be99601653e77d31f994fd9834da37a08">
         <h4><code>TenderID</code></h4>
         <p><em>Tender identifier</em></p>
@@ -2396,7 +2299,7 @@
         </dl>
         <dl class="terms">
           <dt>Range of:</dt>
-          <dd><a href="#1c2059d8a9b5c10a54ba77dae600e4c97cd023c056cdd48fab98ea2c496fc99f"><code>digestMultibase</code></a>, <a href="#token"><code>token</code></a></dd>
+          <dd><a href="#token"><code>token</code></a></dd>
         </dl>
         <dl class="terms">
           <dt>Relevant <code>@context</code>:</dt>
