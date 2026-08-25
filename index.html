@@ -481,6 +481,8 @@
             <li><a href="#GiftCard"><code>GiftCard<code></code></code></a></li>
             <li><a href="#LoyaltyCard"><code>LoyaltyCard<code></code></code></a></li>
             <li><a href="#MembershipCard"><code>MembershipCard<code></code></code></a></li>
+            <li><a href="#PaymentConfirmation"><code>PaymentConfirmation<code></code></code></a></li>
+            <li><a href="#PaymentConfirmationCredential"><code>PaymentConfirmationCredential<code></code></code></a></li>
             <li><a href="#PaymentDestination"><code>PaymentDestination<code></code></code></a></li>
             <li><a href="#PaymentEntitlement"><code>PaymentEntitlement<code></code></code></a></li>
             <li><a href="#PaymentEntitlementCredential"><code>PaymentEntitlementCredential<code></code></code></a></li>
@@ -496,6 +498,7 @@
             <li><a href="#RetailCredential"><code>RetailCredential<code></code></code></a></li>
             <li><a href="#authorizedAmount"><code>authorizedAmount<code></code></code></a></li>
             <li><a href="#bundleMatcher"><code>bundleMatcher<code></code></code></a></li>
+            <li><a href="#capturedAmount"><code>capturedAmount<code></code></code></a></li>
             <li><a href="#gtin"><code>gtin<code></code></code></a></li>
             <li><a href="#maximumAmount"><code>maximumAmount<code></code></code></a></li>
             <li><a href="#maximumLimit"><code>maximumLimit<code></code></code></a></li>
@@ -687,6 +690,21 @@
           (as <a href="https://w3id.org/retail#cashierID">retail:cashierID</a>), but is frequently used with this vocabulary and has been
           included to aid readability of this document.
         </p>
+        <dl class="terms">
+          <dt>Relevant <code>@context</code>:</dt>
+          <dd><a href="https://w3id.org/retail-dw/v1rc2"><code>https://w3id.org/retail-dw/v1rc2</code></a></dd>
+        </dl>
+      </section>
+      <section id="capturedAmount">
+        <h4><code>capturedAmount</code></h4>
+        <p><em>Captured Amount</em></p>
+        <div>The monetary amount that was captured to settle a payment. It may be less than the authorized amount of the corresponding payment entitlement.</div>
+        <dl class="terms">
+          <dt>Domain:</dt>
+          <dd><a href="#PaymentConfirmation"><code>PaymentConfirmation</code></a></dd>
+          <dt>Range:</dt>
+          <dd><a href="#6e353de386cfa1a49a696c26e597d1e523f2840b7dd9ab884e7eeadfae9e1948"><code>Amount</code></a></dd>
+        </dl>
         <dl class="terms">
           <dt>Relevant <code>@context</code>:</dt>
           <dd><a href="https://w3id.org/retail-dw/v1rc2"><code>https://w3id.org/retail-dw/v1rc2</code></a></dd>
@@ -1006,10 +1024,10 @@
       <section id="paymentGateway">
         <h4><code>paymentGateway</code></h4>
         <p><em>Payment Gateway</em></p>
-        <div>The payment gateway at which a payment instrument may be used, or against which a payment entitlement may be captured The value may be a compact identifier for the gateway, or as a PaymentGateway object. Service information for interacting with the gateway is normally discovered from the gateway's controlled identifier document rather than expressed in the credential.</div>
+        <div>The payment gateway at which a payment instrument may be used, against which a payment entitlement may be captured, or that performed a capture. The value may be a compact identifier or a PaymentGateway object; service information is discovered from the gateway's controlled identifier document rather than expressed in the credential.</div>
         <dl class="terms">
           <dt>Domain:</dt>
-          <dd><a href="#PaymentInstrument"><code>PaymentInstrument</code></a> ⊔&nbsp;<a href="#PaymentEntitlement"><code>PaymentEntitlement</code></a></dd>
+          <dd><a href="#PaymentInstrument"><code>PaymentInstrument</code></a> ⊔&nbsp;<a href="#PaymentEntitlement"><code>PaymentEntitlement</code></a> ⊔&nbsp;<a href="#PaymentConfirmation"><code>PaymentConfirmation</code></a></dd>
           <dt>Range:</dt>
           <dd><a href="#PaymentGateway"><code>PaymentGateway</code></a></dd>
         </dl>
@@ -1024,7 +1042,7 @@
         <div>An identifier used to determine whether a payment instrument is compatible with a payment request. A payment request must specify one or more payment networks, one of which must match the payment network of the payment instrument used to fulfill it.</div>
         <dl class="terms">
           <dt>Domain:</dt>
-          <dd><a href="#PaymentInstrument"><code>PaymentInstrument</code></a> ⊔&nbsp;<a href="#PaymentDestination"><code>PaymentDestination</code></a> ⊔&nbsp;<a href="#PaymentEntitlement"><code>PaymentEntitlement</code></a></dd>
+          <dd><a href="#PaymentInstrument"><code>PaymentInstrument</code></a> ⊔&nbsp;<a href="#PaymentDestination"><code>PaymentDestination</code></a> ⊔&nbsp;<a href="#PaymentEntitlement"><code>PaymentEntitlement</code></a> ⊔&nbsp;<a href="#PaymentConfirmation"><code>PaymentConfirmation</code></a></dd>
         </dl>
         <dl class="terms">
           <dt>Relevant <code>@context</code>:</dt>
@@ -1364,7 +1382,7 @@
         </p>
         <dl class="terms">
           <dt>Range of:</dt>
-          <dd><a href="#d0357c2c4a66b2a4b3994338c20c227e348976ee011476a8285ca53f9f704148"><code>actualSalesPrice</code></a>, <a href="#authorizedAmount"><code>authorizedAmount</code></a>, <a href="#06a853bf229630c4f968ac531d5a5f65c0fb08485c4ad85510d1339f0776bf36"><code>discountAmount</code></a>, <a href="#maximumAmount"><code>maximumAmount</code></a>, <a href="#2a292be06a8b6364998c4eb09439eb2dda5739ae15a4cb36659c585727583fb1"><code>regularSellPrice</code></a>, <a href="#828cb1cb08d5e5e93b9c91b8b79a4b5ed8f5ebc82857fd52f99a6c45b834df58"><code>taxCollectedAmount</code></a>, <a href="#fb732c81334f3bd65b6310b0ad59a3c89da33c616589fc03198ff99036cfc4b9"><code>tenderAmount</code></a></dd>
+          <dd><a href="#d0357c2c4a66b2a4b3994338c20c227e348976ee011476a8285ca53f9f704148"><code>actualSalesPrice</code></a>, <a href="#authorizedAmount"><code>authorizedAmount</code></a>, <a href="#capturedAmount"><code>capturedAmount</code></a>, <a href="#06a853bf229630c4f968ac531d5a5f65c0fb08485c4ad85510d1339f0776bf36"><code>discountAmount</code></a>, <a href="#maximumAmount"><code>maximumAmount</code></a>, <a href="#2a292be06a8b6364998c4eb09439eb2dda5739ae15a4cb36659c585727583fb1"><code>regularSellPrice</code></a>, <a href="#828cb1cb08d5e5e93b9c91b8b79a4b5ed8f5ebc82857fd52f99a6c45b834df58"><code>taxCollectedAmount</code></a>, <a href="#fb732c81334f3bd65b6310b0ad59a3c89da33c616589fc03198ff99036cfc4b9"><code>tenderAmount</code></a></dd>
           <dt>Domain of:</dt>
           <dd><a href="#67ebd0927401297b7dba7716a177172c0a89008aea7c874866b52d5b77ec9117"><code>currency</code></a></dd>
           <dt>In the domain of:</dt>
@@ -1570,6 +1588,53 @@
           <dt>Relevant <code>@context</code>:</dt>
           <dd><a href="https://w3id.org/retail-dw/v1rc2"><code>https://w3id.org/retail-dw/v1rc2</code></a></dd>
         </dl>
+      </section>
+      <section id="PaymentConfirmation">
+        <h4><code>PaymentConfirmation</code></h4>
+        <p><em>Payment Confirmation</em></p>
+        <div>A confirmation that funds have been captured, transferring the captured amount from the payer to the payee. It is issued by the payment gateway after a payment entitlement has been used to capture funds. Its transaction identifier corresponds to that of the payment entitlement and payment request it settles.</div>
+        <dl class="terms">
+          <dt>Domain of:</dt>
+          <dd><a href="#capturedAmount"><code>capturedAmount</code></a></dd>
+          <dt>In the domain of:</dt>
+          <dd><a href="#paymentGateway"><code>paymentGateway</code></a>, <a href="#paymentNetwork"><code>paymentNetwork</code></a>, <a href="#9af68d518a43e559abfbd1040de3de1a427d503d6103b1ff4fb965db9174682e"><code>transactionID</code></a></dd>
+        </dl>
+        <dl class="terms">
+          <dt>Relevant <code>@context</code>:</dt>
+          <dd><a href="https://w3id.org/retail-dw/v1rc2"><code>https://w3id.org/retail-dw/v1rc2</code></a></dd>
+        </dl>
+      </section>
+      <section id="PaymentConfirmationCredential">
+        <h4><code>PaymentConfirmationCredential</code></h4>
+        <p><em>Payment Confirmation Credential</em></p>
+        <div>A credential that expresses a PaymentConfirmation. It is issued by a payment gateway to the payee as proof that a capture completed.</div>
+        <dl class="terms">
+          <dt>Relevant <code>@context</code>:</dt>
+          <dd><a href="https://w3id.org/retail-dw/v1rc2"><code>https://w3id.org/retail-dw/v1rc2</code></a></dd>
+        </dl>
+        <pre class="example prettyprint language-json" title="A basic example of a PaymentConfirmationCredential">{
+  "@context": [
+    "https://www.w3.org/ns/credentials/v2",
+    "https://w3id.org/retail-dw/v1rc2"
+  ],
+  "type": ["VerifiableCredential", "PaymentConfirmationCredential"],
+  "issuer": "did:web:vcpg.example",
+  "validFrom": "2026-05-26T12:40:00Z",
+  "name": "Coffee Purchase Confirmation",
+  "description": "Confirmation that funds were captured for a coffee purchase.",
+  "credentialSubject": {
+    "id": "did:web:merchant.example",
+    "type": "PaymentConfirmation",
+    "transactionID": "urn:uuid:fc2eff04-6540-4aef-a7db-bf212566088d",
+    "capturedAmount": {
+      "type": "Amount",
+      "currency": "USD",
+      "value": "47.50"
+    },
+    "paymentNetwork": "urn:payment-network:utopia-usd",
+    "paymentGateway": "did:web:vcpg.example"
+  }
+}</pre>
       </section>
       <section id="PaymentDestination">
         <h4><code>PaymentDestination</code></h4>
