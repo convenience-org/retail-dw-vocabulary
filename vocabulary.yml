@@ -211,6 +211,50 @@ class:
       gateway or payment processor may derive a default account from the
       issuer's request and the payment network.
     context: https://w3id.org/retail-dw/v1rc2
+  - id: PaymentEntitlement
+    label: Payment Entitlement
+    comment: >-
+      An entitlement to capture funds that have been reserved by a pre-auth. It
+      is issued after a payment method and payment request have been verified,
+      and is later presented to capture up to the authorized amount. The
+      entitlement's transaction identifier and payment network correspond to
+      those of the payment request it fulfills.
+    context: https://w3id.org/retail-dw/v1rc2
+  - id: PaymentEntitlementCredential
+    label: Payment Entitlement Credential
+    comment: >-
+      A credential that expresses a PaymentEntitlement. It is presented together
+      with a PaymentRequestCredential at capture time so that a payment gateway
+      can verify the capture against the reserved funds.
+    example:
+      - label: A basic example of a PaymentEntitlementCredential
+        json: |-
+          {
+            "@context": [
+              "https://www.w3.org/ns/credentials/v2",
+              "https://w3id.org/retail-dw/v1rc2"
+            ],
+            "type": ["VerifiableCredential", "PaymentEntitlementCredential"],
+            "issuer": "did:web:vcpg.example",
+            "validFrom": "2026-05-26T12:30:00Z",
+            "validUntil": "2026-05-26T12:45:00Z",
+            "name": "Coffee Purchase Entitlement",
+            "description": "Authorization to capture funds for a coffee purchase.",
+            "credentialSubject": {
+              "id": "did:web:merchant.example",
+              "type": "PaymentEntitlement",
+              "transactionID": "urn:uuid:fc2eff04-6540-4aef-a7db-bf212566088d",
+              "authorizedAmount": {
+                "type": "Amount",
+                "currency": "USD",
+                "value": "47.50"
+              },
+              "paymentNetwork": "urn:payment-network:utopia-usd",
+              "confidenceMethod": "did:key:z6MkpTHR8VNsBxYAAWHut2Geadd9jSwuBV8x",
+              "paymentGateway": "did:web:vcpg.example"
+            }
+          }
+    context: https://w3id.org/retail-dw/v1rc2
   - id: PaymentGateway
     label: Payment Gateway
     comment: >-
@@ -671,6 +715,15 @@ property:
     domain:
       - sdo:PostalAddress
     context: https://w3id.org/retail-dw/v1rc2
+  - id: authorizedAmount
+    label: Authorized Amount
+    domain: PaymentEntitlement
+    range:
+      - retail:Amount
+    comment: >-
+      The maximum monetary amount that may be captured against a payment
+      entitlement. A capture may be for a lesser amount.
+    context: https://w3id.org/retail-dw/v1rc2
   - id: retail:barcodeData
     label: Bar Code Data
     domain:
@@ -880,20 +933,24 @@ property:
     context: https://w3id.org/retail-dw/v1rc2
   - id: paymentGateway
     label: Payment Gateway
-    domain: PaymentInstrument
+    domain: 
+      - PaymentInstrument
+      - PaymentEntitlement
     range: PaymentGateway
     comment: >-
-      The payment gateway at which a payment instrument may be used. The value
-      may be expressed compactly as an identifier for the gateway, or as a
-      PaymentGateway object. Service information for interacting with the
-      gateway is normally discovered from the gateway's controlled identifier
-      document rather than expressed in the credential.
+      The payment gateway at which a payment instrument may be used, or against
+      which a payment entitlement may be captured The value may be a compact
+      identifier for the gateway, or as a PaymentGateway object. Service 
+      information for interacting with the gateway is normally discovered from
+      the gateway's controlled identifier document rather than expressed in
+      the credential.
     context: https://w3id.org/retail-dw/v1rc2
   - id: paymentNetwork
     label: Payment Network
     domain:
       - PaymentInstrument
       - PaymentDestination
+      - PaymentEntitlement
     comment: >-
       An identifier used to determine whether a payment instrument is compatible
       with a payment request. A payment request must specify one or more payment
@@ -1046,6 +1103,7 @@ property:
     domain:
       - Receipt
       - PaymentRequest
+      - PaymentEntitlement
     context: https://w3id.org/retail-dw/v1rc2
   - id: retail:transactionLineSequenceNumber
     label: Event end date and time
