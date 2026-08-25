@@ -78,18 +78,18 @@ ontology:
 class:
   - id: retail:Amount
     label: Monetary amount
-    context: https://w3id.org/retail-dw/v1rc2
+    context: https://w3id.org/retail-dw/v1rc5
   - id: Coupon
     label: Coupon
     comment: >-
       A voucher entitling the holder to a discount or that may be exchanged for
       goods or services.
-    context: https://w3id.org/retail-dw/v1rc2
+    context: https://w3id.org/retail-dw/v1rc5
     example:
       - label: A basic example of the Coupon class expressed as JSON-LD.
         json: |-
           {
-            "@context": "https://w3id.org/retail-dw/v1rc2",
+            "@context": "https://w3id.org/retail-dw/v1rc5",
             "id": "https://coupon.example/12345",
             "type": "Coupon",
             "barcodeData": "0123456789123",
@@ -113,7 +113,7 @@ class:
       - label: A basic example of an 8112 Coupon
         json: |-
           {
-            "@context": "https://w3id.org/retail-dw/v1rc2",
+            "@context": "https://w3id.org/retail-dw/v1rc5",
             "type": "Coupon",
             "barcodeData": "81126789123012345"
           }
@@ -124,12 +124,12 @@ class:
       multiple discounts or offers. The bundle and a transaction identifier are
       sent to a bundle matching service which provides information on whether or
       not the bundle is applicable to the transaction.
-    context: https://w3id.org/retail-dw/v1rc2
+    context: https://w3id.org/retail-dw/v1rc5
     example:
       - label: A basic example of the CouponBundle
         json: |-
           {
-            "@context": "https://w3id.org/retail-dw/v1rc2",
+            "@context": "https://w3id.org/retail-dw/v1rc5",
             "type": "CouponBundle",
             "barcodeData": "0123456789010479832",
             "name": "ClipCo Coupons",
@@ -138,7 +138,7 @@ class:
           }
   - id: retail:Discount
     label: Discount
-    context: https://w3id.org/retail-dw/v1rc2
+    context: https://w3id.org/retail-dw/v1rc5
   - id: GiftCard
     label: Gift Card
     comment: >-
@@ -148,28 +148,28 @@ class:
       - label: A basic example of a GiftCard
         json: |-
           {
-            "@context": "https://w3id.org/retail-dw/v1rc2",
+            "@context": "https://w3id.org/retail-dw/v1rc5",
             "type": "GiftCard",
             "description": "ShopCo Gift Card",
             "barcodeData": "567789123456",
             "programIdentifier": "567", // Do we need this?
             "account": "789123456",
           }
-    context: https://w3id.org/retail-dw/v1rc2
+    context: https://w3id.org/retail-dw/v1rc5
   - id: retail:ItemCode
     label: Product item code
-    context: https://w3id.org/retail-dw/v1rc2
+    context: https://w3id.org/retail-dw/v1rc5
   - id: LoyaltyCard
     label: Loyalty Card
     comment: >-
       A card issued by a retailer to a customer that facilitates accumulation of
       loyalty points, rewards, or discounts.
-    context: https://w3id.org/retail-dw/v1rc2
+    context: https://w3id.org/retail-dw/v1rc5
     example:
       - label: A basic example of a LoyaltyCard
         json: |-
           {
-            "@context": "https://w3id.org/retail-dw/v1rc2",
+            "@context": "https://w3id.org/retail-dw/v1rc5",
             "type": "LoyaltyCard",
             "name": "ShopCo Points Card",
             "description": "Use when checking out for rewards at ShopCo.",
@@ -186,7 +186,7 @@ class:
       - label: A basic example of a MembershipCard
         json: |-
           {
-            "@context": "https://w3id.org/retail-dw/v1rc2",
+            "@context": "https://w3id.org/retail-dw/v1rc5",
             "type": "MembershipCard",
             "name": "QuickCo Membership Card",
             "description": "Use when checking out for discounts at QuickCo.",
@@ -194,13 +194,13 @@ class:
             "programIdentifier": "912",
             "account": "345612789"
           }
-    context: https://w3id.org/retail-dw/v1rc2
+    context: https://w3id.org/retail-dw/v1rc5
   - id: sdo:MonetaryAmount
     label: Monetary Amount
-    context: https://w3id.org/retail-dw/v1rc2
+    context: https://w3id.org/retail-dw/v1rc5
   - id: sdo:Observation
     label: Observation
-    context: https://w3id.org/retail-dw/v1rc2
+    context: https://w3id.org/retail-dw/v1rc5
   - id: PaymentConfirmation
     label: Payment Confirmation
     comment: >-
@@ -209,7 +209,7 @@ class:
       after a payment entitlement has been used to capture funds. Its
       transaction identifier corresponds to that of the payment entitlement
       and payment request it settles.
-    context: https://w3id.org/retail-dw/v1rc2
+    context: https://w3id.org/retail-dw/v1rc5
   - id: PaymentConfirmationCredential
     label: Payment Confirmation Credential
     comment: >-
@@ -221,7 +221,7 @@ class:
           {
             "@context": [
               "https://www.w3.org/ns/credentials/v2",
-              "https://w3id.org/retail-dw/v1rc2"
+              "https://w3id.org/retail-dw/v1rc5"
             ],
             "type": ["VerifiableCredential", "PaymentConfirmationCredential"],
             "issuer": "did:web:vcpg.example",
@@ -241,7 +241,7 @@ class:
               "paymentGateway": "did:web:vcpg.example"
             }
           }
-    context: https://w3id.org/retail-dw/v1rc2
+    context: https://w3id.org/retail-dw/v1rc5
   - id: PaymentDestination
     label: Payment Destination
     comment: >-
@@ -251,7 +251,7 @@ class:
       account. The identifier is optional: when it is absent, the payment
       gateway or payment processor may derive a default account from the
       issuer's request and the payment network.
-    context: https://w3id.org/retail-dw/v1rc2
+    context: https://w3id.org/retail-dw/v1rc5
   - id: PaymentEntitlement
     label: Payment Entitlement
     comment: >-
@@ -260,7 +260,7 @@ class:
       and is later presented to capture up to the authorized amount. The
       entitlement's transaction identifier and payment network correspond to
       those of the payment request it fulfills.
-    context: https://w3id.org/retail-dw/v1rc2
+    context: https://w3id.org/retail-dw/v1rc5
   - id: PaymentEntitlementCredential
     label: Payment Entitlement Credential
     comment: >-
@@ -273,7 +273,7 @@ class:
           {
             "@context": [
               "https://www.w3.org/ns/credentials/v2",
-              "https://w3id.org/retail-dw/v1rc2"
+              "https://w3id.org/retail-dw/v1rc5"
             ],
             "type": ["VerifiableCredential", "PaymentEntitlementCredential"],
             "issuer": "did:web:vcpg.example",
@@ -295,7 +295,7 @@ class:
               "paymentGateway": "did:web:vcpg.example"
             }
           }
-    context: https://w3id.org/retail-dw/v1rc2
+    context: https://w3id.org/retail-dw/v1rc5
   - id: PaymentGateway
     label: Payment Gateway
     comment: >-
@@ -307,11 +307,11 @@ class:
       - label: A payment gateway identified by a DID
         json: |-
           {
-            "@context": "https://w3id.org/retail-dw/v1rc2",
+            "@context": "https://w3id.org/retail-dw/v1rc5",
             "id": "did:web:paymentgateway.example",
             "type": "PaymentGateway"
           }
-    context: https://w3id.org/retail-dw/v1rc2
+    context: https://w3id.org/retail-dw/v1rc5
   - id: PaymentMethod
     label: Payment Method
     comment: >-
@@ -321,7 +321,7 @@ class:
       resolving it to an underlying account. Details of how money moves are
       deliberately excluded so that the instrument remains agnostic to any
       particular payment network.
-    context: https://w3id.org/retail-dw/v1rc2
+    context: https://w3id.org/retail-dw/v1rc5
   - id: PaymentMethodCredential
     label: Payment Method Credential
     comment: >-
@@ -336,7 +336,7 @@ class:
           {
             "@context": [
               "https://www.w3.org/ns/credentials/v2",
-              "https://w3id.org/retail-dw/v1rc2"
+              "https://w3id.org/retail-dw/v1rc5"
             ],
             "type": ["VerifiableCredential", "PaymentMethodCredential"],
             "issuer": {
@@ -355,7 +355,7 @@ class:
               "paymentGateway": "did:web:paymentgateway.example"
             }
           }
-    context: https://w3id.org/retail-dw/v1rc2
+    context: https://w3id.org/retail-dw/v1rc5
   - id: PaymentRequest
     label: Payment Request
     comment: >-
@@ -363,7 +363,7 @@ class:
       and one or more destinations that may receive it. A destination's payment
       network must match the payment network of the payment method used to
       fulfill the request.
-    context: https://w3id.org/retail-dw/v1rc2
+    context: https://w3id.org/retail-dw/v1rc5
   - id: PaymentRequestCredential
     label: Payment Request Credential
     comment: >-
@@ -376,7 +376,7 @@ class:
           {
             "@context": [
               "https://www.w3.org/ns/credentials/v2",
-              "https://w3id.org/retail-dw/v1rc2"
+              "https://w3id.org/retail-dw/v1rc5"
             ],
             "type": ["VerifiableCredential", "PaymentRequestCredential"],
             "issuer": "did:web:merchant.example",
@@ -399,7 +399,7 @@ class:
               }]
             }
           }
-    context: https://w3id.org/retail-dw/v1rc2
+    context: https://w3id.org/retail-dw/v1rc5
   - id: PaymentToken
     label: Payment Token
     comment: >-
@@ -409,54 +409,54 @@ class:
       - label: A basic example of a PaymentToken
         json: |-
           {
-            "@context": "https://w3id.org/retail-dw/v1rc2",
+            "@context": "https://w3id.org/retail-dw/v1rc5",
             "type": "PaymentToken",
             "issuer": "https://tokenizer.example/",
             "token": "uFkNDk1OTI5OWM1ZmIyZGFmY2RkODY5NDllM2Q0YTI3ZT"
           }
-    context: https://w3id.org/retail-dw/v1rc2
+    context: https://w3id.org/retail-dw/v1rc5
   - id: retail:PosCodeFormat
     label: Point of sale item code format
-    context: https://w3id.org/retail-dw/v1rc2
+    context: https://w3id.org/retail-dw/v1rc5
   - id: retail:PosJournalAgeVerificationLine
     label: Point of sale age verification line entry
-    context: https://w3id.org/retail-dw/v1rc2
+    context: https://w3id.org/retail-dw/v1rc5
   - id: retail:PosJournalDiscountLine
     label: Point of sale discount line entry
-    context: https://w3id.org/retail-dw/v1rc2
+    context: https://w3id.org/retail-dw/v1rc5
   - id: retail:PosJournalFuelLine
     label: Point of sale fuel line entry
-    context: https://w3id.org/retail-dw/v1rc2
+    context: https://w3id.org/retail-dw/v1rc5
   - id: retail:PosJournalFuelPrepayLine
     label: Point of sale fuel pre-pay line entry
-    context: https://w3id.org/retail-dw/v1rc2
+    context: https://w3id.org/retail-dw/v1rc5
   - id: retail:PosJournalItemLine
     label: Point of sale journal item line entry
-    context: https://w3id.org/retail-dw/v1rc2
+    context: https://w3id.org/retail-dw/v1rc5
   - id: retail:PosJournalLinkedTransactionInfo
     label: Point of sale linked transaction information
-    context: https://w3id.org/retail-dw/v1rc2
+    context: https://w3id.org/retail-dw/v1rc5
   - id: retail:PosJournalLoyaltyLine
     label: Point of sale journal loyalty line entry
-    context: https://w3id.org/retail-dw/v1rc2
+    context: https://w3id.org/retail-dw/v1rc5
   - id: retail:PosJournalMerchandiseCodeLine
     label: Point of sale journal merchandise code line entry
-    context: https://w3id.org/retail-dw/v1rc2
+    context: https://w3id.org/retail-dw/v1rc5
   - id: retail:PosJournalTenderInfoLine
     label: Point of sale tender information line entry
-    context: https://w3id.org/retail-dw/v1rc2
+    context: https://w3id.org/retail-dw/v1rc5
   - id: sdo:PostalAddress
     label: Postal address
-    context: https://w3id.org/retail-dw/v1rc2
+    context: https://w3id.org/retail-dw/v1rc5
   - id: retail:QuantityUN
     label: Quantity (UN/CEFACT unit codes)
-    context: https://w3id.org/retail-dw/v1rc2
+    context: https://w3id.org/retail-dw/v1rc5
   - id: Rebate
     label: Rebate
     comment: >-
       A refund or return of part of the purchase price by the seller to the
       buyer, typically given as a promotional offer.
-    context: https://w3id.org/retail-dw/v1rc2
+    context: https://w3id.org/retail-dw/v1rc5
   - id: Receipt
     label: Receipt
     comment: >-
@@ -464,12 +464,12 @@ class:
       or services purchased. It typically includes details such as the date of
       purchase, the items bought, the total amount paid, and any applicable
       taxes.
-    context: https://w3id.org/retail-dw/v1rc2
+    context: https://w3id.org/retail-dw/v1rc5
     example:
       - label: A basic example of a Receipt
         json: |-
           {
-            "@context": "https://w3id.org/retail-dw/v1rc2",
+            "@context": "https://w3id.org/retail-dw/v1rc5",
             "type": "Receipt",
             "description": "Your Utopia ShopCo Purchase on July 1st 2024",
             "image": "data:image/gif;base64,iVBORw0KGgoAAAANSU...ASUVORK5CYII="
@@ -557,12 +557,12 @@ class:
       transaction can be executed in a reward or loyalty program. This includes
       parameters such as eligibility criteria, expiration dates, and specific
       terms that must be met for a reward to be redeemed.
-    context: https://w3id.org/retail-dw/v1rc2
+    context: https://w3id.org/retail-dw/v1rc5
     example:
       - label: A basic example of the RedemptionRule class expressed as JSON-LD.
         json: |-
           {
-            "@context": "https://w3id.org/retail-dw/v1rc2",
+            "@context": "https://w3id.org/retail-dw/v1rc5",
             "type": "RedemptionRule",
             "description": "Minimum limit 1 product. Maximum limit 1 per customer.",
             "gtin": "1234567890123",
@@ -580,20 +580,20 @@ class:
   - id: vc:RenderMethod
     label: Render Method
     comment: A mechanism for rendering data to a visual or wireless medium.
-    context: https://w3id.org/retail-dw/v1rc2
+    context: https://w3id.org/retail-dw/v1rc5
   - id: RetailCredential
     label: Retail Benefit Credential
     comment: >-
       A credential that represents various benefits offered by retail stores,
       such as coupons, loyalty points, or gift cards.
-    context: https://w3id.org/retail-dw/v1rc2
+    context: https://w3id.org/retail-dw/v1rc5
     example:
       - label: A basic example of the RetailCredential expressing a Coupon
         json: |-
           {
             "@context": [
               "https://www.w3.org/ns/credentials/v2",
-              "https://w3id.org/retail-dw/v1rc2",
+              "https://w3id.org/retail-dw/v1rc5",
             ]
             "type": ["VerifiableCredential", "RetailCredential"],
             "issuer": {
@@ -603,7 +603,7 @@ class:
             "validFrom": "2023-12-05T00:00:00Z",
             "validUntil": "2024-12-05T00:00:00Z",
             "credentialSubject": {
-              "@context": "https://w3id.org/retail-dw/v1rc2",
+              "@context": "https://w3id.org/retail-dw/v1rc5",
               "id": "https://coupon.example/12345",
               "type": "Coupon",
               "barcodeData": "0123456789123",
@@ -648,7 +648,7 @@ class:
           {
             "@context": [
               "https://www.w3.org/ns/credentials/v2",
-              "https://w3id.org/retail-dw/v1rc2"
+              "https://w3id.org/retail-dw/v1rc5"
             ],
             "type": ["VerifiableCredential", "RetailCredential"],
             "issuer": {
@@ -690,7 +690,7 @@ class:
           {
             "@context": [
               "https://www.w3.org/ns/credentials/v2",
-              "https://w3id.org/retail-dw/v1rc2"
+              "https://w3id.org/retail-dw/v1rc5"
             ],
             "type": ["VerifiableCredential", "RetailCredential"],
             "issuer": {
@@ -716,15 +716,15 @@ class:
           }
   - id: sdo:Store
     label: Store
-    context: https://w3id.org/retail-dw/v1rc2
+    context: https://w3id.org/retail-dw/v1rc5
   - id: retail:Tax
     label: Tax amount
-    context: https://w3id.org/retail-dw/v1rc2
+    context: https://w3id.org/retail-dw/v1rc5
   - id: retail:TenderID
     label: Tender identifier
     comment: >-
       Tender description as defined by Conexxus, with tender code and sub code.
-    context: https://w3id.org/retail-dw/v1rc2
+    context: https://w3id.org/retail-dw/v1rc5
 
 property:
   - id: retail:account
@@ -734,7 +734,7 @@ property:
       - LoyaltyCard
       - MembershipCard
     comment: The account number associated with a particular card.
-    context: https://w3id.org/retail-dw/v1rc2
+    context: https://w3id.org/retail-dw/v1rc5
   - id: retail:actualSalesPrice
     label: Regular sales price
     range:
@@ -745,17 +745,17 @@ property:
       - retail:PosJournalMerchandiseCodeLine
       - retail:PosJournalFuelLine
       - retail:PosJournalFuelPrepayLine
-    context: https://w3id.org/retail-dw/v1rc2
+    context: https://w3id.org/retail-dw/v1rc5
   - id: sdo:addressLocality
     label: Address locality (town or city)
     domain:
       - sdo:PostalAddress
-    context: https://w3id.org/retail-dw/v1rc2
+    context: https://w3id.org/retail-dw/v1rc5
   - id: sdo:addressRegion
     label: Address region (state)
     domain:
       - sdo:PostalAddress
-    context: https://w3id.org/retail-dw/v1rc2
+    context: https://w3id.org/retail-dw/v1rc5
   - id: authorizedAmount
     label: Authorized Amount
     domain: PaymentEntitlement
@@ -764,7 +764,7 @@ property:
     comment: >-
       The maximum monetary amount that may be captured against a payment
       entitlement. A capture may be for a lesser amount.
-    context: https://w3id.org/retail-dw/v1rc2
+    context: https://w3id.org/retail-dw/v1rc5
   - id: retail:barcodeData
     label: Bar Code Data
     domain:
@@ -774,7 +774,7 @@ property:
       - LoyaltyCard
       - MembershipCard
       - Rebate
-    context: https://w3id.org/retail-dw/v1rc2
+    context: https://w3id.org/retail-dw/v1rc5
   - id: bundleMatcher
     label: Coupon Bundle Matching Service
     domain: CouponBundle
@@ -782,12 +782,12 @@ property:
     comment: >-
       This URL is used to communicate with the coupon bundle service to see if
       any item associated with a transaction matches the coupon bundle.
-    context: https://w3id.org/retail-dw/v1rc2
+    context: https://w3id.org/retail-dw/v1rc5
   - id: retail:cashierID
     label: Cashier Identifier
     domain:
       - sdo:Store
-    context: https://w3id.org/retail-dw/v1rc2
+    context: https://w3id.org/retail-dw/v1rc5
   - id: capturedAmount
     label: Captured Amount
     domain: PaymentConfirmation
@@ -796,22 +796,22 @@ property:
     comment: >-
       The monetary amount that was captured to settle a payment. It may be less
       than the authorized amount of the corresponding payment entitlement.
-    context: https://w3id.org/retail-dw/v1rc2
+    context: https://w3id.org/retail-dw/v1rc5
   - id: retail:checkDigit
     label: Presence of check digit in point of sale code
     domain:
       - retail:PosCodeFormat
-    context: https://w3id.org/retail-dw/v1rc2
+    context: https://w3id.org/retail-dw/v1rc5
   - id: sdo:confirmationNumber
     label: Confirmation number
     domain:
       - Receipt
-    context: https://w3id.org/retail-dw/v1rc2
+    context: https://w3id.org/retail-dw/v1rc5
   - id: retail:currency
     label: Monetary currency
     domain:
       - retail:Amount
-    context: https://w3id.org/retail-dw/v1rc2
+    context: https://w3id.org/retail-dw/v1rc5
   - id: sdo:description
     label: Description
     upper_value: retail:description
@@ -826,7 +826,7 @@ property:
       A unique description for an instance of an item such as loyalty program,
       membership program, or gift card program that the card is associated with,
       used to differentiate between various items offered by an organization.
-    context: https://w3id.org/retail-dw/v1rc2
+    context: https://w3id.org/retail-dw/v1rc5
   - id: retail:discount
     label: Discount
     domain:
@@ -839,46 +839,46 @@ property:
     comment: >-
       Represents the discount amount associated with a coupon, expressed as a
       monetary value.
-    context: https://w3id.org/retail-dw/v1rc2
+    context: https://w3id.org/retail-dw/v1rc5
   - id: retail:discountAmount
     label: Discount amount
     range:
       - retail:Amount
     domain:
       - retail:Discount
-    context: https://w3id.org/retail-dw/v1rc2
+    context: https://w3id.org/retail-dw/v1rc5
   - id: retail:discountName
     label: Discount name
     domain:
       - retail:Discount
-    context: https://w3id.org/retail-dw/v1rc2
+    context: https://w3id.org/retail-dw/v1rc5
   - id: retail:discountQuantity
     label: Discount quantity
     domain:
       - retail:Discount
     range:
       - retail:QuantityUN
-    context: https://w3id.org/retail-dw/v1rc2
+    context: https://w3id.org/retail-dw/v1rc5
   - id: retail:discountReason
     label: Discount reason
     domain:
       - retail:Discount
-    context: https://w3id.org/retail-dw/v1rc2
+    context: https://w3id.org/retail-dw/v1rc5
   - id: retail:eventEndDateTime
     label: Event end date and time
     domain:
       - Receipt
-    context: https://w3id.org/retail-dw/v1rc2
+    context: https://w3id.org/retail-dw/v1rc5
   - id: retail:eventStartDateTime
     label: Event start date and time
     domain:
       - Receipt
-    context: https://w3id.org/retail-dw/v1rc2
+    context: https://w3id.org/retail-dw/v1rc5
   - id: retail:format
     label: Point of sale code format
     domain:
       - retail:PosCodeFormat
-    context: https://w3id.org/retail-dw/v1rc2
+    context: https://w3id.org/retail-dw/v1rc5
   - id: gtin
     label: GTIN
     domain: RedemptionRule
@@ -886,7 +886,7 @@ property:
       A property that specifies the GS1 Global Trade Identification Number
       (GTIN) associated with a product, which uniquely identifies a specific
       item in the marketplace.
-    context: https://w3id.org/retail-dw/v1rc2
+    context: https://w3id.org/retail-dw/v1rc5
   - id: sdo:image
     label: Image
     domain:
@@ -901,14 +901,14 @@ property:
       A property that specifies the URL or identifier of an image associated
       with the respective entities, used for visual representation in digital or
       physical formats.
-    context: https://w3id.org/retail-dw/v1rc2
+    context: https://w3id.org/retail-dw/v1rc5
   - id: retail:itemCode
     label: Item code
     range:
       - retail:ItemCode
     domain:
       - retail:PosJournalItemLine
-    context: https://w3id.org/retail-dw/v1rc2
+    context: https://w3id.org/retail-dw/v1rc5
   - id: retail:itemTaxes
     label: Item taxes
     range:
@@ -919,13 +919,13 @@ property:
       - retail:PosJournalMerchandiseCodeLine
       - retail:PosJournalFuelLine
       - retail:PosJournalFuelPrepayLine
-    context: https://w3id.org/retail-dw/v1rc2
+    context: https://w3id.org/retail-dw/v1rc5
   - id: sdo:location
     label: Location
     domain:
       - sdo:Store
     range: sdo:PostalAddress
-    context: https://w3id.org/retail-dw/v1rc2
+    context: https://w3id.org/retail-dw/v1rc5
   - id: maximumAmount
     label: Maximum Amount
     domain: PaymentRequest
@@ -934,7 +934,7 @@ property:
     comment: >-
       The maximum monetary amount that may be collected to fulfill a payment
       request.
-    context: https://w3id.org/retail-dw/v1rc2
+    context: https://w3id.org/retail-dw/v1rc5
   - id: maximumLimit
     label: Maximum Limit
     range: sdo:Observation
@@ -943,7 +943,7 @@ property:
       This property represents the maximum limit associated with a redemption
       rule, indicating the upper threshold related to the conditions of the
       redemption.
-    context: https://w3id.org/retail-dw/v1rc2
+    context: https://w3id.org/retail-dw/v1rc5
   - id: minimumLimit
     label: Minimum quantity limit
     domain: RedemptionRule
@@ -953,7 +953,7 @@ property:
       purchased or redeemed in order to qualify for the RedemptionRule. This
       ensures that customers meet specific criteria before applying the
       redemption.
-    context: https://w3id.org/retail-dw/v1rc2
+    context: https://w3id.org/retail-dw/v1rc5
   - id: sdo:name
     label: Name
     domain:
@@ -967,12 +967,12 @@ property:
       A short human-readable label that is used to identify a specific instance
       of an object. The name should be unique to the object. Examples include:
       "ShopCo Gift Card", "Big Gym Membership Card", and "$5 off YumChips".
-    context: https://w3id.org/retail-dw/v1rc2
+    context: https://w3id.org/retail-dw/v1rc5
   - id: retail:organizationID
     label: Organization Identifier
     domain:
       - sdo:Store
-    context: https://w3id.org/retail-dw/v1rc2
+    context: https://w3id.org/retail-dw/v1rc5
   - id: paymentDestination
     label: Payment Destination
     domain: PaymentRequest
@@ -980,7 +980,7 @@ property:
     comment: >-
       A destination that may receive payment in fulfillment of a payment
       request. A payment request may list more than one destination.
-    context: https://w3id.org/retail-dw/v1rc2
+    context: https://w3id.org/retail-dw/v1rc5
   - id: paymentGateway
     label: Payment Gateway
     domain: 
@@ -994,7 +994,7 @@ property:
       The value may be a compact identifier or a PaymentGateway object; service
       information is discovered from the gateway's controlled identifier document
       rather than expressed in the credential.
-    context: https://w3id.org/retail-dw/v1rc2
+    context: https://w3id.org/retail-dw/v1rc5
   - id: paymentNetwork
     label: Payment Network
     domain:
@@ -1007,22 +1007,22 @@ property:
       with a payment request. A payment request must specify one or more payment
       networks, one of which must match the payment network of the payment
       method used to fulfill it.
-    context: https://w3id.org/retail-dw/v1rc2
+    context: https://w3id.org/retail-dw/v1rc5
   - id: retail:posCode
     label: Point of sale code
     domain:
       - retail:ItemCode
-    context: https://w3id.org/retail-dw/v1rc2
+    context: https://w3id.org/retail-dw/v1rc5
   - id: retail:posCodeFormat
     label: Point of sale code format
     range:
       - retail:PosCodeFormat
-    context: https://w3id.org/retail-dw/v1rc2
+    context: https://w3id.org/retail-dw/v1rc5
   - id: sdo:postalCode
     label: Postal code (ZIP)
     domain:
       - sdo:PostalAddress
-    context: https://w3id.org/retail-dw/v1rc2
+    context: https://w3id.org/retail-dw/v1rc5
   - id: programIdentifier
     label: Program Identifier
     domain:
@@ -1033,7 +1033,7 @@ property:
       A unique identifier for the loyalty program, membership program, or gift
       card program that the card is associated with, used to differentiate
       between various programs offered by an organization.
-    context: https://w3id.org/retail-dw/v1rc2
+    context: https://w3id.org/retail-dw/v1rc5
   - id: redemptionRule
     label: Redemption Rule
     domain: Coupon
@@ -1042,7 +1042,7 @@ property:
       A property that links a coupon to the specific redemption rules that apply
       to it, detailing the conditions and terms necessary for the coupon to be
       successfully redeemed.
-    context: https://w3id.org/retail-dw/v1rc2
+    context: https://w3id.org/retail-dw/v1rc5
   - id: retail:regularSellPrice
     label: Regular sales price
     range:
@@ -1053,7 +1053,7 @@ property:
       - retail:PosJournalMerchandiseCodeLine
       - retail:PosJournalFuelLine
       - retail:PosJournalFuelPrepayLine
-    context: https://w3id.org/retail-dw/v1rc2
+    context: https://w3id.org/retail-dw/v1rc5
   - id: vc:renderMethod
     label: Render Method
     domain:
@@ -1065,27 +1065,27 @@ property:
       - Rebate
     range: vc:RenderMethod
     comment: A mechanism used to render a visual or wireless expression of the benefit.
-    context: https://w3id.org/retail-dw/v1rc2
+    context: https://w3id.org/retail-dw/v1rc5
   - id: sdo:seller
     label: Seller
     domain:
       - Receipt
-    context: https://w3id.org/retail-dw/v1rc2
+    context: https://w3id.org/retail-dw/v1rc5
   - id: retail:sourcePOI
     label: Source point of interaction
     domain:
       - sdo:Store
-    context: https://w3id.org/retail-dw/v1rc2
+    context: https://w3id.org/retail-dw/v1rc5
   - id: retail:storeLocationID
     label: Store location identifier
     domain:
       - sdo:Store
-    context: https://w3id.org/retail-dw/v1rc2
+    context: https://w3id.org/retail-dw/v1rc5
   - id: sdo:streetAddress
     label: Street address
     domain:
       - sdo:PostalAddress
-    context: https://w3id.org/retail-dw/v1rc2
+    context: https://w3id.org/retail-dw/v1rc5
   - id: retail:taxCollectedAmount
     label: Tax collected amount
     range:
@@ -1095,45 +1095,45 @@ property:
     comment: >-
       The monetary amount of tax collected for an associated transaction line
       or item.
-    context: https://w3id.org/retail-dw/v1rc2
+    context: https://w3id.org/retail-dw/v1rc5
   - id: sdo:taxID
     label: Tax Identifier
     domain:
       - sdo:Store
-    context: https://w3id.org/retail-dw/v1rc2
+    context: https://w3id.org/retail-dw/v1rc5
   - id: sdo:telephone
     label: Telephone number
     domain:
       - sdo:Store
-    context: https://w3id.org/retail-dw/v1rc2
+    context: https://w3id.org/retail-dw/v1rc5
   - id: retail:tender
     label: Tender information
     domain:
       - retail:PosJournalTenderInfoLine
     range:
       - retail:TenderID
-    context: https://w3id.org/retail-dw/v1rc2
+    context: https://w3id.org/retail-dw/v1rc5
   - id: retail:tenderCode
     label: Tender code
     domain:
       - retail:TenderID
-    context: https://w3id.org/retail-dw/v1rc2
+    context: https://w3id.org/retail-dw/v1rc5
   - id: retail:tenderAmount
     label: Tender amount
     range:
       - retail:Amount
-    context: https://w3id.org/retail-dw/v1rc2
+    context: https://w3id.org/retail-dw/v1rc5
   - id: retail:tillID
     label: Till identifier
     domain:
       - sdo:Store
-    context: https://w3id.org/retail-dw/v1rc2
+    context: https://w3id.org/retail-dw/v1rc5
   - id: token
     label: Token
     domain: PaymentToken
     range: sec:multibase
     comment: The payment tokenization value that is known to the token issuer.
-    context: https://w3id.org/retail-dw/v1rc2
+    context: https://w3id.org/retail-dw/v1rc5
   - id: retail:transactionDetailGroup
     label: Transaction detail group
     domain:
@@ -1148,7 +1148,7 @@ property:
       - retail:PosJournalTenderInfoLine
       - retail:PosJournalLinkedTransactionInfo
       - retail:PosJournalAgeVerificationLine
-    context: https://w3id.org/retail-dw/v1rc2
+    context: https://w3id.org/retail-dw/v1rc5
   - id: retail:transactionID
     label: Transaction Identifier
     domain:
@@ -1156,7 +1156,7 @@ property:
       - PaymentRequest
       - PaymentEntitlement
       - PaymentConfirmation
-    context: https://w3id.org/retail-dw/v1rc2
+    context: https://w3id.org/retail-dw/v1rc5
   - id: retail:transactionLineSequenceNumber
     label: Event end date and time
     domain:
@@ -1169,18 +1169,18 @@ property:
       - retail:PosJournalTenderInfoLine
       - retail:PosJournalLinkedTransactionInfo
       - retail:PosJournalAgeVerificationLine
-    context: https://w3id.org/retail-dw/v1rc2
+    context: https://w3id.org/retail-dw/v1rc5
   - id: retail:uom
     label: Unit of Measure
     domain:
       - retail:QuantityUN
-    context: https://w3id.org/retail-dw/v1rc2
+    context: https://w3id.org/retail-dw/v1rc5
   - id: retail:value
     label: A numerical value that is measured in units.
     domain:
       - retail:Amount
       - retail:QuantityUN
-    context: https://w3id.org/retail-dw/v1rc2
+    context: https://w3id.org/retail-dw/v1rc5
 datatype:
   - id: sec:multibase
     label: Datatype of Multibase
