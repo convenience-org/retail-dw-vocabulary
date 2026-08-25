@@ -507,6 +507,7 @@
             <li><a href="#2a131641b4affb3421e62a488306dc25049236b6af8397915742344d2e650828"><code>Discount<code></code></code></a></li>
             <li><a href="#a0e7d94944539862efdb5ca58345b355d2a137f204bfe533781b575aba805194"><code>ItemCode<code></code></code></a></li>
             <li><a href="#d79421f0139e03e1364896fefacabaf2a253a3ddcb9a9a8f271fb2e372f81e15"><code>PosCodeFormat<code></code></code></a></li>
+            <li><a href="#81af39f8bbb55756d871f606dadde70a1a8b0cbc30c3b683c83d118fdf453729"><code>PosCodeModifier<code></code></code></a></li>
             <li><a href="#84b1d5b47f575c8c0a0948333af219fe63ec9b67bbf0a1ea57a09132ffac70ff"><code>PosJournalAgeVerificationLine<code></code></code></a></li>
             <li><a href="#afaecb3eb3220927bcd87f9685eb050be5f99159bddef17ba43a1a30f2362336"><code>PosJournalDiscountLine<code></code></code></a></li>
             <li><a href="#0db4999c640b617b44c86d9506185ba4e268814d9bc6dcc6cef73afaaff64690"><code>PosJournalFuelLine<code></code></code></a></li>
@@ -535,9 +536,11 @@
             <li><a href="#0a227f4bb756d189b8d9b1818a80d7b3edd4ac786e6bb9ab37aabf63551a546d"><code>format<code></code></code></a></li>
             <li><a href="#e92d336e5b2747fcde1cae9209c96e3520f947ee911f4d2e5f1ff7ad9c5080a1"><code>itemCode<code></code></code></a></li>
             <li><a href="#25e40d9af5f8568ef60caa7e3f869ec94859d460d5cfa7aef11398b2e008b3d3"><code>itemTaxes<code></code></code></a></li>
+            <li><a href="#2d8a94e5cc0a264f52fa891d16e41f271ba0be1864abd5cd95edf5a3d656ac5b"><code>name<code></code></code></a></li>
             <li><a href="#b2671569a25fc975c265755755d7abe5bed88c821db1d2be9f67aaa862265cca"><code>organizationID<code></code></code></a></li>
             <li><a href="#0c40d932dc673079a1d2b82a46bb94f5f2d5395acb69040e335aea2e81d53e6f"><code>posCode<code></code></code></a></li>
             <li><a href="#0fb35f07f489798b478a4ae6777f1cfbe05b351676eabeb8b266ec060a354f32"><code>posCodeFormat<code></code></code></a></li>
+            <li><a href="#ce36ce1c380c58235afbd31d817512beb104a250fdb450a989fc87f79fb0c371"><code>posCodeModifier<code></code></code></a></li>
             <li><a href="#2a292be06a8b6364998c4eb09439eb2dda5739ae15a4cb36659c585727583fb1"><code>regularSellPrice<code></code></code></a></li>
             <li><a href="#7eab970b2267f12d2ebebf7681847def9e42ed64082c9dadd73737ee06b4db23"><code>sourcePOI<code></code></code></a></li>
             <li><a href="#a0bddf0b06f5bfc5d21b264a16159b59e1642419e5b4067af4560b01ddade294"><code>storeLocationID<code></code></code></a></li>
@@ -943,6 +946,19 @@
           <dd><a href="https://w3id.org/retail-dw/v1rc2"><code>https://w3id.org/retail-dw/v1rc2</code></a></dd>
         </dl>
       </section>
+      <section id="2d8a94e5cc0a264f52fa891d16e41f271ba0be1864abd5cd95edf5a3d656ac5b">
+        <h4><code>name</code></h4>
+        <p><em>Point of sale code modifier name</em></p>
+        <p class="note">
+          <b>This term is formally defined in another vocabulary</b>
+          (as <a href="https://w3id.org/retail#name">retail:name</a>), but is frequently used with this vocabulary and has been
+          included to aid readability of this document.
+        </p>
+        <dl class="terms">
+          <dt>Relevant <code>@context</code>:</dt>
+          <dd><a href="https://w3id.org/retail-dw/v1rc2"><code>https://w3id.org/retail-dw/v1rc2</code></a></dd>
+        </dl>
+      </section>
       <section id="1fcc090c97b079a6354923801d28050badf02fef3351220c2c4124012c090001">
         <h4><code>name</code></h4>
         <p><em>Name</em></p>
@@ -1032,6 +1048,19 @@
         <p class="note">
           <b>This term is formally defined in another vocabulary</b>
           (as <a href="https://w3id.org/retail#posCodeFormat">retail:posCodeFormat</a>), but is frequently used with this vocabulary and has been
+          included to aid readability of this document.
+        </p>
+        <dl class="terms">
+          <dt>Relevant <code>@context</code>:</dt>
+          <dd><a href="https://w3id.org/retail-dw/v1rc2"><code>https://w3id.org/retail-dw/v1rc2</code></a></dd>
+        </dl>
+      </section>
+      <section id="ce36ce1c380c58235afbd31d817512beb104a250fdb450a989fc87f79fb0c371">
+        <h4><code>posCodeModifier</code></h4>
+        <p><em>Point of sale code modifier</em></p>
+        <p class="note">
+          <b>This term is formally defined in another vocabulary</b>
+          (as <a href="https://w3id.org/retail#posCodeModifier">retail:posCodeModifier</a>), but is frequently used with this vocabulary and has been
           included to aid readability of this document.
         </p>
         <dl class="terms">
@@ -1472,7 +1501,7 @@
           <dt>Range of:</dt>
           <dd><a href="#e92d336e5b2747fcde1cae9209c96e3520f947ee911f4d2e5f1ff7ad9c5080a1"><code>itemCode</code></a></dd>
           <dt>Domain of:</dt>
-          <dd><a href="#0c40d932dc673079a1d2b82a46bb94f5f2d5395acb69040e335aea2e81d53e6f"><code>posCode</code></a></dd>
+          <dd><a href="#0c40d932dc673079a1d2b82a46bb94f5f2d5395acb69040e335aea2e81d53e6f"><code>posCode</code></a>, <a href="#0fb35f07f489798b478a4ae6777f1cfbe05b351676eabeb8b266ec060a354f32"><code>posCodeFormat</code></a>, <a href="#ce36ce1c380c58235afbd31d817512beb104a250fdb450a989fc87f79fb0c371"><code>posCodeModifier</code></a></dd>
         </dl>
         <dl class="terms">
           <dt>Relevant <code>@context</code>:</dt>
@@ -1714,6 +1743,27 @@
           <dd><a href="#0fb35f07f489798b478a4ae6777f1cfbe05b351676eabeb8b266ec060a354f32"><code>posCodeFormat</code></a></dd>
           <dt>Domain of:</dt>
           <dd><a href="#9c73d064c7b6c160584bec3f7a7a0bd1c82ff9daf2804cd1dc9fb58ff2a98b28"><code>checkDigit</code></a>, <a href="#0a227f4bb756d189b8d9b1818a80d7b3edd4ac786e6bb9ab37aabf63551a546d"><code>format</code></a></dd>
+        </dl>
+        <dl class="terms">
+          <dt>Relevant <code>@context</code>:</dt>
+          <dd><a href="https://w3id.org/retail-dw/v1rc2"><code>https://w3id.org/retail-dw/v1rc2</code></a></dd>
+        </dl>
+      </section>
+      <section id="81af39f8bbb55756d871f606dadde70a1a8b0cbc30c3b683c83d118fdf453729">
+        <h4><code>PosCodeModifier</code></h4>
+        <p><em>Point of sale code modifier</em></p>
+        <p class="note">
+          <b>This term is formally defined in another vocabulary</b>
+          (as <a href="https://w3id.org/retail#PosCodeModifier">retail:PosCodeModifier</a>), but is frequently used with this vocabulary and has been
+          included to aid readability of this document.
+        </p>
+        <dl class="terms">
+          <dt>Range of:</dt>
+          <dd><a href="#ce36ce1c380c58235afbd31d817512beb104a250fdb450a989fc87f79fb0c371"><code>posCodeModifier</code></a></dd>
+          <dt>Domain of:</dt>
+          <dd><a href="#2d8a94e5cc0a264f52fa891d16e41f271ba0be1864abd5cd95edf5a3d656ac5b"><code>name</code></a></dd>
+          <dt>In the domain of:</dt>
+          <dd><a href="#957c66e1997406b04d3e7d5ad77861d799b87fd19d9765543b7f0f1fbe5a2dda"><code>value</code></a></dd>
         </dl>
         <dl class="terms">
           <dt>Relevant <code>@context</code>:</dt>
