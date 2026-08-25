@@ -134,6 +134,23 @@
     },
     "MonetaryAmount": "https://schema.org/MonetaryAmount",
     "Observation": "https://schema.org/Observation",
+    "PaymentConfirmation": {
+      "@id": "https://w3id.org/retail-dw#PaymentConfirmation",
+      "@context": {
+        "@protected": true,
+        "capturedAmount": {
+          "@id": "https://w3id.org/retail-dw#capturedAmount",
+          "@type": "@id"
+        },
+        "paymentGateway": {
+          "@id": "https://w3id.org/retail-dw#paymentGateway",
+          "@type": "@id"
+        },
+        "paymentNetwork": "https://w3id.org/retail-dw#paymentNetwork",
+        "transactionID": "https://w3id.org/retail#transactionID"
+      }
+    },
+    "PaymentConfirmationCredential": "https://w3id.org/retail-dw#PaymentConfirmationCredential",
     "PaymentDestination": {
       "@id": "https://w3id.org/retail-dw#PaymentDestination",
       "@context": {

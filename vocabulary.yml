@@ -201,6 +201,47 @@ class:
   - id: sdo:Observation
     label: Observation
     context: https://w3id.org/retail-dw/v1rc2
+  - id: PaymentConfirmation
+    label: Payment Confirmation
+    comment: >-
+      A confirmation that funds have been captured, transferring the captured
+      amount from the payer to the payee. It is issued by the payment gateway
+      after a payment entitlement has been used to capture funds. Its
+      transaction identifier corresponds to that of the payment entitlement
+      and payment request it settles.
+    context: https://w3id.org/retail-dw/v1rc2
+  - id: PaymentConfirmationCredential
+    label: Payment Confirmation Credential
+    comment: >-
+      A credential that expresses a PaymentConfirmation. It is issued by a
+      payment gateway to the payee as proof that a capture completed.
+    example:
+      - label: A basic example of a PaymentConfirmationCredential
+        json: |-
+          {
+            "@context": [
+              "https://www.w3.org/ns/credentials/v2",
+              "https://w3id.org/retail-dw/v1rc2"
+            ],
+            "type": ["VerifiableCredential", "PaymentConfirmationCredential"],
+            "issuer": "did:web:vcpg.example",
+            "validFrom": "2026-05-26T12:40:00Z",
+            "name": "Coffee Purchase Confirmation",
+            "description": "Confirmation that funds were captured for a coffee purchase.",
+            "credentialSubject": {
+              "id": "did:web:merchant.example",
+              "type": "PaymentConfirmation",
+              "transactionID": "urn:uuid:fc2eff04-6540-4aef-a7db-bf212566088d",
+              "capturedAmount": {
+                "type": "Amount",
+                "currency": "USD",
+                "value": "47.50"
+              },
+              "paymentNetwork": "urn:payment-network:utopia-usd",
+              "paymentGateway": "did:web:vcpg.example"
+            }
+          }
+    context: https://w3id.org/retail-dw/v1rc2
   - id: PaymentDestination
     label: Payment Destination
     comment: >-
@@ -747,6 +788,15 @@ property:
     domain:
       - sdo:Store
     context: https://w3id.org/retail-dw/v1rc2
+  - id: capturedAmount
+    label: Captured Amount
+    domain: PaymentConfirmation
+    range:
+      - retail:Amount
+    comment: >-
+      The monetary amount that was captured to settle a payment. It may be less
+      than the authorized amount of the corresponding payment entitlement.
+    context: https://w3id.org/retail-dw/v1rc2
   - id: retail:checkDigit
     label: Presence of check digit in point of sale code
     domain:
@@ -936,14 +986,14 @@ property:
     domain: 
       - PaymentInstrument
       - PaymentEntitlement
+      - PaymentConfirmation
     range: PaymentGateway
     comment: >-
-      The payment gateway at which a payment instrument may be used, or against
-      which a payment entitlement may be captured The value may be a compact
-      identifier for the gateway, or as a PaymentGateway object. Service 
-      information for interacting with the gateway is normally discovered from
-      the gateway's controlled identifier document rather than expressed in
-      the credential.
+      The payment gateway at which a payment instrument may be used, against
+      which a payment entitlement may be captured, or that performed a capture.
+      The value may be a compact identifier or a PaymentGateway object; service
+      information is discovered from the gateway's controlled identifier document
+      rather than expressed in the credential.
     context: https://w3id.org/retail-dw/v1rc2
   - id: paymentNetwork
     label: Payment Network
@@ -951,6 +1001,7 @@ property:
       - PaymentInstrument
       - PaymentDestination
       - PaymentEntitlement
+      - PaymentConfirmation
     comment: >-
       An identifier used to determine whether a payment instrument is compatible
       with a payment request. A payment request must specify one or more payment
@@ -1104,6 +1155,7 @@ property:
       - Receipt
       - PaymentRequest
       - PaymentEntitlement
+      - PaymentConfirmation
     context: https://w3id.org/retail-dw/v1rc2
   - id: retail:transactionLineSequenceNumber
     label: Event end date and time
