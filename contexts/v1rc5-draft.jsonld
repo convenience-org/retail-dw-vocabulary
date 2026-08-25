@@ -176,8 +176,8 @@
     },
     "PaymentEntitlementCredential": "https://w3id.org/retail-dw#PaymentEntitlementCredential",
     "PaymentGateway": "https://w3id.org/retail-dw#PaymentGateway",
-    "PaymentInstrument": {
-      "@id": "https://w3id.org/retail-dw#PaymentInstrument",
+    "PaymentMethod": {
+      "@id": "https://w3id.org/retail-dw#PaymentMethod",
       "@context": {
         "@protected": true,
         "paymentGateway": {
