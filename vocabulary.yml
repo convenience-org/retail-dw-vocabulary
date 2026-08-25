@@ -333,6 +333,9 @@ class:
   - id: retail:PosCodeFormat
     label: Point of sale item code format
     context: https://w3id.org/retail-dw/v1rc2
+  - id: retail:PosCodeModifier
+    label: Point of sale code modifier
+    context: https://w3id.org/retail-dw/v1rc2
   - id: retail:PosJournalAgeVerificationLine
     label: Point of sale age verification line entry
     context: https://w3id.org/retail-dw/v1rc2
@@ -851,6 +854,11 @@ property:
       ensures that customers meet specific criteria before applying the
       redemption.
     context: https://w3id.org/retail-dw/v1rc2
+  - id: retail:name
+    label: Point of sale code modifier name
+    domain:
+      - retail:PosCodeModifier
+    context: https://w3id.org/retail-dw/v1rc2
   - id: sdo:name
     label: Name
     domain:
@@ -907,8 +915,17 @@ property:
     context: https://w3id.org/retail-dw/v1rc2
   - id: retail:posCodeFormat
     label: Point of sale code format
+    domain:
+      - retail:ItemCode
     range:
       - retail:PosCodeFormat
+    context: https://w3id.org/retail-dw/v1rc2
+  - id: retail:posCodeModifier
+    label: Point of sale code modifier
+    domain:
+      - retail:ItemCode
+    range:
+      - retail:PosCodeModifier
     context: https://w3id.org/retail-dw/v1rc2
   - id: sdo:postalCode
     label: Postal code (ZIP)
@@ -1070,6 +1087,7 @@ property:
     domain:
       - retail:Amount
       - retail:QuantityUN
+      - retail:PosCodeModifier
     context: https://w3id.org/retail-dw/v1rc2
 datatype:
   - id: sec:multibase

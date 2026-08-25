@@ -1,5 +1,10 @@
 {
+  "name": "retail-dw-vocabulary",
+  "private": true,
   "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
   "scripts": {
     "yml2vocab": "yml2vocab -v vocabulary.yml -t template.html -c",
     "generate-draft": "npm run yml2vocab && node scripts/postgenerate.js",
@@ -7,6 +12,6 @@
     "generate-major": "npm run yml2vocab && node scripts/postgenerate.js --major"
   },
   "devDependencies": {
-    "yml2vocab": "^1.9.3"
+    "yml2vocab": "1.10.4"
   }
 }
