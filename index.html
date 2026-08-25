@@ -482,6 +482,8 @@
             <li><a href="#LoyaltyCard"><code>LoyaltyCard<code></code></code></a></li>
             <li><a href="#MembershipCard"><code>MembershipCard<code></code></code></a></li>
             <li><a href="#PaymentDestination"><code>PaymentDestination<code></code></code></a></li>
+            <li><a href="#PaymentEntitlement"><code>PaymentEntitlement<code></code></code></a></li>
+            <li><a href="#PaymentEntitlementCredential"><code>PaymentEntitlementCredential<code></code></code></a></li>
             <li><a href="#PaymentGateway"><code>PaymentGateway<code></code></code></a></li>
             <li><a href="#PaymentInstrument"><code>PaymentInstrument<code></code></code></a></li>
             <li><a href="#PaymentMethodCredential"><code>PaymentMethodCredential<code></code></code></a></li>
@@ -492,6 +494,7 @@
             <li><a href="#Receipt"><code>Receipt<code></code></code></a></li>
             <li><a href="#RedemptionRule"><code>RedemptionRule<code></code></code></a></li>
             <li><a href="#RetailCredential"><code>RetailCredential<code></code></code></a></li>
+            <li><a href="#authorizedAmount"><code>authorizedAmount<code></code></code></a></li>
             <li><a href="#bundleMatcher"><code>bundleMatcher<code></code></code></a></li>
             <li><a href="#gtin"><code>gtin<code></code></code></a></li>
             <li><a href="#maximumAmount"><code>maximumAmount<code></code></code></a></li>
@@ -630,6 +633,21 @@
           (as <a href="https://schema.org/addressRegion">sdo:addressRegion</a>), but is frequently used with this vocabulary and has been
           included to aid readability of this document.
         </p>
+        <dl class="terms">
+          <dt>Relevant <code>@context</code>:</dt>
+          <dd><a href="https://w3id.org/retail-dw/v1rc2"><code>https://w3id.org/retail-dw/v1rc2</code></a></dd>
+        </dl>
+      </section>
+      <section id="authorizedAmount">
+        <h4><code>authorizedAmount</code></h4>
+        <p><em>Authorized Amount</em></p>
+        <div>The maximum monetary amount that may be captured against a payment entitlement. A capture may be for a lesser amount.</div>
+        <dl class="terms">
+          <dt>Domain:</dt>
+          <dd><a href="#PaymentEntitlement"><code>PaymentEntitlement</code></a></dd>
+          <dt>Range:</dt>
+          <dd><a href="#6e353de386cfa1a49a696c26e597d1e523f2840b7dd9ab884e7eeadfae9e1948"><code>Amount</code></a></dd>
+        </dl>
         <dl class="terms">
           <dt>Relevant <code>@context</code>:</dt>
           <dd><a href="https://w3id.org/retail-dw/v1rc2"><code>https://w3id.org/retail-dw/v1rc2</code></a></dd>
@@ -988,10 +1006,10 @@
       <section id="paymentGateway">
         <h4><code>paymentGateway</code></h4>
         <p><em>Payment Gateway</em></p>
-        <div>The payment gateway at which a payment instrument may be used. The value may be expressed compactly as an identifier for the gateway, or as a PaymentGateway object. Service information for interacting with the gateway is normally discovered from the gateway's controlled identifier document rather than expressed in the credential.</div>
+        <div>The payment gateway at which a payment instrument may be used, or against which a payment entitlement may be captured The value may be a compact identifier for the gateway, or as a PaymentGateway object. Service information for interacting with the gateway is normally discovered from the gateway's controlled identifier document rather than expressed in the credential.</div>
         <dl class="terms">
           <dt>Domain:</dt>
-          <dd><a href="#PaymentInstrument"><code>PaymentInstrument</code></a></dd>
+          <dd><a href="#PaymentInstrument"><code>PaymentInstrument</code></a> ⊔&nbsp;<a href="#PaymentEntitlement"><code>PaymentEntitlement</code></a></dd>
           <dt>Range:</dt>
           <dd><a href="#PaymentGateway"><code>PaymentGateway</code></a></dd>
         </dl>
@@ -1006,7 +1024,7 @@
         <div>An identifier used to determine whether a payment instrument is compatible with a payment request. A payment request must specify one or more payment networks, one of which must match the payment network of the payment instrument used to fulfill it.</div>
         <dl class="terms">
           <dt>Domain:</dt>
-          <dd><a href="#PaymentInstrument"><code>PaymentInstrument</code></a> ⊔&nbsp;<a href="#PaymentDestination"><code>PaymentDestination</code></a></dd>
+          <dd><a href="#PaymentInstrument"><code>PaymentInstrument</code></a> ⊔&nbsp;<a href="#PaymentDestination"><code>PaymentDestination</code></a> ⊔&nbsp;<a href="#PaymentEntitlement"><code>PaymentEntitlement</code></a></dd>
         </dl>
         <dl class="terms">
           <dt>Relevant <code>@context</code>:</dt>
@@ -1346,7 +1364,7 @@
         </p>
         <dl class="terms">
           <dt>Range of:</dt>
-          <dd><a href="#d0357c2c4a66b2a4b3994338c20c227e348976ee011476a8285ca53f9f704148"><code>actualSalesPrice</code></a>, <a href="#06a853bf229630c4f968ac531d5a5f65c0fb08485c4ad85510d1339f0776bf36"><code>discountAmount</code></a>, <a href="#maximumAmount"><code>maximumAmount</code></a>, <a href="#2a292be06a8b6364998c4eb09439eb2dda5739ae15a4cb36659c585727583fb1"><code>regularSellPrice</code></a>, <a href="#828cb1cb08d5e5e93b9c91b8b79a4b5ed8f5ebc82857fd52f99a6c45b834df58"><code>taxCollectedAmount</code></a>, <a href="#fb732c81334f3bd65b6310b0ad59a3c89da33c616589fc03198ff99036cfc4b9"><code>tenderAmount</code></a></dd>
+          <dd><a href="#d0357c2c4a66b2a4b3994338c20c227e348976ee011476a8285ca53f9f704148"><code>actualSalesPrice</code></a>, <a href="#authorizedAmount"><code>authorizedAmount</code></a>, <a href="#06a853bf229630c4f968ac531d5a5f65c0fb08485c4ad85510d1339f0776bf36"><code>discountAmount</code></a>, <a href="#maximumAmount"><code>maximumAmount</code></a>, <a href="#2a292be06a8b6364998c4eb09439eb2dda5739ae15a4cb36659c585727583fb1"><code>regularSellPrice</code></a>, <a href="#828cb1cb08d5e5e93b9c91b8b79a4b5ed8f5ebc82857fd52f99a6c45b834df58"><code>taxCollectedAmount</code></a>, <a href="#fb732c81334f3bd65b6310b0ad59a3c89da33c616589fc03198ff99036cfc4b9"><code>tenderAmount</code></a></dd>
           <dt>Domain of:</dt>
           <dd><a href="#67ebd0927401297b7dba7716a177172c0a89008aea7c874866b52d5b77ec9117"><code>currency</code></a></dd>
           <dt>In the domain of:</dt>
@@ -1568,6 +1586,55 @@
           <dd><a href="https://w3id.org/retail-dw/v1rc2"><code>https://w3id.org/retail-dw/v1rc2</code></a></dd>
         </dl>
       </section>
+      <section id="PaymentEntitlement">
+        <h4><code>PaymentEntitlement</code></h4>
+        <p><em>Payment Entitlement</em></p>
+        <div>An entitlement to capture funds that have been reserved by a pre-auth. It is issued after a payment method and payment request have been verified, and is later presented to capture up to the authorized amount. The entitlement's transaction identifier and payment network correspond to those of the payment request it fulfills.</div>
+        <dl class="terms">
+          <dt>Domain of:</dt>
+          <dd><a href="#authorizedAmount"><code>authorizedAmount</code></a></dd>
+          <dt>In the domain of:</dt>
+          <dd><a href="#paymentGateway"><code>paymentGateway</code></a>, <a href="#paymentNetwork"><code>paymentNetwork</code></a>, <a href="#9af68d518a43e559abfbd1040de3de1a427d503d6103b1ff4fb965db9174682e"><code>transactionID</code></a></dd>
+        </dl>
+        <dl class="terms">
+          <dt>Relevant <code>@context</code>:</dt>
+          <dd><a href="https://w3id.org/retail-dw/v1rc2"><code>https://w3id.org/retail-dw/v1rc2</code></a></dd>
+        </dl>
+      </section>
+      <section id="PaymentEntitlementCredential">
+        <h4><code>PaymentEntitlementCredential</code></h4>
+        <p><em>Payment Entitlement Credential</em></p>
+        <div>A credential that expresses a PaymentEntitlement. It is presented together with a PaymentRequestCredential at capture time so that a payment gateway can verify the capture against the reserved funds.</div>
+        <dl class="terms">
+          <dt>Relevant <code>@context</code>:</dt>
+          <dd><a href="https://w3id.org/retail-dw/v1rc2"><code>https://w3id.org/retail-dw/v1rc2</code></a></dd>
+        </dl>
+        <pre class="example prettyprint language-json" title="A basic example of a PaymentEntitlementCredential">{
+  "@context": [
+    "https://www.w3.org/ns/credentials/v2",
+    "https://w3id.org/retail-dw/v1rc2"
+  ],
+  "type": ["VerifiableCredential", "PaymentEntitlementCredential"],
+  "issuer": "did:web:vcpg.example",
+  "validFrom": "2026-05-26T12:30:00Z",
+  "validUntil": "2026-05-26T12:45:00Z",
+  "name": "Coffee Purchase Entitlement",
+  "description": "Authorization to capture funds for a coffee purchase.",
+  "credentialSubject": {
+    "id": "did:web:merchant.example",
+    "type": "PaymentEntitlement",
+    "transactionID": "urn:uuid:fc2eff04-6540-4aef-a7db-bf212566088d",
+    "authorizedAmount": {
+      "type": "Amount",
+      "currency": "USD",
+      "value": "47.50"
+    },
+    "paymentNetwork": "urn:payment-network:utopia-usd",
+    "confidenceMethod": "did:key:z6MkpTHR8VNsBxYAAWHut2Geadd9jSwuBV8x",
+    "paymentGateway": "did:web:vcpg.example"
+  }
+}</pre>
+      </section>
       <section id="PaymentGateway">
         <h4><code>PaymentGateway</code></h4>
         <p><em>Payment Gateway</em></p>
@@ -1591,10 +1658,8 @@
         <p><em>Payment Instrument</em></p>
         <div>An abstract identifier for a source of funds that can be used at a payment gateway to perform a payment. The instrument identifier is opaque; a payment gateway or payment processor is responsible for resolving it to an underlying account. Details of how money moves are deliberately excluded so that the instrument remains agnostic to any particular payment network.</div>
         <dl class="terms">
-          <dt>Domain of:</dt>
-          <dd><a href="#paymentGateway"><code>paymentGateway</code></a></dd>
           <dt>In the domain of:</dt>
-          <dd><a href="#paymentNetwork"><code>paymentNetwork</code></a></dd>
+          <dd><a href="#paymentGateway"><code>paymentGateway</code></a>, <a href="#paymentNetwork"><code>paymentNetwork</code></a></dd>
         </dl>
         <dl class="terms">
           <dt>Relevant <code>@context</code>:</dt>
