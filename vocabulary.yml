@@ -300,7 +300,7 @@ class:
     label: Payment Gateway
     comment: >-
       A service that verifies and authenticates the presentation of a
-      PaymentMethodCredential before passing the associated PaymentInstrument
+      PaymentMethodCredential before passing the associated PaymentMethod
       to payment processing software. A payment gateway and a payment method
       issuer must have an existing relationship in order to process a payment.
     example:
@@ -312,8 +312,8 @@ class:
             "type": "PaymentGateway"
           }
     context: https://w3id.org/retail-dw/v1rc2
-  - id: PaymentInstrument
-    label: Payment Instrument
+  - id: PaymentMethod
+    label: Payment Method
     comment: >-
       An abstract identifier for a source of funds that can be used at a
       payment gateway to perform a payment. The instrument identifier is
@@ -325,10 +325,10 @@ class:
   - id: PaymentMethodCredential
     label: Payment Method Credential
     comment: >-
-      A credential that makes claims about a PaymentInstrument that can be used
+      A credential that makes claims about a PaymentMethod that can be used
       at a payment gateway to perform a payment. It is only accepted when
       presented in a verifiable presentation together with proof of control
-      over the confidence method associated with the payment instrument, which
+      over the confidence method associated with the payment method, which
       prevents unauthorized payment.
     example:
       - label: A basic example of a PaymentMethodCredential
@@ -349,7 +349,7 @@ class:
             "description": "Utopia Payments everyday spending account.",
             "credentialSubject": {
               "id": "urn:uuid:6c1a4f92-3c2e-4b0a-9d55-0f6e2b1a77aa",
-              "type": "PaymentInstrument",
+              "type": "PaymentMethod",
               "paymentNetwork": "urn:payment-network:utopia-usd",
               "confidenceMethod": "did:key:z6MkpTHR8VNsBxYAAWHut2Geadd9jSwuBV8x",
               "paymentGateway": "did:web:paymentgateway.example"
@@ -361,7 +361,7 @@ class:
     comment: >-
       A request for payment, expressing the amount that may be collected
       and one or more destinations that may receive it. A destination's payment
-      network must match the payment network of the payment instrument used to
+      network must match the payment network of the payment method used to
       fulfill the request.
     context: https://w3id.org/retail-dw/v1rc2
   - id: PaymentRequestCredential
@@ -369,7 +369,7 @@ class:
     comment: >-
       A credential that expresses a PaymentRequest. It is presented alongside a
       PaymentMethodCredential so that a payment gateway can determine whether
-      the payment instrument is compatible with the requested payment.
+      the payment method is compatible with the requested payment.
     example:
       - label: A basic example of a PaymentRequestCredential
         json: |-
@@ -984,12 +984,12 @@ property:
   - id: paymentGateway
     label: Payment Gateway
     domain: 
-      - PaymentInstrument
+      - PaymentMethod
       - PaymentEntitlement
       - PaymentConfirmation
     range: PaymentGateway
     comment: >-
-      The payment gateway at which a payment instrument may be used, against
+      The payment gateway at which a payment method may be used, against
       which a payment entitlement may be captured, or that performed a capture.
       The value may be a compact identifier or a PaymentGateway object; service
       information is discovered from the gateway's controlled identifier document
@@ -998,15 +998,15 @@ property:
   - id: paymentNetwork
     label: Payment Network
     domain:
-      - PaymentInstrument
+      - PaymentMethod
       - PaymentDestination
       - PaymentEntitlement
       - PaymentConfirmation
     comment: >-
-      An identifier used to determine whether a payment instrument is compatible
+      An identifier used to determine whether a payment method is compatible
       with a payment request. A payment request must specify one or more payment
       networks, one of which must match the payment network of the payment
-      instrument used to fulfill it.
+      method used to fulfill it.
     context: https://w3id.org/retail-dw/v1rc2
   - id: retail:posCode
     label: Point of sale code

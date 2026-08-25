@@ -487,7 +487,7 @@
             <li><a href="#PaymentEntitlement"><code>PaymentEntitlement<code></code></code></a></li>
             <li><a href="#PaymentEntitlementCredential"><code>PaymentEntitlementCredential<code></code></code></a></li>
             <li><a href="#PaymentGateway"><code>PaymentGateway<code></code></code></a></li>
-            <li><a href="#PaymentInstrument"><code>PaymentInstrument<code></code></code></a></li>
+            <li><a href="#PaymentMethod"><code>PaymentMethod<code></code></code></a></li>
             <li><a href="#PaymentMethodCredential"><code>PaymentMethodCredential<code></code></code></a></li>
             <li><a href="#PaymentRequest"><code>PaymentRequest<code></code></code></a></li>
             <li><a href="#PaymentRequestCredential"><code>PaymentRequestCredential<code></code></code></a></li>
@@ -1024,10 +1024,10 @@
       <section id="paymentGateway">
         <h4><code>paymentGateway</code></h4>
         <p><em>Payment Gateway</em></p>
-        <div>The payment gateway at which a payment instrument may be used, against which a payment entitlement may be captured, or that performed a capture. The value may be a compact identifier or a PaymentGateway object; service information is discovered from the gateway's controlled identifier document rather than expressed in the credential.</div>
+        <div>The payment gateway at which a payment method may be used, against which a payment entitlement may be captured, or that performed a capture. The value may be a compact identifier or a PaymentGateway object; service information is discovered from the gateway's controlled identifier document rather than expressed in the credential.</div>
         <dl class="terms">
           <dt>Domain:</dt>
-          <dd><a href="#PaymentInstrument"><code>PaymentInstrument</code></a> ⊔&nbsp;<a href="#PaymentEntitlement"><code>PaymentEntitlement</code></a> ⊔&nbsp;<a href="#PaymentConfirmation"><code>PaymentConfirmation</code></a></dd>
+          <dd><a href="#PaymentMethod"><code>PaymentMethod</code></a> ⊔&nbsp;<a href="#PaymentEntitlement"><code>PaymentEntitlement</code></a> ⊔&nbsp;<a href="#PaymentConfirmation"><code>PaymentConfirmation</code></a></dd>
           <dt>Range:</dt>
           <dd><a href="#PaymentGateway"><code>PaymentGateway</code></a></dd>
         </dl>
@@ -1039,10 +1039,10 @@
       <section id="paymentNetwork">
         <h4><code>paymentNetwork</code></h4>
         <p><em>Payment Network</em></p>
-        <div>An identifier used to determine whether a payment instrument is compatible with a payment request. A payment request must specify one or more payment networks, one of which must match the payment network of the payment instrument used to fulfill it.</div>
+        <div>An identifier used to determine whether a payment method is compatible with a payment request. A payment request must specify one or more payment networks, one of which must match the payment network of the payment method used to fulfill it.</div>
         <dl class="terms">
           <dt>Domain:</dt>
-          <dd><a href="#PaymentInstrument"><code>PaymentInstrument</code></a> ⊔&nbsp;<a href="#PaymentDestination"><code>PaymentDestination</code></a> ⊔&nbsp;<a href="#PaymentEntitlement"><code>PaymentEntitlement</code></a> ⊔&nbsp;<a href="#PaymentConfirmation"><code>PaymentConfirmation</code></a></dd>
+          <dd><a href="#PaymentMethod"><code>PaymentMethod</code></a> ⊔&nbsp;<a href="#PaymentDestination"><code>PaymentDestination</code></a> ⊔&nbsp;<a href="#PaymentEntitlement"><code>PaymentEntitlement</code></a> ⊔&nbsp;<a href="#PaymentConfirmation"><code>PaymentConfirmation</code></a></dd>
         </dl>
         <dl class="terms">
           <dt>Relevant <code>@context</code>:</dt>
@@ -1703,7 +1703,7 @@
       <section id="PaymentGateway">
         <h4><code>PaymentGateway</code></h4>
         <p><em>Payment Gateway</em></p>
-        <div>A service that verifies and authenticates the presentation of a PaymentMethodCredential before passing the associated PaymentInstrument to payment processing software. A payment gateway and a payment method issuer must have an existing relationship in order to process a payment.</div>
+        <div>A service that verifies and authenticates the presentation of a PaymentMethodCredential before passing the associated PaymentMethod to payment processing software. A payment gateway and a payment method issuer must have an existing relationship in order to process a payment.</div>
         <dl class="terms">
           <dt>Range of:</dt>
           <dd><a href="#paymentGateway"><code>paymentGateway</code></a></dd>
@@ -1718,9 +1718,9 @@
   "type": "PaymentGateway"
 }</pre>
       </section>
-      <section id="PaymentInstrument">
-        <h4><code>PaymentInstrument</code></h4>
-        <p><em>Payment Instrument</em></p>
+      <section id="PaymentMethod">
+        <h4><code>PaymentMethod</code></h4>
+        <p><em>Payment Method</em></p>
         <div>An abstract identifier for a source of funds that can be used at a payment gateway to perform a payment. The instrument identifier is opaque; a payment gateway or payment processor is responsible for resolving it to an underlying account. Details of how money moves are deliberately excluded so that the instrument remains agnostic to any particular payment network.</div>
         <dl class="terms">
           <dt>In the domain of:</dt>
@@ -1734,7 +1734,7 @@
       <section id="PaymentMethodCredential">
         <h4><code>PaymentMethodCredential</code></h4>
         <p><em>Payment Method Credential</em></p>
-        <div>A credential that makes claims about a PaymentInstrument that can be used at a payment gateway to perform a payment. It is only accepted when presented in a verifiable presentation together with proof of control over the confidence method associated with the payment instrument, which prevents unauthorized payment.</div>
+        <div>A credential that makes claims about a PaymentMethod that can be used at a payment gateway to perform a payment. It is only accepted when presented in a verifiable presentation together with proof of control over the confidence method associated with the payment method, which prevents unauthorized payment.</div>
         <dl class="terms">
           <dt>Relevant <code>@context</code>:</dt>
           <dd><a href="https://w3id.org/retail-dw/v1rc2"><code>https://w3id.org/retail-dw/v1rc2</code></a></dd>
@@ -1755,7 +1755,7 @@
   "description": "Utopia Payments everyday spending account.",
   "credentialSubject": {
     "id": "urn:uuid:6c1a4f92-3c2e-4b0a-9d55-0f6e2b1a77aa",
-    "type": "PaymentInstrument",
+    "type": "PaymentMethod",
     "paymentNetwork": "urn:payment-network:utopia-usd",
     "confidenceMethod": "did:key:z6MkpTHR8VNsBxYAAWHut2Geadd9jSwuBV8x",
     "paymentGateway": "did:web:paymentgateway.example"
@@ -1765,7 +1765,7 @@
       <section id="PaymentRequest">
         <h4><code>PaymentRequest</code></h4>
         <p><em>Payment Request</em></p>
-        <div>A request for payment, expressing the amount that may be collected and one or more destinations that may receive it. A destination's payment network must match the payment network of the payment instrument used to fulfill the request.</div>
+        <div>A request for payment, expressing the amount that may be collected and one or more destinations that may receive it. A destination's payment network must match the payment network of the payment method used to fulfill the request.</div>
         <dl class="terms">
           <dt>Domain of:</dt>
           <dd><a href="#maximumAmount"><code>maximumAmount</code></a>, <a href="#paymentDestination"><code>paymentDestination</code></a></dd>
@@ -1780,7 +1780,7 @@
       <section id="PaymentRequestCredential">
         <h4><code>PaymentRequestCredential</code></h4>
         <p><em>Payment Request Credential</em></p>
-        <div>A credential that expresses a PaymentRequest. It is presented alongside a PaymentMethodCredential so that a payment gateway can determine whether the payment instrument is compatible with the requested payment.</div>
+        <div>A credential that expresses a PaymentRequest. It is presented alongside a PaymentMethodCredential so that a payment gateway can determine whether the payment method is compatible with the requested payment.</div>
         <dl class="terms">
           <dt>Relevant <code>@context</code>:</dt>
           <dd><a href="https://w3id.org/retail-dw/v1rc2"><code>https://w3id.org/retail-dw/v1rc2</code></a></dd>
